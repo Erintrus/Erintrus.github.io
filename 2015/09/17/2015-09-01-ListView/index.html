@@ -4,38 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>集合删除元素总结 | Share</title>
+    <title>ListView的理解 | Share</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+    <meta name="description" content="ListView的下拉刷新，上拉加载数据在跟服务器交互时  
+
+当ListView 下拉时，清空原数据,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;
+当Listview 上拉时，重新加载一页数据。 currentPage ++;  
+
+srlExp.setOnRefreshListener(new SwipeRefreshLayout.OnRefresh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合删除元素总结">
-<meta property="og:url" content="erintrus.github.io/2015/09/16/ArrayListDelete/index.html">
+<meta property="og:title" content="ListView的理解">
+<meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-01-ListView/index.html">
 <meta property="og:site_name" content="Share">
-<meta property="og:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
-<meta property="og:updated_time" content="2015-09-16T15:42:45.402Z">
+<meta property="og:description" content="ListView的下拉刷新，上拉加载数据在跟服务器交互时  
+
+当ListView 下拉时，清空原数据,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;
+当Listview 上拉时，重新加载一页数据。 currentPage ++;  
+
+srlExp.setOnRefreshListener(new SwipeRefreshLayout.OnRefresh">
+<meta property="og:updated_time" content="2015-09-16T16:51:17.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合删除元素总结">
-<meta name="twitter:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+<meta name="twitter:title" content="ListView的理解">
+<meta name="twitter:description" content="ListView的下拉刷新，上拉加载数据在跟服务器交互时  
+
+当ListView 下拉时，清空原数据,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;
+当Listview 上拉时，重新加载一页数据。 currentPage ++;  
+
+srlExp.setOnRefreshListener(new SwipeRefreshLayout.OnRefresh">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
@@ -95,14 +95,14 @@ if (iterator.hasNext()) {
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/16/ArrayListDelete/" title="集合删除元素总结" itemprop="url">集合删除元素总结</a>
+      <a href="/2015/09/17/2015-09-01-ListView/" title="ListView的理解" itemprop="url">ListView的理解</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T15:42:45.402Z" itemprop="datePublished"> Published 2015-09-16</time>
+    <time datetime="2015-09-16T16:51:17.368Z" itemprop="datePublished"> Published 2015-09-17</time>
     
   </p>
 </header>
@@ -111,24 +111,148 @@ if (iterator.hasNext()) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView的下拉刷新，上拉加载数据"><span class="toc-number">1.</span> <span class="toc-text">ListView的下拉刷新，上拉加载数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用不同布局的Listview"><span class="toc-number">2.</span> <span class="toc-text">使用不同布局的Listview</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="比较两段代码的不同">比较两段代码的不同</h3><p>示例一：</p>
-<pre><code>  <span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; <span class="keyword">iterator</span> = showList.<span class="keyword">iterator</span>();
-<span class="keyword">if</span> (<span class="keyword">iterator</span>.hasNext()) {
-      <span class="type">ShowInfo</span> delShow = <span class="keyword">iterator</span>.next();
-       <span class="keyword">if</span> (delShow.isCheck() == <span class="literal">true</span>) {
-           <span class="keyword">iterator</span>.remove();
-       }
-   }
-</code></pre><p>示例二</p>
-<pre><code><span class="keyword">for</span> (<span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; delList = showList.<span class="keyword">iterator</span>(); delList.hasNext(); ) {
-    <span class="type">ShowInfo</span> delInfo = delList.next();
-    <span class="keyword">if</span> (delInfo.isCheck() == <span class="literal">true</span>) {
-        delList.remove();
-    }
+		<h3 id="ListView的下拉刷新，上拉加载数据">ListView的下拉刷新，上拉加载数据</h3><p>在跟服务器交互时  </p>
+<ul>
+<li>当ListView 下拉时，<strong>清空原数据</strong>,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;</li>
+<li>当Listview 上拉时，重新加载一页数据。 currentPage ++;  </li>
+</ul>
+<pre><code>srlExp.setOnRefreshListener(<span class="keyword">new</span> SwipeRefreshLayout.OnRefreshListener() {
+      <span class="annotation">@Override</span>
+      <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">()</span> </span>{
+          currentPage = <span class="number">1</span>;
+          getData(); <span class="comment">//向服务器请求数据</span>
+      }
+  });
+  srlExp.setOnLoadListener(<span class="keyword">new</span> RefreshLoadLayout.OnLoadListener() {
+      <span class="annotation">@Override</span>
+      <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onLoad</span><span class="params">()</span> </span>{
+          currentPage++;
+          getData();
+      }
+  });  
+</code></pre><ul>
+<li>处理服务器获得的数据</li>
+</ul>
+<pre><code><span class="number">1.</span> 判断是否要清空原数据。
+
+<span class="number">2.</span> **将服务端的数据加入到<span class="built_in">list</span>中，然后更新adapter。**（用<span class="built_in">list</span>.addAll()方法）
+
+<span class="number">3.</span> （adapter更新之后）通过服务器下发总条数跟当前<span class="built_in">list</span>的长度对比，设置是否有加载更多数据。
+<span class="number">4.</span>  最后设置refresh、loading为<span class="literal">false</span>
+
+
+
+代码如下：  
+
+
+    @<span class="function">Override
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGeneralSuccess</span><span class="params">(String result, <span class="keyword">long</span> flag)</span> </span>{
+
+        <span class="keyword">if</span> (flag == reqFlagAchieve) {
+            achieveResp = GsonTool.getServerBean(result, AchieveResp.<span class="keyword">class</span>);
+
+            <span class="keyword">if</span> (achieveResp.isSuccess()) {
+                <span class="keyword">if</span> (achieveResp.getAchievelist() != null &amp;&amp; achieveResp.getAchievelist().size() &gt; <span class="number">0</span>) {
+
+                    <span class="comment">//refreshLayout显示</span>
+                    srlShare.setVisibility(View.VISIBLE);
+
+                    <span class="comment">//判断是上拉还是下拉</span>
+                    <span class="keyword">if</span> (currentPage == <span class="number">1</span>) {
+                        <span class="built_in">list</span>.clear();
+                    }
+
+                    <span class="comment">//获取服务器下发数据总长度</span>
+                    amount = achieveResp.getAmount();
+
+                    <span class="comment">//加入全部元素(卧槽，for循环已经low了)</span>
+                    <span class="built_in">list</span>.addAll(achieveResp.getAchievelist());
+                    achieveShareAdapter.notifyDataSetChanged();
+
+                    <span class="comment">//判断是否有加载更多</span>
+                    <span class="keyword">if</span> (<span class="built_in">list</span>.size() &lt; amount) {
+                        srlShare.setLoadMoreEnable(<span class="literal">true</span>);
+                    } <span class="keyword">else</span> {
+                        srlShare.setLoadMoreEnable(<span class="literal">false</span>);
+                    }
+
+                }  
+            }  
+
+        } <span class="keyword">else</span> {
+            Functions.toast(<span class="keyword">this</span>, getString(R.<span class="built_in">string</span>.common_hint_server_error));
+            rvShare.showFailed();
+        }
+        <span class="comment">//设置停止刷新（ProgressBar消失）</span>
+        srlShare.setRefreshing(<span class="literal">false</span>);
+        srlShare.setLoading(<span class="literal">false</span>);
+    }  
+</code></pre><h3 id="使用不同布局的Listview">使用不同布局的Listview</h3><p>getViewTypeCount 返回该listview有多少个布局  </p>
+<p>getItemViewType 返回布局的id  </p>
+<p>有多少个布局就要创建多少个Holder  </p>
+<p>每个ListView都有一个数据源 下面给出一个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> stuNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们重写getViewTypeCount跟getitemViewType方法如下  </p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span></span>{  
+<span class="comment">//我们设置这个ListView 有两种布局，则就要定义两种type  </span>
+<span class="comment">//type为1时我们创建一个item，type为0时创建一个分割线  </span>
+<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DATA = <span class="number">1</span>;  
+<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DIVIDER = <span class="number">0</span>;  
+ArrayList&lt;Student&gt; = <span class="keyword">new</span> ArrayList&lt;Student&gt;();  
+     .
+    .
+    .
+    .
+    .
+ <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>{  
+<span class="comment">//通过判断Student对象的stuNum的值来决定返回什么布局  </span>
+        <span class="keyword">if</span> (getItem(position).getsuNum == -<span class="number">1</span>) {  
+            <span class="keyword">return</span> DIVIDER;  
+        }  
+        <span class="keyword">return</span> DATA;  
+    }  
+}  
+
+ <span class="annotation">@Override</span>  
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">(<span class="keyword">int</span> position)</span> </span>{  
+<span class="comment">//因为要返回两种布局类型，所以这里是2  </span>
+        <span class="keyword">return</span> <span class="number">2</span>;  
+    }  
+}  
+
+ <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>{  
+<span class="keyword">if</span>(convertView==<span class="keyword">null</span>){  
+    .  
+    .  
+    .  
+    <span class="keyword">int</span> type = getItemViewType(position);  
+
+    <span class="keyword">switch</span>(type){  
+    <span class="keyword">case</span> DATA:  
+    <span class="comment">//这里装载item数据  </span>
+    <span class="keyword">break</span>;  
+    <span class="keyword">case</span> DIVIDER：  
+    <span class="comment">//这里装载一个divider  </span>
+    <span class="keyword">break</span>;  
+    }  
+
+}   
+</code></pre><p>在MainACtivity里，我们可以这样创建数据时，如果要加载一个Divider就设置Student里stuNum属性为-1 即可</p>
+<pre><code>ArrayList&lt;Student&gt; <span class="built_in">list</span> = <span class="keyword">new</span> ArrayList&lt;&gt;();
+
+<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i&lt;<span class="number">50</span>;i++){
+Student student =  <span class="keyword">new</span> Student();
+student.setStuNum(i);
+
+<span class="keyword">if</span>(i%<span class="number">4</span>==<span class="number">0</span>){
+student.setStuNum(-<span class="number">1</span>);
+}
+<span class="built_in">list</span>.add(student)
 }
 </code></pre>  
 	</div>
@@ -136,13 +260,18 @@ if (iterator.hasNext()) {
 <div class="article-catetags">
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ListView/">ListView</a>
+  </div>
+
 </div>
 
 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/16/ArrayListDelete/" data-title="集合删除元素总结 | Share" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/17/2015-09-01-ListView/" data-title="ListView的理解 | Share" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,13 +285,21 @@ if (iterator.hasNext()) {
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-01-draw/" title="绘图总结">
+ <a href="/2015/09/17/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制">
   <strong>上一篇：</strong><br/>
   <span>
-  绘图总结</span>
+  OnTouchEvent事件分发机制</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/09/17/2015-09-01-draw/"  title="绘图总结">
+ <strong>下一篇：</strong><br/> 
+ <span>绘图总结
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -180,7 +317,7 @@ if (iterator.hasNext()) {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView的下拉刷新，上拉加载数据"><span class="toc-number">1.</span> <span class="toc-text">ListView的下拉刷新，上拉加载数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用不同布局的Listview"><span class="toc-number">2.</span> <span class="toc-text">使用不同布局的Listview</span></a></li></ol>
  
   </div>
 

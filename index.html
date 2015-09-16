@@ -78,15 +78,20 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2015/09/16/abc/" title="mytest" itemprop="url">
+    <a href="/2015/09/17/2015-09-11-DrawerLayout/" title="DrawerLayout抽屉" itemprop="url">
   
-    <h1 itemprop="name">mytest</h1>
+    <h1 itemprop="name">DrawerLayout抽屉</h1>
     
      
-           <p itemprop="description" ></p>
+           <p itemprop="description" >DrawerLayout的简单使用实现效果如下：
+
+上述分别是左抽屉跟右抽屉。 
+1.创建布局文件
+DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。代码如下：
+&amp;lt;android.support.v4.widget.DrawerL</p>
         
     
-    <time datetime="2015-09-16T15:50:43.000Z" itemprop="datePublished">2015-09-16</time>
+    <time datetime="2015-09-16T16:54:50.023Z" itemprop="datePublished">2015-09-17</time>
   </a>
 </section>
 
@@ -98,18 +103,228 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2015/09/16/ArrayListDelete/" title="集合删除元素总结" itemprop="url">
+    <a href="/2015/09/17/2015-09-12-MyWechat/" title="高仿微信源码分析" itemprop="url">
   
-    <h1 itemprop="name">集合删除元素总结</h1>
+    <h1 itemprop="name">高仿微信源码分析</h1>
     
      
-           <p itemprop="description" >比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();</p>
+           <p itemprop="description" >进入界面的知识点分析
+如何实现一个进入界面，例如微信、网易新闻。  
+
+
+1. 创建一个布局文件，里面放一张图。
+2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+
+
+
+        new Handler().postDelay</p>
         
     
-    <time datetime="2015-09-16T15:42:45.402Z" itemprop="datePublished">2015-09-16</time>
+    <time datetime="2015-09-16T16:54:29.736Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-13-BNJSummarize/" title="BNJ项目学到的知识点" itemprop="url">
+  
+    <h1 itemprop="name">BNJ项目学到的知识点</h1>
+    
+     
+           <p itemprop="description" >2015-09-14如何解决多个按钮同时点击的bug
+定义一个全局变量isClick。
+在switch的每个case里判断isClick，执行完 设置isClick为false。
+重写Activity的onResume方法，设置isClick为true。
+
+将程序设置成无标题栏，</p>
+        
+    
+    <time datetime="2015-09-16T16:53:52.089Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-10-RegEx/" title="正则表达式的总结" itemprop="url">
+  
+    <h1 itemprop="name">正则表达式的总结</h1>
+    
+     
+           <p itemprop="description" >基本语法
+元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+
+‘.’ 表示匹配除了换行符之外的任何字符
+
+‘*’ 表示匹配除了换行符之外任意数量的字符
+  例子：Erintrus后面有PROG 
+\bErintrus\b.*\bProg\b
+  如果要匹</p>
+        
+    
+    <time datetime="2015-09-16T16:53:24.981Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析" itemprop="url">
+  
+    <h1 itemprop="name">MobileSafe源码分析</h1>
+    
+     
+           <p itemprop="description" >该源码学习到的小技巧
+
+退出整个程序的代码
+android.os.Process.killProcess(android.os.Process.myPid());
+
+退出到桌面的代码
+Intent intent = new Intent();
+intent.setAction(I</p>
+        
+    
+    <time datetime="2015-09-16T16:53:02.238Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-08-Git/" title="Git的学习" itemprop="url">
+  
+    <h1 itemprop="name">Git的学习</h1>
+    
+     
+           <p itemprop="description" >Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：  
+
+创建版本库 git init  
+将文件添加到版本库 git add 文件（git add Erintrus.txt）  
+讲文件提交到版本库 git commit -m “这里添加修改说明” 
+查看</p>
+        
+    
+    <time datetime="2015-09-16T16:52:54.910Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-07-CustomView/" title="自定义view" itemprop="url">
+  
+    <h1 itemprop="name">自定义view</h1>
+    
+     
+           <p itemprop="description" >自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
+2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
+3.测量，通过重写onMeasure方法来对控件进行测量  
+4.属性，可以通过xml自定义控件的属性，然后通</p>
+        
+    
+    <time datetime="2015-09-16T16:52:03.389Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">
+  
+    <h1 itemprop="name">OnTouchEvent事件分发机制</h1>
+    
+     
+           <p itemprop="description" >OnTouchEvent的基本认识
+跟Touch相关的三个方法：
+
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(Mot</p>
+        
+    
+    <time datetime="2015-09-16T16:51:38.787Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-01-ListView/" title="ListView的理解" itemprop="url">
+  
+    <h1 itemprop="name">ListView的理解</h1>
+    
+     
+           <p itemprop="description" >ListView的下拉刷新，上拉加载数据在跟服务器交互时  
+
+当ListView 下拉时，清空原数据,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;
+当Listview 上拉时，重新加载一页数据。 currentPage ++;  
+
+</p>
+        
+    
+    <time datetime="2015-09-16T16:51:17.368Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-01-draw/" title="绘图总结" itemprop="url">
+  
+    <h1 itemprop="name">绘图总结</h1>
+    
+     
+           <p itemprop="description" >##对绘图的基本理解
+绘图的两个基本工具是Paint跟Canvas  
+
+Canvas 决定画什么（简称View）
+Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。  
+
+下面是Paint的基本用法
+void  setARGB(int a, int r,</p>
+        
+    
+    <time datetime="2015-09-16T16:49:05.342Z" itemprop="datePublished">2015-09-17</time>
   </a>
 </section>
 
@@ -119,6 +334,10 @@ if (iterator.hasNext()) {
 
 
 
+  <nav id="page-nav" class="clearfix unexpand">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
+
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
@@ -127,21 +346,6 @@ if (iterator.hasNext()) {
 <aside class="clearfix">
 
   
-<div class="categorieslist">
-	<p class="asidetitle">Categories</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/日志/" title="日志">日志<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
 
   
 <div class="tagslist">
@@ -149,7 +353,43 @@ if (iterator.hasNext()) {
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/test/" title="test">test<sup>1</sup></a></li>
+				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/wechat/" title="wechat">wechat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -4,38 +4,39 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>集合删除元素总结 | Share</title>
+    <title>OnTouchEvent事件分发机制 | Share</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+    <meta name="description" content="OnTouchEvent的基本认识
+跟Touch相关的三个方法：
+
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean onTouchEvent(Motion">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合删除元素总结">
-<meta property="og:url" content="erintrus.github.io/2015/09/16/ArrayListDelete/index.html">
+<meta property="og:title" content="OnTouchEvent事件分发机制">
+<meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-06-CustomView-OnTouchEvent/index.html">
 <meta property="og:site_name" content="Share">
-<meta property="og:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
-<meta property="og:updated_time" content="2015-09-16T15:42:45.402Z">
+<meta property="og:description" content="OnTouchEvent的基本认识
+跟Touch相关的三个方法：
+
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean onTouchEvent(Motion">
+<meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2015-09-16T16:51:38.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合删除元素总结">
-<meta name="twitter:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+<meta name="twitter:title" content="OnTouchEvent事件分发机制">
+<meta name="twitter:description" content="OnTouchEvent的基本认识
+跟Touch相关的三个方法：
+
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean onTouchEvent(Motion">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
@@ -95,14 +96,14 @@ if (iterator.hasNext()) {
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/16/ArrayListDelete/" title="集合删除元素总结" itemprop="url">集合删除元素总结</a>
+      <a href="/2015/09/17/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">OnTouchEvent事件分发机制</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T15:42:45.402Z" itemprop="datePublished"> Published 2015-09-16</time>
+    <time datetime="2015-09-16T16:51:38.787Z" itemprop="datePublished"> Published 2015-09-17</time>
     
   </p>
 </header>
@@ -111,30 +112,67 @@ if (iterator.hasNext()) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="比较两段代码的不同">比较两段代码的不同</h3><p>示例一：</p>
-<pre><code>  <span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; <span class="keyword">iterator</span> = showList.<span class="keyword">iterator</span>();
-<span class="keyword">if</span> (<span class="keyword">iterator</span>.hasNext()) {
-      <span class="type">ShowInfo</span> delShow = <span class="keyword">iterator</span>.next();
-       <span class="keyword">if</span> (delShow.isCheck() == <span class="literal">true</span>) {
-           <span class="keyword">iterator</span>.remove();
-       }
-   }
-</code></pre><p>示例二</p>
-<pre><code><span class="keyword">for</span> (<span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; delList = showList.<span class="keyword">iterator</span>(); delList.hasNext(); ) {
-    <span class="type">ShowInfo</span> delInfo = delList.next();
-    <span class="keyword">if</span> (delInfo.isCheck() == <span class="literal">true</span>) {
-        delList.remove();
-    }
-}
-</code></pre>  
+		<h3 id="OnTouchEvent的基本认识">OnTouchEvent的基本认识</h3><ul>
+<li>跟Touch相关的三个方法：</li>
+</ul>
+<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;    <span class="comment">//用来分派event</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//用来拦截event</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;          <span class="comment">//用来处理event </span>
+</code></pre><ul>
+<li><p>onTouch方法优先于onClick方法   </p>
+</li>
+<li><p>只要触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法   </p>
+</li>
+<li><p>用法：</p>
+<pre><code><span class="function"><span class="title">dispatchTouchEvent</span><span class="params">()</span></span> 用来分派事件。
+其中调用了<span class="function"><span class="title">onInterceptTouchEvent</span><span class="params">()</span></span>和<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>，一般不重写该方法
+</code></pre><p>.</p>
+<pre><code>onInterceptTouchEvent<span class="literal">()</span>    用来拦截事件。
+<span class="type">ViewGroup</span>类中的源码实现就是{return <span class="literal">false</span>;}表示不拦截该事件，
+事件将向下传递（传递给其子<span class="type">View</span>）；
+若手动重写该方法，使其返回<span class="literal">true</span>则表示拦截，事件将终止向下传递，
+事件由当前<span class="type">ViewGroup</span>类来处理，就是调用该类的onTouchEvent<span class="literal">()</span>方法
+</code></pre><p>.</p>
+<pre><code><span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>    用来处理事件。
+返回true则表示该View能处理该事件，事件将终止向上传递（传递给其父View）；
+返回false表示不能处理，则把事件传递给其父View的<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>方法来处理
+</code></pre></li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>简单使用：</p>
+<p>例如一个Activity里有一个LinearLayout、一个TextView<br>在Activity里重写OnTouchEvent 方法，TextView绑定onTouchLister<br>这样如果TextView重写的onTouch方法里返回了true，Activity里的OnTouchEvent<br>方法就不再执行。</p>
+<pre><code>tvTest.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() {
+          <span class="annotation">@Override</span>
+          <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View view, MotionEvent motionEvent)</span> </span>{
+              Functions.toast(SettingActivity.<span class="keyword">this</span>, <span class="string">"BTN-------Event"</span>);
+              Logger.log(<span class="string">"Erin"</span>,<span class="string">"btn------event"</span>+motionEvent.getAction());
+              <span class="keyword">return</span> <span class="keyword">true</span>;
+          }
+      });
+</code></pre><p>此处可能会调用多次ontouch方法，因为Action可能是按下、松开、移动三种情况。</p>
+<h3 id="总结">总结</h3><ul>
+<li>android 的分发事件先传递给ViewGroup，再由ViewGroup传给View。</li>
+<li>只要ViewGroup拦截了事件（onInterceptTouchEvent返回true） 事件就不会在往子View传递。  </li>
+</ul>
+<ul>
+<li><p>详细参考 </p>
+<p>  <a href="http://blog.csdn.net/morgan_xww/article/details/9372285" target="_blank" rel="external">OnTouch参考一</a><br>  <a href="http://blog.csdn.net/loongggdroid/article/details/19118475" target="_blank" rel="external">OnTouch参考二</a></p>
+</li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/onTouchEvent/">onTouchEvent</a>
+  </div>
 
 </div>
 
@@ -142,7 +180,7 @@ if (iterator.hasNext()) {
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/16/ArrayListDelete/" data-title="集合删除元素总结 | Share" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/17/2015-09-06-CustomView-OnTouchEvent/" data-title="OnTouchEvent事件分发机制 | Share" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,13 +194,21 @@ if (iterator.hasNext()) {
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-01-draw/" title="绘图总结">
+ <a href="/2015/09/17/2015-09-07-CustomView/" title="自定义view">
   <strong>上一篇：</strong><br/>
   <span>
-  绘图总结</span>
+  自定义view</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/09/17/2015-09-01-ListView/"  title="ListView的理解">
+ <strong>下一篇：</strong><br/> 
+ <span>ListView的理解
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -180,7 +226,7 @@ if (iterator.hasNext()) {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
