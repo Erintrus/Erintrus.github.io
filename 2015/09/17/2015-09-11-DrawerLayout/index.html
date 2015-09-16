@@ -37,7 +37,7 @@ DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左�
     &amp;lt;/F">
 <meta property="og:image" content="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png">
 <meta property="og:image" content="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png">
-<meta property="og:updated_time" content="2015-09-16T16:54:50.023Z">
+<meta property="og:updated_time" content="2015-09-16T17:13:46.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DrawerLayout抽屉">
 <meta name="twitter:description" content="DrawerLayout的简单使用实现效果如下：
@@ -116,7 +116,7 @@ DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左�
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T16:54:50.023Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-16T17:13:46.410Z" itemprop="datePublished"> Published 2015-09-17</time>
     
   </p>
 </header>
@@ -125,7 +125,7 @@ DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的相关方法、监听器"><span class="toc-number">2.</span> <span class="toc-text">DrawerLayout的相关方法、监听器</span></a></li></ol>
 		
 		</div>
 		
@@ -159,7 +159,7 @@ DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左�
 rlLeft=(RelativeLayout) findViewById(R.id.rlLeft);  
 TextView tv = (TextView)rlLeft.findViewById(R.id.tv);    
 }  
-</code></pre><p>###DrawerLayout的相关方法、监听器<br>方法：  </p>
+</code></pre><h3 id="DrawerLayout的相关方法、监听器">DrawerLayout的相关方法、监听器</h3><p>方法：  </p>
 <p>openDrawer(ViewGroup)  打开抽屉，参数是layout，例如上面的rlLeft。<br>closeDrawer(ViewGroup) 关闭抽屉。<br>drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);关闭滑动<br>监听器：  </p>
 <p>setDrawerListener 其内部方法有onDrawerSlide、onDrawerOpened、onDrawerClosed、onDrawerStateChanged</p>
 <p><a href="http://www.mincoder.com/article/3305.shtml" target="_blank" rel="external">参考一</a><br><a href="http://www.linuxidc.com/Linux/2014-08/105502.htm" target="_blank" rel="external">参考二</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0925/1713.html" target="_blank" rel="external">参考三</a></p>
@@ -194,11 +194,19 @@ TextView tv = (TextView)rlLeft.findViewById(R.id.tv);
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/09/17/2015-09-12-MyWechat/" title="高仿微信源码分析">
+  <strong>上一篇：</strong><br/>
+  <span>
+  高仿微信源码分析</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2015/09/17/2015-09-12-MyWechat/"  title="高仿微信源码分析">
+<a href="/2015/09/17/2015-09-13-BNJSummarize/"  title="BNJ项目学到的知识点">
  <strong>下一篇：</strong><br/> 
- <span>高仿微信源码分析
+ <span>BNJ项目学到的知识点
 </span>
 </a>
 </div>
@@ -219,7 +227,7 @@ TextView tv = (TextView)rlLeft.findViewById(R.id.tv);
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的相关方法、监听器"><span class="toc-number">2.</span> <span class="toc-text">DrawerLayout的相关方法、监听器</span></a></li></ol>
  
   </div>
 
@@ -284,13 +292,25 @@ TextView tv = (TextView)rlLeft.findViewById(R.id.tv);
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            	<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" title="Git">Git</a>
             
           </li>
         
           <li>
             
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            	<a href="http://coding.net" target="_blank" title="Coding">Coding</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.apkbus.com/" target="_blank" title="Android">Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.devstore.cn/code/list/pc0-sc0-cp0-ft0-sp34-rt0-dl0-dt0-scs0-scp0-pn2-or0.html" target="_blank" title="Devstore">Devstore</a>
             
           </li>
         

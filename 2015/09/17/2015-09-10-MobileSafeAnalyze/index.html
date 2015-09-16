@@ -33,7 +33,7 @@ android.os.Process.killProcess(android.os.Process.myPid());
 Intent intent = new Intent();
 intent.setAction(Intent.ACTION_MAIN);
 intent.addFlags(Intent.FLAG_ACTIVITY_NEW">
-<meta property="og:updated_time" content="2015-09-16T16:53:02.238Z">
+<meta property="og:updated_time" content="2015-09-16T17:20:29.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MobileSafe源码分析">
 <meta name="twitter:description" content="该源码学习到的小技巧
@@ -111,7 +111,7 @@ intent.addFlags(Intent.FLAG_ACTIVITY_NEW">
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T16:53:02.238Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-16T17:20:29.344Z" itemprop="datePublished"> Published 2015-09-17</time>
     
   </p>
 </header>
@@ -175,14 +175,19 @@ Editor <span class="keyword">editor</span> = sp.edit();
 <li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
 <p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的标签 得到应用的信息。  </p>
 <p>例子：</p>
-<p> PackageManager manager = getPackageManager();  </p>
-<ol>
-<li><p>List<applicationinfo> appInfos = manager.getInstalledApplications(0);<br>ApplicationInfo有如下方法：<br>loadDescription、loadLabel、loadIcon、loadLogo</applicationinfo></p>
-<p>//通过Intentfilter筛选  </p>
-</li>
-<li>Intent intent = new Intent(Intent.ACTION_MAIN, null);<br>intent.addCategory(Intent.CATEGORY_LAUNCHER);<br>List<resolveinfo> reInfos = manager.queryIntentActivities(intent, 0);<br>ResolveInfo有如下方法：<br>loadLabel、loadIcon<br>//loadLabel就是获得程序名</resolveinfo></li>
-</ol>
-</li>
+<pre><code>PackageManager manager = getPackageManager();  
+<span class="number">1</span>. List<span class="variable">&lt;ApplicationInfo&gt;</span> appInfos = manager.getInstalledApplications(<span class="number">0</span>);  
+ApplicationInfo有如下方法：  
+<span class="built_in">load</span>Description、<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon、<span class="built_in">load</span>Logo
+
+//通过Intentfilter筛选  
+<span class="number">2</span>. Intent intent = new Intent(Intent.ACTION_MAIN, null);  
+intent.addCategory(Intent.CATEGORY_LAUNCHER);  
+List<span class="variable">&lt;ResolveInfo&gt;</span> reInfos = manager.queryIntentActivities(intent, <span class="number">0</span>);  
+ResolveInfo有如下方法：    
+<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon
+//<span class="built_in">load</span>Label就是获得程序名
+</code></pre></li>
 </ul>
 </li>
 </ul>
@@ -217,18 +222,18 @@ Editor <span class="keyword">editor</span> = sp.edit();
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-10-RegEx/" title="正则表达式的总结">
+ <a href="/2015/09/17/2015-09-01-draw/" title="绘图总结">
   <strong>上一篇：</strong><br/>
   <span>
-  正则表达式的总结</span>
+  绘图总结</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-08-Git/"  title="Git的学习">
+<a href="/2015/09/17/2015-09-12-MyWechat/"  title="高仿微信源码分析">
  <strong>下一篇：</strong><br/> 
- <span>Git的学习
+ <span>高仿微信源码分析
 </span>
 </a>
 </div>
@@ -314,13 +319,25 @@ Editor <span class="keyword">editor</span> = sp.edit();
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            	<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" title="Git">Git</a>
             
           </li>
         
           <li>
             
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            	<a href="http://coding.net" target="_blank" title="Coding">Coding</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.apkbus.com/" target="_blank" title="Android">Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.devstore.cn/code/list/pc0-sc0-cp0-ft0-sp34-rt0-dl0-dt0-scs0-scp0-pn2-or0.html" target="_blank" title="Devstore">Devstore</a>
             
           </li>
         

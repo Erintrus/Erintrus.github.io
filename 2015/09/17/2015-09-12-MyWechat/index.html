@@ -18,12 +18,10 @@
 1. 创建一个布局文件，里面放一张图。
 2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
 
-
-
         new Handler().postDelayed(new Runnable(){ 
 
             @Override
-                p">
+                pub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高仿微信源码分析">
 <meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-12-MyWechat/index.html">
@@ -35,17 +33,15 @@
 1. 创建一个布局文件，里面放一张图。
 2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
 
-
-
         new Handler().postDelayed(new Runnable(){ 
 
             @Override
-                p">
+                pub">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441958136x1822613867.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441958324x1822613867.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142296x-954497544.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142229x-954497544.jpg">
-<meta property="og:updated_time" content="2015-09-16T16:54:29.736Z">
+<meta property="og:updated_time" content="2015-09-16T17:18:44.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高仿微信源码分析">
 <meta name="twitter:description" content="进入界面的知识点分析
@@ -55,12 +51,10 @@
 1. 创建一个布局文件，里面放一张图。
 2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
 
-
-
         new Handler().postDelayed(new Runnable(){ 
 
             @Override
-                p">
+                pub">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
@@ -127,7 +121,7 @@
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T16:54:29.736Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-16T17:18:44.025Z" itemprop="datePublished"> Published 2015-09-17</time>
     
   </p>
 </header>
@@ -146,8 +140,6 @@
 </ul>
 <pre><code><span class="number">1.</span> 创建一个布局文件，里面放一张图。
 <span class="number">2.</span> 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-
 
         <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable(){ 
 
@@ -168,10 +160,7 @@
 </ol>
 <ul>
 <li><p>底部tab的布局实现</p>
-<pre><code>分析可得：底部tag由一个LinearLayout主Layout组成、主Layout又由<span class="number">4</span>个水平子
-LinearLayout子Layout组成，每个子layout包括一个ImageView、TextView在
-主Layout下面还有一个移动标签，这是一个ImageView。最终外面是一个RelativeLayout
-囊括着主Layout跟移动标签ImageView。
+<pre><code>分析可得：底部tag由一个LinearLayout主Layout组成、主Layout又由<span class="number">4</span>个水平子LinearLayout子Layout组成，每个子layout包括一个ImageView、TextVie在主Layout下面还有一个移动标签，这是一个ImageView。最终外面是一个RelativeLayout囊括着主Layout跟移动标签ImageView。
 </code></pre><p>  布局代码如下</p>
 <pre><code><span class="tag">&lt;<span class="title">RelativeLayout</span>
 <span class="attribute">android:id</span>=<span class="value">"@+id/main_bottom"</span>
@@ -365,21 +354,23 @@ view.<span class="built_in">add</span>(setting);
                 <span class="keyword">return</span> viewList.<span class="built_in">get</span>(position);  
             }  
         };  
+
+        viewPager.setAdapter(pagerAdapter);  
+
+    }  
 </code></pre></li>
 </ul>
-<pre><code>            viewPager.setAdapter(pagerAdapter);  
+<pre><code>  上述重写的代码中，我们将四大方法里的View参数改成了ViewGroup,否则我们需要进行强转。默认View是没有addView()这个方法的。所以我们需要通过ViewGroup来添加View。    
 
-        }  
-
-上述重写的代码中，我们将四大方法里的View参数改成了ViewGroup,否则我们需要进行强转。默认View是没有addView()这个方法的。所以我们需要通过ViewGroup来添加View。    
 
 
 接下来，我们要实现的是
-<span class="number">1.</span> 滑动改变底部tag图标的颜色。
-<span class="number">2.</span> 点击底部图标跳到相应的tag。
-<span class="number">3.</span> 下划线指示当前tag(imageview跟随着tag移动)。
+    <span class="number">1.</span> 滑动改变底部tag图标的颜色。
+    <span class="number">2.</span> 点击底部图标跳到相应的tag。
+    <span class="number">3.</span> 下划线指示当前tag(imageview跟随着tag移动)。
 
-    - 通过viewpager的onPageChangeListener监听器 的onPageSelected()方法根据当前选项卡的坐标,可以设定相应的图片。**（最后要保存当前的坐标）**
+
+- 通过viewpager的onPageChangeListener监听器 的onPageSelected()方法根据当前选项卡的坐标,可以设定相应的图片。**（最后要保存当前的坐标）**
 
             <span class="keyword">public</span> <span class="keyword">class</span> MyOnPageChangeListener implements OnPageChangeListener {
                     @<span class="function">Override
@@ -417,8 +408,9 @@ view.<span class="built_in">add</span>(setting);
                 mTabImg.startAnimation(animation);
             }
 
-    - 为四个图标设定相应的点击事件,并且传入左边给其构造函数，然后通过viewpager的setCurrentItem方法来跳到相应的tag。  
-    代码如下：
+
+- 为四个图标设定相应的点击事件,并且传入左边给其构造函数，然后通过viewpager的setCurrentItem方法来跳到相应的tag。  
+代码如下：
 
             <span class="comment">//mTab1 是一个imageView</span>
             mTab1.setOnClickListener(<span class="keyword">new</span> ErinListener(<span class="number">0</span>));
@@ -439,9 +431,9 @@ view.<span class="built_in">add</span>(setting);
                 }
             };
 
-    - 下划线移动需要通过动画来实现，重写onPageChanged方法
-    分析：
-    我们需要获取屏幕的宽度,然后得到平均宽度。 (借助Display类) 通过动画在屏幕的<span class="number">4</span>个部分中切换。
+- 下划线移动需要通过动画来实现，重写onPageChanged方法
+分析：
+我们需要获取屏幕的宽度,然后得到平均宽度。 (借助Display类) 通过动画在屏幕的<span class="number">4</span>个部分中切换。
 
             Display display = getWindowManager().getDefaultDisplay();
             <span class="keyword">int</span> width = display/<span class="number">4</span>;
@@ -528,18 +520,18 @@ view.<span class="built_in">add</span>(setting);
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-11-DrawerLayout/" title="DrawerLayout抽屉">
+ <a href="/2015/09/17/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析">
   <strong>上一篇：</strong><br/>
   <span>
-  DrawerLayout抽屉</span>
+  MobileSafe源码分析</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-13-BNJSummarize/"  title="BNJ项目学到的知识点">
+<a href="/2015/09/17/2015-09-11-DrawerLayout/"  title="DrawerLayout抽屉">
  <strong>下一篇：</strong><br/> 
- <span>BNJ项目学到的知识点
+ <span>DrawerLayout抽屉
 </span>
 </a>
 </div>
@@ -625,13 +617,25 @@ view.<span class="built_in">add</span>(setting);
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            	<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" title="Git">Git</a>
             
           </li>
         
           <li>
             
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            	<a href="http://coding.net" target="_blank" title="Coding">Coding</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.apkbus.com/" target="_blank" title="Android">Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.devstore.cn/code/list/pc0-sc0-cp0-ft0-sp34-rt0-dl0-dt0-scs0-scp0-pn2-or0.html" target="_blank" title="Devstore">Devstore</a>
             
           </li>
         
