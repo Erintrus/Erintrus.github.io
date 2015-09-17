@@ -75,98 +75,239 @@
     <div id="container">
       <div id="main">
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">
-  
-    <h1 itemprop="name">OnTouchEvent事件分发机制</h1>
+   
     
-     
-       <p itemprop="description" >OnTouchEvent的基本认识
-跟Touch相关的三个方法：
-
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(Mot</p>
-      
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-    <time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished">2015-09-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/01/2015-09-01-ListView/" title="ListView的理解" itemprop="url">
-  
-    <h1 itemprop="name">ListView的理解</h1>
+      <a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">OnTouchEvent事件分发机制</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-06</time>
     
-     
-           <p itemprop="description" >ListView的下拉刷新，上拉加载数据在跟服务器交互时  
-
-当ListView 下拉时，清空原数据,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;
-当Listview 上拉时，重新加载一页数据。 currentPage ++;  
-
-</p>
+  </p>
+</header>
+    <div class="article-content">
         
-    
-    <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished">2015-09-01</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/01/2015-09-01-draw/" title="绘图总结" itemprop="url">
-  
-    <h1 itemprop="name">绘图总结</h1>
-    
-     
-           <p itemprop="description" >对绘图的基本理解绘图的两个基本工具是Paint跟Canvas  
-
-Canvas 决定画什么（简称View）
-Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。  
-
-下面是Paint的基本用法
-void  setARGB(int a, int r, in</p>
+        <h3 id="OnTouchEvent的基本认识">OnTouchEvent的基本认识</h3><ul>
+<li>跟Touch相关的三个方法：</li>
+</ul>
+<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;    <span class="comment">//用来分派event</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//用来拦截event</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;          <span class="comment">//用来处理event </span>
+</code></pre>
         
-    
-    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished">2015-09-01</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/01/2015-09-01-ArrayListDelete/" title="集合删除元素总结" itemprop="url">
-  
-    <h1 itemprop="name">集合删除元素总结</h1>
-    
-     
-           <p itemprop="description" >比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();</p>
         
+        <p class="article-more-link">
+          
+            <a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/onTouchEvent/">onTouchEvent</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
     
-    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished">2015-09-01</time>
-  </a>
-</section>
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/01/2015-09-01-ListView/" title="ListView的理解" itemprop="url">ListView的理解</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished"> Published 2015-09-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="ListView的下拉刷新，上拉加载数据">ListView的下拉刷新，上拉加载数据</h3><p>在跟服务器交互时  </p>
+<ul>
+<li>当ListView 下拉时，<strong>清空原数据</strong>,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;</li>
+<li><p>当Listview 上拉时，重新加载一页数据。 currentPage ++;  </p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/01/2015-09-01-ListView/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ListView/">ListView</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/01/2015-09-01-draw/" title="绘图总结" itemprop="url">绘图总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="对绘图的基本理解">对绘图的基本理解</h2><p>绘图的两个基本工具是Paint跟Canvas  </p>
+<ul>
+<li>Canvas 决定画什么（简称View）</li>
+<li>Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/01/2015-09-01-draw/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/draw/">draw</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/01/2015-09-01-ArrayListDelete/" title="集合删除元素总结" itemprop="url">集合删除元素总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="比较两段代码的不同">比较两段代码的不同</h3><p>示例一：</p>
+<pre><code>  <span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; <span class="keyword">iterator</span> = showList.<span class="keyword">iterator</span>();
+<span class="keyword">if</span> (<span class="keyword">iterator</span>.hasNext()) {
+      <span class="type">ShowInfo</span> delShow = <span class="keyword">iterator</span>.next();
+       <span class="keyword">if</span> (delShow.isCheck() == <span class="literal">true</span>) {
+           <span class="keyword">iterator</span>.remove();
+       }
+   }
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/01/2015-09-01-ArrayListDelete/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
 
 
 
@@ -174,7 +315,7 @@ if (iterator.hasNext()) {
 
 
 
-  <nav id="page-nav" class="clearfix unexpand">
+  <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 

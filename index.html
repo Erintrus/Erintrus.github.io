@@ -75,222 +75,586 @@
     <div id="container">
       <div id="main">
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误" itemprop="url">
-  
-    <h1 itemprop="name">常见的错误</h1>
+   
     
-     
-       <p itemprop="description" >String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
-错误原因： 不能把int的值传给String类型的方法.</p>
-      
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/17/2015-09-17-ImageLoader/" title="ImageLoader的理解" itemprop="url">
-  
-    <h1 itemprop="name">ImageLoader的理解</h1>
+      <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误" itemprop="url">常见的错误</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-17</time>
     
-     
-       <p itemprop="description" >ImageLoader作用1.可以实现利用缓存加载图片，大大降低内存消耗等2.多线程加载图片
-jar包下载https://github.com/nostra13/Android-Universal-Image-Loader</p>
-      
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="String类型方法传非String类型的值">String类型方法传非String类型的值</h3><pre><code>android<span class="class">.content</span><span class="class">.res</span><span class="class">.Resources</span><span class="variable">$NotFoundException</span>: String resource ID #<span class="number">0</span>x1
+</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/17/2015-09-17-Error/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Frequent-Fault/">Frequent_Fault</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
     
-    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧" itemprop="url">
-  
-    <h1 itemprop="name">布局常用的技巧</h1>
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-       <p itemprop="description" >ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
-if(坐标&amp;lt;总长度-1)</p>
-      
+      <a href="/2015/09/17/2015-09-17-ImageLoader/" title="ImageLoader的理解" itemprop="url">ImageLoader的理解</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-17</time>
     
-    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-  </a>
-</section>
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="ImageLoader作用">ImageLoader作用</h3><p>1.可以实现利用缓存加载图片，大大降低内存消耗等<br>2.多线程加载图片</p>
+<p>jar包下载<br><a href="https://github.com/nostra13/Android-Universal-Image-Loader">https://github.com/nostra13/Android-Universal-Image-Loader</a></p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/17/2015-09-17-ImageLoader/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
 
 
-
-
-
-
+  <div class="article-tags">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/13/2015-09-13-BNJSummarize/" title="BNJ项目学到的知识点" itemprop="url">
-  
-    <h1 itemprop="name">BNJ项目学到的知识点</h1>
+  <span></span> <a href="/tags/ImageLoader/">ImageLoader</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
     
-     
-       <p itemprop="description" >2015-09-14如何解决多个按钮同时点击的bug
-定义一个全局变量isClick。
-在switch的每个case里判断isClick，执行完 设置isClick为false。
-重写Activity的onResume方法，设置isClick为true。</p>
-      
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-    <time datetime="2015-09-12T16:00:00.000Z" itemprop="datePublished">2015-09-13</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/12/2015-09-12-MyWechat/" title="高仿微信源码分析" itemprop="url">
-  
-    <h1 itemprop="name">高仿微信源码分析</h1>
+      <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧" itemprop="url">布局常用的技巧</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-17</time>
     
-     
-       <p itemprop="description" >进入界面的知识点分析
-如何实现一个进入界面，例如微信、网易新闻。</p>
-      
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
+<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/17/2015-09-17-Skills/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/小技巧/">小技巧</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
     
-    <time datetime="2015-09-11T16:00:00.000Z" itemprop="datePublished">2015-09-12</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/11/2015-09-11-DrawerLayout/" title="DrawerLayout抽屉" itemprop="url">
-  
-    <h1 itemprop="name">DrawerLayout抽屉</h1>
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-       <p itemprop="description" >DrawerLayout的简单使用实现效果如下：
-
-上述分别是左抽屉跟右抽屉。 
-1.创建布局文件
-DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。</p>
-      
+      <a href="/2015/09/13/2015-09-13-BNJSummarize/" title="BNJ项目学到的知识点" itemprop="url">BNJ项目学到的知识点</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-12T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-13</time>
     
-    <time datetime="2015-09-10T16:00:00.000Z" itemprop="datePublished">2015-09-11</time>
-  </a>
-</section>
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2015-09-14">2015-09-14</h2><h3 id="如何解决多个按钮同时点击的bug">如何解决多个按钮同时点击的bug</h3><ol>
+<li>定义一个全局变量isClick。</li>
+<li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
+<li><p>重写Activity的onResume方法，设置isClick为true。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/13/2015-09-13-BNJSummarize/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
 
 
-
-
-
-
+  <div class="article-tags">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/10/2015-09-10-RegEx/" title="正则表达式的总结" itemprop="url">
-  
-    <h1 itemprop="name">正则表达式的总结</h1>
+  <span></span> <a href="/tags/BNJ/">BNJ</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
     
-     
-       <p itemprop="description" >基本语法
-元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
-
-‘.’ 表示匹配除了换行符之外的任何字符
-
-‘*’ 表示匹配除了换行符之外任意数量的字符</p>
-      
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished">2015-09-10</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析" itemprop="url">
-  
-    <h1 itemprop="name">MobileSafe源码分析</h1>
+      <a href="/2015/09/12/2015-09-12-MyWechat/" title="高仿微信源码分析" itemprop="url">高仿微信源码分析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-11T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-12</time>
     
-     
-       <p itemprop="description" >该源码学习到的小技巧
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="进入界面的知识点分析">进入界面的知识点分析</h3><ul>
+<li>如何实现一个进入界面，例如微信、网易新闻。  </li>
+<li><p><img src="http://chuantu.biz/t2/13/1441958136x1822613867.jpg" alt=""></p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/12/2015-09-12-MyWechat/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
 
-退出整个程序的代码
-android.os.Process.killProcess(android.os.Process.myPid());</p>
-      
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/check/">check</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
     
-    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished">2015-09-10</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/08/2015-09-08-Git/" title="Git的学习" itemprop="url">
-  
-    <h1 itemprop="name">Git的学习</h1>
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-       <p itemprop="description" >Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：</p>
-      
+      <a href="/2015/09/11/2015-09-11-DrawerLayout/" title="DrawerLayout抽屉" itemprop="url">DrawerLayout抽屉</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-10T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-11</time>
     
-    <time datetime="2015-09-07T16:00:00.000Z" itemprop="datePublished">2015-09-08</time>
-  </a>
-</section>
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="DrawerLayout的简单使用">DrawerLayout的简单使用</h3><p>实现效果如下：</p>
+<p><img src="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png" alt=""><br><img src="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png" alt=""></p>
+<p>上述分别是左抽屉跟右抽屉。 </p>
+<p>1.创建布局文件</p>
+<p>DrawerLayout 里面有最多有三个节点(子布局)<br>分别是主内容、左抽屉内容、右抽屉内容。<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/11/2015-09-11-DrawerLayout/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
 
 
-
-
-
-
+  <div class="article-tags">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view" itemprop="url">
-  
-    <h1 itemprop="name">自定义view</h1>
+  <span></span> <a href="/tags/DrawerLayout/">DrawerLayout</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
     
-     
-       <p itemprop="description" >自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
-2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
-3.测量，通过重写onMeasure方法来对控件进行测量  
-4.属性，可以通过xml自定义控件的属性，然后通</p>
-      
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
     
-    <time datetime="2015-09-06T16:00:00.000Z" itemprop="datePublished">2015-09-07</time>
-  </a>
-</section>
+      <a href="/2015/09/10/2015-09-10-RegEx/" title="正则表达式的总结" itemprop="url">正则表达式的总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="基本语法">基本语法</h3><hr>
+<h5 id="元字符">元字符</h5><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
+<ul>
+<li><p>‘.’ 表示匹配除了换行符之外的任何字符</p>
+</li>
+<li><p>‘*’ 表示匹配除了换行符之外任意数量的字符</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/10/2015-09-10-RegEx/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/RegEx/">RegEx</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析" itemprop="url">MobileSafe源码分析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="该源码学习到的小技巧">该源码学习到的小技巧</h3><hr>
+<ul>
+<li><p>退出整个程序的代码</p>
+<pre><code><span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.killProcess</span>(<span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.myPid</span>());
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/小技巧/">小技巧</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/08/2015-09-08-Git/" title="Git的学习" itemprop="url">Git的学习</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-07T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="Git的语法">Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/08/2015-09-08-Git/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view" itemprop="url">自定义view</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-06T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="自定义View的过程">自定义View的过程</h3><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
+<p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
+<p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
+<p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
+<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/07/2015-09-07-CustomView/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CustomView/">CustomView</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
 
 
 
@@ -298,7 +662,7 @@ android.os.Process.killProcess(android.os.Process.myPid());</p>
 
 
 
-  <nav id="page-nav" class="clearfix unexpand">
+  <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
