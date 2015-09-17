@@ -12,55 +12,28 @@
 
     
     <meta name="description" content="进入界面的知识点分析
-如何实现一个进入界面，例如微信、网易新闻。  
-
-
-1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                pub">
+如何实现一个进入界面，例如微信、网易新闻。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高仿微信源码分析">
 <meta property="og:url" content="erintrus.github.io/2015/09/12/2015-09-12-MyWechat/index.html">
 <meta property="og:site_name" content="Share">
 <meta property="og:description" content="进入界面的知识点分析
-如何实现一个进入界面，例如微信、网易新闻。  
-
-
-1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                pub">
+如何实现一个进入界面，例如微信、网易新闻。">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441958136x1822613867.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441958324x1822613867.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142296x-954497544.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142229x-954497544.jpg">
-<meta property="og:updated_time" content="2015-09-17T00:51:53.025Z">
+<meta property="og:updated_time" content="2015-09-17T15:23:53.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高仿微信源码分析">
 <meta name="twitter:description" content="进入界面的知识点分析
-如何实现一个进入界面，例如微信、网易新闻。  
-
-
-1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                pub">
+如何实现一个进入界面，例如微信、网易新闻。">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/website.ico">
+    <link rel="icon" href="/img/Erintrus.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -75,7 +48,7 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Share" title="Share"/></a>
+				<a href="/"><img src="/img/Erintrus.png" alt="Share" title="Share"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -136,22 +109,26 @@
 		
 		<h3 id="进入界面的知识点分析">进入界面的知识点分析</h3><ul>
 <li>如何实现一个进入界面，例如微信、网易新闻。  </li>
-<li><img src="http://chuantu.biz/t2/13/1441958136x1822613867.jpg" alt=""></li>
+<li><p><img src="http://chuantu.biz/t2/13/1441958136x1822613867.jpg" alt=""></p>
+<a id="more"></a>
+<ol>
+<li>创建一个布局文件，里面放一张图。</li>
+<li><p>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </p>
+<pre><code><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable(){ 
+
+    @<span class="function">Override
+        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
+            Intent intent = <span class="keyword">new</span> Intent (Appstart.<span class="keyword">this</span>,Welcome.<span class="keyword">class</span>);
+            startActivity(intent);            
+            Appstart.<span class="keyword">this</span>.finish();
+        }
+
+},<span class="number">1000</span>);  
+</code></pre></li>
+</ol>
+</li>
 </ul>
-<pre><code><span class="number">1.</span> 创建一个布局文件，里面放一张图。
-<span class="number">2.</span> 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-        <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable(){ 
-
-            @<span class="function">Override
-                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
-                    Intent intent = <span class="keyword">new</span> Intent (Appstart.<span class="keyword">this</span>,Welcome.<span class="keyword">class</span>);
-                    startActivity(intent);            
-                    Appstart.<span class="keyword">this</span>.finish();
-                }
-
-        },<span class="number">1000</span>);  
-</code></pre><h3 id="主界面的知识点分析">主界面的知识点分析</h3><p><img src="http://chuantu.biz/t2/13/1441958324x1822613867.jpg" alt="">  </p>
+<h3 id="主界面的知识点分析">主界面的知识点分析</h3><p><img src="http://chuantu.biz/t2/13/1441958324x1822613867.jpg" alt="">  </p>
 <p>根据上图分析可得有下列知识点  </p>
 <ol>
 <li>底部tab的实现  </li>
@@ -497,7 +474,7 @@ view.<span class="built_in">add</span>(setting);
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/wechat/">wechat</a>
+  <span></span> <a href="/tags/check/">check</a>
   </div>
 
 </div>
@@ -540,12 +517,6 @@ view.<span class="built_in">add</span>(setting);
 
 	
 
-<section id="comments" class="comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
@@ -568,7 +539,15 @@ view.<span class="built_in">add</span>(setting);
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
 			
 		
 			
@@ -576,7 +555,7 @@ view.<span class="built_in">add</span>(setting);
 			
 		
 			
-				<li><a href="/tags/wechat/" title="wechat">wechat<sup>1</sup></a></li>
+				<li><a href="/tags/check/" title="check">check<sup>1</sup></a></li>
 			
 		
 			
@@ -584,11 +563,7 @@ view.<span class="built_in">add</span>(setting);
 			
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 			
@@ -605,6 +580,10 @@ view.<span class="built_in">add</span>(setting);
 		
 			
 				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -830,26 +809,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-
-var disqus_shortname = 'true';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
 
 
 

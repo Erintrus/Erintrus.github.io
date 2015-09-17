@@ -25,7 +25,7 @@
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/website.ico">
+    <link rel="icon" href="/img/Erintrus.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -40,7 +40,7 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Share" title="Share"/></a>
+				<a href="/"><img src="/img/Erintrus.png" alt="Share" title="Share"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -74,6 +74,81 @@
     </header>
     <div id="container">
       <div id="main">
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">
+  
+    <h1 itemprop="name">OnTouchEvent事件分发机制</h1>
+    
+     
+       <p itemprop="description" >OnTouchEvent的基本认识
+跟Touch相关的三个方法：
+
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(Mot</p>
+      
+    
+    <time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished">2015-09-06</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/01/2015-09-01-ListView/" title="ListView的理解" itemprop="url">
+  
+    <h1 itemprop="name">ListView的理解</h1>
+    
+     
+           <p itemprop="description" >ListView的下拉刷新，上拉加载数据在跟服务器交互时  
+
+当ListView 下拉时，清空原数据,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;
+当Listview 上拉时，重新加载一页数据。 currentPage ++;  
+
+</p>
+        
+    
+    <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished">2015-09-01</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/01/2015-09-01-draw/" title="绘图总结" itemprop="url">
+  
+    <h1 itemprop="name">绘图总结</h1>
+    
+     
+           <p itemprop="description" >对绘图的基本理解绘图的两个基本工具是Paint跟Canvas  
+
+Canvas 决定画什么（简称View）
+Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。  
+
+下面是Paint的基本用法
+void  setARGB(int a, int r, in</p>
+        
+    
+    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished">2015-09-01</time>
+  </a>
+</section>
+
+
+
+
+
 
   
 <section class="post" itemscope itemprop="blogitem">
@@ -118,7 +193,15 @@ if (iterator.hasNext()) {
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
 			
 		
 			
@@ -126,7 +209,7 @@ if (iterator.hasNext()) {
 			
 		
 			
-				<li><a href="/tags/wechat/" title="wechat">wechat<sup>1</sup></a></li>
+				<li><a href="/tags/check/" title="check">check<sup>1</sup></a></li>
 			
 		
 			
@@ -134,11 +217,7 @@ if (iterator.hasNext()) {
 			
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 			
@@ -155,6 +234,10 @@ if (iterator.hasNext()) {
 		
 			
 				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -298,26 +381,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-
-var disqus_shortname = 'true';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
 
 
 

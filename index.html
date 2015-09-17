@@ -25,7 +25,7 @@
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/website.ico">
+    <link rel="icon" href="/img/Erintrus.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -40,7 +40,7 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Share" title="Share"/></a>
+				<a href="/"><img src="/img/Erintrus.png" alt="Share" title="Share"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -78,18 +78,79 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误" itemprop="url">
+  
+    <h1 itemprop="name">常见的错误</h1>
+    
+     
+       <p itemprop="description" >String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
+错误原因： 不能把int的值传给String类型的方法.</p>
+      
+    
+    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-17-ImageLoader/" title="ImageLoader的理解" itemprop="url">
+  
+    <h1 itemprop="name">ImageLoader的理解</h1>
+    
+     
+       <p itemprop="description" >ImageLoader作用1.可以实现利用缓存加载图片，大大降低内存消耗等2.多线程加载图片
+jar包下载https://github.com/nostra13/Android-Universal-Image-Loader</p>
+      
+    
+    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧" itemprop="url">
+  
+    <h1 itemprop="name">布局常用的技巧</h1>
+    
+     
+       <p itemprop="description" >ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
+if(坐标&amp;lt;总长度-1)</p>
+      
+    
+    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2015/09/13/2015-09-13-BNJSummarize/" title="BNJ项目学到的知识点" itemprop="url">
   
     <h1 itemprop="name">BNJ项目学到的知识点</h1>
     
      
-           <p itemprop="description" >2015-09-14如何解决多个按钮同时点击的bug
+       <p itemprop="description" >2015-09-14如何解决多个按钮同时点击的bug
 定义一个全局变量isClick。
 在switch的每个case里判断isClick，执行完 设置isClick为false。
-重写Activity的onResume方法，设置isClick为true。
-
-将程序设置成无标题栏，</p>
-        
+重写Activity的onResume方法，设置isClick为true。</p>
+      
     
     <time datetime="2015-09-12T16:00:00.000Z" itemprop="datePublished">2015-09-13</time>
   </a>
@@ -108,15 +169,9 @@
     <h1 itemprop="name">高仿微信源码分析</h1>
     
      
-           <p itemprop="description" >进入界面的知识点分析
-如何实现一个进入界面，例如微信、网易新闻。  
-
-
-1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-        new Handler().postDelayed</p>
-        
+       <p itemprop="description" >进入界面的知识点分析
+如何实现一个进入界面，例如微信、网易新闻。</p>
+      
     
     <time datetime="2015-09-11T16:00:00.000Z" itemprop="datePublished">2015-09-12</time>
   </a>
@@ -135,42 +190,14 @@
     <h1 itemprop="name">DrawerLayout抽屉</h1>
     
      
-           <p itemprop="description" >DrawerLayout的简单使用实现效果如下：
+       <p itemprop="description" >DrawerLayout的简单使用实现效果如下：
 
 上述分别是左抽屉跟右抽屉。 
 1.创建布局文件
-DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。代码如下：
-&amp;lt;android.support.v4.widget.DrawerL</p>
-        
+DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。</p>
+      
     
     <time datetime="2015-09-10T16:00:00.000Z" itemprop="datePublished">2015-09-11</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析" itemprop="url">
-  
-    <h1 itemprop="name">MobileSafe源码分析</h1>
-    
-     
-           <p itemprop="description" >该源码学习到的小技巧
-
-退出整个程序的代码
-android.os.Process.killProcess(android.os.Process.myPid());
-
-退出到桌面的代码
-Intent intent = new Intent();
-intent.setAction(I</p>
-        
-    
-    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished">2015-09-10</time>
   </a>
 </section>
 
@@ -187,16 +214,36 @@ intent.setAction(I</p>
     <h1 itemprop="name">正则表达式的总结</h1>
     
      
-           <p itemprop="description" >基本语法
+       <p itemprop="description" >基本语法
 元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
 
 ‘.’ 表示匹配除了换行符之外的任何字符
 
-‘*’ 表示匹配除了换行符之外任意数量的字符
-  例子：Erintrus后面有PROG 
-\bErintrus\b.*\bProg\b
-  如果要匹</p>
-        
+‘*’ 表示匹配除了换行符之外任意数量的字符</p>
+      
+    
+    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished">2015-09-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析" itemprop="url">
+  
+    <h1 itemprop="name">MobileSafe源码分析</h1>
+    
+     
+       <p itemprop="description" >该源码学习到的小技巧
+
+退出整个程序的代码
+android.os.Process.killProcess(android.os.Process.myPid());</p>
+      
     
     <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished">2015-09-10</time>
   </a>
@@ -215,13 +262,8 @@ intent.setAction(I</p>
     <h1 itemprop="name">Git的学习</h1>
     
      
-           <p itemprop="description" >Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：  
-
-创建版本库 git init  
-将文件添加到版本库 git add 文件（git add Erintrus.txt）  
-讲文件提交到版本库 git commit -m “这里添加修改说明” 
-查看</p>
-        
+       <p itemprop="description" >Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：</p>
+      
     
     <time datetime="2015-09-07T16:00:00.000Z" itemprop="datePublished">2015-09-08</time>
   </a>
@@ -240,88 +282,13 @@ intent.setAction(I</p>
     <h1 itemprop="name">自定义view</h1>
     
      
-           <p itemprop="description" >自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
+       <p itemprop="description" >自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
 2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
 3.测量，通过重写onMeasure方法来对控件进行测量  
 4.属性，可以通过xml自定义控件的属性，然后通</p>
-        
+      
     
     <time datetime="2015-09-06T16:00:00.000Z" itemprop="datePublished">2015-09-07</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">
-  
-    <h1 itemprop="name">OnTouchEvent事件分发机制</h1>
-    
-     
-           <p itemprop="description" >OnTouchEvent的基本认识
-跟Touch相关的三个方法：
-
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(Mot</p>
-        
-    
-    <time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished">2015-09-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/01/2015-09-01-ListView/" title="ListView的理解" itemprop="url">
-  
-    <h1 itemprop="name">ListView的理解</h1>
-    
-     
-           <p itemprop="description" >ListView的下拉刷新，上拉加载数据在跟服务器交互时  
-
-当ListView 下拉时，清空原数据,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;
-当Listview 上拉时，重新加载一页数据。 currentPage ++;  
-
-</p>
-        
-    
-    <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished">2015-09-01</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/01/2015-09-01-draw/" title="绘图总结" itemprop="url">
-  
-    <h1 itemprop="name">绘图总结</h1>
-    
-     
-           <p itemprop="description" >对绘图的基本理解绘图的两个基本工具是Paint跟Canvas  
-
-Canvas 决定画什么（简称View）
-Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。  
-
-下面是Paint的基本用法
-void  setARGB(int a, int r, in</p>
-        
-    
-    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished">2015-09-01</time>
   </a>
 </section>
 
@@ -350,7 +317,15 @@ void  setARGB(int a, int r, in</p>
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
 			
 		
 			
@@ -358,7 +333,7 @@ void  setARGB(int a, int r, in</p>
 			
 		
 			
-				<li><a href="/tags/wechat/" title="wechat">wechat<sup>1</sup></a></li>
+				<li><a href="/tags/check/" title="check">check<sup>1</sup></a></li>
 			
 		
 			
@@ -366,11 +341,7 @@ void  setARGB(int a, int r, in</p>
 			
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 			
@@ -387,6 +358,10 @@ void  setARGB(int a, int r, in</p>
 		
 			
 				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -530,26 +505,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-
-var disqus_shortname = 'true';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
 
 
 

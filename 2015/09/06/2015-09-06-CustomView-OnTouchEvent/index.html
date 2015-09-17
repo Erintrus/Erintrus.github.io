@@ -28,7 +28,7 @@ public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
 public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
 public boolean onTouchEvent(Motion">
 <meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2015-09-17T00:50:18.693Z">
+<meta property="og:updated_time" content="2015-09-17T15:26:51.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OnTouchEvent事件分发机制">
 <meta name="twitter:description" content="OnTouchEvent的基本认识
@@ -42,7 +42,7 @@ public boolean onTouchEvent(Motion">
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/website.ico">
+    <link rel="icon" href="/img/Erintrus.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -57,7 +57,7 @@ public boolean onTouchEvent(Motion">
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Share" title="Share"/></a>
+				<a href="/"><img src="/img/Erintrus.png" alt="Share" title="Share"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -122,7 +122,8 @@ public boolean onTouchEvent(Motion">
 <pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;    <span class="comment">//用来分派event</span>
 <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//用来拦截event</span>
 <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;          <span class="comment">//用来处理event </span>
-</code></pre><ul>
+</code></pre> <a id="more"></a>
+<ul>
 <li><p>onTouch方法优先于onClick方法   </p>
 </li>
 <li><p>只要触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法   </p>
@@ -214,12 +215,6 @@ public boolean onTouchEvent(Motion">
 
 	
 
-<section id="comments" class="comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
@@ -242,7 +237,15 @@ public boolean onTouchEvent(Motion">
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
 			
 		
 			
@@ -250,7 +253,7 @@ public boolean onTouchEvent(Motion">
 			
 		
 			
-				<li><a href="/tags/wechat/" title="wechat">wechat<sup>1</sup></a></li>
+				<li><a href="/tags/check/" title="check">check<sup>1</sup></a></li>
 			
 		
 			
@@ -258,11 +261,7 @@ public boolean onTouchEvent(Motion">
 			
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 			
@@ -279,6 +278,10 @@ public boolean onTouchEvent(Motion">
 		
 			
 				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -504,26 +507,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-
-var disqus_shortname = 'true';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
 
 
 

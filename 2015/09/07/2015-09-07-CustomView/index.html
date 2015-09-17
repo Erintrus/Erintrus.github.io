@@ -25,7 +25,7 @@
 3.测量，通过重写onMeasure方法来对控件进行测量  
 4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  
 5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInsta">
-<meta property="og:updated_time" content="2015-09-17T00:50:28.816Z">
+<meta property="og:updated_time" content="2015-09-17T15:26:31.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义view">
 <meta name="twitter:description" content="自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
@@ -38,7 +38,7 @@
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/website.ico">
+    <link rel="icon" href="/img/Erintrus.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -53,7 +53,7 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Share" title="Share"/></a>
+				<a href="/"><img src="/img/Erintrus.png" alt="Share" title="Share"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -116,7 +116,7 @@
 <p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
 <p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
 <p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
-<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。</p>
+<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。<br> <a id="more"></a></p>
 <h3 id="自定义View——确定View的大小">自定义View——确定View的大小</h3><p>1.ViewGroup(View的父容器)提供两个参数给View进行设置测量，并且根据测量值跟自己提供的尺寸大小来确定View的大小。</p>
 <p>2.View的大小由Size和Mode决定，相关类是MeasureSpec。Size、Mode封装在resolveSizeAndState方法里面。</p>
 <p>3.resolveSizeAndState方法的参数（View的宽或高、父容器提供的尺寸值、掩码默认0）</p>
@@ -181,12 +181,6 @@
 
 	
 
-<section id="comments" class="comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
@@ -209,7 +203,15 @@
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
 			
 		
 			
@@ -217,7 +219,7 @@
 			
 		
 			
-				<li><a href="/tags/wechat/" title="wechat">wechat<sup>1</sup></a></li>
+				<li><a href="/tags/check/" title="check">check<sup>1</sup></a></li>
 			
 		
 			
@@ -225,11 +227,7 @@
 			
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 			
@@ -246,6 +244,10 @@
 		
 			
 				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -471,26 +473,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-
-var disqus_shortname = 'true';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
 
 
 
