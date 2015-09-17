@@ -24,7 +24,7 @@
                 pub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高仿微信源码分析">
-<meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-12-MyWechat/index.html">
+<meta property="og:url" content="erintrus.github.io/2015/09/12/2015-09-12-MyWechat/index.html">
 <meta property="og:site_name" content="Share">
 <meta property="og:description" content="进入界面的知识点分析
 如何实现一个进入界面，例如微信、网易新闻。  
@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441958324x1822613867.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142296x-954497544.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142229x-954497544.jpg">
-<meta property="og:updated_time" content="2015-09-16T17:18:44.025Z">
+<meta property="og:updated_time" content="2015-09-17T00:51:53.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高仿微信源码分析">
 <meta name="twitter:description" content="进入界面的知识点分析
@@ -60,7 +60,7 @@
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/bt,jpg">
+    <link rel="icon" href="/img/website.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -114,14 +114,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/17/2015-09-12-MyWechat/" title="高仿微信源码分析" itemprop="url">高仿微信源码分析</a>
+      <a href="/2015/09/12/2015-09-12-MyWechat/" title="高仿微信源码分析" itemprop="url">高仿微信源码分析</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T17:18:44.025Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-11T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-12</time>
     
   </p>
 </header>
@@ -506,7 +506,7 @@ view.<span class="built_in">add</span>(setting);
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/17/2015-09-12-MyWechat/" data-title="高仿微信源码分析 | Share" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/12/2015-09-12-MyWechat/" data-title="高仿微信源码分析 | Share" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -520,16 +520,16 @@ view.<span class="built_in">add</span>(setting);
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析">
+ <a href="/2015/09/13/2015-09-13-BNJSummarize/" title="BNJ项目学到的知识点">
   <strong>上一篇：</strong><br/>
   <span>
-  MobileSafe源码分析</span>
+  BNJ项目学到的知识点</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-11-DrawerLayout/"  title="DrawerLayout抽屉">
+<a href="/2015/09/11/2015-09-11-DrawerLayout/"  title="DrawerLayout抽屉">
  <strong>下一篇：</strong><br/> 
  <span>DrawerLayout抽屉
 </span>
@@ -730,6 +730,11 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
   $(window).resize(function(){
     getSize(); 

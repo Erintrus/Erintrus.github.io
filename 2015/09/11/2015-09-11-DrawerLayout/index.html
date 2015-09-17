@@ -4,57 +4,58 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>正则表达式的总结 | Share</title>
+    <title>DrawerLayout抽屉 | Share</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="基本语法
-元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+    <meta name="description" content="DrawerLayout的简单使用实现效果如下：
 
-‘.’ 表示匹配除了换行符之外的任何字符
+上述分别是左抽屉跟右抽屉。 
+1.创建布局文件
+DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。代码如下：
+&amp;lt;android.support.v4.widget.DrawerLayout&amp;gt;  
 
-‘*’ 表示匹配除了换行符之外任意数量的字符
-  例子：Erintrus后面有PROG 
-\bErintrus\b.*\bProg\b
-  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符
-  例子：匹配erintrus.github.io 和c:/erintrus">
+    &amp;lt;FrameLayout&amp;gt;
+    //这里是主布局
+    &amp;lt;/F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式的总结">
-<meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-10-RegEx/index.html">
+<meta property="og:title" content="DrawerLayout抽屉">
+<meta property="og:url" content="erintrus.github.io/2015/09/11/2015-09-11-DrawerLayout/index.html">
 <meta property="og:site_name" content="Share">
-<meta property="og:description" content="基本语法
-元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+<meta property="og:description" content="DrawerLayout的简单使用实现效果如下：
 
-‘.’ 表示匹配除了换行符之外的任何字符
+上述分别是左抽屉跟右抽屉。 
+1.创建布局文件
+DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。代码如下：
+&amp;lt;android.support.v4.widget.DrawerLayout&amp;gt;  
 
-‘*’ 表示匹配除了换行符之外任意数量的字符
-  例子：Erintrus后面有PROG 
-\bErintrus\b.*\bProg\b
-  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符
-  例子：匹配erintrus.github.io 和c:/erintrus">
-<meta property="og:image" content="http://chuantu.biz/t2/13/1441866574x-954498775.jpg">
-<meta property="og:updated_time" content="2015-09-16T16:53:24.981Z">
+    &amp;lt;FrameLayout&amp;gt;
+    //这里是主布局
+    &amp;lt;/F">
+<meta property="og:image" content="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png">
+<meta property="og:image" content="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png">
+<meta property="og:updated_time" content="2015-09-17T00:51:19.949Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式的总结">
-<meta name="twitter:description" content="基本语法
-元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+<meta name="twitter:title" content="DrawerLayout抽屉">
+<meta name="twitter:description" content="DrawerLayout的简单使用实现效果如下：
 
-‘.’ 表示匹配除了换行符之外的任何字符
+上述分别是左抽屉跟右抽屉。 
+1.创建布局文件
+DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。代码如下：
+&amp;lt;android.support.v4.widget.DrawerLayout&amp;gt;  
 
-‘*’ 表示匹配除了换行符之外任意数量的字符
-  例子：Erintrus后面有PROG 
-\bErintrus\b.*\bProg\b
-  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符
-  例子：匹配erintrus.github.io 和c:/erintrus">
+    &amp;lt;FrameLayout&amp;gt;
+    //这里是主布局
+    &amp;lt;/F">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/bt,jpg">
+    <link rel="icon" href="/img/website.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -108,14 +109,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/17/2015-09-10-RegEx/" title="正则表达式的总结" itemprop="url">正则表达式的总结</a>
+      <a href="/2015/09/11/2015-09-11-DrawerLayout/" title="DrawerLayout抽屉" itemprop="url">DrawerLayout抽屉</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T16:53:24.981Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-10T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-11</time>
     
   </p>
 </header>
@@ -124,63 +125,45 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元字符"><span class="toc-number">1.0.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">1.0.2.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的相关方法、监听器"><span class="toc-number">2.</span> <span class="toc-text">DrawerLayout的相关方法、监听器</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="基本语法">基本语法</h3><hr>
-<h5 id="元字符">元字符</h5><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
-<ul>
-<li><p>‘.’ 表示匹配除了换行符之外的任何字符</p>
-</li>
-<li><p>‘*’ 表示匹配除了换行符之外任意数量的字符</p>
-<p>  例子：Erintrus后面有PROG </p>
-<pre><code><span class="command">\bErintrus</span><span class="command">\b</span>.*<span class="command">\bProg</span><span class="command">\b</span>
-</code></pre><p>  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符</p>
-<p>  例子：匹配erintrus.github.io 和c:/erintrus </p>
-<pre><code><span class="tag">erintrus</span>\<span class="class">.github</span>\<span class="class">.com</span> 和<span class="rule"><span class="attribute">c</span>:<span class="value">//erintrus</span></span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>‘^’表示匹配字符串的开始</p>
-</li>
-<li><p>‘$’表示匹配字符串的结束</p>
-<p>  例子：输入5-12位QQ号码</p>
-<pre><code>^/d{<span class="number">5</span>,<span class="number">12</span>}$
-</code></pre></li>
-<li><p>\b表示英文单词的开始或者结束 （\b标签囊括的是一个单词）</p>
-<p>  例子: 限制输入只能为Erintrus     </p>
-<pre><code><span class="command">\bErintrus</span><span class="command">\b</span>
-</code></pre></li>
-<li><p>\d表示匹配0-9的任意字符（即数字）</p>
-<p>  例子：区号的电话  如 010-2254789</p>
-<pre><code>A. /<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>-/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="literal">d</span>
-B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span class="keyword">n</span>}表示前面连续重复匹配<span class="keyword">N</span>次
-</code></pre></li>
-<li><p>\d+ 跟\d* 的区别</p>
-<pre><code>前者匹配<span class="number">1</span>-n个数字，后者匹配<span class="number">0</span>-n个数字
-</code></pre></li>
-<li><p>\s匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格</p>
-</li>
-<li><p>\w匹配字母或数字或下划线（可以理解为表示字母）</p>
-<p>  例子：匹配以a开头的单词</p>
-<pre><code><span class="command">\ba</span><span class="command">\w*</span><span class="command">\b</span> （因为<span class="command">\b</span>里面必须是单词，所以这里<span class="command">\w</span>不会表示下划线或者数字）
-</code></pre></li>
-</ul>
-<h5 id="限定符">限定符</h5><p>(用于限定某个字符重复次数)</p>
-<p>例如上面的的 \d+ 表示匹配1-n个数字</p>
-<pre><code>即\d+ 可以表示成 <span class="number">2</span> 或者 <span class="number">2356</span>
-</code></pre><h4 id="正则表达式用在程序中">正则表达式用在程序中</h4><ul>
-<li>涉及相关类包括Pattern、Matcher</li>
-</ul>
-<pre><code>      <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> stringFilter(<span class="keyword">String</span> <span class="built_in">str</span>) <span class="keyword">throws</span> PatternSyntaxException {
-    <span class="comment">// 只允许字母和数字</span>
-    <span class="keyword">String</span> regEx = <span class="string">"[^a-zA-Z0-9_]"</span>;
-    Pattern p = Pattern.compile(regEx);
-    Matcher m = p.matcher(<span class="built_in">str</span>);
-    <span class="keyword">return</span> m.replaceAll(<span class="string">""</span>).<span class="built_in">trim</span>();
-}
-</code></pre><p><img src="http://chuantu.biz/t2/13/1441866574x-954498775.jpg" alt=""></p>
+		<h3 id="DrawerLayout的简单使用">DrawerLayout的简单使用</h3><p>实现效果如下：</p>
+<p><img src="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png" alt=""><br><img src="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png" alt=""></p>
+<p>上述分别是左抽屉跟右抽屉。 </p>
+<p>1.创建布局文件</p>
+<p>DrawerLayout 里面有最多有三个节点(子布局)<br>分别是主内容、左抽屉内容、右抽屉内容。<br>代码如下：</p>
+<pre><code>&lt;android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.DrawerLayout</span>&gt;  
+
+    &lt;FrameLayout&gt;
+    <span class="comment">//这里是主布局</span>
+    &lt;/FrameLayout&gt;
+
+    &lt;RelativeLayout 
+    android:layout_gravity=<span class="string">"left"</span>&gt;
+    <span class="comment">//这里是左抽屉</span>
+    &lt;/RelativeLayout&gt;
+
+    &lt;RelativeLayout
+    android:layout_gravity=<span class="string">"right"</span>&gt;
+    <span class="comment">//这里是右抽屉</span>
+    &lt;/RelativeLayout&gt;
+
+&lt;/android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.DrawerLayout</span>&gt;
+</code></pre><p>通过layout_gravity属性设置是左抽屉(start、left)还是右抽屉(end、right)。</p>
+<p>2.在MainActivity中 获取两个抽屉id，然后获取其子view<br>假设左抽屉里面有个TextView，我们可以这样获取。  </p>
+<pre><code><span class="keyword">private</span> RelativeLayout rlLeft;  
+<span class="keyword">private</span> DrawerLayout drawerLayout;  
+<span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{  
+rlLeft=(RelativeLayout) findViewById(R.id.rlLeft);  
+TextView tv = (TextView)rlLeft.findViewById(R.id.tv);    
+}  
+</code></pre><h3 id="DrawerLayout的相关方法、监听器">DrawerLayout的相关方法、监听器</h3><p>方法：  </p>
+<p>openDrawer(ViewGroup)  打开抽屉，参数是layout，例如上面的rlLeft。<br>closeDrawer(ViewGroup) 关闭抽屉。<br>drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);关闭滑动<br>监听器：  </p>
+<p>setDrawerListener 其内部方法有onDrawerSlide、onDrawerOpened、onDrawerClosed、onDrawerStateChanged</p>
+<p><a href="http://www.mincoder.com/article/3305.shtml" target="_blank" rel="external">参考一</a><br><a href="http://www.linuxidc.com/Linux/2014-08/105502.htm" target="_blank" rel="external">参考二</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0925/1713.html" target="_blank" rel="external">参考三</a></p>
+<p>进阶：<br>可以跟ActionBar连用。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -189,7 +172,7 @@ B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/RegEx/">RegEx</a>
+  <span></span> <a href="/tags/DrawerLayout/">DrawerLayout</a>
   </div>
 
 </div>
@@ -198,7 +181,7 @@ B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/17/2015-09-10-RegEx/" data-title="正则表达式的总结 | Share" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/11/2015-09-11-DrawerLayout/" data-title="DrawerLayout抽屉 | Share" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -212,18 +195,18 @@ B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span 
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-13-BNJSummarize/" title="BNJ项目学到的知识点">
+ <a href="/2015/09/12/2015-09-12-MyWechat/" title="高仿微信源码分析">
   <strong>上一篇：</strong><br/>
   <span>
-  BNJ项目学到的知识点</span>
+  高仿微信源码分析</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-08-Git/"  title="Git的学习">
+<a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/"  title="MobileSafe源码分析">
  <strong>下一篇：</strong><br/> 
- <span>Git的学习
+ <span>MobileSafe源码分析
 </span>
 </a>
 </div>
@@ -244,7 +227,7 @@ B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元字符"><span class="toc-number">1.0.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">1.0.2.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的相关方法、监听器"><span class="toc-number">2.</span> <span class="toc-text">DrawerLayout的相关方法、监听器</span></a></li></ol>
  
   </div>
 
@@ -422,6 +405,11 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
   $(window).resize(function(){
     getSize(); 

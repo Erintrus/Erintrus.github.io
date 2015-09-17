@@ -4,50 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Git的学习 | Share</title>
+    <title>自定义view | Share</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：  
-
-创建版本库 git init  
-将文件添加到版本库 git add 文件（git add Erintrus.txt）  
-讲文件提交到版本库 git commit -m “这里添加修改说明” 
-查看版本库现状 git status  
-查看修改内容（上次提交到现在修改） git diff  
-撤销修改">
+    <meta name="description" content="自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
+2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
+3.测量，通过重写onMeasure方法来对控件进行测量  
+4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  
+5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInsta">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git的学习">
-<meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-08-Git/index.html">
+<meta property="og:title" content="自定义view">
+<meta property="og:url" content="erintrus.github.io/2015/09/07/2015-09-07-CustomView/index.html">
 <meta property="og:site_name" content="Share">
-<meta property="og:description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：  
-
-创建版本库 git init  
-将文件添加到版本库 git add 文件（git add Erintrus.txt）  
-讲文件提交到版本库 git commit -m “这里添加修改说明” 
-查看版本库现状 git status  
-查看修改内容（上次提交到现在修改） git diff  
-撤销修改">
-<meta property="og:updated_time" content="2015-09-16T16:52:54.910Z">
+<meta property="og:description" content="自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
+2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
+3.测量，通过重写onMeasure方法来对控件进行测量  
+4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  
+5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInsta">
+<meta property="og:updated_time" content="2015-09-17T00:50:28.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git的学习">
-<meta name="twitter:description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：  
-
-创建版本库 git init  
-将文件添加到版本库 git add 文件（git add Erintrus.txt）  
-讲文件提交到版本库 git commit -m “这里添加修改说明” 
-查看版本库现状 git status  
-查看修改内容（上次提交到现在修改） git diff  
-撤销修改">
+<meta name="twitter:title" content="自定义view">
+<meta name="twitter:description" content="自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
+2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
+3.测量，通过重写onMeasure方法来对控件进行测量  
+4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  
+5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInsta">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/bt,jpg">
+    <link rel="icon" href="/img/website.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -101,14 +92,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/17/2015-09-08-Git/" title="Git的学习" itemprop="url">Git的学习</a>
+      <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view" itemprop="url">自定义view</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T16:52:54.910Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-06T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-07</time>
     
   </p>
 </header>
@@ -117,19 +108,28 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的过程"><span class="toc-number">1.</span> <span class="toc-text">自定义View的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View——确定View的大小"><span class="toc-number">2.</span> <span class="toc-text">自定义View——确定View的大小</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="Git的语法">Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：  </p>
-<ol>
-<li>创建版本库 git init  </li>
-<li>将文件添加到版本库 git add 文件（git add Erintrus.txt）  </li>
-<li>讲文件提交到版本库 git commit -m “这里添加修改说明” </li>
-<li>查看版本库现状 git status  </li>
-<li>查看修改内容（上次提交到现在修改） git diff  </li>
-<li>撤销修改</li>
-</ol>
+		<h3 id="自定义View的过程">自定义View的过程</h3><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
+<p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
+<p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
+<p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
+<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。</p>
+<h3 id="自定义View——确定View的大小">自定义View——确定View的大小</h3><p>1.ViewGroup(View的父容器)提供两个参数给View进行设置测量，并且根据测量值跟自己提供的尺寸大小来确定View的大小。</p>
+<p>2.View的大小由Size和Mode决定，相关类是MeasureSpec。Size、Mode封装在resolveSizeAndState方法里面。</p>
+<p>3.resolveSizeAndState方法的参数（View的宽或高、父容器提供的尺寸值、掩码默认0）</p>
+<p>4.如何重写OnMeasure</p>
+<pre><code><span class="comment">//获取View的宽度</span>
+<span class="keyword">int</span> minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
+<span class="comment">//讲View的宽度跟ViewGroup给的值进行测量，得出一个整型.</span>
+<span class="keyword">int</span> w = resolveSizeAndState(minw, widthMeasureSpec, <span class="number">1</span>);
+
+<span class="comment">//同理View的高度</span>
+<span class="keyword">int</span> minh = MeasureSpec.getSize(w) + getPaddingBottom() + getPaddingTop();
+<span class="keyword">int</span> h = resolveSizeAndState(MeasureSpec.getSize(w), heightMeasureSpec,<span class="number">0</span>);
+</code></pre><p><a href="http://www.cnblogs.com/0616--ataozhijia/p/4003380.html" target="_blank" rel="external">参考</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -138,7 +138,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/git/">git</a>
+  <span></span> <a href="/tags/CustomView/">CustomView</a>
   </div>
 
 </div>
@@ -147,7 +147,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/17/2015-09-08-Git/" data-title="Git的学习 | Share" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/07/2015-09-07-CustomView/" data-title="自定义view | Share" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -161,18 +161,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-10-RegEx/" title="正则表达式的总结">
+ <a href="/2015/09/08/2015-09-08-Git/" title="Git的学习">
   <strong>上一篇：</strong><br/>
   <span>
-  正则表达式的总结</span>
+  Git的学习</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-07-CustomView/"  title="自定义view">
+<a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/"  title="OnTouchEvent事件分发机制">
  <strong>下一篇：</strong><br/> 
- <span>自定义view
+ <span>OnTouchEvent事件分发机制
 </span>
 </a>
 </div>
@@ -193,7 +193,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的过程"><span class="toc-number">1.</span> <span class="toc-text">自定义View的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View——确定View的大小"><span class="toc-number">2.</span> <span class="toc-text">自定义View——确定View的大小</span></a></li></ol>
  
   </div>
 
@@ -371,6 +371,11 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
   $(window).resize(function(){
     getSize(); 

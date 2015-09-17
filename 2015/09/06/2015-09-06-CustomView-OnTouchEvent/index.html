@@ -4,51 +4,45 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>BNJ项目学到的知识点 | Share</title>
+    <title>OnTouchEvent事件分发机制 | Share</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="2015-09-14如何解决多个按钮同时点击的bug
-定义一个全局变量isClick。
-在switch的每个case里判断isClick，执行完 设置isClick为false。
-重写Activity的onResume方法，设置isClick为true。
+    <meta name="description" content="OnTouchEvent的基本认识
+跟Touch相关的三个方法：
 
-将程序设置成无标题栏，自己定义Actionbar  
-
-创建一个布局文件，里面只有一个RelativeLayout 设置高度为45-50.设置">
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean onTouchEvent(Motion">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BNJ项目学到的知识点">
-<meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-13-BNJSummarize/index.html">
+<meta property="og:title" content="OnTouchEvent事件分发机制">
+<meta property="og:url" content="erintrus.github.io/2015/09/06/2015-09-06-CustomView-OnTouchEvent/index.html">
 <meta property="og:site_name" content="Share">
-<meta property="og:description" content="2015-09-14如何解决多个按钮同时点击的bug
-定义一个全局变量isClick。
-在switch的每个case里判断isClick，执行完 设置isClick为false。
-重写Activity的onResume方法，设置isClick为true。
+<meta property="og:description" content="OnTouchEvent的基本认识
+跟Touch相关的三个方法：
 
-将程序设置成无标题栏，自己定义Actionbar  
-
-创建一个布局文件，里面只有一个RelativeLayout 设置高度为45-50.设置">
-<meta property="og:image" content="http://chuantu.biz/t2/13/1442196435x-1566689245.jpg">
-<meta property="og:updated_time" content="2015-09-16T16:53:52.089Z">
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean onTouchEvent(Motion">
+<meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2015-09-17T00:50:18.693Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BNJ项目学到的知识点">
-<meta name="twitter:description" content="2015-09-14如何解决多个按钮同时点击的bug
-定义一个全局变量isClick。
-在switch的每个case里判断isClick，执行完 设置isClick为false。
-重写Activity的onResume方法，设置isClick为true。
+<meta name="twitter:title" content="OnTouchEvent事件分发机制">
+<meta name="twitter:description" content="OnTouchEvent的基本认识
+跟Touch相关的三个方法：
 
-将程序设置成无标题栏，自己定义Actionbar  
-
-创建一个布局文件，里面只有一个RelativeLayout 设置高度为45-50.设置">
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean onTouchEvent(Motion">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/bt,jpg">
+    <link rel="icon" href="/img/website.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -102,14 +96,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/17/2015-09-13-BNJSummarize/" title="BNJ项目学到的知识点" itemprop="url">BNJ项目学到的知识点</a>
+      <a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">OnTouchEvent事件分发机制</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T16:53:52.089Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-06</time>
     
   </p>
 </header>
@@ -118,60 +112,57 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-14"><span class="toc-number">1.</span> <span class="toc-text">2015-09-14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决多个按钮同时点击的bug"><span class="toc-number">1.1.</span> <span class="toc-text">如何解决多个按钮同时点击的bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将程序设置成无标题栏，自己定义Actionbar"><span class="toc-number">1.2.</span> <span class="toc-text">将程序设置成无标题栏，自己定义Actionbar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-10"><span class="toc-number">2.</span> <span class="toc-text">2015-09-10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置EditText默认不弹出小键盘"><span class="toc-number">2.1.</span> <span class="toc-text">设置EditText默认不弹出小键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15"><span class="toc-number">3.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置listview无点击背景效果"><span class="toc-number">3.1.</span> <span class="toc-text">设置listview无点击背景效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15-1"><span class="toc-number">4.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">4.1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-16"><span class="toc-number">5.</span> <span class="toc-text">2015-09-16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)"><span class="toc-number">5.1.</span> <span class="toc-text">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="2015-09-14">2015-09-14</h2><h3 id="如何解决多个按钮同时点击的bug">如何解决多个按钮同时点击的bug</h3><ol>
-<li>定义一个全局变量isClick。</li>
-<li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
-<li>重写Activity的onResume方法，设置isClick为true。</li>
-</ol>
-<h3 id="将程序设置成无标题栏，自己定义Actionbar">将程序设置成无标题栏，自己定义Actionbar</h3><p><img src="http://chuantu.biz/t2/13/1442196435x-1566689245.jpg" alt="">  </p>
-<ol>
-<li>创建一个布局文件，里面只有一个RelativeLayout 设置高度为45-50.设置背景。</li>
-<li>每个布局文件都加入上面那个布局文件，代码如下。  </li>
-</ol>
-<pre><code>&lt;include
-android:<span class="property">id</span>=<span class="string">"@+id/action_bar"</span>
-layout=<span class="string">"@layout/common_view_actionbar_right_text"</span> /&gt;
-</code></pre><ol>
-<li>跳转页面时来通过putExtra设置相应的的标题即可</li>
-</ol>
-<h2 id="2015-09-10">2015-09-10</h2><h3 id="设置EditText默认不弹出小键盘">设置EditText默认不弹出小键盘</h3><ul>
-<li><p>Activity里配置下列代码</p>
-<pre><code><span class="tag">getWindow</span>()<span class="class">.setSoftInputMode</span>(<span class="tag">WindowManager</span><span class="class">.LayoutParams</span><span class="class">.SOFT_INPUT_STATE_ALWAYS_HIDDEN</span>);   
+		<h3 id="OnTouchEvent的基本认识">OnTouchEvent的基本认识</h3><ul>
+<li>跟Touch相关的三个方法：</li>
+</ul>
+<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;    <span class="comment">//用来分派event</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//用来拦截event</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;          <span class="comment">//用来处理event </span>
+</code></pre><ul>
+<li><p>onTouch方法优先于onClick方法   </p>
+</li>
+<li><p>只要触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法   </p>
+</li>
+<li><p>用法：</p>
+<pre><code><span class="function"><span class="title">dispatchTouchEvent</span><span class="params">()</span></span> 用来分派事件。
+其中调用了<span class="function"><span class="title">onInterceptTouchEvent</span><span class="params">()</span></span>和<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>，一般不重写该方法
+</code></pre><p>.</p>
+<pre><code>onInterceptTouchEvent<span class="literal">()</span>    用来拦截事件。
+<span class="type">ViewGroup</span>类中的源码实现就是{return <span class="literal">false</span>;}表示不拦截该事件，
+事件将向下传递（传递给其子<span class="type">View</span>）；
+若手动重写该方法，使其返回<span class="literal">true</span>则表示拦截，事件将终止向下传递，
+事件由当前<span class="type">ViewGroup</span>类来处理，就是调用该类的onTouchEvent<span class="literal">()</span>方法
+</code></pre><p>.</p>
+<pre><code><span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>    用来处理事件。
+返回true则表示该View能处理该事件，事件将终止向上传递（传递给其父View）；
+返回false表示不能处理，则把事件传递给其父View的<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>方法来处理
 </code></pre></li>
 </ul>
-<p>–    </p>
+<p><img src="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>简单使用：</p>
+<p>例如一个Activity里有一个LinearLayout、一个TextView<br>在Activity里重写OnTouchEvent 方法，TextView绑定onTouchLister<br>这样如果TextView重写的onTouch方法里返回了true，Activity里的OnTouchEvent<br>方法就不再执行。</p>
+<pre><code>tvTest.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() {
+          <span class="annotation">@Override</span>
+          <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View view, MotionEvent motionEvent)</span> </span>{
+              Functions.toast(SettingActivity.<span class="keyword">this</span>, <span class="string">"BTN-------Event"</span>);
+              Logger.log(<span class="string">"Erin"</span>,<span class="string">"btn------event"</span>+motionEvent.getAction());
+              <span class="keyword">return</span> <span class="keyword">true</span>;
+          }
+      });
+</code></pre><p>此处可能会调用多次ontouch方法，因为Action可能是按下、松开、移动三种情况。</p>
+<h3 id="总结">总结</h3><ul>
+<li>android 的分发事件先传递给ViewGroup，再由ViewGroup传给View。</li>
+<li>只要ViewGroup拦截了事件（onInterceptTouchEvent返回true） 事件就不会在往子View传递。  </li>
+</ul>
 <ul>
-<li><p>配置文件中配置下列代码  </p>
-<pre><code><span class="label">android:</span>windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span> 
-</code></pre></li>
+<li><p>详细参考 </p>
+<p>  <a href="http://blog.csdn.net/morgan_xww/article/details/9372285" target="_blank" rel="external">OnTouch参考一</a><br>  <a href="http://blog.csdn.net/loongggdroid/article/details/19118475" target="_blank" rel="external">OnTouch参考二</a></p>
+</li>
 </ul>
-<h2 id="2015-09-15">2015-09-15</h2><h3 id="设置listview无点击背景效果">设置listview无点击背景效果</h3><pre><code><span class="label">android:</span>listSelector=<span class="string">"@android:color/transparent"</span>  
-</code></pre><h2 id="2015-09-15-1">2015-09-15</h2><h3 id="复制布局文件时，有自定义view，要注意改其包名。">复制布局文件时，有自定义view，要注意改其包名。</h3><h2 id="2015-09-16">2015-09-16</h2><h3 id="如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</h3><ol>
-<li>在Fragment里创建一个静态方法，用于创建Fragment，参数为Activity所要传的参数。</li>
-<li>在上述方法中，fragment对象调用setArguments方法设置值。</li>
-<li><p>在onCreate方法中 通过get方法获取该值。</p>
-<p> 代码如下：</p>
-<pre><code><span class="keyword">private</span> <span class="keyword">int</span> schoolId;
-<span class="keyword">public</span> <span class="keyword">static</span> <span class="function">TeacherFragment <span class="title">newInstance</span><span class="params">(<span class="keyword">int</span> schoolId)</span> </span>{
-    Bundle args = <span class="keyword">new</span> Bundle();
-    args.putInt(<span class="string">"schoolid"</span>, schoolId);
-    TeacherFragment fragment = <span class="keyword">new</span> TeacherFragment();
-    fragment.setArguments(args);
-    <span class="keyword">return</span> fragment;
-}
-
- <span class="annotation">@Override</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
-    <span class="keyword">super</span>.onCreate(savedInstanceState);
-    Bundle args = getArguments();
-    schoolId = args.getInt(<span class="string">"schoolid"</span>);
-}
-</code></pre></li>
-</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -180,7 +171,7 @@ layout=<span class="string">"@layout/common_view_actionbar_right_text"</span> /&
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/BNJ/">BNJ</a>
+  <span></span> <a href="/tags/onTouchEvent/">onTouchEvent</a>
   </div>
 
 </div>
@@ -189,7 +180,7 @@ layout=<span class="string">"@layout/common_view_actionbar_right_text"</span> /&
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/17/2015-09-13-BNJSummarize/" data-title="BNJ项目学到的知识点 | Share" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" data-title="OnTouchEvent事件分发机制 | Share" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -203,18 +194,18 @@ layout=<span class="string">"@layout/common_view_actionbar_right_text"</span> /&
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-11-DrawerLayout/" title="DrawerLayout抽屉">
+ <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view">
   <strong>上一篇：</strong><br/>
   <span>
-  DrawerLayout抽屉</span>
+  自定义view</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-10-RegEx/"  title="正则表达式的总结">
+<a href="/2015/09/01/2015-09-01-ListView/"  title="ListView的理解">
  <strong>下一篇：</strong><br/> 
- <span>正则表达式的总结
+ <span>ListView的理解
 </span>
 </a>
 </div>
@@ -235,7 +226,7 @@ layout=<span class="string">"@layout/common_view_actionbar_right_text"</span> /&
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-14"><span class="toc-number">1.</span> <span class="toc-text">2015-09-14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决多个按钮同时点击的bug"><span class="toc-number">1.1.</span> <span class="toc-text">如何解决多个按钮同时点击的bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将程序设置成无标题栏，自己定义Actionbar"><span class="toc-number">1.2.</span> <span class="toc-text">将程序设置成无标题栏，自己定义Actionbar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-10"><span class="toc-number">2.</span> <span class="toc-text">2015-09-10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置EditText默认不弹出小键盘"><span class="toc-number">2.1.</span> <span class="toc-text">设置EditText默认不弹出小键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15"><span class="toc-number">3.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置listview无点击背景效果"><span class="toc-number">3.1.</span> <span class="toc-text">设置listview无点击背景效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15-1"><span class="toc-number">4.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">4.1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-16"><span class="toc-number">5.</span> <span class="toc-text">2015-09-16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)"><span class="toc-number">5.1.</span> <span class="toc-text">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
@@ -413,6 +404,11 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
   $(window).resize(function(){
     getSize(); 

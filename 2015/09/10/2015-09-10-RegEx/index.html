@@ -4,44 +4,57 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>集合删除元素总结 | Share</title>
+    <title>正则表达式的总结 | Share</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+    <meta name="description" content="基本语法
+元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+
+‘.’ 表示匹配除了换行符之外的任何字符
+
+‘*’ 表示匹配除了换行符之外任意数量的字符
+  例子：Erintrus后面有PROG 
+\bErintrus\b.*\bProg\b
+  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符
+  例子：匹配erintrus.github.io 和c:/erintrus">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合删除元素总结">
-<meta property="og:url" content="erintrus.github.io/2015/09/16/ArrayListDelete/index.html">
+<meta property="og:title" content="正则表达式的总结">
+<meta property="og:url" content="erintrus.github.io/2015/09/10/2015-09-10-RegEx/index.html">
 <meta property="og:site_name" content="Share">
-<meta property="og:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
-<meta property="og:updated_time" content="2015-09-16T15:42:45.402Z">
+<meta property="og:description" content="基本语法
+元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+
+‘.’ 表示匹配除了换行符之外的任何字符
+
+‘*’ 表示匹配除了换行符之外任意数量的字符
+  例子：Erintrus后面有PROG 
+\bErintrus\b.*\bProg\b
+  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符
+  例子：匹配erintrus.github.io 和c:/erintrus">
+<meta property="og:image" content="http://chuantu.biz/t2/13/1441866574x-954498775.jpg">
+<meta property="og:updated_time" content="2015-09-17T00:51:07.573Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合删除元素总结">
-<meta name="twitter:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+<meta name="twitter:title" content="正则表达式的总结">
+<meta name="twitter:description" content="基本语法
+元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+
+‘.’ 表示匹配除了换行符之外的任何字符
+
+‘*’ 表示匹配除了换行符之外任意数量的字符
+  例子：Erintrus后面有PROG 
+\bErintrus\b.*\bProg\b
+  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符
+  例子：匹配erintrus.github.io 和c:/erintrus">
 
     
     <link rel="alternative" href="/atom.xml" title="Share" type="application/atom+xml">
     
     
-    <link rel="icon" href="/img/bt,jpg">
+    <link rel="icon" href="/img/website.ico">
     
     
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
@@ -95,14 +108,14 @@ if (iterator.hasNext()) {
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/16/ArrayListDelete/" title="集合删除元素总结" itemprop="url">集合删除元素总结</a>
+      <a href="/2015/09/10/2015-09-10-RegEx/" title="正则表达式的总结" itemprop="url">正则表达式的总结</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T15:42:45.402Z" itemprop="datePublished"> Published 2015-09-16</time>
+    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-10</time>
     
   </p>
 </header>
@@ -111,30 +124,73 @@ if (iterator.hasNext()) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元字符"><span class="toc-number">1.0.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">1.0.2.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="比较两段代码的不同">比较两段代码的不同</h3><p>示例一：</p>
-<pre><code>  <span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; <span class="keyword">iterator</span> = showList.<span class="keyword">iterator</span>();
-<span class="keyword">if</span> (<span class="keyword">iterator</span>.hasNext()) {
-      <span class="type">ShowInfo</span> delShow = <span class="keyword">iterator</span>.next();
-       <span class="keyword">if</span> (delShow.isCheck() == <span class="literal">true</span>) {
-           <span class="keyword">iterator</span>.remove();
-       }
-   }
-</code></pre><p>示例二</p>
-<pre><code><span class="keyword">for</span> (<span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; delList = showList.<span class="keyword">iterator</span>(); delList.hasNext(); ) {
-    <span class="type">ShowInfo</span> delInfo = delList.next();
-    <span class="keyword">if</span> (delInfo.isCheck() == <span class="literal">true</span>) {
-        delList.remove();
-    }
+		<h3 id="基本语法">基本语法</h3><hr>
+<h5 id="元字符">元字符</h5><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
+<ul>
+<li><p>‘.’ 表示匹配除了换行符之外的任何字符</p>
+</li>
+<li><p>‘*’ 表示匹配除了换行符之外任意数量的字符</p>
+<p>  例子：Erintrus后面有PROG </p>
+<pre><code><span class="command">\bErintrus</span><span class="command">\b</span>.*<span class="command">\bProg</span><span class="command">\b</span>
+</code></pre><p>  如果要匹配 ‘.’ 和’*’的话，就必须加转义字符</p>
+<p>  例子：匹配erintrus.github.io 和c:/erintrus </p>
+<pre><code><span class="tag">erintrus</span>\<span class="class">.github</span>\<span class="class">.com</span> 和<span class="rule"><span class="attribute">c</span>:<span class="value">//erintrus</span></span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>‘^’表示匹配字符串的开始</p>
+</li>
+<li><p>‘$’表示匹配字符串的结束</p>
+<p>  例子：输入5-12位QQ号码</p>
+<pre><code>^/d{<span class="number">5</span>,<span class="number">12</span>}$
+</code></pre></li>
+<li><p>\b表示英文单词的开始或者结束 （\b标签囊括的是一个单词）</p>
+<p>  例子: 限制输入只能为Erintrus     </p>
+<pre><code><span class="command">\bErintrus</span><span class="command">\b</span>
+</code></pre></li>
+<li><p>\d表示匹配0-9的任意字符（即数字）</p>
+<p>  例子：区号的电话  如 010-2254789</p>
+<pre><code>A. /<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>-/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="literal">d</span>
+B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span class="keyword">n</span>}表示前面连续重复匹配<span class="keyword">N</span>次
+</code></pre></li>
+<li><p>\d+ 跟\d* 的区别</p>
+<pre><code>前者匹配<span class="number">1</span>-n个数字，后者匹配<span class="number">0</span>-n个数字
+</code></pre></li>
+<li><p>\s匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格</p>
+</li>
+<li><p>\w匹配字母或数字或下划线（可以理解为表示字母）</p>
+<p>  例子：匹配以a开头的单词</p>
+<pre><code><span class="command">\ba</span><span class="command">\w*</span><span class="command">\b</span> （因为<span class="command">\b</span>里面必须是单词，所以这里<span class="command">\w</span>不会表示下划线或者数字）
+</code></pre></li>
+</ul>
+<h5 id="限定符">限定符</h5><p>(用于限定某个字符重复次数)</p>
+<p>例如上面的的 \d+ 表示匹配1-n个数字</p>
+<pre><code>即\d+ 可以表示成 <span class="number">2</span> 或者 <span class="number">2356</span>
+</code></pre><h4 id="正则表达式用在程序中">正则表达式用在程序中</h4><ul>
+<li>涉及相关类包括Pattern、Matcher</li>
+</ul>
+<pre><code>      <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> stringFilter(<span class="keyword">String</span> <span class="built_in">str</span>) <span class="keyword">throws</span> PatternSyntaxException {
+    <span class="comment">// 只允许字母和数字</span>
+    <span class="keyword">String</span> regEx = <span class="string">"[^a-zA-Z0-9_]"</span>;
+    Pattern p = Pattern.compile(regEx);
+    Matcher m = p.matcher(<span class="built_in">str</span>);
+    <span class="keyword">return</span> m.replaceAll(<span class="string">""</span>).<span class="built_in">trim</span>();
 }
-</code></pre>  
+</code></pre><p><img src="http://chuantu.biz/t2/13/1441866574x-954498775.jpg" alt=""></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/RegEx/">RegEx</a>
+  </div>
 
 </div>
 
@@ -142,7 +198,7 @@ if (iterator.hasNext()) {
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/16/ArrayListDelete/" data-title="集合删除元素总结 | Share" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/10/2015-09-10-RegEx/" data-title="正则表达式的总结 | Share" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,13 +212,21 @@ if (iterator.hasNext()) {
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-01-ListView/" title="ListView的理解">
+ <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析">
   <strong>上一篇：</strong><br/>
   <span>
-  ListView的理解</span>
+  MobileSafe源码分析</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/09/08/2015-09-08-Git/"  title="Git的学习">
+ <strong>下一篇：</strong><br/> 
+ <span>Git的学习
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -180,7 +244,7 @@ if (iterator.hasNext()) {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元字符"><span class="toc-number">1.0.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">1.0.2.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
  
   </div>
 
@@ -358,6 +422,11 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
   $(window).resize(function(){
     getSize(); 
