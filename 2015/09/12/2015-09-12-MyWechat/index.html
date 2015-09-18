@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441958324x1822613867.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142296x-954497544.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142229x-954497544.jpg">
-<meta property="og:updated_time" content="2015-09-17T15:23:53.715Z">
+<meta property="og:updated_time" content="2015-09-18T10:46:09.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高仿微信源码分析">
 <meta name="twitter:description" content="进入界面的知识点分析
@@ -102,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入界面的知识点分析"><span class="toc-number">1.</span> <span class="toc-text">进入界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主界面的知识点分析"><span class="toc-number">2.</span> <span class="toc-text">主界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将activity变成透明Activity"><span class="toc-number">3.</span> <span class="toc-text">如何将activity变成透明Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现一个对话框Activity"><span class="toc-number">4.</span> <span class="toc-text">如何实现一个对话框Activity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">4.1.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入界面的知识点分析"><span class="toc-number">1.</span> <span class="toc-text">进入界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主界面的知识点分析"><span class="toc-number">2.</span> <span class="toc-text">主界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将activity变成透明Activity"><span class="toc-number">3.</span> <span class="toc-text">如何将activity变成透明Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现一个对话框Activity(上面右图)"><span class="toc-number">4.</span> <span class="toc-text">如何实现一个对话框Activity(上面右图)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">4.1.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -450,9 +450,8 @@ view.<span class="built_in">add</span>(setting);
 </ol>
 <p>4.在配置文件里找到该activity 加入style属性即可。</p>
 <pre><code><span class="label">android:</span>theme=<span class="string">"@style/ErinStyle"</span>        
-</code></pre><p><img src="http://chuantu.biz/t2/13/1442142296x-954497544.jpg" alt=""></p>
-<h3 id="如何实现一个对话框Activity">如何实现一个对话框Activity</h3><p><img src="http://chuantu.biz/t2/13/1442142229x-954497544.jpg" alt=""></p>
-<ol>
+</code></pre><p><img src="http://chuantu.biz/t2/13/1442142296x-954497544.jpg" alt="">        <img src="http://chuantu.biz/t2/13/1442142229x-954497544.jpg" alt="">  </p>
+<h3 id="如何实现一个对话框Activity(上面右图)">如何实现一个对话框Activity(上面右图)</h3><ol>
 <li>写好布局文件 绑定Activity</li>
 <li>创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）</li>
 <li>然后设置其不显示标题、透明背景即可(相对于上述 代码简化了很多)</li>
@@ -522,7 +521,7 @@ view.<span class="built_in">add</span>(setting);
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入界面的知识点分析"><span class="toc-number">1.</span> <span class="toc-text">进入界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主界面的知识点分析"><span class="toc-number">2.</span> <span class="toc-text">主界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将activity变成透明Activity"><span class="toc-number">3.</span> <span class="toc-text">如何将activity变成透明Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现一个对话框Activity"><span class="toc-number">4.</span> <span class="toc-text">如何实现一个对话框Activity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">4.1.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入界面的知识点分析"><span class="toc-number">1.</span> <span class="toc-text">进入界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主界面的知识点分析"><span class="toc-number">2.</span> <span class="toc-text">主界面的知识点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将activity变成透明Activity"><span class="toc-number">3.</span> <span class="toc-text">如何将activity变成透明Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现一个对话框Activity(上面右图)"><span class="toc-number">4.</span> <span class="toc-text">如何实现一个对话框Activity(上面右图)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">4.1.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol>
  
   </div>
 
@@ -562,7 +561,7 @@ view.<span class="built_in">add</span>(setting);
 			
 		
 			
-				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader-ImageScaleType/" title="ImageLoader,ImageScaleType">ImageLoader,ImageScaleType<sup>1</sup></a></li>
 			
 		
 			

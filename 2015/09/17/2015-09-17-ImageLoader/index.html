@@ -11,19 +11,30 @@
     
 
     
-    <meta name="description" content="ImageLoader作用1.可以实现利用缓存加载图片，大大降低内存消耗等2.多线程加载图片
-jar包下载https://github.com/nostra13/Android-Universal-Image-Loader">
+    <meta name="description" content="2015-09-18 11:15:00ImageLoader作用
+多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中
+支持图片的内存缓存，文件系统缓存或者SD卡缓存
+支持图片下载过程的监听
+根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ImageLoader的理解">
 <meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-17-ImageLoader/index.html">
 <meta property="og:site_name" content="猿_Erin">
-<meta property="og:description" content="ImageLoader作用1.可以实现利用缓存加载图片，大大降低内存消耗等2.多线程加载图片
-jar包下载https://github.com/nostra13/Android-Universal-Image-Loader">
-<meta property="og:updated_time" content="2015-09-17T15:22:47.765Z">
+<meta property="og:description" content="2015-09-18 11:15:00ImageLoader作用
+多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中
+支持图片的内存缓存，文件系统缓存或者SD卡缓存
+支持图片下载过程的监听
+根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存">
+<meta property="og:image" content="http://chuantu.biz/t2/13/1442573025x-954498775.png">
+<meta property="og:image" content="http://chuantu.biz/t2/13/1442573046x-954498775.png">
+<meta property="og:updated_time" content="2015-09-18T10:59:29.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ImageLoader的理解">
-<meta name="twitter:description" content="ImageLoader作用1.可以实现利用缓存加载图片，大大降低内存消耗等2.多线程加载图片
-jar包下载https://github.com/nostra13/Android-Universal-Image-Loader">
+<meta name="twitter:description" content="2015-09-18 11:15:00ImageLoader作用
+多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中
+支持图片的内存缓存，文件系统缓存或者SD卡缓存
+支持图片下载过程的监听
+根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存">
 
     
     <link rel="alternative" href="/atom.xml" title="猿_Erin" type="application/atom+xml">
@@ -98,22 +109,72 @@ jar包下载https://github.com/nostra13/Android-Universal-Image-Loader">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader作用"><span class="toc-number">1.</span> <span class="toc-text">ImageLoader作用</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_11:15:00"><span class="toc-number">1.</span> <span class="toc-text">2015-09-18 11:15:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader作用"><span class="toc-number">1.1.</span> <span class="toc-text">ImageLoader作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_14:31:16"><span class="toc-number">2.</span> <span class="toc-text">2015-09-18 14:31:16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader加载的类型"><span class="toc-number">2.1.</span> <span class="toc-text">ImageLoader加载的类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_11:14:55"><span class="toc-number">3.</span> <span class="toc-text">2015-09-18 11:14:55</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader的加载、显示配置："><span class="toc-number">3.1.</span> <span class="toc-text">ImageLoader的加载、显示配置：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加载Image时的配置(ImageLoaderConfiguration)"><span class="toc-number">3.1.1.</span> <span class="toc-text">加载Image时的配置(ImageLoaderConfiguration)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_11:49:23"><span class="toc-number">4.</span> <span class="toc-text">2015-09-18 11:49:23</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#显示Image时的配置(DisplayImageOptions)"><span class="toc-number">4.0.1.</span> <span class="toc-text">显示Image时的配置(DisplayImageOptions)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_18:34:22"><span class="toc-number">5.</span> <span class="toc-text">2015-09-18 18:34:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载图片的方法"><span class="toc-number">5.1.</span> <span class="toc-text">加载图片的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OOM问题"><span class="toc-number">5.2.</span> <span class="toc-text">OOM问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_14:42:49"><span class="toc-number">6.</span> <span class="toc-text">2015-09-18 14:42:49</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageView_ScaleType"><span class="toc-number">6.1.</span> <span class="toc-text">ImageView ScaleType</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="ImageLoader作用">ImageLoader作用</h3><p>1.可以实现利用缓存加载图片，大大降低内存消耗等<br>2.多线程加载图片</p>
-<p>jar包下载<br><a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">https://github.com/nostra13/Android-Universal-Image-Loader</a></p>
+		<h2 id="2015-09-18_11:15:00">2015-09-18 11:15:00</h2><h3 id="ImageLoader作用">ImageLoader作用</h3><ol>
+<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
+<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
+<li>支持图片下载过程的监听</li>
+<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
+</ol>
  <a id="more"></a>
-<p>准备：<br>加权限<br> <uses-permission android:name="android.permission.INTERNET"><br>    <!-- Include next permission if you want to allow UIL to cache images on SD card --><br>    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">  </uses-permission></uses-permission></p>
-<p>使用：<br>1.下载jar包并导入<br>2.完成相应的初始化操作(MainActivity)<br>通过ImageLoaderConfiguration 的createDefault进行实例化<br>通过ImageLoader的getInstance().init()方法传入上述options对象</p>
-<p>3.进行相关的配置<br>通过DisplayImageOptions 的Builder方法实例化对象<br> DisplayImageOptions options = new DisplayImageOptions.Builder()<br>                .showImageOnLoading(R.drawable.ic_stub) // 设置加载时的图片 （使用loadImage方法加载时无效）<br>                .showImageForEmptyUri(R.drawable.ic_empty) // resource or drawable<br>                .showImageOnFail(R.drawable.ic_error) // 设置加载失败的图片<br>                .cacheInMemory(true) //设置使用内存缓存<br>                .cacheOnDisk(true)  //使用文件缓存<br>                .displayer(new RoundedBitmapDisplayer(20))  // 设置成圆角图片<br>                .bitmapConfig(Bitmap.Config.RGB_565)  //减少内存消耗<br>                .build();<br>ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对象设置）</p>
-<pre><code>上述图片显示displayer
-</code></pre><p>显示圆角 RoundedBitmapDisplayer (Displays bitmap with rounded corners)<br>淡入显示 FadeInBitmapDisplayer (Displays image with “fade in” animation)</p>
-<p>加载图片的方法有两种：loadImage跟displayImage<br>A.ImageLoader.getInstance().loadImage(uri地址，图片大小，上述配置，监听器，进度监听器)；<br>B.ImageLoader.getinstance().displayImage(uri地址，控件，上述配置，监听器，进度监听器);<br>区别：<br>A方法可以设置图片大小，即自定义下载图片的大小<br>B方法会根据控件大小及ImageScaleType来裁剪图片</p>
+<p>准备：</p>
+<p>1.<a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">下载jar包并导入</a></p>
+<p>2.加权限  </p>
+<pre><code>&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;  
+&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;  
+</code></pre><h2 id="2015-09-18_14:31:16">2015-09-18 14:31:16</h2><h3 id="ImageLoader加载的类型">ImageLoader加载的类型</h3><ul>
+<li>“<a href="http://site.com/image.png" target="_blank" rel="external">http://site.com/image.png</a>“ // from Web  </li>
+<li>“file:///mnt/sdcard/image.png” // from SD card</li>
+<li>“file:///mnt/sdcard/video.mp4” // from SD card  (video thumbnail)</li>
+<li>“content://media/external/images/media/13” // from content provider</li>
+<li>“content://media/external/video/media/13” // from content provider (video thumbnail)</li>
+<li>“assets://image.png” // from assets</li>
+<li>“drawable://“ + R.drawable.img // from drawables (non-9patch images)[用imageView.setImageResource(drawable)来代替]</li>
+</ul>
+<h2 id="2015-09-18_11:14:55">2015-09-18 11:14:55</h2><h3 id="ImageLoader的加载、显示配置：">ImageLoader的加载、显示配置：</h3><h4 id="加载Image时的配置(ImageLoaderConfiguration)">加载Image时的配置(ImageLoaderConfiguration)</h4><ul>
+<li>（默认配置）通过ImageLoaderConfiguration 的createDefault进行实例化  </li>
+<li>（自定义配置）通过new ImageLoaderConfiguration.Builder().builder()方法进行实例化。</li>
+</ul>
+<p>通常配置如下：</p>
+<pre><code>File diskCache = diskCache = StorageUtils.getOwnCacheDirectory(context, <span class="string">"BNJ_IMAGE_CACHE/"</span>);  
+ImageLoaderConfiguration config = <span class="keyword">new</span> ImageLoaderConfiguration.Builder(context)
+        .diskCache(<span class="keyword">new</span> UnlimitedDiscCache(diskCache)) <span class="comment">// 设置缓存路径</span>
+        .memoryCacheSize(<span class="number">2</span> * <span class="number">1024</span>) <span class="comment">// 设置缓存的最大字节</span>
+        .diskCacheFileNameGenerator(<span class="keyword">new</span> Md5FileNameGenerator())  <span class="comment">// 加密</span>
+        .denyCacheImageMultipleSizesInMemory() <span class="comment">// 禁止缓存显示不同大小的同一张图片</span>
+        .memoryCacheExtraOptions(<span class="number">800</span>, <span class="number">760</span>) <span class="comment">// 保存每个缓存图片的最大长和宽</span>
+        .diskCacheFileCount(<span class="number">100</span>) <span class="comment">//缓存的File数量 </span>
+        .build();
+</code></pre><p>使用：</p>
+<p>通过ImageLoader的getInstance().init()方法传入上述options对象.</p>
+<h2 id="2015-09-18_11:49:23">2015-09-18 11:49:23</h2><h4 id="显示Image时的配置(DisplayImageOptions)">显示Image时的配置(DisplayImageOptions)</h4><ul>
+<li>(自定义配置）通过new DisplayImageOptions.Builder().builder()方法实例化对象  </li>
+</ul>
+<p>通常配置如下： </p>
+<pre><code> DisplayImageOptions options = <span class="keyword">new</span> DisplayImageOptions.Builder()  
+            .showImageOnLoading(R.drawable.ic_stub) <span class="comment">// 设置加载时的图片 （使用loadImage方法加载时无效）</span>
+            .showImageForEmptyUri(R.drawable.ic_empty) <span class="comment">// resource or drawable  </span>
+            .showImageOnFail(R.drawable.ic_error) <span class="comment">// 设置加载失败的图片</span>
+            .cacheInMemory(<span class="literal">true</span>) <span class="comment">//设置使用内存缓存 </span>
+            .cacheOnDisk(<span class="literal">true</span>)  <span class="comment">//使用文件缓存</span>
+            .displayer(<span class="keyword">new</span> RoundedBitmapDisplayer(<span class="number">20</span>))  <span class="comment">// 设置成圆角图片   </span>
+            .bitmapConfig(Bitmap.Config.RGB_565)  <span class="comment">//减少内存消耗</span>
+            .delayBeforeLoading(<span class="number">100</span>) <span class="comment">//设置下载图片前的延时</span>
+            .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) 
+            .build();  
+
+ImageSize size= <span class="keyword">new</span> ImageSize(<span class="number">300</span>,<span class="number">300</span>);（大小可以通过创建ImageSize对象设置）
+
+上述图片显示displayer  
+</code></pre><p>显示圆角 RoundedBitmapDisplayer (Displays bitmap with rounded corners)<br>淡入显示 FadeInBitmapDisplayer (Displays image with “fade in” animation)  </p>
+<h2 id="2015-09-18_18:34:22">2015-09-18 18:34:22</h2><h3 id="加载图片的方法">加载图片的方法</h3><p>loadImage跟displayImage<br>A.ImageLoader.getInstance().loadImage(uri地址，图片大小，上述配置，监听器，进度监听器)；<br>B.ImageLoader.getinstance().displayImage(uri地址，控件，上述配置，监听器，进度监听器);<br>区别：<br>A方法可以设置图片大小，即自定义下载图片的大小<br>B方法会根据控件大小及ImageScaleType来裁剪图片</p>
 <p>监听器有两种：<br>SimpleImageLoadingListener（简单的监听器）<br>ImageLoadingListener （该监听器能实现 加载图片取消时，失败时的方法）<br>ImageLoadingProgressListener<br>5.最后在监听器的onLoadingComplete方法里，设置图片显示即可</p>
 <p>进阶<br>listView.setOnScrollListener(new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling));<br>第一个参数是imageLoader，第二个参数是滑动时是否加载图片，第三个参数是猛的滑动时是否加载图片</p>
-<p>如果使用了ImageLoader出现OutOfMemoryError的话,那么可以通过下列方法解决<br>关闭memory的cache<br>减少线程池的大小<br>用Bitmap.Config.RGB565代替ARGB8888<br>使用.imageScaleType(ImageScaleType.EXACTLY 或ImageScaleType.IN_SAMPLE_INT）<br>使用.diskCacheExtraOption(480, 320, null)</p>
+<h3 id="OOM问题">OOM问题</h3><p>如果使用了ImageLoader出现OutOfMemoryError的话,那么可以通过下列方法解决<br>关闭memory的cache<br>减少线程池的大小<br>用Bitmap.Config.RGB565代替ARGB8888<br>使用.imageScaleType(ImageScaleType.EXACTLY 或ImageScaleType.IN_SAMPLE_INT）<br>使用.diskCacheExtraOption(480, 320, null)</p>
+<h2 id="2015-09-18_14:42:49">2015-09-18 14:42:49</h2><h3 id="ImageView_ScaleType">ImageView ScaleType</h3><p><img src="http://chuantu.biz/t2/13/1442573025x-954498775.png" alt=""> <img src="http://chuantu.biz/t2/13/1442573046x-954498775.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +183,7 @@ jar包下载https://github.com/nostra13/Android-Universal-Image-Loader">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/ImageLoader/">ImageLoader</a>
+  <span></span> <a href="/tags/ImageLoader-ImageScaleType/">ImageLoader,ImageScaleType</a>
   </div>
 
 </div>
@@ -171,7 +232,7 @@ jar包下载https://github.com/nostra13/Android-Universal-Image-Loader">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader作用"><span class="toc-number">1.</span> <span class="toc-text">ImageLoader作用</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_11:15:00"><span class="toc-number">1.</span> <span class="toc-text">2015-09-18 11:15:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader作用"><span class="toc-number">1.1.</span> <span class="toc-text">ImageLoader作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_14:31:16"><span class="toc-number">2.</span> <span class="toc-text">2015-09-18 14:31:16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader加载的类型"><span class="toc-number">2.1.</span> <span class="toc-text">ImageLoader加载的类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_11:14:55"><span class="toc-number">3.</span> <span class="toc-text">2015-09-18 11:14:55</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader的加载、显示配置："><span class="toc-number">3.1.</span> <span class="toc-text">ImageLoader的加载、显示配置：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加载Image时的配置(ImageLoaderConfiguration)"><span class="toc-number">3.1.1.</span> <span class="toc-text">加载Image时的配置(ImageLoaderConfiguration)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_11:49:23"><span class="toc-number">4.</span> <span class="toc-text">2015-09-18 11:49:23</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#显示Image时的配置(DisplayImageOptions)"><span class="toc-number">4.0.1.</span> <span class="toc-text">显示Image时的配置(DisplayImageOptions)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_18:34:22"><span class="toc-number">5.</span> <span class="toc-text">2015-09-18 18:34:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载图片的方法"><span class="toc-number">5.1.</span> <span class="toc-text">加载图片的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OOM问题"><span class="toc-number">5.2.</span> <span class="toc-text">OOM问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-18_14:42:49"><span class="toc-number">6.</span> <span class="toc-text">2015-09-18 14:42:49</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageView_ScaleType"><span class="toc-number">6.1.</span> <span class="toc-text">ImageView ScaleType</span></a></li></ol></li></ol>
  
   </div>
 
@@ -211,7 +272,7 @@ jar包下载https://github.com/nostra13/Android-Universal-Image-Loader">
 			
 		
 			
-				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader-ImageScaleType/" title="ImageLoader,ImageScaleType">ImageLoader,ImageScaleType<sup>1</sup></a></li>
 			
 		
 			
