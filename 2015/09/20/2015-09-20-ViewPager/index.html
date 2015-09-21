@@ -4,37 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>DrawerLayout抽屉 | Coder_Erin</title>
+    <title>Coder_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="DrawerLayout的简单使用实现效果如下：
-
-上述分别是左抽屉跟右抽屉。 
-1.创建布局文件
-DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。">
+    <meta name="description" content="title: ViewPager的总结date: 2015-09-20 09:30:02 
+tag: ViewPagerViewPager实现方法2015-09-20 10:33:43传统ViewPager实现参考之前的高仿微信">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DrawerLayout抽屉">
-<meta property="og:url" content="erintrus.github.io/2015/09/11/2015-09-11-DrawerLayout/index.html">
+<meta property="og:title" content="Coder_Erin">
+<meta property="og:url" content="erintrus.github.io/2015/09/20/2015-09-20-ViewPager/index.html">
 <meta property="og:site_name" content="Coder_Erin">
-<meta property="og:description" content="DrawerLayout的简单使用实现效果如下：
-
-上述分别是左抽屉跟右抽屉。 
-1.创建布局文件
-DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。">
-<meta property="og:image" content="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png">
-<meta property="og:image" content="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png">
-<meta property="og:updated_time" content="2015-09-18T11:01:49.969Z">
+<meta property="og:description" content="title: ViewPager的总结date: 2015-09-20 09:30:02 
+tag: ViewPagerViewPager实现方法2015-09-20 10:33:43传统ViewPager实现参考之前的高仿微信">
+<meta property="og:updated_time" content="2015-09-20T02:41:59.837Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DrawerLayout抽屉">
-<meta name="twitter:description" content="DrawerLayout的简单使用实现效果如下：
-
-上述分别是左抽屉跟右抽屉。 
-1.创建布局文件
-DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左抽屉内容、右抽屉内容。">
+<meta name="twitter:title" content="Coder_Erin">
+<meta name="twitter:description" content="title: ViewPager的总结date: 2015-09-20 09:30:02 
+tag: ViewPagerViewPager实现方法2015-09-20 10:33:43传统ViewPager实现参考之前的高仿微信">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -93,14 +82,14 @@ DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/11/2015-09-11-DrawerLayout/" title="DrawerLayout抽屉" itemprop="url">DrawerLayout抽屉</a>
+      <a href="/2015/09/20/2015-09-20-ViewPager/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-10T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-11</time>
+    <time datetime="2015-09-20T02:41:59.837Z" itemprop="datePublished"> Published 2015-09-20</time>
     
   </p>
 </header>
@@ -109,55 +98,17 @@ DrawerLayout 里面有最多有三个节点(子布局)分别是主内容、左�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的相关方法、监听器"><span class="toc-number">2.</span> <span class="toc-text">DrawerLayout的相关方法、监听器</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tag:_ViewPager"><span class="toc-number">1.</span> <span class="toc-text">tag: ViewPager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ViewPager实现方法"><span class="toc-number">2.</span> <span class="toc-text">ViewPager实现方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-20_10:33:43"><span class="toc-number">3.</span> <span class="toc-text">2015-09-20 10:33:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传统ViewPager实现"><span class="toc-number">3.1.</span> <span class="toc-text">传统ViewPager实现</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="DrawerLayout的简单使用">DrawerLayout的简单使用</h3><p>实现效果如下：</p>
-<p><img src="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png" alt=""><img src="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png" alt=""></p>
-<p>上述分别是左抽屉跟右抽屉。 </p>
-<p>1.创建布局文件</p>
-<p>DrawerLayout 里面有最多有三个节点(子布局)<br>分别是主内容、左抽屉内容、右抽屉内容。<br> <a id="more"></a><br>代码如下：</p>
-<pre><code>&lt;android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.DrawerLayout</span>&gt;  
-
-    &lt;FrameLayout&gt;
-    <span class="comment">//这里是主布局</span>
-    &lt;/FrameLayout&gt;
-
-    &lt;RelativeLayout 
-    android:layout_gravity=<span class="string">"left"</span>&gt;
-    <span class="comment">//这里是左抽屉</span>
-    &lt;/RelativeLayout&gt;
-
-    &lt;RelativeLayout
-    android:layout_gravity=<span class="string">"right"</span>&gt;
-    <span class="comment">//这里是右抽屉</span>
-    &lt;/RelativeLayout&gt;
-
-&lt;/android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.DrawerLayout</span>&gt;
-</code></pre><p>通过layout_gravity属性设置是左抽屉(start、left)还是右抽屉(end、right)。</p>
-<p>2.在MainActivity中 获取两个抽屉id，然后获取其子view<br>假设左抽屉里面有个TextView，我们可以这样获取。  </p>
-<pre><code><span class="keyword">private</span> RelativeLayout rlLeft;  
-<span class="keyword">private</span> DrawerLayout drawerLayout;  
-<span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{  
-rlLeft=(RelativeLayout) findViewById(R.id.rlLeft);  
-TextView tv = (TextView)rlLeft.findViewById(R.id.tv);    
-}  
-</code></pre><h3 id="DrawerLayout的相关方法、监听器">DrawerLayout的相关方法、监听器</h3><p>方法：  </p>
-<p>openDrawer(ViewGroup)  打开抽屉，参数是layout，例如上面的rlLeft。<br>closeDrawer(ViewGroup) 关闭抽屉。<br>drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);关闭滑动<br>监听器：  </p>
-<p>setDrawerListener 其内部方法有onDrawerSlide、onDrawerOpened、onDrawerClosed、onDrawerStateChanged</p>
-<p><a href="http://www.mincoder.com/article/3305.shtml" target="_blank" rel="external">参考一</a><br><a href="http://www.linuxidc.com/Linux/2014-08/105502.htm" target="_blank" rel="external">参考二</a><br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0925/1713.html" target="_blank" rel="external">参考三</a></p>
-<p>进阶：<br>可以跟ActionBar连用。</p>
+		<p>title: ViewPager的总结<br>date: 2015-09-20 09:30:02 </p>
+<h2 id="tag:_ViewPager">tag: ViewPager</h2><h2 id="ViewPager实现方法">ViewPager实现方法</h2><h2 id="2015-09-20_10:33:43">2015-09-20 10:33:43</h2><h3 id="传统ViewPager实现">传统ViewPager实现</h3><p><a href="/2015/09/12/2015-09-12-MyWechat/">参考之前的高仿微信</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/DrawerLayout/">DrawerLayout</a>
-  </div>
 
 </div>
 
@@ -165,7 +116,7 @@ TextView tv = (TextView)rlLeft.findViewById(R.id.tv);
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/11/2015-09-11-DrawerLayout/" data-title="DrawerLayout抽屉 | Coder_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/20/2015-09-20-ViewPager/" data-title="Coder_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -178,19 +129,11 @@ TextView tv = (TextView)rlLeft.findViewById(R.id.tv);
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/12/2015-09-12-MyWechat/" title="高仿微信源码分析">
-  <strong>上一篇：</strong><br/>
-  <span>
-  高仿微信源码分析</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/10/2015-09-10-RegEx/"  title="正则表达式的总结">
+<a href="/2015/09/17/2015-09-17-ImageLoader/"  title="ImageLoader的理解">
  <strong>下一篇：</strong><br/> 
- <span>正则表达式的总结
+ <span>ImageLoader的理解
 </span>
 </a>
 </div>
@@ -205,7 +148,7 @@ TextView tv = (TextView)rlLeft.findViewById(R.id.tv);
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的简单使用"><span class="toc-number">1.</span> <span class="toc-text">DrawerLayout的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DrawerLayout的相关方法、监听器"><span class="toc-number">2.</span> <span class="toc-text">DrawerLayout的相关方法、监听器</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tag:_ViewPager"><span class="toc-number">1.</span> <span class="toc-text">tag: ViewPager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ViewPager实现方法"><span class="toc-number">2.</span> <span class="toc-text">ViewPager实现方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-20_10:33:43"><span class="toc-number">3.</span> <span class="toc-text">2015-09-20 10:33:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传统ViewPager实现"><span class="toc-number">3.1.</span> <span class="toc-text">传统ViewPager实现</span></a></li></ol></li></ol>
  
   </div>
 
