@@ -19,7 +19,7 @@ if(坐标&amp;lt;总长度-1)">
 <meta property="og:site_name" content="Coder_Erin">
 <meta property="og:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
 if(坐标&amp;lt;总长度-1)">
-<meta property="og:updated_time" content="2015-09-20T01:20:31.056Z">
+<meta property="og:updated_time" content="2015-09-23T07:20:41.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局常用的技巧">
 <meta name="twitter:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
@@ -114,6 +114,10 @@ if(坐标&amp;lt;总长度-1)">
 <pre><code>android：<span class="keyword">gravity</span>=<span class="string">"right"</span>  
 </code></pre><p>解决光标在两行字 中间的方法  </p>
 <pre><code><span class="label">android:</span>gravity=<span class="string">"top"</span>
+</code></pre><p>设置默认键盘不显示<br> android:windowSoftInputMode=”adjustNothing|stateHidden”</p>
+<p>光标移到最后</p>
+<pre><code>Editable ea = editText.getText()<span class="comment">;</span>
+editText.setSelection(ea.length())<span class="comment">;</span>
 </code></pre><h3 id="RadioButton、ImageView">RadioButton、ImageView</h3><p>Radiobutton<br>去掉圆圈  </p>
 <pre><code><span class="label">android:</span>button=<span class="string">"@null"</span>  
 </code></pre><p>改变圆圈样式，自定义shape</p>
@@ -174,18 +178,18 @@ if(坐标&amp;lt;总长度-1)">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误">
+ <a href="/2015/09/20/2015-09-20-ViewPager/" title="ViewPager的总结">
   <strong>上一篇：</strong><br/>
   <span>
-  常见的错误</span>
+  ViewPager的总结</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/13/2015-09-13-BNJSummarize/"  title="BNJ项目学到的知识点">
+<a href="/2015/09/17/2015-09-17-ImageLoader/"  title="ImageLoader的理解">
  <strong>下一篇：</strong><br/> 
- <span>BNJ项目学到的知识点
+ <span>ImageLoader的理解
 </span>
 </a>
 </div>
@@ -221,6 +225,10 @@ if(坐标&amp;lt;总长度-1)">
 		
 			
 				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
 			
 		
 			

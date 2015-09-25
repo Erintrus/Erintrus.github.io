@@ -17,7 +17,9 @@
 <meta property="og:url" content="erintrus.github.io/2015/09/08/2015-09-08-Git/index.html">
 <meta property="og:site_name" content="Coder_Erin">
 <meta property="og:description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
-<meta property="og:updated_time" content="2015-09-21T01:48:31.762Z">
+<meta property="og:image" content="http://www.liaoxuefeng.com/files/attachments/001384908811773187a597e2d844eefb11f5cf5d56135ca000/0">
+<meta property="og:image" content="http://chuantu.biz/t2/13/1442810070x-1566701584.png">
+<meta property="og:updated_time" content="2015-09-21T06:47:41.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的学习">
 <meta name="twitter:description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
@@ -95,7 +97,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-number"></span> <span class="toc-text">删除文件</span></a>
 		
 		</div>
 		
@@ -106,7 +108,7 @@
 <li>讲文件提交到版本库 git commit -m “这里添加修改说明” </li>
 <li>查看版本库现状 git status  </li>
 <li>查看修改内容（上次提交到现在修改） git diff  </li>
-<li>撤销修改(两种情况)  </li>
+<li>撤销修改(两种情况)<br>版本回退 git reset –hard commit_id</li>
 </ol>
 <ul>
 <li>未add到暂存区的时候用git checkout –file</li>
@@ -115,7 +117,46 @@
 <p>7.关联远程库  </p>
 <p>git clone git@github.com:用户名/w文件夹名.git</p>
 <pre><code>git clone git@github<span class="class">.com</span>:erintrus/erintrus<span class="class">.github</span><span class="class">.io</span><span class="class">.git</span>
-</code></pre>  
+</code></pre><h2 id="删除文件">删除文件</h2><ul>
+<li>删除文件  文件夹里删除Crop.md文件</li>
+<li>将其加入到暂存区  git rm 文件名  git rm Crop.md</li>
+<li>提交结果  git commit   </li>
+</ul>
+<p>8.分支操作  </p>
+<p>查看分支：git branch</p>
+<p>创建分支：git branch <name></name></p>
+<p>切换分支：git checkout <name></name></p>
+<p>创建+切换分支：git checkout -b <name></name></p>
+<p>合并某分支到当前分支：git merge <name>    （解决冲突）</name></p>
+<p>删除分支：git branch -d <name></name></p>
+<p>git checkout -b erintrus 后 ，流程如下</p>
+<p><img src="http://www.liaoxuefeng.com/files/attachments/001384908811773187a597e2d844eefb11f5cf5d56135ca000/0" alt=""></p>
+<p>9.<strong>git log 后退出dos 按一下q即可</strong>  </p>
+<p>10.修改bug 一般思路：</p>
+<p>把当前工作区状态保存起来，新建临时分支去修改bug，修复后合并分支，删除临时分支，恢复现场。  </p>
+<ul>
+<li>保存当前工作区的状态： git stash</li>
+<li>创建新的分支： git checkout -b Erintrus</li>
+<li>……..（一系列修改bug）</li>
+<li>恢复原先的工作区状态(两种方法)  <ul>
+<li>恢复工作区 git stash apply ，删除stash区数据 git stash drop</li>
+<li>恢复加删除git stash pop （上面两句的合并）</li>
+</ul>
+</li>
+</ul>
+<p>11.开发新功能 一般思路：</p>
+<p>新建临时分支去开发新的功能，然后合并，删除临时分支。<br>（删除未合并的分支用强行删除）<br>git branch -D <name></name></p>
+<p>12.多人协作</p>
+<p>情景：多人协作时，大家都会往master和dev分支上推送各自的修改。(会有冲突)</p>
+<p>推送分支：  </p>
+<p>猿A新建dev分支推送到远程库上(git push origin dev)<br>猿B从远程库clone下来是看不到dev分支的，所以需要创建一个dev分支，并且与远程库的dev分支关联</p>
+<pre><code>git checkout -b <span class="built_in">dev</span> origin/<span class="built_in">dev</span>
+</code></pre><p>多人修改同一文件：</p>
+<p>猿B在dev推送了自己对example.md文件的修改<br>猿A也对此文件做了修改 想git push，但是失败，需要先从远程库git pull，其git pull也报错，提示no tracking错误，则需要指定本地dev跟远程dev分支的链接</p>
+<pre><code><span class="label">git</span> <span class="keyword">branch </span>--set-upstream <span class="keyword">branch-name </span>origin/<span class="keyword">branch-name</span>
+</code></pre><p><img src="http://chuantu.biz/t2/13/1442810070x-1566701584.png" alt=""></p>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001376026233004c47f22a16d1f4fa289ce45f14bbc8f11000" target="_blank" rel="external">参考文章</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -172,7 +213,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-number"></span> <span class="toc-text">删除文件</span></a>
  
   </div>
 
@@ -193,6 +234,10 @@
 		
 			
 				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
 			
 		
 			

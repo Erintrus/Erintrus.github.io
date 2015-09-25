@@ -4,26 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>常见的错误 | Coder_Erin</title>
+    <title>PopupWindow | Coder_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
-错误原因： 不能把int的值传给String类型的方法.">
+    <meta name="description" content="2015-09-22 09:11:57PopupWindow 基本用法
+用一个View加载要显示的布局。
+创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
+设置PopupWindow的背景。(setBackgroundDrawable)
+设置PopupWindow的显示位置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见的错误">
-<meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-17-Error/index.html">
+<meta property="og:title" content="PopupWindow">
+<meta property="og:url" content="erintrus.github.io/2015/09/22/2015-09-21-PopupWindow/index.html">
 <meta property="og:site_name" content="Coder_Erin">
-<meta property="og:description" content="String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
-错误原因： 不能把int的值传给String类型的方法.">
-<meta property="og:updated_time" content="2015-09-17T15:22:33.129Z">
+<meta property="og:description" content="2015-09-22 09:11:57PopupWindow 基本用法
+用一个View加载要显示的布局。
+创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
+设置PopupWindow的背景。(setBackgroundDrawable)
+设置PopupWindow的显示位置">
+<meta property="og:updated_time" content="2015-09-22T01:27:59.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见的错误">
-<meta name="twitter:description" content="String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
-错误原因： 不能把int的值传给String类型的方法.">
+<meta name="twitter:title" content="PopupWindow">
+<meta name="twitter:description" content="2015-09-22 09:11:57PopupWindow 基本用法
+用一个View加载要显示的布局。
+创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
+设置PopupWindow的背景。(setBackgroundDrawable)
+设置PopupWindow的显示位置">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -82,14 +91,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误" itemprop="url">常见的错误</a>
+      <a href="/2015/09/22/2015-09-21-PopupWindow/" title="PopupWindow" itemprop="url">PopupWindow</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-17</time>
+    <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished"> Published 2015-09-22</time>
     
   </p>
 </header>
@@ -98,20 +107,42 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">1.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="String类型方法传非String类型的值">String类型方法传非String类型的值</h3><pre><code>android<span class="class">.content</span><span class="class">.res</span><span class="class">.Resources</span><span class="variable">$NotFoundException</span>: String resource ID #<span class="number">0</span>x1
-</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br> <a id="more"></a><br>例如 </p>
-<pre><code>textview.setText(<span class="number">1</span>);  
-</code></pre><p>解决办法：加一个空字符””  </p>
-<pre><code><span class="string">Error:</span>(<span class="number">28</span>, <span class="number">9</span>) Attribute application<span class="annotation">@theme</span> value=(<span class="annotation">@style</span>/ThemeActionBar) from AndroidManifest.<span class="string">xml:</span><span class="number">28</span>:<span class="number">9</span>
-is also present at XXXX-<span class="string">trunk:</span><span class="string">XXXXLib:</span><span class="string">unspecified:</span><span class="number">15</span>:<span class="number">9</span> value=(<span class="annotation">@style</span>/AppTheme)
-<span class="string">Suggestion:</span> add ‘<span class="string">tools:</span>replace=”<span class="string">android:</span>theme”‘ to &lt;application&gt; element at AndroidManifest.<span class="string">xml:</span><span class="number">24</span>:<span class="number">5</span> to override
-<span class="string">Error:</span>Execution failed <span class="keyword">for</span> task ‘:<span class="string">XXXX:</span>processDebugManifest’.
-</code></pre><p>解决办法：<br>在Manifest.xml的application标签下添加tools:replace=”android:icon, android:theme”（多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=”<a href="http://schemas.android.com/tools”，否则会找不到namespace）" target="_blank" rel="external">http://schemas.android.com/tools”，否则会找不到namespace）</a></p>
-  
+		<h2 id="2015-09-22_09:11:57">2015-09-22 09:11:57</h2><h3 id="PopupWindow_基本用法">PopupWindow 基本用法</h3><ol>
+<li>用一个View加载要显示的布局。</li>
+<li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
+<li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
+<li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
+</ol>
+<ul>
+<li><p>(showAsDropDown) 相对某个view的位置</p>
+<pre><code>public void showAsDropDown(View <span class="built_in">anchor</span>)
+
+public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff)
+
+public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff, int gravity)
+</code></pre></li>
+<li><p>(showAsLocation)</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
+
+<span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(IBinder token, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
+</code></pre></li>
+</ul>
+<pre><code>下述是示例代码：
+
+    View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,null);
+
+    PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">326</span>,RelativeLayout.LayoutParams.WRAP_CONTENT, <span class="literal">true</span>);
+
+    pop.setBackgroundDrawable(....);
+
+    <span class="keyword">int</span> menuShowXoff = (actionBar.getwidth()-pop.getWidth())/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span>
+
+    pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -119,7 +150,7 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Frequent-Fault/">Frequent_Fault</a>
+  <span></span> <a href="/tags/PopupWindow/">PopupWindow</a>
   </div>
 
 </div>
@@ -128,7 +159,7 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/17/2015-09-17-Error/" data-title="常见的错误 | Coder_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/22/2015-09-21-PopupWindow/" data-title="PopupWindow | Coder_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,19 +172,11 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/17/2015-09-17-ImageLoader/" title="ImageLoader的理解">
-  <strong>上一篇：</strong><br/>
-  <span>
-  ImageLoader的理解</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/13/2015-09-13-BNJSummarize/"  title="BNJ项目学到的知识点">
+<a href="/2015/09/20/2015-09-20-ViewPager/"  title="ViewPager的总结">
  <strong>下一篇：</strong><br/> 
- <span>BNJ项目学到的知识点
+ <span>ViewPager的总结
 </span>
 </a>
 </div>
@@ -168,7 +191,7 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">1.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法</span></a></li></ol></li></ol>
  
   </div>
 

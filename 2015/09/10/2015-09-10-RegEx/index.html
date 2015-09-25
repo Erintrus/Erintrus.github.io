@@ -28,7 +28,7 @@
 
 ‘*’ 表示匹配除了换行符之外任意数量的字符">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441866574x-954498775.jpg">
-<meta property="og:updated_time" content="2015-09-17T15:24:43.894Z">
+<meta property="og:updated_time" content="2015-09-25T02:46:26.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式的总结">
 <meta name="twitter:description" content="基本语法
@@ -134,7 +134,7 @@
 </li>
 <li><p>‘$’表示匹配字符串的结束</p>
 <p>  例子：输入5-12位QQ号码</p>
-<pre><code>^/d{<span class="number">5</span>,<span class="number">12</span>}$
+<pre><code>^\d{<span class="number">5</span>,<span class="number">12</span>}$
 </code></pre></li>
 <li><p>\b表示英文单词的开始或者结束 （\b标签囊括的是一个单词）</p>
 <p>  例子: 限制输入只能为Erintrus     </p>
@@ -142,8 +142,8 @@
 </code></pre></li>
 <li><p>\d表示匹配0-9的任意字符（即数字）</p>
 <p>  例子：区号的电话  如 010-2254789</p>
-<pre><code>A. /<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>-/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="keyword">d</span>/<span class="literal">d</span>
-B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span class="keyword">n</span>}表示前面连续重复匹配<span class="keyword">N</span>次
+<pre><code>A. \<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>-\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="literal">d</span>
+B. \<span class="keyword">d</span>{2}-\<span class="keyword">d</span>{8} {<span class="keyword">n</span>}表示前面连续重复匹配<span class="keyword">N</span>次
 </code></pre></li>
 <li><p>\d+ 跟\d* 的区别</p>
 <pre><code>前者匹配<span class="number">1</span>-n个数字，后者匹配<span class="number">0</span>-n个数字
@@ -247,6 +247,10 @@ B. /<span class="keyword">d</span>{2}-/<span class="keyword">d</span>{8} {<span 
 		
 			
 				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
 			
 		
 			

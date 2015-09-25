@@ -27,7 +27,7 @@
 根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442573025x-954498775.png">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442573046x-954498775.png">
-<meta property="og:updated_time" content="2015-09-18T11:05:03.364Z">
+<meta property="og:updated_time" content="2015-09-22T01:33:57.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ImageLoader的理解">
 <meta name="twitter:description" content="2015-09-18 11:15:00ImageLoader作用
@@ -173,7 +173,16 @@ ImageSize size= <span class="keyword">new</span> ImageSize(<span class="number">
 <h2 id="2015-09-18_18:34:22">2015-09-18 18:34:22</h2><h3 id="加载图片的方法">加载图片的方法</h3><p>loadImage跟displayImage<br>A.ImageLoader.getInstance().loadImage(uri地址，图片大小，上述配置，监听器，进度监听器)；<br>B.ImageLoader.getinstance().displayImage(uri地址，控件，上述配置，监听器，进度监听器);<br>区别：<br>A方法可以设置图片大小，即自定义下载图片的大小<br>B方法会根据控件大小及ImageScaleType来裁剪图片</p>
 <p>监听器有两种：<br>SimpleImageLoadingListener（简单的监听器）<br>ImageLoadingListener （该监听器能实现 加载图片取消时，失败时的方法）<br>ImageLoadingProgressListener<br>5.最后在监听器的onLoadingComplete方法里，设置图片显示即可</p>
 <p>进阶<br>listView.setOnScrollListener(new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling));<br>第一个参数是imageLoader，第二个参数是滑动时是否加载图片，第三个参数是猛的滑动时是否加载图片</p>
-<h3 id="OOM问题">OOM问题</h3><p>如果使用了ImageLoader出现OutOfMemoryError的话,那么可以通过下列方法解决<br>关闭memory的cache<br>减少线程池的大小<br>用Bitmap.Config.RGB565代替ARGB8888<br>使用.imageScaleType(ImageScaleType.EXACTLY 或ImageScaleType.IN_SAMPLE_INT）<br>使用.diskCacheExtraOption(480, 320, null)</p>
+<h3 id="OOM问题">OOM问题</h3><p>如果使用了ImageLoader出现OutOfMemoryError的话,那么可以通过下列方法解决<br>关闭memory的cache。</p>
+<ul>
+<li><p>减少线程池的大小</p>
+</li>
+<li><p>用Bitmap.Config.RGB565代替ARGB8888</p>
+</li>
+<li><p>使用.imageScaleType(ImageScaleType.EXACTLY 或ImageScaleType.IN_SAMPLE_INT）</p>
+</li>
+<li>使用.diskCacheExtraOption(480, 320, null)</li>
+</ul>
 <h2 id="2015-09-18_14:42:49">2015-09-18 14:42:49</h2><h3 id="ImageView_ScaleType">ImageView ScaleType</h3><p><img src="http://chuantu.biz/t2/13/1442573025x-954498775.png" alt=""> <img src="http://chuantu.biz/t2/13/1442573046x-954498775.png" alt=""></p>
   
 	</div>
@@ -206,10 +215,10 @@ ImageSize size= <span class="keyword">new</span> ImageSize(<span class="number">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/20/2015-09-20-ViewPager/" title="ViewPager的总结">
+ <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧">
   <strong>上一篇：</strong><br/>
   <span>
-  ViewPager的总结</span>
+  布局常用的技巧</span>
 </a>
 </div>
 
@@ -253,6 +262,10 @@ ImageSize size= <span class="keyword">new</span> ImageSize(<span class="number">
 		
 			
 				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
 			
 		
 			

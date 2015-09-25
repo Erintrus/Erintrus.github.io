@@ -80,6 +80,91 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/09/22/2015-09-21-PopupWindow/" title="PopupWindow" itemprop="url">PopupWindow</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished"> Published 2015-09-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2015-09-22_09:11:57">2015-09-22 09:11:57</h2><h3 id="PopupWindow_基本用法">PopupWindow 基本用法</h3><ol>
+<li>用一个View加载要显示的布局。</li>
+<li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
+<li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
+<li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
+</ol>
+<ul>
+<li><p>(showAsDropDown) 相对某个view的位置</p>
+<pre><code>public void showAsDropDown(View <span class="built_in">anchor</span>)
+
+public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff)
+
+public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff, int gravity)
+</code></pre></li>
+<li><p>(showAsLocation)</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
+
+<span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(IBinder token, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
+</code></pre></li>
+</ul>
+<pre><code>下述是示例代码：
+
+    View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,null);
+
+    PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">326</span>,RelativeLayout.LayoutParams.WRAP_CONTENT, <span class="literal">true</span>);
+
+    pop.setBackgroundDrawable(....);
+
+    <span class="keyword">int</span> menuShowXoff = (actionBar.getwidth()-pop.getWidth())/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span>
+
+    pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/PopupWindow/">PopupWindow</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/09/20/2015-09-20-ViewPager/" title="ViewPager的总结" itemprop="url">ViewPager的总结</a>
   </h1>
   <p class="article-author">By
@@ -110,6 +195,64 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/ViewPager/">ViewPager</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧" itemprop="url">布局常用的技巧</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
+<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/17/2015-09-17-Skills/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/小技巧/">小技巧</a>
   </div>
 
 </div>
@@ -228,64 +371,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/Frequent-Fault/">Frequent_Fault</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧" itemprop="url">布局常用的技巧</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
-<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/09/17/2015-09-17-Skills/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/小技巧/">小技巧</a>
   </div>
 
 </div>
@@ -605,62 +690,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/08/2015-09-08-Git/" title="Git的学习" itemprop="url">Git的学习</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-07T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="Git的语法">Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/09/08/2015-09-08-Git/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/git/">git</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -686,6 +715,10 @@
 		
 			
 				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
 			
 		
 			
