@@ -12,18 +12,18 @@
 
     
     <meta name="description" content="ViewPager实现方法传统ViewPager实现2015-09-20 10:33:43参考之前的高仿微信  
-Fragment+ViewPager2015-09-21 09:51:29">
+Fragment+ViewPager">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ViewPager的总结">
 <meta property="og:url" content="erintrus.github.io/2015/09/20/2015-09-20-ViewPager/index.html">
 <meta property="og:site_name" content="Coder_Erin">
 <meta property="og:description" content="ViewPager实现方法传统ViewPager实现2015-09-20 10:33:43参考之前的高仿微信  
-Fragment+ViewPager2015-09-21 09:51:29">
-<meta property="og:updated_time" content="2015-09-21T01:51:44.892Z">
+Fragment+ViewPager">
+<meta property="og:updated_time" content="2015-09-30T04:53:40.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ViewPager的总结">
 <meta name="twitter:description" content="ViewPager实现方法传统ViewPager实现2015-09-20 10:33:43参考之前的高仿微信  
-Fragment+ViewPager2015-09-21 09:51:29">
+Fragment+ViewPager">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -103,7 +103,38 @@ Fragment+ViewPager2015-09-21 09:51:29">
 		</div>
 		
 		<h2 id="ViewPager实现方法">ViewPager实现方法</h2><h3 id="传统ViewPager实现">传统ViewPager实现</h3><h4 id="2015-09-20_10:33:43">2015-09-20 10:33:43</h4><p><a href="/2015/09/12/2015-09-12-MyWechat/">参考之前的高仿微信</a>  </p>
-<h3 id="Fragment+ViewPager">Fragment+ViewPager</h3><h4 id="2015-09-21_09:51:29">2015-09-21 09:51:29</h4><a id="more"></a>  
+<h3 id="Fragment+ViewPager">Fragment+ViewPager</h3><a id="more"></a>  
+<h4 id="2015-09-21_09:51:29">2015-09-21 09:51:29</h4><p>为每个layout创建一个Fragment。<br>例如：</p>
+<ol>
+<li>创建一个类继承Fragment。</li>
+<li>装载该布局。</li>
+<li>创建一个适配器继承FragmentPagerAdapter。</li>
+<li>MainActivity中 讲Fragment集合作为参数传给Adapter即可。</li>
+</ol>
+<p>主要代码如下：  </p>
+<pre><code><span class="keyword">if</span> (fragments.<span class="built_in">size</span>() == <span class="number">0</span>) {  
+
+       <span class="keyword">if</span> (foundFragment == <span class="keyword">null</span>) {
+           foundFragment = <span class="keyword">new</span> FoundFragment();
+       }
+       <span class="keyword">if</span> (mineFragment == <span class="keyword">null</span>) {
+           mineFragment = <span class="keyword">new</span> MineFragment();
+
+       }
+       <span class="keyword">if</span> (msgFragment == <span class="keyword">null</span>) {
+           msgFragment = <span class="keyword">new</span> MsgFragment();
+       }
+       <span class="keyword">if</span> (teachFragment == <span class="keyword">null</span>) {
+           teachFragment = <span class="keyword">new</span> TeachFragment();
+       }
+       <span class="comment">//此处必须注意fragment顺序</span>
+       fragments.<span class="built_in">add</span>(teachFragment);
+       fragments.<span class="built_in">add</span>(msgFragment);
+       fragments.<span class="built_in">add</span>(foundFragment);
+       fragments.<span class="built_in">add</span>(mineFragment);
+   }
+   adapter = <span class="keyword">new</span> MainAdapter(getSupportFragmentManager(), fragments);
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
