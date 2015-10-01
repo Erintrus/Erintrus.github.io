@@ -4,32 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>MobileSafe源码分析 | Coder_Erin</title>
+    <title>Fragment | Coder_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="该源码学习到的小技巧
-
-退出整个程序的代码
-android.os.Process.killProcess(android.os.Process.myPid());">
+    <meta name="description" content="Fragment知识点总结2015-10-01 16:53:31####">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MobileSafe源码分析">
-<meta property="og:url" content="erintrus.github.io/2015/09/10/2015-09-10-MobileSafeAnalyze/index.html">
+<meta property="og:title" content="Fragment">
+<meta property="og:url" content="erintrus.github.io/2015/10/01/2015-10-01-Fragment/index.html">
 <meta property="og:site_name" content="Coder_Erin">
-<meta property="og:description" content="该源码学习到的小技巧
-
-退出整个程序的代码
-android.os.Process.killProcess(android.os.Process.myPid());">
-<meta property="og:updated_time" content="2015-09-17T15:25:41.422Z">
+<meta property="og:description" content="Fragment知识点总结2015-10-01 16:53:31####">
+<meta property="og:updated_time" content="2015-10-01T09:21:14.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MobileSafe源码分析">
-<meta name="twitter:description" content="该源码学习到的小技巧
-
-退出整个程序的代码
-android.os.Process.killProcess(android.os.Process.myPid());">
+<meta name="twitter:title" content="Fragment">
+<meta name="twitter:description" content="Fragment知识点总结2015-10-01 16:53:31####">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -88,14 +79,14 @@ android.os.Process.killProcess(android.os.Process.myPid());">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析" itemprop="url">MobileSafe源码分析</a>
+      <a href="/2015/10/01/2015-10-01-Fragment/" title="Fragment" itemprop="url">Fragment</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-10</time>
+    <time datetime="2015-10-01T08:52:53.000Z" itemprop="datePublished"> Published 2015-10-01</time>
     
   </p>
 </header>
@@ -104,78 +95,11 @@ android.os.Process.killProcess(android.os.Process.myPid());">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#该源码学习到的小技巧"><span class="toc-number">1.</span> <span class="toc-text">该源码学习到的小技巧</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment知识点总结"><span class="toc-number">1.</span> <span class="toc-text">Fragment知识点总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_16:53:31"><span class="toc-number">2.</span> <span class="toc-text">2015-10-01 16:53:31</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="该源码学习到的小技巧">该源码学习到的小技巧</h3><hr>
-<ul>
-<li><p>退出整个程序的代码</p>
-<pre><code><span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.killProcess</span>(<span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.myPid</span>());
-</code></pre><a id="more"></a>
-</li>
-<li><p>退出到桌面的代码</p>
-<pre><code><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();
-<span class="type">intent</span>.setAction(<span class="type">Intent</span>.ACTION_MAIN);
-<span class="type">intent</span>.addFlags(<span class="type">Intent</span>.FLAG_ACTIVITY_NEW_TASK);
-<span class="type">intent</span>.addCategory(<span class="type">Intent</span>.CATEGORY_HOME);
-startActivity(<span class="type">intent</span>);
-</code></pre></li>
-<li><p>如何判断是否第一进入本界面</p>
-<ol>
-<li>onCreate 获取一个SharedPreferences、同时创建一个xml文件。</li>
-<li>创建一个boolean变量isFirst 通过sp对象来获取其值。</li>
-<li>判断isFirst是否为true，是则做第一次的处理。</li>
-<li><p>第一次处理之后，要把boolean值设置为false，并传给xml文件里。</p>
-<p>代码如下</p>
-<p> private SharedPreferences sp;<br> private boolean isFirst = true;<br> public void onCreate(){<br> sp = getSharedPreferences(“Erintrus.xml”,MODE_PRIVATE);<br> isFirst = sp.getBoolean(“isFirst”,true);  </p>
-<pre><code><span class="keyword">if</span>(isFirst){  
-Editor <span class="keyword">editor</span> = sp.edit();
-<span class="comment">//做第一次进入界面的处理  </span>
-<span class="keyword">editor</span>.putBoolean(<span class="string">"isFirst"</span>,false);        <span class="comment">//改变xml文件里isFirst的值  </span>
-<span class="keyword">editor</span>.commit();  
-
-}
-</code></pre><p> }</p>
-</li>
-</ol>
-</li>
-<li><p>将常用的代码封装成一个类 IntentUtils类</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> IntentUtils{
-
-    <span class="keyword">public</span> void statrActivity(Context context , <span class="keyword">Class</span>&lt;?&gt; cls){
-        <span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(context,cls);
-        <span class="type">intent</span>.addFlags(<span class="type">Intent</span>.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(<span class="type">intent</span>);
-    }
-
-}
-</code></pre></li>
-<li><p>如何检测手机内装了什么APP？</p>
-<p>  相关类</p>
-<ul>
-<li>PackageManager</li>
-<li>ApplicationInfo</li>
-<li>ResolveInfo</li>
-<li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
-<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的标签 得到应用的信息。  </p>
-<p>例子：</p>
-<pre><code>PackageManager manager = getPackageManager();  
-<span class="number">1</span>. List<span class="variable">&lt;ApplicationInfo&gt;</span> appInfos = manager.getInstalledApplications(<span class="number">0</span>);  
-ApplicationInfo有如下方法：  
-<span class="built_in">load</span>Description、<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon、<span class="built_in">load</span>Logo
-
-//通过Intentfilter筛选  
-<span class="number">2</span>. Intent intent = new Intent(Intent.ACTION_MAIN, null);  
-intent.addCategory(Intent.CATEGORY_LAUNCHER);  
-List<span class="variable">&lt;ResolveInfo&gt;</span> reInfos = manager.queryIntentActivities(intent, <span class="number">0</span>);  
-ResolveInfo有如下方法：    
-<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon
-//<span class="built_in">load</span>Label就是获得程序名
-</code></pre></li>
-</ul>
-</li>
-</ul>
+		<h2 id="Fragment知识点总结">Fragment知识点总结</h2><h2 id="2015-10-01_16:53:31">2015-10-01 16:53:31</h2><p>#### </p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -184,7 +108,7 @@ ResolveInfo有如下方法：
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/小技巧/">小技巧</a>
+  <span></span> <a href="/tags/Fragment/">Fragment</a>
   </div>
 
 </div>
@@ -193,7 +117,7 @@ ResolveInfo有如下方法：
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/10/2015-09-10-MobileSafeAnalyze/" data-title="MobileSafe源码分析 | Coder_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/10/01/2015-10-01-Fragment/" data-title="Fragment | Coder_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -206,19 +130,11 @@ ResolveInfo有如下方法：
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/10/2015-09-10-RegEx/" title="正则表达式的总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  正则表达式的总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/08/2015-09-08-Git/"  title="Git的学习">
+<a href="/2015/09/30/2015-09-30-Shape/"  title="自定义控件显示形状(Shape)">
  <strong>下一篇：</strong><br/> 
- <span>Git的学习
+ <span>自定义控件显示形状(Shape)
 </span>
 </a>
 </div>
@@ -233,7 +149,7 @@ ResolveInfo有如下方法：
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#该源码学习到的小技巧"><span class="toc-number">1.</span> <span class="toc-text">该源码学习到的小技巧</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment知识点总结"><span class="toc-number">1.</span> <span class="toc-text">Fragment知识点总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_16:53:31"><span class="toc-number">2.</span> <span class="toc-text">2015-10-01 16:53:31</span></a></li></ol>
  
   </div>
 

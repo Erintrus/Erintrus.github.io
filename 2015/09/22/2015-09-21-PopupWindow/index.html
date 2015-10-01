@@ -25,7 +25,7 @@
 创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
 设置PopupWindow的背景。(setBackgroundDrawable)
 设置PopupWindow的显示位置">
-<meta property="og:updated_time" content="2015-09-30T10:17:08.520Z">
+<meta property="og:updated_time" content="2015-10-01T09:21:17.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PopupWindow">
 <meta name="twitter:description" content="2015-09-22 09:11:57PopupWindow 基本用法
@@ -116,6 +116,8 @@
 <li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
 <li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
 <li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
+<li>popupWindow.setFocusable(true);</li>
+<li>popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</li>
 </ol>
 <a id="more"></a>
 <ul>
@@ -126,23 +128,29 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
 public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff, int gravity)
 </code></pre></li>
-<li><p>(showAsLocation)</p>
+<li><p>(showAsLocation)相对于父控件的位置（例如正中央Gravity.CENTER，下方Gravity.BOTTOM等），可以设置偏移或无偏移</p>
 <pre><code><span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
 
 <span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(IBinder token, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
 </code></pre></li>
 </ul>
-<pre><code>下述是示例代码：
+<p>下述是示例代码：  </p>
+<pre><code>View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,null);
 
-    View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,null);
+PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">300</span>,<span class="number">300</span>, <span class="literal">true</span>); <span class="comment">//设置宽高</span>
+<span class="comment">//如果设置为自适应LinearLayout.LayoutParams.WRAP_CONTENT，则其宽高为背景图片的宽高</span>
 
-    PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">326</span>,RelativeLayout.LayoutParams.WRAP_CONTENT, <span class="literal">true</span>);
+pop.setBackgroundDrawable(context.getResource().getDrawable(R.drawable.test));
 
-    pop.setBackgroundDrawable(....);
+<span class="keyword">int</span> width = context.getResources().getDisplayMetrics().widthPixels;<span class="comment">//获取屏幕宽</span>
 
-    <span class="keyword">int</span> menuShowXoff = (actionBar.getwidth()-pop.getWidth())/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span>
+<span class="keyword">int</span> menuWidth = pop.getWidth();<span class="comment">//获取popupWindow的宽度，由于上述设置了300px,所以这的值是300</span>
 
-    pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
+<span class="keyword">int</span> menuShowXoff = (width-menuWidth)/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span>
+
+pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
+
+pw.showAtLocation(actionBar, Gravity.CENTER_HORIZONTAL|Gravity.TOP, <span class="number">0</span>, <span class="number">50</span>);
 </code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -183,9 +191,9 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
 
 <div class="next">
-<a href="/2015/09/20/2015-09-20-ViewPager/"  title="ViewPager的总结">
+<a href="/2015/09/20/2015-09-20-ViewPager(二)/"  title="ViewPager（二）">
  <strong>下一篇：</strong><br/> 
- <span>ViewPager的总结
+ <span>ViewPager（二）
 </span>
 </a>
 </div>
@@ -220,7 +228,11 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 			
 		
 			
-				<li><a href="/tags/动态布局-javaCode/" title="动态布局,javaCode">动态布局,javaCode<sup>1</sup></a></li>
+				<li><a href="/tags/shape-stroke-solid/" title="shape,stroke,solid">shape,stroke,solid<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
 			
 		
 			
@@ -228,7 +240,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 			
 		
 			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+				<li><a href="/tags/小技巧，MarkDown引用本地/" title="小技巧，MarkDown引用本地">小技巧，MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
@@ -240,11 +252,11 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 			
 		
 			
-				<li><a href="/tags/BNJ，Check，时间戳-屏幕宽高/" title="BNJ，Check，时间戳,屏幕宽高,">BNJ，Check，时间戳,屏幕宽高,<sup>1</sup></a></li>
+				<li><a href="/tags/BNJ，Check，时间戳-屏幕宽高/" title="BNJ，Check，时间戳,屏幕宽高">BNJ，Check，时间戳,屏幕宽高<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/小技巧，MarkDown引用本地/" title="小技巧，MarkDown引用本地">小技巧，MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/Viewpager（一）/" title="Viewpager（一）">Viewpager（一）<sup>1</sup></a></li>
 			
 		
 			
@@ -252,7 +264,11 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 			
 		
 			
-				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
+				<li><a href="/tags/动态布局-javaCode/" title="动态布局,javaCode">动态布局,javaCode<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
 			
 		
 			
@@ -276,11 +292,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 			
 		
 			
-				<li><a href="/tags/shape-stroke-solid/" title="shape,stroke,solid">shape,stroke,solid<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/MyWechat/" title="MyWechat">MyWechat<sup>1</sup></a></li>
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
 			
 		
 			
