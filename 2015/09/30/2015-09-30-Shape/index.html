@@ -4,35 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>PopupWindow | Coder_Erin</title>
+    <title>自定义控件显示形状(Shape) | Coder_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="2015-09-22 09:11:57PopupWindow 基本用法
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置">
+    <meta name="description" content="2015-09-30 18:00:19shape改变控件的背景shape自定义控件形状，改变背景就无效了  
+标签为shape主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）solid：主要属性 color填充整个控件的颜色stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PopupWindow">
-<meta property="og:url" content="erintrus.github.io/2015/09/22/2015-09-21-PopupWindow/index.html">
+<meta property="og:title" content="自定义控件显示形状(Shape)">
+<meta property="og:url" content="erintrus.github.io/2015/09/30/2015-09-30-Shape/index.html">
 <meta property="og:site_name" content="Coder_Erin">
-<meta property="og:description" content="2015-09-22 09:11:57PopupWindow 基本用法
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置">
-<meta property="og:updated_time" content="2015-09-30T10:17:08.520Z">
+<meta property="og:description" content="2015-09-30 18:00:19shape改变控件的背景shape自定义控件形状，改变背景就无效了  
+标签为shape主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）solid：主要属性 color填充整个控件的颜色stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大">
+<meta property="og:image" content="http://chuantu.biz/t2/14//1443606458x1729546411.png">
+<meta property="og:image" content="http://chuantu.biz/t2/14//1443606627x1729546411.png">
+<meta property="og:updated_time" content="2015-09-30T10:00:47.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PopupWindow">
-<meta name="twitter:description" content="2015-09-22 09:11:57PopupWindow 基本用法
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置">
+<meta name="twitter:title" content="自定义控件显示形状(Shape)">
+<meta name="twitter:description" content="2015-09-30 18:00:19shape改变控件的背景shape自定义控件形状，改变背景就无效了  
+标签为shape主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）solid：主要属性 color填充整个控件的颜色stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -91,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/22/2015-09-21-PopupWindow/" title="PopupWindow" itemprop="url">PopupWindow</a>
+      <a href="/2015/09/30/2015-09-30-Shape/" title="自定义控件显示形状(Shape)" itemprop="url">自定义控件显示形状(Shape)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished"> Published 2015-09-22</time>
+    <time datetime="2015-09-30T09:44:56.000Z" itemprop="datePublished"> Published 2015-09-30</time>
     
   </p>
 </header>
@@ -107,43 +100,50 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_18:00:19"><span class="toc-number">1.</span> <span class="toc-text">2015-09-30 18:00:19</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shape改变控件的背景"><span class="toc-number">1.0.1.</span> <span class="toc-text">shape改变控件的背景</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="2015-09-22_09:11:57">2015-09-22 09:11:57</h2><h3 id="PopupWindow_基本用法">PopupWindow 基本用法</h3><ol>
-<li>用一个View加载要显示的布局。</li>
-<li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
-<li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
-<li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
-</ol>
-<a id="more"></a>
-<ul>
-<li><p>(showAsDropDown) 相对某个view的位置</p>
-<pre><code>public void showAsDropDown(View <span class="built_in">anchor</span>)
+		<h2 id="2015-09-30_18:00:19">2015-09-30 18:00:19</h2><h4 id="shape改变控件的背景">shape改变控件的背景</h4><p>shape自定义控件形状，改变背景就无效了  </p>
+<p>标签为shape<br>主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）<br>solid：主要属性 color填充整个控件的颜色<br>stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大小<br>corners：主要属性radius 设置弧度<br>size：主要属性width、height 设置宽高，相同为圆<br>gradient：主要属性是startcolor endcolor</p>
+<p><img src="http://chuantu.biz/t2/14//1443606458x1729546411.png" alt=""></p>
+<p>主要用在 设置父布局的形状（LinearLayout等） 通过background来设置</p>
+<pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">layer-list</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+<span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span> <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>&gt;</span>
 
-public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff)
+    <span class="tag">&lt;<span class="title">item</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">shape</span> <span class="attribute">android:shape</span>=<span class="value">"oval"</span> &gt;</span>
+            <span class="tag">&lt;<span class="title">corners</span> <span class="attribute">android:radius</span>=<span class="value">"90dip"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">solid</span> <span class="attribute">android:color</span>=<span class="value">"#55ff44"</span> /&gt;</span>
+            <span class="tag">&lt;<span class="title">size</span> <span class="attribute">android:width</span>=<span class="value">"170dp"</span> <span class="attribute">android:height</span>=<span class="value">"170dp"</span>/&gt;</span>
+        <span class="tag">&lt;/<span class="title">shape</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
 
-public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff, int gravity)
-</code></pre></li>
-<li><p>(showAsLocation)</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
+    <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:bottom</span>=<span class="value">"8dp"</span> <span class="attribute">android:right</span>=<span class="value">"8dp"</span> <span class="attribute">android:top</span>=<span class="value">"8dp"</span> <span class="attribute">android:left</span>=<span class="value">"8dp"</span> &gt;</span>
+        <span class="tag">&lt;<span class="title">selector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:state_pressed</span>=<span class="value">"true"</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">shape</span> <span class="attribute">android:shape</span>=<span class="value">"oval"</span> &gt;</span>
+                    <span class="tag">&lt;<span class="title">corners</span> <span class="attribute">android:radius</span>=<span class="value">"90dip"</span>/&gt;</span>
+                    <span class="tag">&lt;<span class="title">solid</span> <span class="attribute">android:color</span>=<span class="value">"#e66b4f"</span> /&gt;</span>
+                    <span class="tag">&lt;<span class="title">size</span> <span class="attribute">android:width</span>=<span class="value">"162dp"</span> <span class="attribute">android:height</span>=<span class="value">"162dp"</span>/&gt;</span>
+                <span class="tag">&lt;/<span class="title">shape</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
 
-<span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(IBinder token, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
-</code></pre></li>
-</ul>
-<pre><code>下述是示例代码：
+            <span class="tag">&lt;<span class="title">item</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">shape</span> <span class="attribute">android:shape</span>=<span class="value">"oval"</span> &gt;</span>
+                    <span class="tag">&lt;<span class="title">corners</span> <span class="attribute">android:radius</span>=<span class="value">"90dip"</span>/&gt;</span>
+                    <span class="tag">&lt;<span class="title">solid</span> <span class="attribute">android:color</span>=<span class="value">"#f3876f"</span> /&gt;</span>
+                    <span class="tag">&lt;<span class="title">size</span> <span class="attribute">android:width</span>=<span class="value">"162dp"</span> <span class="attribute">android:height</span>=<span class="value">"162dp"</span>/&gt;</span>
+                <span class="tag">&lt;/<span class="title">shape</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
 
-    View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,null);
+        <span class="tag">&lt;/<span class="title">selector</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
 
-    PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">326</span>,RelativeLayout.LayoutParams.WRAP_CONTENT, <span class="literal">true</span>);
-
-    pop.setBackgroundDrawable(....);
-
-    <span class="keyword">int</span> menuShowXoff = (actionBar.getwidth()-pop.getWidth())/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span>
-
-    pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
-</code></pre>  
+<span class="tag">&lt;/<span class="title">layer-list</span>&gt;</span>
+</code></pre><p><img src="http://chuantu.biz/t2/14//1443606627x1729546411.png" alt=""></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -151,7 +151,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/PopupWindow/">PopupWindow</a>
+  <span></span> <a href="/tags/shape-stroke-solid/">shape,stroke,solid</a>
   </div>
 
 </div>
@@ -160,7 +160,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/22/2015-09-21-PopupWindow/" data-title="PopupWindow | Coder_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/30/2015-09-30-Shape/" data-title="自定义控件显示形状(Shape) | Coder_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -173,19 +173,11 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/30/2015-09-30-JAVA-Coding/" title="java代码动态布局">
-  <strong>上一篇：</strong><br/>
-  <span>
-  java代码动态布局</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/20/2015-09-20-ViewPager/"  title="ViewPager的总结">
+<a href="/2015/09/30/2015-09-30-JAVA-Coding/"  title="java代码动态布局">
  <strong>下一篇：</strong><br/> 
- <span>ViewPager的总结
+ <span>java代码动态布局
 </span>
 </a>
 </div>
@@ -200,7 +192,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_18:00:19"><span class="toc-number">1.</span> <span class="toc-text">2015-09-30 18:00:19</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shape改变控件的背景"><span class="toc-number">1.0.1.</span> <span class="toc-text">shape改变控件的背景</span></a></li></ol></li></ol></li></ol>
  
   </div>
 

@@ -4,35 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>PopupWindow | Coder_Erin</title>
+    <title>java代码动态布局 | Coder_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="2015-09-22 09:11:57PopupWindow 基本用法
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置">
+    <meta name="description" content="2015-09-30 15:18:08动态布局的基本知识ViewGroup.LayoutParams 设置的是子控件的属性Gravity 设置显示位置addView （RelativeLayout专有）将控件添加到父控件里setMargins 设置外边距addRule(属性,相对控件的id)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PopupWindow">
-<meta property="og:url" content="erintrus.github.io/2015/09/22/2015-09-21-PopupWindow/index.html">
+<meta property="og:title" content="java代码动态布局">
+<meta property="og:url" content="erintrus.github.io/2015/09/30/2015-09-30-JAVA-Coding/index.html">
 <meta property="og:site_name" content="Coder_Erin">
-<meta property="og:description" content="2015-09-22 09:11:57PopupWindow 基本用法
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置">
-<meta property="og:updated_time" content="2015-09-30T10:17:08.520Z">
+<meta property="og:description" content="2015-09-30 15:18:08动态布局的基本知识ViewGroup.LayoutParams 设置的是子控件的属性Gravity 设置显示位置addView （RelativeLayout专有）将控件添加到父控件里setMargins 设置外边距addRule(属性,相对控件的id)">
+<meta property="og:updated_time" content="2015-09-30T10:00:53.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PopupWindow">
-<meta name="twitter:description" content="2015-09-22 09:11:57PopupWindow 基本用法
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置">
+<meta name="twitter:title" content="java代码动态布局">
+<meta name="twitter:description" content="2015-09-30 15:18:08动态布局的基本知识ViewGroup.LayoutParams 设置的是子控件的属性Gravity 设置显示位置addView （RelativeLayout专有）将控件添加到父控件里setMargins 设置外边距addRule(属性,相对控件的id)">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -91,14 +79,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/22/2015-09-21-PopupWindow/" title="PopupWindow" itemprop="url">PopupWindow</a>
+      <a href="/2015/09/30/2015-09-30-JAVA-Coding/" title="java代码动态布局" itemprop="url">java代码动态布局</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished"> Published 2015-09-22</time>
+    <time datetime="2015-09-30T07:17:39.000Z" itemprop="datePublished"> Published 2015-09-30</time>
     
   </p>
 </header>
@@ -107,42 +95,26 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_15:18:08"><span class="toc-number">1.</span> <span class="toc-text">2015-09-30 15:18:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态布局的基本知识"><span class="toc-number">1.1.</span> <span class="toc-text">动态布局的基本知识</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="2015-09-22_09:11:57">2015-09-22 09:11:57</h2><h3 id="PopupWindow_基本用法">PopupWindow 基本用法</h3><ol>
-<li>用一个View加载要显示的布局。</li>
-<li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
-<li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
-<li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
+		<h2 id="2015-09-30_15:18:08">2015-09-30 15:18:08</h2><h3 id="动态布局的基本知识">动态布局的基本知识</h3><p>ViewGroup.LayoutParams 设置的是子控件的属性<br>Gravity 设置显示位置<br>addView （RelativeLayout专有）将控件添加到父控件里<br>setMargins 设置外边距<br>addRule(属性,相对控件的id)<br><a id="more"></a><br>实现步骤：  </p>
+<ol>
+<li>创建一个LayoutParams对象 lp，并且初始化控件 的大小。</li>
+<li>通过上述属性对象lp 设置外边距，内边距等属性。</li>
+<li>子控件用过setLayoutParams方法设置上述属性。</li>
+<li>将子控件添加到父控件即可。</li>
 </ol>
-<a id="more"></a>
-<ul>
-<li><p>(showAsDropDown) 相对某个view的位置</p>
-<pre><code>public void showAsDropDown(View <span class="built_in">anchor</span>)
-
-public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff)
-
-public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff, int gravity)
-</code></pre></li>
-<li><p>(showAsLocation)</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
-
-<span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(IBinder token, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
-</code></pre></li>
-</ul>
-<pre><code>下述是示例代码：
-
-    View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,null);
-
-    PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">326</span>,RelativeLayout.LayoutParams.WRAP_CONTENT, <span class="literal">true</span>);
-
-    pop.setBackgroundDrawable(....);
-
-    <span class="keyword">int</span> menuShowXoff = (actionBar.getwidth()-pop.getWidth())/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span>
-
-    pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
+<p>示例代码：</p>
+<pre><code>linearLayout = (LinearLayout)findViewById(R.id.llTest);  
+ImageView imageView = <span class="keyword">new</span> ImageView(<span class="keyword">this</span>);  
+<span class="comment">//此处LinearLayout必须与xml布局中定义的llTest一直，否则会报转型错误。  </span>
+LinearLayout.LayoutParams params = <span class="keyword">new</span> LinearLayout.LayoutParams(<span class="number">50</span>,<span class="number">50</span>);  
+params.setMargins(<span class="number">15</span>, <span class="number">0</span>, <span class="number">15</span>, <span class="number">0</span>);  
+params.gravity = Gravity.CENTER;
+imageView.setLayoutParams(lp);
+linearLayout.addView(imageView);
 </code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -151,7 +123,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/PopupWindow/">PopupWindow</a>
+  <span></span> <a href="/tags/动态布局-javaCode/">动态布局,javaCode</a>
   </div>
 
 </div>
@@ -160,7 +132,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/22/2015-09-21-PopupWindow/" data-title="PopupWindow | Coder_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/30/2015-09-30-JAVA-Coding/" data-title="java代码动态布局 | Coder_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -174,18 +146,18 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/30/2015-09-30-JAVA-Coding/" title="java代码动态布局">
+ <a href="/2015/09/30/2015-09-30-Shape/" title="自定义控件显示形状(Shape)">
   <strong>上一篇：</strong><br/>
   <span>
-  java代码动态布局</span>
+  自定义控件显示形状(Shape)</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/20/2015-09-20-ViewPager/"  title="ViewPager的总结">
+<a href="/2015/09/22/2015-09-21-PopupWindow/"  title="PopupWindow">
  <strong>下一篇：</strong><br/> 
- <span>ViewPager的总结
+ <span>PopupWindow
 </span>
 </a>
 </div>
@@ -200,7 +172,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_15:18:08"><span class="toc-number">1.</span> <span class="toc-text">2015-09-30 15:18:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态布局的基本知识"><span class="toc-number">1.1.</span> <span class="toc-text">动态布局的基本知识</span></a></li></ol></li></ol>
  
   </div>
 

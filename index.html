@@ -80,6 +80,155 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/09/30/2015-09-30-Shape/" title="自定义控件显示形状(Shape)" itemprop="url">自定义控件显示形状(Shape)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-30T09:44:56.000Z" itemprop="datePublished"> Published 2015-09-30</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2015-09-30_18:00:19">2015-09-30 18:00:19</h2><h4 id="shape改变控件的背景">shape改变控件的背景</h4><p>shape自定义控件形状，改变背景就无效了  </p>
+<p>标签为shape<br>主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）<br>solid：主要属性 color填充整个控件的颜色<br>stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大小<br>corners：主要属性radius 设置弧度<br>size：主要属性width、height 设置宽高，相同为圆<br>gradient：主要属性是startcolor endcolor</p>
+<p><img src="http://chuantu.biz/t2/14//1443606458x1729546411.png" alt=""></p>
+<p>主要用在 设置父布局的形状（LinearLayout等） 通过background来设置</p>
+<pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">layer-list</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+<span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span> <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">item</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">shape</span> <span class="attribute">android:shape</span>=<span class="value">"oval"</span> &gt;</span>
+            <span class="tag">&lt;<span class="title">corners</span> <span class="attribute">android:radius</span>=<span class="value">"90dip"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">solid</span> <span class="attribute">android:color</span>=<span class="value">"#55ff44"</span> /&gt;</span>
+            <span class="tag">&lt;<span class="title">size</span> <span class="attribute">android:width</span>=<span class="value">"170dp"</span> <span class="attribute">android:height</span>=<span class="value">"170dp"</span>/&gt;</span>
+        <span class="tag">&lt;/<span class="title">shape</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:bottom</span>=<span class="value">"8dp"</span> <span class="attribute">android:right</span>=<span class="value">"8dp"</span> <span class="attribute">android:top</span>=<span class="value">"8dp"</span> <span class="attribute">android:left</span>=<span class="value">"8dp"</span> &gt;</span>
+        <span class="tag">&lt;<span class="title">selector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:state_pressed</span>=<span class="value">"true"</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">shape</span> <span class="attribute">android:shape</span>=<span class="value">"oval"</span> &gt;</span>
+                    <span class="tag">&lt;<span class="title">corners</span> <span class="attribute">android:radius</span>=<span class="value">"90dip"</span>/&gt;</span>
+                    <span class="tag">&lt;<span class="title">solid</span> <span class="attribute">android:color</span>=<span class="value">"#e66b4f"</span> /&gt;</span>
+                    <span class="tag">&lt;<span class="title">size</span> <span class="attribute">android:width</span>=<span class="value">"162dp"</span> <span class="attribute">android:height</span>=<span class="value">"162dp"</span>/&gt;</span>
+                <span class="tag">&lt;/<span class="title">shape</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
+
+            <span class="tag">&lt;<span class="title">item</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">shape</span> <span class="attribute">android:shape</span>=<span class="value">"oval"</span> &gt;</span>
+                    <span class="tag">&lt;<span class="title">corners</span> <span class="attribute">android:radius</span>=<span class="value">"90dip"</span>/&gt;</span>
+                    <span class="tag">&lt;<span class="title">solid</span> <span class="attribute">android:color</span>=<span class="value">"#f3876f"</span> /&gt;</span>
+                    <span class="tag">&lt;<span class="title">size</span> <span class="attribute">android:width</span>=<span class="value">"162dp"</span> <span class="attribute">android:height</span>=<span class="value">"162dp"</span>/&gt;</span>
+                <span class="tag">&lt;/<span class="title">shape</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
+
+        <span class="tag">&lt;/<span class="title">selector</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">item</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">layer-list</span>&gt;</span>
+</code></pre><p><img src="http://chuantu.biz/t2/14//1443606627x1729546411.png" alt=""></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/shape-stroke-solid/">shape,stroke,solid</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/30/2015-09-30-JAVA-Coding/" title="java代码动态布局" itemprop="url">java代码动态布局</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-30T07:17:39.000Z" itemprop="datePublished"> Published 2015-09-30</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2015-09-30_15:18:08">2015-09-30 15:18:08</h2><h3 id="动态布局的基本知识">动态布局的基本知识</h3><p>ViewGroup.LayoutParams 设置的是子控件的属性<br>Gravity 设置显示位置<br>addView （RelativeLayout专有）将控件添加到父控件里<br>setMargins 设置外边距<br>addRule(属性,相对控件的id)<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/30/2015-09-30-JAVA-Coding/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/动态布局-javaCode/">动态布局,javaCode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/09/22/2015-09-21-PopupWindow/" title="PopupWindow" itemprop="url">PopupWindow</a>
   </h1>
   <p class="article-author">By
@@ -99,35 +248,11 @@
 <li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
 <li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
 </ol>
-<ul>
-<li><p>(showAsDropDown) 相对某个view的位置</p>
-<pre><code>public void showAsDropDown(View <span class="built_in">anchor</span>)
-
-public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff)
-
-public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, int yoff, int gravity)
-</code></pre></li>
-<li><p>(showAsLocation)</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
-
-<span class="keyword">public</span> <span class="keyword">void</span> showAtLocation(IBinder token, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)
-</code></pre></li>
-</ul>
-<pre><code>下述是示例代码：
-
-    View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,null);
-
-    PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">326</span>,RelativeLayout.LayoutParams.WRAP_CONTENT, <span class="literal">true</span>);
-
-    pop.setBackgroundDrawable(....);
-
-    <span class="keyword">int</span> menuShowXoff = (actionBar.getwidth()-pop.getWidth())/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span>
-
-    pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
-</code></pre>
         
         
         <p class="article-more-link">
+          
+            <a href="/2015/09/22/2015-09-21-PopupWindow/#more">Read More</a>
           
        </p>
     </div>
@@ -178,8 +303,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 </header>
     <div class="article-content">
         
-        <h2 id="ViewPager实现方法">ViewPager实现方法</h2><h3 id="传统ViewPager实现">传统ViewPager实现</h3><h4 id="2015-09-20_10:33:43">2015-09-20 10:33:43</h4><p><a href="/2015/09/12/2015-09-12-MyWechat/">参考之前的高仿微信</a>  </p>
-<h3 id="Fragment+ViewPager">Fragment+ViewPager</h3>
+        <h3 id="ViewPager实现方法">ViewPager实现方法</h3><h2 id="2015-09-20_10:33:43">2015-09-20 10:33:43</h2><h4 id="传统ViewPager实现">传统ViewPager实现</h4><p><a href="/2015/09/12/2015-09-12-MyWechat/">参考之前的高仿微信</a><br>
         
         
         <p class="article-more-link">
@@ -252,7 +376,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/小技巧/">小技巧</a>
+  <span></span> <a href="/tags/小技巧，MarkDown引用本地/">小技巧，MarkDown引用本地</a>
   </div>
 
 </div>
@@ -429,7 +553,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/BNJ/">BNJ</a>
+  <span></span> <a href="/tags/BNJ，Check，时间戳-屏幕宽高/">BNJ，Check，时间戳,屏幕宽高,</a>
   </div>
 
 </div>
@@ -487,7 +611,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/check/">check</a>
+  <span></span> <a href="/tags/MyWechat/">MyWechat</a>
   </div>
 
 </div>
@@ -569,127 +693,6 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/10/2015-09-10-RegEx/" title="正则表达式的总结" itemprop="url">正则表达式的总结</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="基本语法">基本语法</h3><hr>
-<h5 id="元字符">元字符</h5><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
-<ul>
-<li><p>‘.’ 表示匹配除了换行符之外的任何字符</p>
-</li>
-<li><p>‘*’ 表示匹配除了换行符之外任意数量的字符</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/09/10/2015-09-10-RegEx/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/RegEx/">RegEx</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/" title="MobileSafe源码分析" itemprop="url">MobileSafe源码分析</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="该源码学习到的小技巧">该源码学习到的小技巧</h3><hr>
-<ul>
-<li><p>退出整个程序的代码</p>
-<pre><code><span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.killProcess</span>(<span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.myPid</span>());
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/09/10/2015-09-10-MobileSafeAnalyze/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/小技巧/">小技巧</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -710,15 +713,19 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>2</sup></a></li>
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+				<li><a href="/tags/动态布局-javaCode/" title="动态布局,javaCode">动态布局,javaCode<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager/" title="ViewPager">ViewPager<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
 			
 		
 			
@@ -730,19 +737,19 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 			
 		
 			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+				<li><a href="/tags/BNJ，Check，时间戳-屏幕宽高/" title="BNJ，Check，时间戳,屏幕宽高,">BNJ，Check，时间戳,屏幕宽高,<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/check/" title="check">check<sup>1</sup></a></li>
+				<li><a href="/tags/小技巧，MarkDown引用本地/" title="小技巧，MarkDown引用本地">小技巧，MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ViewPager/" title="ViewPager">ViewPager<sup>1</sup></a></li>
+				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
 			
 		
 			
@@ -763,6 +770,18 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 		
 			
 				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape-stroke-solid/" title="shape,stroke,solid">shape,stroke,solid<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MyWechat/" title="MyWechat">MyWechat<sup>1</sup></a></li>
+			
+		
+			
+		
 			
 		
 		</ul>
