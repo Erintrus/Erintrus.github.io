@@ -11,18 +11,22 @@
     
 
     
-    <meta name="description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
+    <meta name="description" content="2015-10-02 17:10:00ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
 if(坐标&amp;lt;总长度-1)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="布局常用的技巧">
 <meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-17-Skills/index.html">
 <meta property="og:site_name" content="Coder_Erin">
-<meta property="og:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
+<meta property="og:description" content="2015-10-02 17:10:00ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
 if(坐标&amp;lt;总长度-1)">
-<meta property="og:updated_time" content="2015-09-30T08:53:39.005Z">
+<meta property="og:image" content="http://chuantu.biz/t2/13/1441958136x1822613867.jpg">
+<meta property="og:image" content="http://chuantu.biz/t2/14//1444009699x-1566638331.png">
+<meta property="og:image" content="http://chuantu.biz/t2/13/1442142296x-954497544.jpg">
+<meta property="og:image" content="http://chuantu.biz/t2/13/1442142229x-954497544.jpg">
+<meta property="og:updated_time" content="2015-10-05T01:55:31.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局常用的技巧">
-<meta name="twitter:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
+<meta name="twitter:description" content="2015-10-02 17:10:00ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
 if(坐标&amp;lt;总长度-1)">
 
     
@@ -98,15 +102,32 @@ if(坐标&amp;lt;总长度-1)">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView_分割线"><span class="toc-number">1.</span> <span class="toc-text">ListView 分割线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ActionBar"><span class="toc-number"></span> <span class="toc-text">ActionBar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EditText、TextView"><span class="toc-number"></span> <span class="toc-text">EditText、TextView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RadioButton、ImageView"><span class="toc-number"></span> <span class="toc-text">RadioButton、ImageView</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#重要的知识点"><span class="toc-number">0.1.</span> <span class="toc-text">重要的知识点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker"><span class="toc-number"></span> <span class="toc-text">DatePicker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown引用格式"><span class="toc-number"></span> <span class="toc-text">markdown引用格式</span></a>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:00"><span class="toc-number">1.</span> <span class="toc-text">2015-10-02 17:10:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView_分割线"><span class="toc-number">1.0.1.</span> <span class="toc-text">ListView 分割线</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_18:18:23"><span class="toc-number">2.</span> <span class="toc-text">2015-10-03 18:18:23</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动界面"><span class="toc-number">2.0.1.</span> <span class="toc-text">启动界面</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04"><span class="toc-number">3.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActionBar"><span class="toc-number">3.0.1.</span> <span class="toc-text">ActionBar</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-1"><span class="toc-number">4.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EditText、TextView"><span class="toc-number">4.0.1.</span> <span class="toc-text">EditText、TextView</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-2"><span class="toc-number">5.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RadioButton、ImageView"><span class="toc-number">5.0.1.</span> <span class="toc-text">RadioButton、ImageView</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#重要的知识点"><span class="toc-number">5.0.1.1.</span> <span class="toc-text">重要的知识点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-3"><span class="toc-number">6.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker"><span class="toc-number">6.1.</span> <span class="toc-text">DatePicker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-4"><span class="toc-number">7.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#markdown引用格式"><span class="toc-number">7.0.1.</span> <span class="toc-text">markdown引用格式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:09:51"><span class="toc-number">8.</span> <span class="toc-text">2015-10-02 17:09:51</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何将activity变成透明Activity"><span class="toc-number">8.0.1.</span> <span class="toc-text">如何将activity变成透明Activity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现一个对话框Activity(上面右图)"><span class="toc-number">8.1.</span> <span class="toc-text">如何实现一个对话框Activity(上面右图)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">8.1.1.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
+		<h2 id="2015-10-02_17:10:00">2015-10-02 17:10:00</h2><h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
 <pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
 </code></pre> <a id="more"></a>
-<h3 id="ActionBar">ActionBar</h3><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
-<h3 id="EditText、TextView">EditText、TextView</h3><p>EditText background=”@null”可以去掉下划线<br>TextView 设置中心垂直 水平 无效果，是因为宽高的影响<br>EditText 设置字数限制 两种方法：<br>1.xml中设置maxLength属性<br>2.java调用setFilters方法  </p>
+<h2 id="2015-10-03_18:18:23">2015-10-03 18:18:23</h2><h4 id="启动界面">启动界面</h4><ul>
+<li>如何实现一个进入界面，例如微信、网易新闻。  </li>
+</ul>
+<p><img src="http://chuantu.biz/t2/13/1441958136x1822613867.jpg" alt=""></p>
+<pre><code><span class="number">1.</span> 创建一个布局文件，里面放一张图。
+<span class="number">2.</span> 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+
+        <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable(){ 
+
+            @<span class="function">Override
+                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
+                    Intent intent = <span class="keyword">new</span> Intent (Appstart.<span class="keyword">this</span>,Welcome.<span class="keyword">class</span>);
+                    startActivity(intent);            
+                    Appstart.<span class="keyword">this</span>.finish();
+                }
+
+        },<span class="number">1000</span>);  
+</code></pre><h2 id="2015-10-02_17:10:04">2015-10-02 17:10:04</h2><h4 id="ActionBar">ActionBar</h4><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
+<h2 id="2015-10-02_17:10:04-1">2015-10-02 17:10:04</h2><h4 id="EditText、TextView">EditText、TextView</h4><p>EditText background=”@null”可以去掉下划线<br>TextView 设置中心垂直 水平 无效果，是因为宽高的影响<br>EditText 设置字数限制 两种方法：<br>1.xml中设置maxLength属性<br>2.java调用setFilters方法  </p>
 <pre><code>editText.setFilters(<span class="keyword">new</span> InputFilter[]{<span class="keyword">new</span> InputFilter.LengthFilter(<span class="number">140</span>)});  
 </code></pre><p>TextView设置行间距  </p>
 <pre><code><span class="label">android:</span>lineSpacingExtra=<span class="string">"7dp"</span>  
@@ -114,11 +135,12 @@ if(坐标&amp;lt;总长度-1)">
 <pre><code>android：<span class="keyword">gravity</span>=<span class="string">"right"</span>  
 </code></pre><p>解决光标在两行字 中间的方法  </p>
 <pre><code><span class="label">android:</span>gravity=<span class="string">"top"</span>
-</code></pre><p>设置默认键盘不显示<br> android:windowSoftInputMode=”adjustNothing|stateHidden”</p>
+</code></pre><p><img src="http://chuantu.biz/t2/14//1444009699x-1566638331.png" alt=""></p>
+<p>设置默认键盘不显示<br> android:windowSoftInputMode=”adjustNothing|stateHidden”</p>
 <p>光标移到最后</p>
 <pre><code>Editable ea = editText.getText()<span class="comment">;</span>
 editText.setSelection(ea.length())<span class="comment">;</span>
-</code></pre><h3 id="RadioButton、ImageView">RadioButton、ImageView</h3><p>Radiobutton<br>去掉圆圈  </p>
+</code></pre><h2 id="2015-10-02_17:10:04-2">2015-10-02 17:10:04</h2><h4 id="RadioButton、ImageView">RadioButton、ImageView</h4><p>Radiobutton<br>去掉圆圈  </p>
 <pre><code><span class="label">android:</span>button=<span class="string">"@null"</span>  
 </code></pre><p>改变圆圈样式，自定义shape</p>
 <pre><code>android:drawableLeft、<span class="keyword">Right</span>、<span class="keyword">Top</span>、<span class="keyword">Bottom</span> 调用该图片
@@ -140,13 +162,115 @@ editText.setSelection(ea.length())<span class="comment">;</span>
     }
 }  
 </code></pre><h5 id="重要的知识点">重要的知识点</h5><p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。  </p>
-<h3 id="DatePicker">DatePicker</h3><p>DatePicker 必须 设置 显示样式  </p>
+<h2 id="2015-10-02_17:10:04-3">2015-10-02 17:10:04</h2><h3 id="DatePicker">DatePicker</h3><p>DatePicker 必须 设置 显示样式  </p>
 <pre><code><span class="keyword">android:datepickermode </span> 
 </code></pre><p>设置日历不显示  </p>
 <pre><code><span class="label">android:</span>calendarViewShown=<span class="string">"false"</span>  
-</code></pre><h3 id="markdown引用格式">markdown引用格式</h3><p>markdown引用格式：日期+文件名+”/“</p>
+</code></pre><h2 id="2015-10-02_17:10:04-4">2015-10-02 17:10:04</h2><h4 id="markdown引用格式">markdown引用格式</h4><p>markdown引用格式：日期+文件名+”/“</p>
 <pre><code>http://localhost:<span class="number">4000/2015</span>/<span class="number">09/17/2015</span>-09-17-ImageLoader/
 </code></pre><p><a href="/2015/09/17/2015-09-17-ImageLoader/">ImageLoader</a></p>
+<h2 id="2015-10-02_17:09:51">2015-10-02 17:09:51</h2><h4 id="如何将activity变成透明Activity">如何将activity变成透明Activity</h4><ol>
+<li>在布局里定义好自己的样式。</li>
+<li>创建一个Activity绑定该布局(setContentView)。</li>
+<li><p>在styles里创建一个style。</p>
+<pre><code>&lt;style <span class="property">name</span>=<span class="string">"ErinStyle"</span> &gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowNoTitle"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;&lt;!<span class="comment">--无标题栏--&gt;</span>
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowBackground"</span>&gt;@android:color/transparent&lt;/<span class="property">item</span>&gt; &lt;!<span class="comment">--背景透明--&gt;</span>
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;&lt;!<span class="comment">--去除启动activity黑屏--&gt;</span>
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:backgroundDimEnabled"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;&lt;!<span class="comment">--设置前个activity变暗--&gt;</span>
+    （另外还可以加入动画，默认是右边飞出 通过windowEnterAnimation、windowExitAnimation、windowAnimationStyle属性设置）
+    目前测试 前两者 无法直接设置在上述style  需要引用style才可以实现
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowAnimationStyle"</span>&gt;@style/ErinAnim&lt;/<span class="property">item</span>&gt;
+&lt;/style&gt; 
+</code></pre><p> 下面给出上下滑动式动画的配置（必须在style里声明 parent是animation）</p>
+<pre><code>&lt;style <span class="property">name</span>=<span class="string">"ErinAnim"</span> parent=<span class="string">"@android:style/Animation"</span>&gt;  
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowEnterAnimation"</span>&gt;@anim/push_top_in&lt;/<span class="property">item</span>&gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowExitAnimation"</span>&gt;@anim/push_top_out&lt;/<span class="property">item</span>&gt;
+&lt;/style&gt;
+</code></pre></li>
+</ol>
+<pre><code><span class="comment">//这个是弹出 push_top_in  </span>
+
+    &lt;<span class="built_in">scale</span> xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+        android:interpolator=<span class="string">"@android:anim/accelerate_decelerate_interpolator"</span>  
+        android:fromXScale=<span class="string">"1.0"</span>   
+        android:toXScale=<span class="string">"1.0"</span>   
+        android:fromYScale=<span class="string">"0"</span>   
+        android:toYScale=<span class="string">"1.0"</span>   
+        android:pivotX=<span class="string">"0"</span>  
+        android:pivotY=<span class="string">"10%"</span>  
+        android:duration=<span class="string">"200"</span>  &lt;/<span class="built_in">scale</span>&gt;
+
+
+<span class="comment">//这个是消失 push_top_out  </span>
+
+    &lt;<span class="built_in">scale</span> xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+        android:interpolator=<span class="string">"@android:anim/accelerate_decelerate_interpolator"</span>  
+        android:fromXScale=<span class="string">"1.0"</span>   
+        android:toXScale=<span class="string">"1.0"</span>   
+        android:fromYScale=<span class="string">"1.0"</span>   
+        android:toYScale=<span class="string">"0"</span>   
+        android:pivotX=<span class="string">"0"</span>  
+        android:pivotY=<span class="string">"10%"</span>  
+        android:duration=<span class="string">"200"</span> /&gt; 
+</code></pre><p>4.在配置文件里找到该activity 加入style属性即可。</p>
+<pre><code><span class="label">android:</span>theme=<span class="string">"@style/ErinStyle"</span>        
+</code></pre><p><img src="http://chuantu.biz/t2/13/1442142296x-954497544.jpg" alt="">        <img src="http://chuantu.biz/t2/13/1442142229x-954497544.jpg" alt="">  </p>
+<h3 id="如何实现一个对话框Activity(上面右图)">如何实现一个对话框Activity(上面右图)</h3><ol>
+<li>写好布局文件 绑定Activity</li>
+<li>创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）</li>
+<li>然后设置其不显示标题、透明背景即可(相对于上述 代码简化了很多)</li>
+</ol>
+<h4 id="ActivityDialog的总结">ActivityDialog的总结</h4><p>经过上述两个透明Activity的实现，可得出总结如下：</p>
+<ul>
+<li><p>如果style设置了parent的属性、则默认布局会显示在中部，并且自动去除进入Activity的黑色界面，如果没有设置，则要在布局文件里设置显示的位置。  </p>
+</li>
+<li><p>透明Activity的Style基本设置是 无标题、透明背景、前一个Activity变暗</p>
+</li>
+</ul>
+<p><a href="http://blog.csdn.net/lancees/article/details/25618237" target="_blank" rel="external">源码来自此人</a></p>
+<ul>
+<li><p>退出整个程序的代码</p>
+<pre><code><span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.killProcess</span>(<span class="tag">android</span><span class="class">.os</span><span class="class">.Process</span><span class="class">.myPid</span>());
+</code></pre></li>
+<li><p>退出到桌面的代码</p>
+<pre><code><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();
+<span class="type">intent</span>.setAction(<span class="type">Intent</span>.ACTION_MAIN);
+<span class="type">intent</span>.addFlags(<span class="type">Intent</span>.FLAG_ACTIVITY_NEW_TASK);
+<span class="type">intent</span>.addCategory(<span class="type">Intent</span>.CATEGORY_HOME);
+startActivity(<span class="type">intent</span>);
+</code></pre></li>
+<li><p>如何判断是否第一进入本界面</p>
+<ol>
+<li>onCreate 获取一个SharedPreferences、同时创建一个xml文件。</li>
+<li>创建一个boolean变量isFirst 通过sp对象来获取其值。</li>
+<li>判断isFirst是否为true，是则做第一次的处理。</li>
+<li><p>第一次处理之后，要把boolean值设置为false，并传给xml文件里。</p>
+<p>代码如下</p>
+<p> private SharedPreferences sp;<br> private boolean isFirst = true;<br> public void onCreate(){<br> sp = getSharedPreferences(“Erintrus.xml”,MODE_PRIVATE);<br> isFirst = sp.getBoolean(“isFirst”,true);  </p>
+<pre><code><span class="keyword">if</span>(isFirst){  
+Editor <span class="keyword">editor</span> = sp.edit();
+<span class="comment">//做第一次进入界面的处理  </span>
+<span class="keyword">editor</span>.putBoolean(<span class="string">"isFirst"</span>,false);        <span class="comment">//改变xml文件里isFirst的值  </span>
+<span class="keyword">editor</span>.commit();  
+
+}
+</code></pre><p> }</p>
+</li>
+</ol>
+</li>
+<li><p>将常用的代码封装成一个类 IntentUtils类</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> IntentUtils{
+
+    <span class="keyword">public</span> void statrActivity(Context context , <span class="keyword">Class</span>&lt;?&gt; cls){
+        <span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(context,cls);
+        <span class="type">intent</span>.addFlags(<span class="type">Intent</span>.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(<span class="type">intent</span>);
+    }
+
+}
+</code></pre></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -155,7 +279,7 @@ editText.setSelection(ea.length())<span class="comment">;</span>
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/小技巧，MarkDown引用本地/">小技巧，MarkDown引用本地</a>
+  <span></span> <a href="/tags/MarkDown引用本地/">MarkDown引用本地</a><a href="/tags/小技巧/">小技巧</a>
   </div>
 
 </div>
@@ -178,18 +302,18 @@ editText.setSelection(ea.length())<span class="comment">;</span>
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误">
+ <a href="/2015/09/17/2015-09-17-ImageLoader/" title="ImageLoader的理解">
   <strong>上一篇：</strong><br/>
   <span>
-  常见的错误</span>
+  ImageLoader的理解</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-17-ImageLoader/"  title="ImageLoader的理解">
+<a href="/2015/09/13/2015-09-13-BNJSummarize/"  title="BNJ项目学到的知识点">
  <strong>下一篇：</strong><br/> 
- <span>ImageLoader的理解
+ <span>BNJ项目学到的知识点
 </span>
 </a>
 </div>
@@ -204,7 +328,7 @@ editText.setSelection(ea.length())<span class="comment">;</span>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView_分割线"><span class="toc-number">1.</span> <span class="toc-text">ListView 分割线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ActionBar"><span class="toc-number"></span> <span class="toc-text">ActionBar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EditText、TextView"><span class="toc-number"></span> <span class="toc-text">EditText、TextView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RadioButton、ImageView"><span class="toc-number"></span> <span class="toc-text">RadioButton、ImageView</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#重要的知识点"><span class="toc-number">0.1.</span> <span class="toc-text">重要的知识点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker"><span class="toc-number"></span> <span class="toc-text">DatePicker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown引用格式"><span class="toc-number"></span> <span class="toc-text">markdown引用格式</span></a>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:00"><span class="toc-number">1.</span> <span class="toc-text">2015-10-02 17:10:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView_分割线"><span class="toc-number">1.0.1.</span> <span class="toc-text">ListView 分割线</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_18:18:23"><span class="toc-number">2.</span> <span class="toc-text">2015-10-03 18:18:23</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动界面"><span class="toc-number">2.0.1.</span> <span class="toc-text">启动界面</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04"><span class="toc-number">3.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActionBar"><span class="toc-number">3.0.1.</span> <span class="toc-text">ActionBar</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-1"><span class="toc-number">4.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EditText、TextView"><span class="toc-number">4.0.1.</span> <span class="toc-text">EditText、TextView</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-2"><span class="toc-number">5.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RadioButton、ImageView"><span class="toc-number">5.0.1.</span> <span class="toc-text">RadioButton、ImageView</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#重要的知识点"><span class="toc-number">5.0.1.1.</span> <span class="toc-text">重要的知识点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-3"><span class="toc-number">6.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker"><span class="toc-number">6.1.</span> <span class="toc-text">DatePicker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:10:04-4"><span class="toc-number">7.</span> <span class="toc-text">2015-10-02 17:10:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#markdown引用格式"><span class="toc-number">7.0.1.</span> <span class="toc-text">markdown引用格式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_17:09:51"><span class="toc-number">8.</span> <span class="toc-text">2015-10-02 17:09:51</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何将activity变成透明Activity"><span class="toc-number">8.0.1.</span> <span class="toc-text">如何将activity变成透明Activity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现一个对话框Activity(上面右图)"><span class="toc-number">8.1.</span> <span class="toc-text">如何实现一个对话框Activity(上面右图)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">8.1.1.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -220,11 +344,19 @@ editText.setSelection(ea.length())<span class="comment">;</span>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/Notification/" title="Notification">Notification<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/shape-stroke-solid/" title="shape,stroke,solid">shape,stroke,solid<sup>1</sup></a></li>
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动态布局/" title="动态布局">动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaCode/" title="JavaCode">JavaCode<sup>1</sup></a></li>
 			
 		
 			
@@ -232,15 +364,15 @@ editText.setSelection(ea.length())<span class="comment">;</span>
 			
 		
 			
-				<li><a href="/tags/ViewPager/" title="ViewPager">ViewPager<sup>1</sup></a></li>
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/小技巧，MarkDown引用本地/" title="小技巧，MarkDown引用本地">小技巧，MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ImageLoader-ImageScaleType/" title="ImageLoader,ImageScaleType">ImageLoader,ImageScaleType<sup>1</sup></a></li>
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
 			
 		
 			
@@ -248,11 +380,11 @@ editText.setSelection(ea.length())<span class="comment">;</span>
 			
 		
 			
-				<li><a href="/tags/BNJ，Check，时间戳-屏幕宽高/" title="BNJ，Check，时间戳,屏幕宽高">BNJ，Check，时间戳,屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Viewpager（一）/" title="Viewpager（一）">Viewpager（一）<sup>1</sup></a></li>
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
 			
 		
 			
@@ -260,7 +392,7 @@ editText.setSelection(ea.length())<span class="comment">;</span>
 			
 		
 			
-				<li><a href="/tags/动态布局-javaCode/" title="动态布局,javaCode">动态布局,javaCode<sup>1</sup></a></li>
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 			
@@ -288,11 +420,7 @@ editText.setSelection(ea.length())<span class="comment">;</span>
 			
 		
 			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-		
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 		</ul>

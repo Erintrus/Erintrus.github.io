@@ -1,0 +1,587 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Notification实际开发 | Coder_Erin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Erintrus">
+    
+
+    
+    <meta name="description" content="2015-10-03 14:53:24自定义Notification
+由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。
+通常Notification的用法如下：
+NotificationManager manager = (NotificationManager) getSystemServic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notification实际开发">
+<meta property="og:url" content="erintrus.github.io/2015/10/03/2015-10-03-Notification/index.html">
+<meta property="og:site_name" content="Coder_Erin">
+<meta property="og:description" content="2015-10-03 14:53:24自定义Notification
+由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。
+通常Notification的用法如下：
+NotificationManager manager = (NotificationManager) getSystemServic">
+<meta property="og:updated_time" content="2015-10-03T09:34:30.502Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notification实际开发">
+<meta name="twitter:description" content="2015-10-03 14:53:24自定义Notification
+由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。
+通常Notification的用法如下：
+NotificationManager manager = (NotificationManager) getSystemServic">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/Erintrus.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/Erintrus.png" alt="Coder_Erin" title="Coder_Erin"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Coder_Erin">Coder_Erin</a></h1>
+				<h2 class="blog-motto">You don&#39;t know me , you are about to .</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= GrAIQGkpD1 ><input type="text" name="q" size="30" placeholder="Search"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/03/2015-10-03-Notification/" title="Notification实际开发" itemprop="url">Notification实际开发</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-03T09:34:10.000Z" itemprop="datePublished"> Published 2015-10-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_14:53:24"><span class="toc-number">1.</span> <span class="toc-text">2015-10-03 14:53:24</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义Notification"><span class="toc-number">1.0.1.</span> <span class="toc-text">自定义Notification</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="2015-10-03_14:53:24">2015-10-03 14:53:24</h2><h4 id="自定义Notification">自定义Notification</h4><ul>
+<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
+<li><p>通常Notification的用法如下：</p>
+<pre><code>NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)
+        .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span>
+        .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span>
+        .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span>
+        .setAutoCancel(<span class="literal">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span>
+        .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span>
+        .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span>
+        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span>
+        .build();
+manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span>
+</code></pre></li>
+<li><p>如果要使用自定义Notification 需要用到RemoteViews的构造方法装载布局（统一使用该API的方法来设置布局里的控件）  </p>
+<pre><code> RemoteViews <span class="keyword">rv</span> = <span class="keyword">new</span> RemoteViews(getPackageName(), R.layout.activity_test);
+<span class="keyword">rv</span>.setTextViewText(R.id.tvTestFuntion, <span class="string">"我是自定义的 notification"</span>);
+notification.contentView = <span class="keyword">rv</span>; // 初始化RemoteViews
+</code></pre><p>  使用RemoteView可以会报下列错误，这是因为布局activity_test中使用了RemoteView不支持的控件，例如View。</p>
+<pre><code>android<span class="class">.app</span><span class="class">.RemoteServiceException</span>: Bad notification posted from XXX
+</code></pre></li>
+</ul>
+<pre><code>在RemoteViews这种调用方式中，你只能使用以下几种界面组件：  
+
+<span class="label">Layout:</span> 
+
+    FrameLayout, LinearLayout, RelativeLayout
+
+<span class="label">Component:</span> 
+
+      AnalogClock, Button, Chronometer, ImageButton, ImageView, ProgressBar, TextView, ViewFlipper, ListView, GridView, StackView, AdapterViewFlipper
+</code></pre><ul>
+<li><p>Intent与PendingIntent联合使用，实现点击消息进行跳转页面。</p>
+<ol>
+<li>Intent用于设置跳转的Activity。</li>
+<li>PendingIntent用于设置将要跳转的Intent。  </li>
+</ol>
+</li>
+<li><pre><code> Intent myIntent = <span class="keyword">new</span> Intent(SettingActivity.<span class="keyword">this</span>, AboutUsActivity.<span class="keyword">class</span>);
+PendingIntent pendingIntent = PendingIntent.getActivity(SettingActivity.<span class="keyword">this</span>, <span class="number">0</span>, myIntent, <span class="number">0</span>);<span class="comment">//装载Intent</span>
+notification.contentIntent = pendingIntent;<span class="comment">//初始化PedingIntent</span>
+</code></pre></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Notification/">Notification</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="erintrus.github.io/2015/10/03/2015-10-03-Notification/" data-title="Notification实际开发 | Coder_Erin" data-tsina="2954211562" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/03/2015-10-03-InterView/" title="天工面试">
+  <strong>上一篇：</strong><br/>
+  <span>
+  天工面试</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/02/2015-10-02-VersionUpdate/"  title="版本更新实际开发">
+ <strong>下一篇：</strong><br/> 
+ <span>版本更新实际开发
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_14:53:24"><span class="toc-number">1.</span> <span class="toc-text">2015-10-03 14:53:24</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义Notification"><span class="toc-number">1.0.1.</span> <span class="toc-text">自定义Notification</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Notification/" title="Notification">Notification<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动态布局/" title="动态布局">动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaCode/" title="JavaCode">JavaCode<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" title="Git">Git</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coding.net" target="_blank" title="Coding">Coding</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.apkbus.com/" target="_blank" title="Android">Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.devstore.cn/code/list/pc0-sc0-cp0-ft0-sp34-rt0-dl0-dt0-scs0-scp0-pn2-or0.html" target="_blank" title="Devstore">Devstore</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> You don&#39;t know me. <br/>
+			You are about to.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/tmourx" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/erintrus" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:erintrus@126.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

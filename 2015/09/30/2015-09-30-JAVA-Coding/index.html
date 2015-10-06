@@ -17,7 +17,7 @@
 <meta property="og:url" content="erintrus.github.io/2015/09/30/2015-09-30-JAVA-Coding/index.html">
 <meta property="og:site_name" content="Coder_Erin">
 <meta property="og:description" content="2015-09-30 15:18:08动态布局的基本知识ViewGroup.LayoutParams 设置的是子控件的属性Gravity 设置显示位置addView （RelativeLayout专有）将控件添加到父控件里setMargins 设置外边距addRule(属性,相对控件的id)">
-<meta property="og:updated_time" content="2015-09-30T10:00:53.083Z">
+<meta property="og:updated_time" content="2015-10-05T01:59:29.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java代码动态布局">
 <meta name="twitter:description" content="2015-09-30 15:18:08动态布局的基本知识ViewGroup.LayoutParams 设置的是子控件的属性Gravity 设置显示位置addView （RelativeLayout专有）将控件添加到父控件里setMargins 设置外边距addRule(属性,相对控件的id)">
@@ -115,6 +115,37 @@ params.setMargins(<span class="number">15</span>, <span class="number">0</span>,
 params.gravity = Gravity.CENTER;
 imageView.setLayoutParams(lp);
 linearLayout.addView(imageView);
+</code></pre><p>–</p>
+<pre><code>View actionBar = findViewById(R.id.action_bar)<span class="comment">;</span>
+
+RelativeLayout rlTest = new RelativeLayout(this)<span class="comment">;</span>
+int matchParent = RelativeLayout.LayoutParams.MATCH_PARENT<span class="comment">;</span>
+RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(matchParent, matchParent)<span class="comment">;</span>
+params.addRule(RelativeLayout.BELOW, actionBar.getId())<span class="comment">;</span>
+rlTest.setPadding(10, 10, 10, 10)<span class="comment">;</span>
+rlTest.setLayoutParams(params)<span class="comment">;</span>
+
+((ViewGroup) actionBar.getParent()).addView(rlTest)<span class="comment">;</span>
+
+ImageView iv = new ImageView(this)<span class="comment">;</span>
+iv.setImageResource(R.color.common_gray_line_color)<span class="comment">;</span>
+RelativeLayout.LayoutParams ivParams = new RelativeLayout.LayoutParams(122, 122)<span class="comment">;</span>
+iv.setLayoutParams(ivParams)<span class="comment">;</span>
+
+rlTest.addView(iv)<span class="comment">;</span>
+
+int ivId = iv.getId()<span class="comment">;</span>
+iv.setId(iv.hashCode())<span class="comment">;</span>
+ivId = iv.getId()<span class="comment">;</span>
+
+ImageView ivAdd = new ImageView(this)<span class="comment">;</span>
+ivAdd.setImageResource(R.drawable.personal_profile_icon_add_img)<span class="comment">;</span>
+ivAdd.setScaleType(ImageView.ScaleType.CENTER_INSIDE)<span class="comment">;</span>
+ivAdd.setBackgroundResource(R.color.common_gray_line_color)<span class="comment">;</span>
+RelativeLayout.LayoutParams ivAddParams = new RelativeLayout.LayoutParams(122, 122)<span class="comment">;</span>
+ivAddParams.addRule(RelativeLayout.RIGHT_OF, iv.getId())<span class="comment">;</span>
+ivAddParams.setMargins(8, 0, 0, 0)<span class="comment">;</span>
+rlTest.addView(ivAdd, ivAddParams)<span class="comment">;</span>
 </code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +154,7 @@ linearLayout.addView(imageView);
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/动态布局-javaCode/">动态布局,javaCode</a>
+  <span></span> <a href="/tags/JavaCode/">JavaCode</a><a href="/tags/动态布局/">动态布局</a>
   </div>
 
 </div>
@@ -188,11 +219,19 @@ linearLayout.addView(imageView);
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/Notification/" title="Notification">Notification<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/shape-stroke-solid/" title="shape,stroke,solid">shape,stroke,solid<sup>1</sup></a></li>
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动态布局/" title="动态布局">动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaCode/" title="JavaCode">JavaCode<sup>1</sup></a></li>
 			
 		
 			
@@ -200,15 +239,15 @@ linearLayout.addView(imageView);
 			
 		
 			
-				<li><a href="/tags/ViewPager/" title="ViewPager">ViewPager<sup>1</sup></a></li>
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/小技巧，MarkDown引用本地/" title="小技巧，MarkDown引用本地">小技巧，MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ImageLoader-ImageScaleType/" title="ImageLoader,ImageScaleType">ImageLoader,ImageScaleType<sup>1</sup></a></li>
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
 			
 		
 			
@@ -216,11 +255,11 @@ linearLayout.addView(imageView);
 			
 		
 			
-				<li><a href="/tags/BNJ，Check，时间戳-屏幕宽高/" title="BNJ，Check，时间戳,屏幕宽高">BNJ，Check，时间戳,屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Viewpager（一）/" title="Viewpager（一）">Viewpager（一）<sup>1</sup></a></li>
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
 			
 		
 			
@@ -228,7 +267,7 @@ linearLayout.addView(imageView);
 			
 		
 			
-				<li><a href="/tags/动态布局-javaCode/" title="动态布局,javaCode">动态布局,javaCode<sup>1</sup></a></li>
+				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
 			
 		
 			
@@ -256,11 +295,7 @@ linearLayout.addView(imageView);
 			
 		
 			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-		
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 		</ul>
