@@ -12,22 +12,49 @@
 
     
     <meta name="description" content="2015-10-02 17:10:00ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
-if(坐标&amp;lt;总长度-1)">
+if(坐标&amp;lt;总长度-1)
+如何取消分割线
+
+在java中取消  
+listView.setDividerHeight(0);
+
+listView.setDivider(null);
+
+在XML布局文件取消  
+android:divi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="布局常用的技巧">
 <meta property="og:url" content="erintrus.github.io/2015/09/17/2015-09-17-Skills/index.html">
 <meta property="og:site_name" content="Coder_Erin">
 <meta property="og:description" content="2015-10-02 17:10:00ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
-if(坐标&amp;lt;总长度-1)">
+if(坐标&amp;lt;总长度-1)
+如何取消分割线
+
+在java中取消  
+listView.setDividerHeight(0);
+
+listView.setDivider(null);
+
+在XML布局文件取消  
+android:divi">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1441958136x1822613867.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/14//1444009699x-1566638331.png">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142296x-954497544.jpg">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442142229x-954497544.jpg">
-<meta property="og:updated_time" content="2015-10-05T01:55:31.400Z">
+<meta property="og:updated_time" content="2015-10-07T10:12:17.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局常用的技巧">
 <meta name="twitter:description" content="2015-10-02 17:10:00ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
-if(坐标&amp;lt;总长度-1)">
+if(坐标&amp;lt;总长度-1)
+如何取消分割线
+
+在java中取消  
+listView.setDividerHeight(0);
+
+listView.setDivider(null);
+
+在XML布局文件取消  
+android:divi">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -108,7 +135,22 @@ if(坐标&amp;lt;总长度-1)">
 		
 		<h2 id="2015-10-02_17:10:00">2015-10-02 17:10:00</h2><h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
 <pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
-</code></pre> <a id="more"></a>
+</code></pre><p>如何取消分割线</p>
+<ul>
+<li><p>在java中取消  </p>
+<pre><code><span class="tag">listView</span><span class="class">.setDividerHeight</span>(0);
+
+<span class="tag">listView</span><span class="class">.setDivider</span>(<span class="tag">null</span>);
+</code></pre></li>
+<li><p>在XML布局文件取消  </p>
+<pre><code><span class="label">android:</span>divider=<span class="string">"#FFCC00"</span>  
+
+或      
+
+<span class="label">android:</span>divider=<span class="string">"@null"</span>
+</code></pre><a id="more"></a>
+</li>
+</ul>
 <h2 id="2015-10-03_18:18:23">2015-10-03 18:18:23</h2><h4 id="启动界面">启动界面</h4><ul>
 <li>如何实现一个进入界面，例如微信、网易新闻。  </li>
 </ul>
@@ -302,18 +344,18 @@ Editor <span class="keyword">editor</span> = sp.edit();
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-17-ImageLoader/" title="ImageLoader的理解">
+ <a href="/2015/09/20/2015-09-20-ViewPager_Two/" title="ViewPager（二）">
   <strong>上一篇：</strong><br/>
   <span>
-  ImageLoader的理解</span>
+  ViewPager（二）</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/13/2015-09-13-BNJSummarize/"  title="BNJ项目学到的知识点">
+<a href="/2015/09/17/2015-09-17-ImageLoader/"  title="ImageLoader的理解">
  <strong>下一篇：</strong><br/> 
- <span>BNJ项目学到的知识点
+ <span>ImageLoader的理解
 </span>
 </a>
 </div>
@@ -348,7 +390,27 @@ Editor <span class="keyword">editor</span> = sp.edit();
 			
 		
 			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
 			
 		
 			
@@ -364,35 +426,7 @@ Editor <span class="keyword">editor</span> = sp.edit();
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
 			
 		
 			
@@ -400,27 +434,35 @@ Editor <span class="keyword">editor</span> = sp.edit();
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Interface/" title="Interface">Interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
 			
 		
 		</ul>

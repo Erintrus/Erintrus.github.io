@@ -24,7 +24,7 @@
 在switch的每个case里判断isClick，执行完 设置isClick为false。
 重写Activity的onResume方法，设置isClick为true。">
 <meta property="og:image" content="http://chuantu.biz/t2/13/1442196435x-1566689245.jpg">
-<meta property="og:updated_time" content="2015-10-03T09:38:02.120Z">
+<meta property="og:updated_time" content="2015-10-16T01:27:33.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BNJ项目学到的知识点">
 <meta name="twitter:description" content="2015-09-14如何解决多个按钮同时点击的bug
@@ -105,7 +105,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-14"><span class="toc-number">1.</span> <span class="toc-text">2015-09-14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决多个按钮同时点击的bug"><span class="toc-number">1.1.</span> <span class="toc-text">如何解决多个按钮同时点击的bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将程序设置成无标题栏，自己定义Actionbar"><span class="toc-number">1.2.</span> <span class="toc-text">将程序设置成无标题栏，自己定义Actionbar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-10"><span class="toc-number">2.</span> <span class="toc-text">2015-09-10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置EditText默认不弹出小键盘"><span class="toc-number">2.1.</span> <span class="toc-text">设置EditText默认不弹出小键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15"><span class="toc-number">3.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置listview无点击背景效果"><span class="toc-number">3.1.</span> <span class="toc-text">设置listview无点击背景效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15-1"><span class="toc-number">4.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">4.1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-16"><span class="toc-number">5.</span> <span class="toc-text">2015-09-16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)"><span class="toc-number">5.1.</span> <span class="toc-text">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17"><span class="toc-number">6.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)"><span class="toc-number">6.0.1.</span> <span class="toc-text">一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17-1"><span class="toc-number">7.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#底部tags_check效果设置"><span class="toc-number">7.0.1.</span> <span class="toc-text">底部tags check效果设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20"><span class="toc-number">8.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳"><span class="toc-number">8.0.1.</span> <span class="toc-text">时间戳</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20-1"><span class="toc-number">9.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DatePicker_初始化日期"><span class="toc-number">9.0.1.</span> <span class="toc-text">DatePicker 初始化日期</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-25_10:47:40"><span class="toc-number">10.</span> <span class="toc-text">2015-09-25 10:47:40</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TextView显示字数限制必须小于服务端的字数限制"><span class="toc-number">10.0.1.</span> <span class="toc-text">TextView显示字数限制必须小于服务端的字数限制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:57:46"><span class="toc-number">11.</span> <span class="toc-text">2015-09-30 17:57:46</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取屏幕分辨率的宽高"><span class="toc-number">11.0.1.</span> <span class="toc-text">获取屏幕分辨率的宽高</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_09:01:47"><span class="toc-number">12.</span> <span class="toc-text">2015-10-01 09:01:47</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#震动和声音"><span class="toc-number">12.0.1.</span> <span class="toc-text">震动和声音</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_15:37:41"><span class="toc-number">13.</span> <span class="toc-text">2015-10-02 15:37:41</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#版本更新实际开发"><span class="toc-number">13.0.1.</span> <span class="toc-text">版本更新实际开发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_10:33:48"><span class="toc-number">14.</span> <span class="toc-text">2015-10-03 10:33:48</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#setEnable、setClickable的区别"><span class="toc-number">14.0.1.</span> <span class="toc-text">setEnable、setClickable的区别</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-14"><span class="toc-number">1.</span> <span class="toc-text">2015-09-14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决多个按钮同时点击的bug"><span class="toc-number">1.1.</span> <span class="toc-text">如何解决多个按钮同时点击的bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将程序设置成无标题栏，自己定义Actionbar"><span class="toc-number">1.2.</span> <span class="toc-text">将程序设置成无标题栏，自己定义Actionbar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-10"><span class="toc-number">2.</span> <span class="toc-text">2015-09-10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置EditText默认不弹出小键盘"><span class="toc-number">2.1.</span> <span class="toc-text">设置EditText默认不弹出小键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15"><span class="toc-number">3.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置listview无点击背景效果"><span class="toc-number">3.1.</span> <span class="toc-text">设置listview无点击背景效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15-1"><span class="toc-number">4.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">4.1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-16"><span class="toc-number">5.</span> <span class="toc-text">2015-09-16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)"><span class="toc-number">5.1.</span> <span class="toc-text">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17"><span class="toc-number">6.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)"><span class="toc-number">6.0.1.</span> <span class="toc-text">一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17-1"><span class="toc-number">7.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#底部tags_check效果设置"><span class="toc-number">7.0.1.</span> <span class="toc-text">底部tags check效果设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20"><span class="toc-number">8.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳"><span class="toc-number">8.0.1.</span> <span class="toc-text">时间戳</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20-1"><span class="toc-number">9.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DatePicker_初始化日期"><span class="toc-number">9.0.1.</span> <span class="toc-text">DatePicker 初始化日期</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-25_10:47:40"><span class="toc-number">10.</span> <span class="toc-text">2015-09-25 10:47:40</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TextView显示字数限制必须小于服务端的字数限制"><span class="toc-number">10.0.1.</span> <span class="toc-text">TextView显示字数限制必须小于服务端的字数限制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:57:46"><span class="toc-number">11.</span> <span class="toc-text">2015-09-30 17:57:46</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取屏幕分辨率的宽高"><span class="toc-number">11.0.1.</span> <span class="toc-text">获取屏幕分辨率的宽高</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_09:01:47"><span class="toc-number">12.</span> <span class="toc-text">2015-10-01 09:01:47</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#震动和声音"><span class="toc-number">12.0.1.</span> <span class="toc-text">震动和声音</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_15:37:41"><span class="toc-number">13.</span> <span class="toc-text">2015-10-02 15:37:41</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#版本更新实际开发"><span class="toc-number">13.0.1.</span> <span class="toc-text">版本更新实际开发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_10:33:48"><span class="toc-number">14.</span> <span class="toc-text">2015-10-03 10:33:48</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#setEnable、setClickable的区别"><span class="toc-number">14.0.1.</span> <span class="toc-text">setEnable、setClickable的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-13_10:22:08"><span class="toc-number">15.</span> <span class="toc-text">2015-10-13 10:22:08</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Application的理解"><span class="toc-number">15.0.1.</span> <span class="toc-text">Application的理解</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -221,6 +221,11 @@ vib.vibrate(500)<span class="comment">;</span>
    }
 </code></pre><h2 id="2015-10-02_15:37:41">2015-10-02 15:37:41</h2><h4 id="版本更新实际开发">版本更新实际开发</h4><p><a href="http://localhost:4000/2015/10/02/2015-10-02-VersionUpdate/" target="_blank" rel="external">版本更新</a></p>
 <h2 id="2015-10-03_10:33:48">2015-10-03 10:33:48</h2><h4 id="setEnable、setClickable的区别">setEnable、setClickable的区别</h4><p>setEnable 可以实现取按钮不能点击<br>setClickable 由于setOnClickListener会改变其属性，所以设置无效。不建议使用。</p>
+<h2 id="2015-10-13_10:22:08">2015-10-13 10:22:08</h2><h4 id="Application的理解">Application的理解</h4><pre><code><span class="label">Application</span> 用于保存整个应用程序的全局变量。可以初始化一些配置。例如网络配置、工具配置等。
+
+<span class="keyword">BNJ中的用处：
+</span>初始化用户的信息、机构的信息、网络配置 以及创建<span class="preprocessor">Global</span>
+</code></pre><p><a href="http://www.cnblogs.com/renqingping/archive/2012/10/24/Application.html" target="_blank" rel="external">Application参考一</a><br><a href="http://www.cnblogs.com/freeliver54/p/3633962.html" target="_blank" rel="external">Application参考二</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -252,10 +257,10 @@ vib.vibrate(500)<span class="comment">;</span>
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧">
+ <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误">
   <strong>上一篇：</strong><br/>
   <span>
-  布局常用的技巧</span>
+  常见的错误</span>
 </a>
 </div>
 
@@ -278,7 +283,7 @@ vib.vibrate(500)<span class="comment">;</span>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-14"><span class="toc-number">1.</span> <span class="toc-text">2015-09-14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决多个按钮同时点击的bug"><span class="toc-number">1.1.</span> <span class="toc-text">如何解决多个按钮同时点击的bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将程序设置成无标题栏，自己定义Actionbar"><span class="toc-number">1.2.</span> <span class="toc-text">将程序设置成无标题栏，自己定义Actionbar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-10"><span class="toc-number">2.</span> <span class="toc-text">2015-09-10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置EditText默认不弹出小键盘"><span class="toc-number">2.1.</span> <span class="toc-text">设置EditText默认不弹出小键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15"><span class="toc-number">3.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置listview无点击背景效果"><span class="toc-number">3.1.</span> <span class="toc-text">设置listview无点击背景效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15-1"><span class="toc-number">4.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">4.1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-16"><span class="toc-number">5.</span> <span class="toc-text">2015-09-16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)"><span class="toc-number">5.1.</span> <span class="toc-text">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17"><span class="toc-number">6.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)"><span class="toc-number">6.0.1.</span> <span class="toc-text">一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17-1"><span class="toc-number">7.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#底部tags_check效果设置"><span class="toc-number">7.0.1.</span> <span class="toc-text">底部tags check效果设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20"><span class="toc-number">8.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳"><span class="toc-number">8.0.1.</span> <span class="toc-text">时间戳</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20-1"><span class="toc-number">9.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DatePicker_初始化日期"><span class="toc-number">9.0.1.</span> <span class="toc-text">DatePicker 初始化日期</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-25_10:47:40"><span class="toc-number">10.</span> <span class="toc-text">2015-09-25 10:47:40</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TextView显示字数限制必须小于服务端的字数限制"><span class="toc-number">10.0.1.</span> <span class="toc-text">TextView显示字数限制必须小于服务端的字数限制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:57:46"><span class="toc-number">11.</span> <span class="toc-text">2015-09-30 17:57:46</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取屏幕分辨率的宽高"><span class="toc-number">11.0.1.</span> <span class="toc-text">获取屏幕分辨率的宽高</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_09:01:47"><span class="toc-number">12.</span> <span class="toc-text">2015-10-01 09:01:47</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#震动和声音"><span class="toc-number">12.0.1.</span> <span class="toc-text">震动和声音</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_15:37:41"><span class="toc-number">13.</span> <span class="toc-text">2015-10-02 15:37:41</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#版本更新实际开发"><span class="toc-number">13.0.1.</span> <span class="toc-text">版本更新实际开发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_10:33:48"><span class="toc-number">14.</span> <span class="toc-text">2015-10-03 10:33:48</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#setEnable、setClickable的区别"><span class="toc-number">14.0.1.</span> <span class="toc-text">setEnable、setClickable的区别</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-14"><span class="toc-number">1.</span> <span class="toc-text">2015-09-14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决多个按钮同时点击的bug"><span class="toc-number">1.1.</span> <span class="toc-text">如何解决多个按钮同时点击的bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将程序设置成无标题栏，自己定义Actionbar"><span class="toc-number">1.2.</span> <span class="toc-text">将程序设置成无标题栏，自己定义Actionbar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-10"><span class="toc-number">2.</span> <span class="toc-text">2015-09-10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置EditText默认不弹出小键盘"><span class="toc-number">2.1.</span> <span class="toc-text">设置EditText默认不弹出小键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15"><span class="toc-number">3.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置listview无点击背景效果"><span class="toc-number">3.1.</span> <span class="toc-text">设置listview无点击背景效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-15-1"><span class="toc-number">4.</span> <span class="toc-text">2015-09-15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">4.1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-16"><span class="toc-number">5.</span> <span class="toc-text">2015-09-16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)"><span class="toc-number">5.1.</span> <span class="toc-text">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17"><span class="toc-number">6.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)"><span class="toc-number">6.0.1.</span> <span class="toc-text">一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-17-1"><span class="toc-number">7.</span> <span class="toc-text">2015-09-17</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#底部tags_check效果设置"><span class="toc-number">7.0.1.</span> <span class="toc-text">底部tags check效果设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20"><span class="toc-number">8.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳"><span class="toc-number">8.0.1.</span> <span class="toc-text">时间戳</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-23_13:14:20-1"><span class="toc-number">9.</span> <span class="toc-text">2015-09-23 13:14:20</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DatePicker_初始化日期"><span class="toc-number">9.0.1.</span> <span class="toc-text">DatePicker 初始化日期</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-25_10:47:40"><span class="toc-number">10.</span> <span class="toc-text">2015-09-25 10:47:40</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TextView显示字数限制必须小于服务端的字数限制"><span class="toc-number">10.0.1.</span> <span class="toc-text">TextView显示字数限制必须小于服务端的字数限制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:57:46"><span class="toc-number">11.</span> <span class="toc-text">2015-09-30 17:57:46</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取屏幕分辨率的宽高"><span class="toc-number">11.0.1.</span> <span class="toc-text">获取屏幕分辨率的宽高</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_09:01:47"><span class="toc-number">12.</span> <span class="toc-text">2015-10-01 09:01:47</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#震动和声音"><span class="toc-number">12.0.1.</span> <span class="toc-text">震动和声音</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-02_15:37:41"><span class="toc-number">13.</span> <span class="toc-text">2015-10-02 15:37:41</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#版本更新实际开发"><span class="toc-number">13.0.1.</span> <span class="toc-text">版本更新实际开发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-03_10:33:48"><span class="toc-number">14.</span> <span class="toc-text">2015-10-03 10:33:48</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#setEnable、setClickable的区别"><span class="toc-number">14.0.1.</span> <span class="toc-text">setEnable、setClickable的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-13_10:22:08"><span class="toc-number">15.</span> <span class="toc-text">2015-10-13 10:22:08</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Application的理解"><span class="toc-number">15.0.1.</span> <span class="toc-text">Application的理解</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -298,7 +303,27 @@ vib.vibrate(500)<span class="comment">;</span>
 			
 		
 			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
 			
 		
 			
@@ -314,35 +339,7 @@ vib.vibrate(500)<span class="comment">;</span>
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
 			
 		
 			
@@ -350,27 +347,35 @@ vib.vibrate(500)<span class="comment">;</span>
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Interface/" title="Interface">Interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
 			
 		
 		</ul>

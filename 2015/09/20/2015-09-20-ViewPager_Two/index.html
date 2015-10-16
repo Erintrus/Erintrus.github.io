@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Coder_Erin">
 <meta property="og:description" content="ViewPager实现方法2015-09-20 10:33:43传统ViewPager实现ViewPager（一）">
 <meta property="og:image" content="http://chuantu.biz/t2/14//1443690832x-954498715.png">
-<meta property="og:updated_time" content="2015-10-02T01:00:07.871Z">
+<meta property="og:updated_time" content="2015-10-14T03:13:36.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ViewPager（二）">
 <meta name="twitter:description" content="ViewPager实现方法2015-09-20 10:33:43传统ViewPager实现ViewPager（一）">
@@ -96,7 +96,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager实现方法"><span class="toc-number">1.</span> <span class="toc-text">ViewPager实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-20_10:33:43"><span class="toc-number"></span> <span class="toc-text">2015-09-20 10:33:43</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#传统ViewPager实现"><span class="toc-number">0.1.</span> <span class="toc-text">传统ViewPager实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-21_09:51:29"><span class="toc-number"></span> <span class="toc-text">2015-09-21 09:51:29</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment+ViewPager"><span class="toc-number">1.</span> <span class="toc-text">Fragment+ViewPager</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_15:06:04"><span class="toc-number"></span> <span class="toc-text">2015-09-30 15:06:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ViewPager_添加小圆点实际开发"><span class="toc-number">0.1.</span> <span class="toc-text">ViewPager 添加小圆点实际开发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:34:38"><span class="toc-number"></span> <span class="toc-text">2015-09-30 17:34:38</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Tag+ViewPager"><span class="toc-number">0.1.</span> <span class="toc-text">Tag+ViewPager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_17:11:25"><span class="toc-number"></span> <span class="toc-text">2015-10-01 17:11:25</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为tab添加滑动图"><span class="toc-number">0.1.</span> <span class="toc-text">为tab添加滑动图</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager实现方法"><span class="toc-number">1.</span> <span class="toc-text">ViewPager实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-20_10:33:43"><span class="toc-number"></span> <span class="toc-text">2015-09-20 10:33:43</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#传统ViewPager实现"><span class="toc-number">0.1.</span> <span class="toc-text">传统ViewPager实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-21_09:51:29"><span class="toc-number"></span> <span class="toc-text">2015-09-21 09:51:29</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment+ViewPager"><span class="toc-number">1.</span> <span class="toc-text">Fragment+ViewPager</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_15:06:04"><span class="toc-number"></span> <span class="toc-text">2015-09-30 15:06:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ViewPager_添加小圆点实际开发（广告横幅开发）"><span class="toc-number">0.1.</span> <span class="toc-text">ViewPager 添加小圆点实际开发（广告横幅开发）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:34:38"><span class="toc-number"></span> <span class="toc-text">2015-09-30 17:34:38</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Tag+ViewPager"><span class="toc-number">0.1.</span> <span class="toc-text">Tag+ViewPager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_17:11:25"><span class="toc-number"></span> <span class="toc-text">2015-10-01 17:11:25</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为tab添加滑动图"><span class="toc-number">0.1.</span> <span class="toc-text">为tab添加滑动图</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -131,16 +131,16 @@
        fragments.<span class="built_in">add</span>(mineFragment);
    }
    adapter = <span class="keyword">new</span> MainAdapter(getSupportFragmentManager(), fragments);
-</code></pre><h2 id="2015-09-30_15:06:04">2015-09-30 15:06:04</h2><h4 id="ViewPager_添加小圆点实际开发">ViewPager 添加小圆点实际开发</h4><p>描述：  </p>
+</code></pre><h2 id="2015-09-30_15:06:04">2015-09-30 15:06:04</h2><h4 id="ViewPager_添加小圆点实际开发（广告横幅开发）">ViewPager 添加小圆点实际开发（广告横幅开发）</h4><p>描述：  </p>
 <p>小圆点开发类似上述微信ViewPager开发,不同的是小圆点的数量是根据图片的多少来确定,因此需要用到java代码来进行布局。</p>
 <p>思路：  </p>
 <ol>
-<li>在主布局文件里，定义一个LinearLayout并设置id。</li>
-<li>声明一个ImageView数组,用于保存小圆点。</li>
+<li>在主布局文件里，定义一个LinearLayout并设置id。（用于装小圆点）</li>
+<li>声明一个ImageView数组,用于显示小圆点。</li>
 <li>根据服务器下发的图片数量实例化上述ImageView数组。(new ImageView[pic.size()])</li>
 <li><strong>根据图片数量创建ImageView,设置相关属性,设置背景图,赋值给ImageView数组。</strong></li>
 <li>把该数组加入到上述LinearLayout中即可。(addView)</li>
-<li><p>重写Viewpager的数据源里的onPageSelected方法,调用下面的方法,将viewPager与小圆点绑定。</p>
+<li><p>重写Viewpager的addOnPageChangeListener里的onPageSelected方法,调用下面的方法,将viewPager与小圆点绑定。</p>
 <p> 代码一：</p>
 <pre><code><span class="comment">// mImageViews 是服务器下发图片的长度</span>
   cycleImgs = <span class="keyword">new</span> ImageView[mImageViews.size()];
@@ -285,9 +285,9 @@ ivTab.startAnimation(animation); <span class="comment">//ivTab是指示器</span
 
 
 <div class="next">
-<a href="/2015/09/17/2015-09-17-Error/"  title="常见的错误">
+<a href="/2015/09/17/2015-09-17-Skills/"  title="布局常用的技巧">
  <strong>下一篇：</strong><br/> 
- <span>常见的错误
+ <span>布局常用的技巧
 </span>
 </a>
 </div>
@@ -302,7 +302,7 @@ ivTab.startAnimation(animation); <span class="comment">//ivTab是指示器</span
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager实现方法"><span class="toc-number">1.</span> <span class="toc-text">ViewPager实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-20_10:33:43"><span class="toc-number"></span> <span class="toc-text">2015-09-20 10:33:43</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#传统ViewPager实现"><span class="toc-number">0.1.</span> <span class="toc-text">传统ViewPager实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-21_09:51:29"><span class="toc-number"></span> <span class="toc-text">2015-09-21 09:51:29</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment+ViewPager"><span class="toc-number">1.</span> <span class="toc-text">Fragment+ViewPager</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_15:06:04"><span class="toc-number"></span> <span class="toc-text">2015-09-30 15:06:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ViewPager_添加小圆点实际开发"><span class="toc-number">0.1.</span> <span class="toc-text">ViewPager 添加小圆点实际开发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:34:38"><span class="toc-number"></span> <span class="toc-text">2015-09-30 17:34:38</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Tag+ViewPager"><span class="toc-number">0.1.</span> <span class="toc-text">Tag+ViewPager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_17:11:25"><span class="toc-number"></span> <span class="toc-text">2015-10-01 17:11:25</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为tab添加滑动图"><span class="toc-number">0.1.</span> <span class="toc-text">为tab添加滑动图</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager实现方法"><span class="toc-number">1.</span> <span class="toc-text">ViewPager实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-20_10:33:43"><span class="toc-number"></span> <span class="toc-text">2015-09-20 10:33:43</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#传统ViewPager实现"><span class="toc-number">0.1.</span> <span class="toc-text">传统ViewPager实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-21_09:51:29"><span class="toc-number"></span> <span class="toc-text">2015-09-21 09:51:29</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment+ViewPager"><span class="toc-number">1.</span> <span class="toc-text">Fragment+ViewPager</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_15:06:04"><span class="toc-number"></span> <span class="toc-text">2015-09-30 15:06:04</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ViewPager_添加小圆点实际开发（广告横幅开发）"><span class="toc-number">0.1.</span> <span class="toc-text">ViewPager 添加小圆点实际开发（广告横幅开发）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-30_17:34:38"><span class="toc-number"></span> <span class="toc-text">2015-09-30 17:34:38</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Tag+ViewPager"><span class="toc-number">0.1.</span> <span class="toc-text">Tag+ViewPager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-01_17:11:25"><span class="toc-number"></span> <span class="toc-text">2015-10-01 17:11:25</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为tab添加滑动图"><span class="toc-number">0.1.</span> <span class="toc-text">为tab添加滑动图</span></a></li></ol></li></ol>
  
   </div>
 
@@ -322,7 +322,27 @@ ivTab.startAnimation(animation); <span class="comment">//ivTab是指示器</span
 			
 		
 			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
 			
 		
 			
@@ -338,35 +358,7 @@ ivTab.startAnimation(animation); <span class="comment">//ivTab是指示器</span
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
 			
 		
 			
@@ -374,27 +366,35 @@ ivTab.startAnimation(animation); <span class="comment">//ivTab是指示器</span
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Interface/" title="Interface">Interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -141,7 +141,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧" itemprop="url">布局常用的技巧</a>
+      <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误" itemprop="url">常见的错误</a>
   </h1>
   <p class="article-author">By
        
@@ -154,14 +154,13 @@
 </header>
     <div class="article-content">
         
-        <h2 id="2015-10-02_17:10:00">2015-10-02 17:10:00</h2><h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
-<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
-</code></pre>
+        <h2 id="2015-10-09_15:43:22">2015-10-09 15:43:22</h2><h4 id="String类型方法传非String类型的值">String类型方法传非String类型的值</h4><pre><code>android<span class="class">.content</span><span class="class">.res</span><span class="class">.Resources</span><span class="variable">$NotFoundException</span>: String resource ID #<span class="number">0</span>x1
+</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br>
         
         
         <p class="article-more-link">
           
-            <a href="/2015/09/17/2015-09-17-Skills/#more">Read More</a>
+            <a href="/2015/09/17/2015-09-17-Error/#more">Read More</a>
           
        </p>
     </div>
@@ -171,7 +170,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/MarkDown引用本地/">MarkDown引用本地</a><a href="/tags/小技巧/">小技巧</a>
+  <span></span> <a href="/tags/Frequent-Fault/">Frequent_Fault</a>
   </div>
 
 </div>
@@ -795,11 +794,10 @@ view.<span class="built_in">add</span>(setting);
 </header>
     <div class="article-content">
         
-        <h2 id="2015-10-05_09:51:07">2015-10-05 09:51:07</h2><h4 id="自定义View的过程">自定义View的过程</h4><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
-<p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
-<p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
-<p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
-<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。<br>
+        <h2 id="自定义View可分为两类，一是局部自定义View，二是完全自定义View。">自定义View可分为两类，一是局部自定义View，二是完全自定义View。</h2><p>区别如下：  </p>
+<p>前者：局部自定义的控件（用已有的控件，组成新的控件，添加部分自定义属性）。</p>
+<p>后者：完全自定义的控件（进阶）。</p>
+<p>实现自定义控件有3种方式：<br>1.继承一个控件 （继承已有控件）<br>2.继承一个布局（组合已有控件）<br>3.继承View </p>
         
         
         <p class="article-more-link">
@@ -981,7 +979,27 @@ view.<span class="built_in">add</span>(setting);
 			
 		
 			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
 			
 		
 			
@@ -997,35 +1015,7 @@ view.<span class="built_in">add</span>(setting);
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
 			
 		
 			
@@ -1033,27 +1023,35 @@ view.<span class="built_in">add</span>(setting);
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Interface/" title="Interface">Interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
 			
 		
 		</ul>

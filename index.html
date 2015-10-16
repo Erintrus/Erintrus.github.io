@@ -155,28 +155,16 @@
 <li>ApplicationInfo</li>
 <li>ResolveInfo</li>
 <li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
-<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的标签 得到应用的信息。  </p>
-<p>例子：</p>
-<pre><code>PackageManager manager = getPackageManager();  
-<span class="number">1</span>. List<span class="variable">&lt;ApplicationInfo&gt;</span> appInfos = manager.getInstalledApplications(<span class="number">0</span>);  
-ApplicationInfo有如下方法：  
-<span class="built_in">load</span>Description、<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon、<span class="built_in">load</span>Logo
-
-//通过Intentfilter筛选  
-<span class="number">2</span>. Intent intent = new Intent(Intent.ACTION_MAIN, null);  
-intent.addCategory(Intent.CATEGORY_LAUNCHER);  
-List<span class="variable">&lt;ResolveInfo&gt;</span> reInfos = manager.queryIntentActivities(intent, <span class="number">0</span>);  
-ResolveInfo有如下方法：    
-<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon
-//<span class="built_in">load</span>Label就是获得程序名
-</code></pre></li>
+<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里</application>标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。  </p>
+</li>
 </ul>
 </li>
 </ul>
-
         
         
         <p class="article-more-link">
+          
+            <a href="/2015/10/03/2015-10-03-InterView/#more">Read More</a>
           
        </p>
     </div>
@@ -237,39 +225,12 @@ Notification notification = <span class="keyword">new</span> Notification.Builde
         .build();
 manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span>
 </code></pre></li>
-<li><p>如果要使用自定义Notification 需要用到RemoteViews的构造方法装载布局（统一使用该API的方法来设置布局里的控件）  </p>
-<pre><code> RemoteViews <span class="keyword">rv</span> = <span class="keyword">new</span> RemoteViews(getPackageName(), R.layout.activity_test);
-<span class="keyword">rv</span>.setTextViewText(R.id.tvTestFuntion, <span class="string">"我是自定义的 notification"</span>);
-notification.contentView = <span class="keyword">rv</span>; // 初始化RemoteViews
-</code></pre><p>  使用RemoteView可以会报下列错误，这是因为布局activity_test中使用了RemoteView不支持的控件，例如View。</p>
-<pre><code>android<span class="class">.app</span><span class="class">.RemoteServiceException</span>: Bad notification posted from XXX
-</code></pre></li>
 </ul>
-<pre><code>在RemoteViews这种调用方式中，你只能使用以下几种界面组件：  
-
-<span class="label">Layout:</span> 
-
-    FrameLayout, LinearLayout, RelativeLayout
-
-<span class="label">Component:</span> 
-
-      AnalogClock, Button, Chronometer, ImageButton, ImageView, ProgressBar, TextView, ViewFlipper, ListView, GridView, StackView, AdapterViewFlipper
-</code></pre><ul>
-<li><p>Intent与PendingIntent联合使用，实现点击消息进行跳转页面。</p>
-<ol>
-<li>Intent用于设置跳转的Activity。</li>
-<li>PendingIntent用于设置将要跳转的Intent。  </li>
-</ol>
-</li>
-<li><pre><code> Intent myIntent = <span class="keyword">new</span> Intent(SettingActivity.<span class="keyword">this</span>, AboutUsActivity.<span class="keyword">class</span>);
-PendingIntent pendingIntent = PendingIntent.getActivity(SettingActivity.<span class="keyword">this</span>, <span class="number">0</span>, myIntent, <span class="number">0</span>);<span class="comment">//装载Intent</span>
-notification.contentIntent = pendingIntent;<span class="comment">//初始化PedingIntent</span>
-</code></pre></li>
-</ul>
-
         
         
         <p class="article-more-link">
+          
+            <a href="/2015/10/03/2015-10-03-Notification/#more">Read More</a>
           
        </p>
     </div>
@@ -332,24 +293,12 @@ notification.contentIntent = pendingIntent;<span class="comment">//初始化Pedi
 <span class="variable">AlertDialog</span> dialog = builder.create();
 dialog.show();
 dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialog</span>.<span class="variable">POSITIVEBUTTON</span>).seton<span class="variable">ClickListener</span>(new .....);      
-</code></pre><p>代码二解决了点击按钮对话框关闭的问题。同理还有setCancleAble(false); 可以实现点击dialog之外的地方不能关闭dialog。</p>
-<p>3.通过下发的path跟name组成文件的路径.然后启动安装程序。</p>
-<p>代码如下：</p>
-<pre><code><span class="keyword">private</span> void installApk(String path) {
-    <span class="keyword">File</span> <span class="keyword">file</span> = new <span class="keyword">File</span>(path);
-    <span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();
-    <span class="type">intent</span>.setFlags(<span class="type">Intent</span>.FLAG_ACTIVITY_NEW_TASK);
-    <span class="type">intent</span>.setAction(<span class="type">Intent</span>.ACTION_VIEW);
-    String <span class="keyword">type</span> = <span class="string">"application/vnd.android.package-archive"</span>;
-    <span class="type">intent</span>.setDataAndType(Uri.fromFile(<span class="keyword">file</span>), <span class="keyword">type</span>);
-    startActivity(<span class="type">intent</span>);
-}
-</code></pre><p>有时程序包解析错误 是路径出错的问题。</p>
-<h2 id="2015-10-03_17:34:50">2015-10-03 17:34:50</h2><h4 id="结合Notification实现开发">结合Notification实现开发</h4><p><a href="http://localhost:4000/2015/10/03/2015-10-03-Notification/" target="_blank" rel="external"></a></p>
-
+</code></pre>
         
         
         <p class="article-more-link">
+          
+            <a href="/2015/10/02/2015-10-02-VersionUpdate/#more">Read More</a>
           
        </p>
     </div>
@@ -674,7 +623,7 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/17/2015-09-17-Error/" title="常见的错误" itemprop="url">常见的错误</a>
+      <a href="/2015/09/17/2015-09-17-Skills/" title="布局常用的技巧" itemprop="url">布局常用的技巧</a>
   </h1>
   <p class="article-author">By
        
@@ -687,13 +636,27 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 </header>
     <div class="article-content">
         
-        <h3 id="String类型方法传非String类型的值">String类型方法传非String类型的值</h3><pre><code>android<span class="class">.content</span><span class="class">.res</span><span class="class">.Resources</span><span class="variable">$NotFoundException</span>: String resource ID #<span class="number">0</span>x1
-</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br>
+        <h2 id="2015-10-02_17:10:00">2015-10-02 17:10:00</h2><h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
+<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
+</code></pre><p>如何取消分割线</p>
+<ul>
+<li><p>在java中取消  </p>
+<pre><code><span class="tag">listView</span><span class="class">.setDividerHeight</span>(0);
+
+<span class="tag">listView</span><span class="class">.setDivider</span>(<span class="tag">null</span>);
+</code></pre></li>
+<li><p>在XML布局文件取消  </p>
+<pre><code><span class="label">android:</span>divider=<span class="string">"#FFCC00"</span>  
+
+或      
+
+<span class="label">android:</span>divider=<span class="string">"@null"</span>
+</code></pre>
         
         
         <p class="article-more-link">
           
-            <a href="/2015/09/17/2015-09-17-Error/#more">Read More</a>
+            <a href="/2015/09/17/2015-09-17-Skills/#more">Read More</a>
           
        </p>
     </div>
@@ -703,7 +666,7 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Frequent-Fault/">Frequent_Fault</a>
+  <span></span> <a href="/tags/MarkDown引用本地/">MarkDown引用本地</a><a href="/tags/小技巧/">小技巧</a>
   </div>
 
 </div>
@@ -749,7 +712,27 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 			
 		
 			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
 			
 		
 			
@@ -765,35 +748,7 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
 			
 		
 			
@@ -801,27 +756,35 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Interface/" title="Interface">Interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -31,7 +31,7 @@ ApplicationInfo
 ResolveInfo
 ApplicationInfo与ResolveInfo区别：前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。前者得到的Label 包括Server、provider等。
 1.PackageManager">
-<meta property="og:updated_time" content="2015-10-03T09:41:24.123Z">
+<meta property="og:updated_time" content="2015-10-06T03:16:32.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="天工面试">
 <meta name="twitter:description" content="如何检测手机内装了什么APP？
@@ -129,24 +129,26 @@ ApplicationInfo与ResolveInfo区别：前者能够得到Icon、Label、meta-data
 <li>ResolveInfo</li>
 <li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
 <p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的标签 得到应用的信息。  </p>
-<p>例子：</p>
-<pre><code>PackageManager manager = getPackageManager();  
-<span class="number">1</span>. List<span class="variable">&lt;ApplicationInfo&gt;</span> appInfos = manager.getInstalledApplications(<span class="number">0</span>);  
-ApplicationInfo有如下方法：  
-<span class="built_in">load</span>Description、<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon、<span class="built_in">load</span>Logo
-
-//通过Intentfilter筛选  
-<span class="number">2</span>. Intent intent = new Intent(Intent.ACTION_MAIN, null);  
-intent.addCategory(Intent.CATEGORY_LAUNCHER);  
-List<span class="variable">&lt;ResolveInfo&gt;</span> reInfos = manager.queryIntentActivities(intent, <span class="number">0</span>);  
-ResolveInfo有如下方法：    
-<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon
-//<span class="built_in">load</span>Label就是获得程序名
-</code></pre></li>
+</li>
 </ul>
 </li>
 </ul>
-  
+<a id="more"></a>
+<pre><code>例子：
+
+        PackageManager manager = getPackageManager();  
+        <span class="number">1</span>. List<span class="variable">&lt;ApplicationInfo&gt;</span> appInfos = manager.getInstalledApplications(<span class="number">0</span>);  
+        ApplicationInfo有如下方法：  
+        <span class="built_in">load</span>Description、<span class="built_in">load</span>Label、<span class="built_in">load</span>Icon、<span class="built_in">load</span>Logo
+
+        //通过Intentfilter筛选  
+        <span class="number">2</span>. Intent intent = new Intent(Intent.ACTION_MAIN, null);  
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);  
+        List<span class="variable">&lt;ResolveInfo&gt;</span> reInfos = manager.queryIntentActivities(intent, <span class="number">0</span>);  
+        ResolveInfo有如下方法：    
+        <span class="built_in">load</span>Label、<span class="built_in">load</span>Icon
+        //<span class="built_in">load</span>Label就是获得程序名
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -218,7 +220,27 @@ ResolveInfo有如下方法：
 			
 		
 			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
 			
 		
 			
@@ -234,35 +256,7 @@ ResolveInfo有如下方法：
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
 			
 		
 			
@@ -270,27 +264,35 @@ ResolveInfo有如下方法：
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Interface/" title="Interface">Interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
 			
 		
 		</ul>

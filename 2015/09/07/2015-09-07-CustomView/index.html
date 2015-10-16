@@ -11,29 +11,26 @@
     
 
     
-    <meta name="description" content="2015-10-05 09:51:07自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
-2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
-3.测量，通过重写onMeasure方法来对控件进行测量  
-4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  
-5.状态的保存，为了避免配置改变时丢失Vie">
+    <meta name="description" content="自定义View可分为两类，一是局部自定义View，二是完全自定义View。区别如下：  
+前者：局部自定义的控件（用已有的控件，组成新的控件，添加部分自定义属性）。
+后者：完全自定义的控件（进阶）。
+实现自定义控件有3种方式：1.继承一个控件 （继承已有控件）2.继承一个布局（组合已有控件）3.继承View">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义view">
 <meta property="og:url" content="erintrus.github.io/2015/09/07/2015-09-07-CustomView/index.html">
 <meta property="og:site_name" content="Coder_Erin">
-<meta property="og:description" content="2015-10-05 09:51:07自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
-2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
-3.测量，通过重写onMeasure方法来对控件进行测量  
-4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  
-5.状态的保存，为了避免配置改变时丢失Vie">
+<meta property="og:description" content="自定义View可分为两类，一是局部自定义View，二是完全自定义View。区别如下：  
+前者：局部自定义的控件（用已有的控件，组成新的控件，添加部分自定义属性）。
+后者：完全自定义的控件（进阶）。
+实现自定义控件有3种方式：1.继承一个控件 （继承已有控件）2.继承一个布局（组合已有控件）3.继承View">
 <meta property="og:image" content="http://chuantu.biz/t2/14//1444010079x-1566638266.png">
-<meta property="og:updated_time" content="2015-10-05T02:03:03.584Z">
+<meta property="og:updated_time" content="2015-10-09T09:35:41.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义view">
-<meta name="twitter:description" content="2015-10-05 09:51:07自定义View的过程1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  
-2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  
-3.测量，通过重写onMeasure方法来对控件进行测量  
-4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  
-5.状态的保存，为了避免配置改变时丢失Vie">
+<meta name="twitter:description" content="自定义View可分为两类，一是局部自定义View，二是完全自定义View。区别如下：  
+前者：局部自定义的控件（用已有的控件，组成新的控件，添加部分自定义属性）。
+后者：完全自定义的控件（进阶）。
+实现自定义控件有3种方式：1.继承一个控件 （继承已有控件）2.继承一个布局（组合已有控件）3.继承View">
 
     
     <link rel="alternative" href="/atom.xml" title="Coder_Erin" type="application/atom+xml">
@@ -108,49 +105,58 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:07"><span class="toc-number">1.</span> <span class="toc-text">2015-10-05 09:51:07</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View的过程"><span class="toc-number">1.0.1.</span> <span class="toc-text">自定义View的过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:16"><span class="toc-number">2.</span> <span class="toc-text">2015-10-05 09:51:16</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View——确定View的大小"><span class="toc-number">2.0.1.</span> <span class="toc-text">自定义View——确定View的大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:46"><span class="toc-number">3.</span> <span class="toc-text">2015-10-05 09:51:46</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_10:02:11"><span class="toc-number">4.</span> <span class="toc-text">2015-10-05 10:02:11</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义监听器"><span class="toc-number">4.0.1.</span> <span class="toc-text">自定义监听器</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义View可分为两类，一是局部自定义View，二是完全自定义View。"><span class="toc-number">1.</span> <span class="toc-text">自定义View可分为两类，一是局部自定义View，二是完全自定义View。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:46"><span class="toc-number">2.</span> <span class="toc-text">2015-10-05 09:51:46</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#局部自定义View"><span class="toc-number">2.0.1.</span> <span class="toc-text">局部自定义View</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-08_18:26:03"><span class="toc-number">3.</span> <span class="toc-text">2015-10-08 18:26:03</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为自定义View添加自定义属性"><span class="toc-number">3.0.1.</span> <span class="toc-text">为自定义View添加自定义属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-08_18:20:56"><span class="toc-number">4.</span> <span class="toc-text">2015-10-08 18:20:56</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="toc-number">5.</span> <span class="toc-text">实战开发帮你教项目中的意见反馈功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:07"><span class="toc-number">6.</span> <span class="toc-text">2015-10-05 09:51:07</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#完全自定义View(进阶)"><span class="toc-number">6.0.1.</span> <span class="toc-text">完全自定义View(进阶)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:16"><span class="toc-number">7.</span> <span class="toc-text">2015-10-05 09:51:16</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View_—_确定View的大小"><span class="toc-number">7.0.1.</span> <span class="toc-text">自定义View — 确定View的大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_10:02:11"><span class="toc-number">8.</span> <span class="toc-text">2015-10-05 10:02:11</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义监听器"><span class="toc-number">8.0.1.</span> <span class="toc-text">自定义监听器</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="2015-10-05_09:51:07">2015-10-05 09:51:07</h2><h4 id="自定义View的过程">自定义View的过程</h4><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
-<p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
-<p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
-<p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
-<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。<br> <a id="more"></a></p>
-<h2 id="2015-10-05_09:51:16">2015-10-05 09:51:16</h2><h4 id="自定义View——确定View的大小">自定义View——确定View的大小</h4><p>1.ViewGroup(View的父容器)提供两个参数给View进行设置测量，并且根据测量值跟自己提供的尺寸大小来确定View的大小。</p>
-<p>2.View的大小由Size和Mode决定，相关类是MeasureSpec。Size、Mode封装在resolveSizeAndState方法里面。</p>
-<p>3.resolveSizeAndState方法的参数（View的宽或高、父容器提供的尺寸值、掩码默认0）</p>
-<p>4.如何重写OnMeasure</p>
-<pre><code><span class="comment">//获取View的宽度</span>
-<span class="keyword">int</span> minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
-<span class="comment">//讲View的宽度跟ViewGroup给的值进行测量，得出一个整型.</span>
-<span class="keyword">int</span> w = resolveSizeAndState(minw, widthMeasureSpec, <span class="number">1</span>);
-
-<span class="comment">//同理View的高度</span>
-<span class="keyword">int</span> minh = MeasureSpec.getSize(w) + getPaddingBottom() + getPaddingTop();
-<span class="keyword">int</span> h = resolveSizeAndState(MeasureSpec.getSize(w), heightMeasureSpec,<span class="number">0</span>);
-</code></pre><p><a href="http://www.cnblogs.com/0616--ataozhijia/p/4003380.html" target="_blank" rel="external">参考</a></p>
-<h2 id="2015-10-05_09:51:46">2015-10-05 09:51:46</h2><p>####<br>实现自定义控件有3种方式：<br>1.继承一个控件<br>2.继承一个布局<br>3.继承View </p>
-<p>继承一个布局<br>步骤：<br>1.创建一个layout，里面放想合并的控件（如ImageView 跟TextView）<br>2.在values文件夹创建一个attrs 的xml文件<br>a.创建declare-styleable标签，其name属性是控件名字(不需要加包名)<br>在上述标签下 创建arr标签，name属性是属性名、format指明改属性的格式</p>
+		<h2 id="自定义View可分为两类，一是局部自定义View，二是完全自定义View。">自定义View可分为两类，一是局部自定义View，二是完全自定义View。</h2><p>区别如下：  </p>
+<p>前者：局部自定义的控件（用已有的控件，组成新的控件，添加部分自定义属性）。</p>
+<p>后者：完全自定义的控件（进阶）。</p>
+<p>实现自定义控件有3种方式：<br>1.继承一个控件 （继承已有控件）<br>2.继承一个布局（组合已有控件）<br>3.继承View </p>
+<a id="more"></a>
+<h2 id="2015-10-05_09:51:46">2015-10-05 09:51:46</h2><h4 id="局部自定义View">局部自定义View</h4><p>基本思路：</p>
+<ol>
+<li>xml布局文件添加已有的控件，例如(ImageView跟Button)。</li>
+<li>创建java文件继承包含这些控件的布局，例如(RelativeLayout)。</li>
+<li>重写其构造方法(加载xml布局文件,利用通过LayoutInflate)。</li>
+<li>在其构造方法里获取自定义属性。(可选,在values文件夹创建一个attrs的xml文件) </li>
+</ol>
+<h2 id="2015-10-08_18:26:03">2015-10-08 18:26:03</h2><h4 id="为自定义View添加自定义属性">为自定义View添加自定义属性</h4><ul>
+<li><p>在attrs文件中创建declare-styleable标签，其name属性是控件名字(不需要加包名)<br>在上述标签下 创建attr标签，name属性是属性名、format指明改属性的格式</p>
+<p>  <declare-styleable name="自定义控件名"></declare-styleable></p>
+<pre><code>&lt;<span class="built_in">attr</span> name=<span class="string">"src"</span>&gt;&lt;/<span class="built_in">attr</span>&gt; <span class="comment">// name默认不加前缀 则调用方法为app:src</span>
+&lt;<span class="built_in">attr</span> name=<span class="string">"text"</span>&gt;&lt;/<span class="built_in">attr</span>&gt;
+</code></pre><p>  </p>
+</li>
+</ul>
+<p>属性里的值可以通过enum标签来实现<br>reference   表示引用，参考某一资源ID<br>string   表示字符串<br>color   表示颜色值<br>dimension   表示尺寸值<br>boolean   表示布尔值<br>integer   表示整型值<br>float   表示浮点值<br>fraction   表示百分数<br>enum   表示枚举值<br>flag   表示位运算</p>
 <p>定义的属性需赋值给原控件的属性  </p>
-<pre><code><span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"MyCircleImageButton"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"android:src"</span>&gt;</span><span class="tag">&lt;/<span class="title">attr</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"android:text"</span>&gt;</span><span class="tag">&lt;/<span class="title">attr</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span>
-</code></pre><p>属性里的值可以通过enum标签来实现<br>reference   表示引用，参考某一资源ID<br>string   表示字符串<br>color   表示颜色值<br>dimension   表示尺寸值<br>boolean   表示布尔值<br>integer   表示整型值<br>float   表示浮点值<br>fraction   表示百分数<br>enum   表示枚举值<br>flag   表示位运算</p>
-<p>3.创建一个java文件继承LinearLayout，重写构造方法（定义控件及其装载布局、获取属性及其值、赋值 原控件）<br>a.通过LayoutInflate获得上述布局  </p>
-<pre><code>View view=LayoutInflate.<span class="keyword">from</span>(context).inflate(R.layout.mylayout,<span class="keyword">this</span>);
-</code></pre><p>b.利用TypedArray 获取所有属性<br>通过context的obtainStyledAttributes(attrs,R.styleable.控件名)方法得到一个TypedArray对象，参数分别为attrs、控件id</p>
-<pre><code>TypedArray <span class="keyword">array</span>=<span class="keyword">context</span>.obtainStyledAttributes(attrs,R.styleable.MyCircleImageButton);
-</code></pre><p>c.利用view获得控件<br>d.利用typedArray对象设置控件默认值（R.styleable.值）</p>
-<pre><code>CharSequence text=  <span class="built_in">array</span>.getText(R.styleable.MyCircleImageButton_android_text);
-Drawable drawable= <span class="built_in">array</span>.getDrawable(R.styleable.MyCircleImageButton_android_src);
-</code></pre><p>5.TypedArray对象调用recycle方法</p>
-<p>6.在使用该控件的布局文件里设置命名空间  </p>
-<pre><code><span class="label">xmlns:</span>eri=<span class="string">"http://schemas.android.com/apk/res/包名"</span> 
-</code></pre><p>包名指整个项目的包名<br>7.通过该命名空间调用属性 如 eri:属性名</p>
-<p>利用自定义控件开发帮你教项目中的意见反馈 功能</p>
-<p>1.写一个布局包括一个EditText  和TextView<br>2.写attrs文件，添加一个hint属性，用于设置提示<br>3.重写java 文件，获取到属性的值后，赋值给原控件<br>如下：</p>
+<ol>
+<li>利用TypedArray 获取所有属性  </li>
+</ol>
+<pre><code>//通过<span class="keyword">context</span>的obtainStyledAttributes(attrs,R.styleable.控件名)方法得到一个TypedArray对象，参数分别为attrs、控件id
+TypedArray <span class="keyword">array</span>=<span class="keyword">context</span>.obtainStyledAttributes(attrs,R.styleable.自定义控件名);
+</code></pre><ol>
+<li><p>利用typedArray对象设置控件默认值（R.styleable.值）</p>
+<pre><code>CharSequence text=  <span class="built_in">array</span>.getText(R.styleable.自定义控件名_android_text);
+Drawable drawable= <span class="built_in">array</span>.getDrawable(R.styleable.自定义控件名n_android_src);
+</code></pre></li>
+<li><p>通过原有控件的方法设置这些属性即可。</p>
+<pre><code>editText.setHint(<span class="type">text</span>);
+</code></pre></li>
+<li><p>TypedArray对象调用recycle方法 </p>
+<pre><code><span class="built_in">array</span>.recycle<span class="literal">()</span>;
+</code></pre></li>
+<li><p>在使用该控件的布局文件里设置命名空间  </p>
+<pre><code><span class="string">xmlns:</span>eri=<span class="string">"http://schemas.android.com/apk/res/包名"</span>  <span class="comment">//包名指整个项目的包名</span>
+</code></pre></li>
+</ol>
+<ol>
+<li><p>通过该命名空间调用属性 如 eri:属性名</p>
+<pre><code>eri:<span class="type">text</span>=<span class="string">"Erintrus"</span>
+</code></pre></li>
+</ol>
+<h2 id="2015-10-08_18:20:56">2015-10-08 18:20:56</h2><h2 id="实战开发帮你教项目中的意见反馈功能">实战开发帮你教项目中的意见反馈功能</h2><p>1.写一个布局包括一个EditText  和TextView<br>2.写attrs文件，添加一个hint属性，用于设置提示<br>3.重写java 文件，获取到属性的值后，赋值给原控件<br>如下：</p>
 <p><img src="http://chuantu.biz/t2/14//1444010079x-1566638266.png" alt=""></p>
 <p>//获取自己定义的属性，然后赋值给原控件的属性。从而实现自定义属性的功能  </p>
 <pre><code>TypedArray <span class="keyword">array</span>=<span class="keyword">context</span>.obtainStyledAttributes(attrs,R.styleable.EtextWithTv);
@@ -164,7 +170,74 @@ Drawable drawable= <span class="built_in">array</span>.getDrawable(R.styleable.M
 {
 <span class="keyword">return</span> editText.<span class="keyword">getText</span>().toString();
 }
-</code></pre><h2 id="2015-10-05_10:02:11">2015-10-05 10:02:11</h2><h4 id="自定义监听器">自定义监听器</h4><p>1.写一个接口，并且添加抽象方法  </p>
+</code></pre><h2 id="2015-10-05_09:51:07">2015-10-05 09:51:07</h2><h4 id="完全自定义View(进阶)">完全自定义View(进阶)</h4><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
+<p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
+<p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
+<p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
+<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。<br> <!--more--></p>
+<h2 id="2015-10-05_09:51:16">2015-10-05 09:51:16</h2><h4 id="自定义View_—_确定View的大小">自定义View — 确定View的大小</h4><ul>
+<li><p>判断是否需要重写OnMeasure （下述需求判断是否重写）</p>
+<ul>
+<li>默认： （弊端: view为warp、match时，都会填满父容器）</li>
+</ul>
+<ol>
+<li>父容器为warp_content或match_parent时，view的宽高不是固定值，则view填满父容器。</li>
+<li>父容器为warp_content或match_parent时，view的宽高是固定值，则view大小取决固定值。</li>
+<li>父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。</li>
+<li>父容器为固定值时（view的最大显示值），view的宽高不是固定值，则view填满父容器。</li>
+</ol>
+</li>
+</ul>
+<pre><code>    特点： view的宽高为warp_content时，view填满父容器。
+
+
+- 重写onMeasure（可实现:view为warp时，显示默认值,而不是填满父容器）
+
+<span class="number">1</span>. 可以给<span class="type">View</span>设定默认值，当view宽高为warp_content时，显示默认值。
+<span class="number">2</span>. 父容器为warp_content或match_parent时，view的宽高为warp_content，则view显示默认值。
+<span class="number">3</span>. 父容器为warp_content或match_parent时，view的宽高为match_parent，则view填满控件。
+<span class="number">4</span>. 父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。
+
+    特点： view的宽高为warp_content时，view大小为默认值。
+
+
+    - 重写onMeasure的代码
+
+            @<span class="type">Override</span>
+               protected <span class="type">void</span> onMeasure(<span class="type">int</span> widthMeasureSpec, <span class="type">int</span> heightMeasureSpec) {
+                super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+                <span class="type">int</span> width = getSize(<span class="type">DEFAULT_WIDTH</span>,widthMeasureSpec);
+                <span class="type">int</span> height = getSize(<span class="type">DEFAULT_HEIGHT</span>,heightMeasureSpec);
+                setMeasuredDimension(width, height);
+              }
+
+
+            public <span class="type">int</span> getSize(<span class="type">int</span> defaultSize, <span class="type">int</span> measureSpec) {
+                <span class="type">int</span> <span class="literal">result</span> = defaultSize;
+                <span class="type">int</span> specMode = <span class="type">MeasureSpec</span>.getMode(measureSpec);
+                <span class="type">int</span> specSize = <span class="type">MeasureSpec</span>.getSize(measureSpec);//获取测量值，即使用时传入的值。
+                <span class="keyword">if</span> (specMode == <span class="type">MeasureSpec</span>.<span class="type">EXACTLY</span>) {
+                    <span class="literal">result</span> = measureSpec;    //当设置其宽高为固定值或者match时，显示为固定值或者填满屏幕。
+                } <span class="keyword">else</span> {
+                    <span class="literal">result</span> = <span class="type">Math</span>.min(defaultSize, specSize); //当设置其宽高为warp时,显示默认值。
+                }
+                <span class="keyword">return</span> <span class="literal">result</span>;
+            }
+</code></pre><p><a href="http://www.linuxidc.com/Linux/2014-12/110164.htm" target="_blank" rel="external">参考</a></p>
+<p>1.ViewGroup(View的父容器)提供两个参数给View进行设置测量，并且根据测量值跟自己提供的尺寸大小来确定View的大小。</p>
+<p>2.View的大小由Size和Mode决定，相关类是MeasureSpec。Size、Mode封装在resolveSizeAndState方法里面。</p>
+<p>3.resolveSizeAndState方法的参数（View的宽或高、父容器提供的尺寸值、掩码默认0）</p>
+<p>4.如何重写OnMeasure</p>
+<pre><code><span class="comment">//获取View的宽度</span>
+<span class="keyword">int</span> minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
+<span class="comment">//讲View的宽度跟ViewGroup给的值进行测量，得出一个整型.</span>
+<span class="keyword">int</span> w = resolveSizeAndState(minw, widthMeasureSpec, <span class="number">1</span>);
+
+<span class="comment">//同理View的高度</span>
+<span class="keyword">int</span> minh = MeasureSpec.getSize(w) + getPaddingBottom() + getPaddingTop();
+<span class="keyword">int</span> h = resolveSizeAndState(MeasureSpec.getSize(w), heightMeasureSpec,<span class="number">0</span>);
+</code></pre><p><a href="http://www.cnblogs.com/0616--ataozhijia/p/4003380.html" target="_blank" rel="external">参考</a></p>
+<h2 id="2015-10-05_10:02:11">2015-10-05 10:02:11</h2><h4 id="自定义监听器">自定义监听器</h4><p>1.写一个接口，并且添加抽象方法  </p>
 <pre><code>public interface <span class="keyword">on</span>StateChangedListener {
 public void <span class="keyword">state</span>On();
 
@@ -261,7 +334,7 @@ public void <span class="keyword">state</span>Off() {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:07"><span class="toc-number">1.</span> <span class="toc-text">2015-10-05 09:51:07</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View的过程"><span class="toc-number">1.0.1.</span> <span class="toc-text">自定义View的过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:16"><span class="toc-number">2.</span> <span class="toc-text">2015-10-05 09:51:16</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View——确定View的大小"><span class="toc-number">2.0.1.</span> <span class="toc-text">自定义View——确定View的大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:46"><span class="toc-number">3.</span> <span class="toc-text">2015-10-05 09:51:46</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_10:02:11"><span class="toc-number">4.</span> <span class="toc-text">2015-10-05 10:02:11</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义监听器"><span class="toc-number">4.0.1.</span> <span class="toc-text">自定义监听器</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义View可分为两类，一是局部自定义View，二是完全自定义View。"><span class="toc-number">1.</span> <span class="toc-text">自定义View可分为两类，一是局部自定义View，二是完全自定义View。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:46"><span class="toc-number">2.</span> <span class="toc-text">2015-10-05 09:51:46</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#局部自定义View"><span class="toc-number">2.0.1.</span> <span class="toc-text">局部自定义View</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-08_18:26:03"><span class="toc-number">3.</span> <span class="toc-text">2015-10-08 18:26:03</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为自定义View添加自定义属性"><span class="toc-number">3.0.1.</span> <span class="toc-text">为自定义View添加自定义属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-08_18:20:56"><span class="toc-number">4.</span> <span class="toc-text">2015-10-08 18:20:56</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="toc-number">5.</span> <span class="toc-text">实战开发帮你教项目中的意见反馈功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:07"><span class="toc-number">6.</span> <span class="toc-text">2015-10-05 09:51:07</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#完全自定义View(进阶)"><span class="toc-number">6.0.1.</span> <span class="toc-text">完全自定义View(进阶)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:16"><span class="toc-number">7.</span> <span class="toc-text">2015-10-05 09:51:16</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View_—_确定View的大小"><span class="toc-number">7.0.1.</span> <span class="toc-text">自定义View — 确定View的大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_10:02:11"><span class="toc-number">8.</span> <span class="toc-text">2015-10-05 10:02:11</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义监听器"><span class="toc-number">8.0.1.</span> <span class="toc-text">自定义监听器</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -281,7 +354,27 @@ public void <span class="keyword">state</span>Off() {
 			
 		
 			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
 			
 		
 			
@@ -297,35 +390,7 @@ public void <span class="keyword">state</span>Off() {
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/DrawerLayout/" title="DrawerLayout">DrawerLayout<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/RegEx/" title="RegEx">RegEx<sup>1</sup></a></li>
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
 			
 		
 			
@@ -333,27 +398,35 @@ public void <span class="keyword">state</span>Off() {
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CustomView/" title="CustomView">CustomView<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/onTouchEvent/" title="onTouchEvent">onTouchEvent<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/draw/" title="draw">draw<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Interface/" title="Interface">Interface<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
 			
 		
 		</ul>
