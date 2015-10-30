@@ -80,6 +80,77 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/10/29/2015-10-27-Volley/" title="Volley跟Async-http的封装" itemprop="url">Volley跟Async-http的封装</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-29T07:29:10.000Z" itemprop="datePublished"> Published 2015-10-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2015/10/29_15:31:44">2015/10/29 15:31:44</h2><h4 id="Volley的基础">Volley的基础</h4><pre><code><span class="keyword">compile</span> <span class="string">'com.mcxiaoke.volley:library:1.0.19'</span>
+</code></pre><ol>
+<li>Volley有get 、post等方式请求数据。</li>
+<li>Volley可以建立、取消请求队列。</li>
+<li>把请求加入请求队列即可完成请求。</li>
+</ol>
+<p>作用：</p>
+<ul>
+<li>封装网络请求类，使请求代码量减少。</li>
+<li>大大提高性能（反正很厉害就对了）。</li>
+</ul>
+<p>使用示例：</p>
+<pre><code><span class="number">1.</span> RequestQueue <span class="built_in">queue</span> = Volley.newRequestQueue(context)<span class="comment">//创建一个队列</span>
+<span class="number">2.</span> StringRequest jr  = <span class="keyword">new</span> StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)<span class="comment">//创建一种请求方式</span>
+<span class="number">3.</span> <span class="built_in">queue</span>.add(jr);<span class="comment">//加入到队列</span>
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/10/29/2015-10-27-Volley/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Async-http/">Async-http</a><a href="/tags/Volley/">Volley</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/10/03/2015-10-03-InterView/" title="天工面试" itemprop="url">天工面试</a>
   </h1>
   <p class="article-author">By
@@ -463,7 +534,7 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 </header>
     <div class="article-content">
         
-        <h2 id="2015-09-22_09:11:57">2015-09-22 09:11:57</h2><h3 id="PopupWindow_基本用法">PopupWindow 基本用法</h3><ol>
+        <h2 id="2015-09-22_09:11:57">2015-09-22 09:11:57</h2><h3 id="PopupWindow_基本用法(View加载、计算宽度、参考显示)">PopupWindow 基本用法(View加载、计算宽度、参考显示)</h3><ol>
 <li>用一个View加载要显示的布局。</li>
 <li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
 <li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
@@ -634,67 +705,6 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/17/2015-09-17-ImageLoader/" title="ImageLoader的理解" itemprop="url">ImageLoader的理解</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="2015-09-18_11:15:00">2015-09-18 11:15:00</h2><h3 id="ImageLoader作用">ImageLoader作用</h3><ol>
-<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
-<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
-<li>支持图片下载过程的监听</li>
-<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
-</ol>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/09/17/2015-09-17-ImageLoader/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ImageLoader/">ImageLoader</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -719,7 +729,15 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 			
 		
 			
-				<li><a href="/tags/ListView/" title="ListView">ListView<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Volley/" title="Volley">Volley<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
 			
 		
 			
@@ -763,11 +781,11 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 			
 		
 			
-				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+				<li><a href="/tags/Async-http/" title="Async-http">Async-http<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
 			
 		
 			
@@ -784,14 +802,6 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 		
 			
 				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/传统ViewPager的实现/" title="传统ViewPager的实现">传统ViewPager的实现<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/透明Activity/" title="透明Activity">透明Activity<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -1,0 +1,699 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Volley跟Async-http的封装 | Developer_Erin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Erintrus">
+    
+
+    
+    <meta name="description" content="2015/10/29 15:31:44Volley的基础compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
+
+Volley有get 、post等方式请求数据。
+Volley可以建立、取消请求队列。
+把请求加入请求队列即可完成请求。
+
+作用：
+
+封装网络请求类，使请求代码量减少。
+大大提高性能（反正很厉害就对了）。
+
+使用示例：
+1. RequestQueue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Volley跟Async-http的封装">
+<meta property="og:url" content="erintrus.github.io/2015/10/29/2015-10-27-Volley/index.html">
+<meta property="og:site_name" content="Developer_Erin">
+<meta property="og:description" content="2015/10/29 15:31:44Volley的基础compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
+
+Volley有get 、post等方式请求数据。
+Volley可以建立、取消请求队列。
+把请求加入请求队列即可完成请求。
+
+作用：
+
+封装网络请求类，使请求代码量减少。
+大大提高性能（反正很厉害就对了）。
+
+使用示例：
+1. RequestQueue">
+<meta property="og:updated_time" content="2015-10-29T08:33:08.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Volley跟Async-http的封装">
+<meta name="twitter:description" content="2015/10/29 15:31:44Volley的基础compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
+
+Volley有get 、post等方式请求数据。
+Volley可以建立、取消请求队列。
+把请求加入请求队列即可完成请求。
+
+作用：
+
+封装网络请求类，使请求代码量减少。
+大大提高性能（反正很厉害就对了）。
+
+使用示例：
+1. RequestQueue">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/Erintrus.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/Erintrus.png" alt="Developer_Erin" title="Developer_Erin"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Developer_Erin">Developer_Erin</a></h1>
+				<h2 class="blog-motto">You don&#39;t know me , you are about to .</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= GrAIQGkpD1 ><input type="text" name="q" size="30" placeholder="Search"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/29/2015-10-27-Volley/" title="Volley跟Async-http的封装" itemprop="url">Volley跟Async-http的封装</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-29T07:29:10.000Z" itemprop="datePublished"> Published 2015-10-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:31:44"><span class="toc-number">1.</span> <span class="toc-text">2015/10/29 15:31:44</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley的基础"><span class="toc-number">1.0.1.</span> <span class="toc-text">Volley的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:34:00"><span class="toc-number">2.</span> <span class="toc-text">2015/10/29 15:34:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Async-Http的基础"><span class="toc-number">2.0.1.</span> <span class="toc-text">Async-Http的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:59:01"><span class="toc-number">3.</span> <span class="toc-text">2015/10/29 15:59:01</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley跟Async-http的封装对比"><span class="toc-number">3.0.1.</span> <span class="toc-text">Volley跟Async-http的封装对比</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="2015/10/29_15:31:44">2015/10/29 15:31:44</h2><h4 id="Volley的基础">Volley的基础</h4><pre><code><span class="keyword">compile</span> <span class="string">'com.mcxiaoke.volley:library:1.0.19'</span>
+</code></pre><ol>
+<li>Volley有get 、post等方式请求数据。</li>
+<li>Volley可以建立、取消请求队列。</li>
+<li>把请求加入请求队列即可完成请求。</li>
+</ol>
+<p>作用：</p>
+<ul>
+<li>封装网络请求类，使请求代码量减少。</li>
+<li>大大提高性能（反正很厉害就对了）。</li>
+</ul>
+<p>使用示例：</p>
+<pre><code><span class="number">1.</span> RequestQueue <span class="built_in">queue</span> = Volley.newRequestQueue(context)<span class="comment">//创建一个队列</span>
+<span class="number">2.</span> StringRequest jr  = <span class="keyword">new</span> StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)<span class="comment">//创建一种请求方式</span>
+<span class="number">3.</span> <span class="built_in">queue</span>.add(jr);<span class="comment">//加入到队列</span>
+</code></pre><a id="more"></a>
+<p>请求类型：  </p>
+<ul>
+<li>JsonRequest  </li>
+<li>StringRequest</li>
+<li>ImageRequest </li>
+<li>JsonArrayRequest</li>
+<li>JsonObjectRequest</li>
+<li>ClearCacheRequest</li>
+</ul>
+<h2 id="2015/10/29_15:34:00">2015/10/29 15:34:00</h2><h4 id="Async-Http的基础">Async-Http的基础</h4><pre><code><span class="keyword">compile</span> <span class="string">'com.loopj.android:android-async-http:1.4.8'</span>
+</code></pre><ol>
+<li>Async-http有get、post等方式请求数据。</li>
+<li>直接通过AsyncHttpClient对象调用get、post即可完成请求。</li>
+</ol>
+<p>作用：</p>
+<ul>
+<li>封装网络请求，使请求代码量减少。</li>
+<li>可以用于上传文件、下载文件。</li>
+</ul>
+<p>使用示例：</p>
+<pre><code><span class="number">1.</span>  AsyncHttpClient <span class="keyword">client</span> = <span class="keyword">new</span> AsyncHttpClient();
+<span class="number">2.</span>  <span class="keyword">client</span>.post(url,一个回调函数)；
+</code></pre><h2 id="2015/10/29_15:59:01">2015/10/29 15:59:01</h2><h4 id="Volley跟Async-http的封装对比">Volley跟Async-http的封装对比</h4><p>先看Async-http的封装 </p>
+<p>优点：</p>
+<ul>
+<li>封装简单</li>
+<li>不用自己写请求类</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>没有解决同一个页面多种请求的问题</li>
+</ul>
+<pre><code>    <span class="comment">//封装请求类</span>
+    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpRequestUtils</span> </span>{
+        <span class="keyword">private</span> <span class="keyword">static</span> AsyncHttpClient client = <span class="keyword">new</span> AsyncHttpClient();
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">httpGet</span><span class="params">(String url, HttpCallBack callBack)</span> </span>{
+            client.get(url, callBack);
+    }
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">httpPost</span><span class="params">(String url, RequestParams params, HttpCallBack callBack)</span> </span>{
+            client.post(url, params, callBack);
+    }
+}
+
+
+    <span class="comment">//由于请求服务器后，要对返回的数据进行处理，所以要定义两个抽象方法，否则 就会默认执行下述重写的方法onSucess</span>
+
+    Http业务的回调接口
+    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpCallBack</span> <span class="keyword">extends</span> <span class="title">AsyncHttpResponseHandler</span> </span>{
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(<span class="keyword">int</span> statusCode, Header[] headers, <span class="keyword">byte</span>[] responseBody)</span>     </span>{
+                onRequestSuccess(responseBody);
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> statusCode, Header[] headers, <span class="keyword">byte</span>[] responseBody,     Throwable <span class="keyword">error</span>)</span> </span>{
+            onRequestFailure(<span class="keyword">error</span>);
+        }
+        <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="function"><span class="keyword">void</span> <span class="title">onRequestSuccess</span><span class="params">(String result)</span></span>;<span class="comment">//定义两个抽象函数</span>
+        <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="function"><span class="keyword">void</span> <span class="title">onRequestFailure</span><span class="params">(Throwable <span class="keyword">error</span>)</span></span>;
+}
+</code></pre><p>下面是Volley的封装</p>
+<p>优点：</p>
+<ul>
+<li>可以解决同一页面多种请求</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>需要自己写请求类</li>
+</ul>
+<pre><code><span class="comment">//Http业务的回调接口</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HttpCallBack</span> </span>{
+    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="function"><span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String result, <span class="keyword">long</span> flag)</span></span>;
+    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="function"><span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(String <span class="keyword">error</span>, <span class="keyword">long</span> flag)</span></span>;
+}
+
+<span class="comment">//封装请求工具类</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpReqUtils</span> </span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> HttpReqUtils httpReqUtils;
+    <span class="keyword">private</span> <span class="keyword">static</span> RequestQueue queue;
+    <span class="keyword">private</span> AtomicLong mHttpCount = <span class="keyword">new</span> AtomicLong(<span class="number">0</span>); <span class="comment">//用于实现同一页面多种请求的标识</span>
+
+    <span class="comment">//单例模式工具初始化</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function">HttpReqUtils <span class="title">getInstance</span><span class="params">(Context context)</span> </span>{
+        <span class="keyword">if</span> (httpReqUtils == <span class="keyword">null</span>) {
+        httpReqUtils = <span class="keyword">new</span> HttpReqUtils();
+        queue = Volley.newRequestQueue(context);
+    }
+    <span class="keyword">return</span> httpReqUtils;
+    }
+
+
+    <span class="keyword">public</span> <span class="function"><span class="keyword">long</span> <span class="title">asyncPost</span><span class="params">(String url, <span class="keyword">final</span> HttpCallBack httpCallBack)</span> </span>{
+        <span class="keyword">final</span> <span class="keyword">long</span> flag = mHttpCount.incrementAndGet(); <span class="comment">//每次请求一次业务，该标识就自增1，该返回标识用于判断是哪个业务做的请求</span>
+        StringRequest stringRequest = <span class="keyword">new</span> StringRequest(Request.Method.POST, url,     <span class="keyword">new</span> Response.Listener&lt;String&gt;() {
+            <span class="annotation">@Override</span>
+            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(String response)</span> </span>{
+                httpCallBack.onSuccess(response, flag);
+            }
+        }, <span class="keyword">new</span> Response.ErrorListener() {
+            <span class="annotation">@Override</span>
+            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onErrorResponse</span><span class="params">(VolleyError <span class="keyword">error</span>)</span> </span>{
+                String errorMsg = <span class="keyword">error</span>.getMessage();
+                httpCallBack.onFailure(errorMsg, flag);
+            }
+        });
+        queue.add(stringRequest);
+        <span class="keyword">return</span> flag;
+        }
+}
+</code></pre><p>综合上述：</p>
+<ul>
+<li>应该封装Volley而不是Async-http</li>
+<li>Async-http应该用于封装文件上传、下载</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Async-http/">Async-http</a><a href="/tags/Volley/">Volley</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="erintrus.github.io/2015/10/29/2015-10-27-Volley/" data-title="Volley跟Async-http的封装 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/10/03/2015-10-03-InterView/"  title="天工面试">
+ <strong>下一篇：</strong><br/> 
+ <span>天工面试
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:31:44"><span class="toc-number">1.</span> <span class="toc-text">2015/10/29 15:31:44</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley的基础"><span class="toc-number">1.0.1.</span> <span class="toc-text">Volley的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:34:00"><span class="toc-number">2.</span> <span class="toc-text">2015/10/29 15:34:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Async-Http的基础"><span class="toc-number">2.0.1.</span> <span class="toc-text">Async-Http的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:59:01"><span class="toc-number">3.</span> <span class="toc-text">2015/10/29 15:59:01</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley跟Async-http的封装对比"><span class="toc-number">3.0.1.</span> <span class="toc-text">Volley跟Async-http的封装对比</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Notification/" title="Notification">Notification<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Volley/" title="Volley">Volley<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/stroke/" title="stroke">stroke<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/solid/" title="solid">solid<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动态布局/" title="动态布局">动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaCode/" title="JavaCode">JavaCode<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Async-http/" title="Async-http">Async-http<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" title="Git">Git</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coding.net" target="_blank" title="Coding">Coding</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.apkbus.com/" target="_blank" title="Android">Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.devstore.cn/code/list/pc0-sc0-cp0-ft0-sp34-rt0-dl0-dt0-scs0-scp0-pn2-or0.html" target="_blank" title="Devstore">Devstore</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://kevinsu917.github.io/" target="_blank" title="MyBoss">MyBoss</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> You don&#39;t know me. <br/>
+			You are about to.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/tmourx" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/erintrus" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:erintrus@126.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
