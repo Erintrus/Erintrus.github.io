@@ -23,7 +23,7 @@
 用一个View加载要显示的布局。
 创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
 设置PopupWindow的背景。(setBackgroundDrawable)">
-<meta property="og:updated_time" content="2015-10-30T03:30:21.411Z">
+<meta property="og:updated_time" content="2015-11-05T01:45:54.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PopupWindow">
 <meta name="twitter:description" content="2015-09-22 09:11:57PopupWindow 基本用法(View加载、计算宽度、参考显示)
@@ -104,7 +104,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法(View加载、计算宽度、参考显示)"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法(View加载、计算宽度、参考显示)</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法(View加载、计算宽度、参考显示)"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法(View加载、计算宽度、参考显示)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/5_9:01:49"><span class="toc-number">2.</span> <span class="toc-text">2015/11/5 9:01:49</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BadToken错误，popWindow的getWidth是0、-2"><span class="toc-number">2.0.1.</span> <span class="toc-text">BadToken错误，popWindow的getWidth是0、-2</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -137,7 +137,7 @@ public void showAsDropDown(View <span class="built_in">anchor</span>, int xoff, 
 PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">300</span>,<span class="number">300</span>, <span class="literal">true</span>); <span class="comment">//设置宽高</span>
 <span class="comment">//如果设置为自适应LinearLayout.LayoutParams.WRAP_CONTENT，则其宽高为背景图片的宽高</span>
 
-pop.setBackgroundDrawable(context.getResource().getDrawable(R.drawable.test));
+pop.setBackgroundDrawable(context.getResource().getDrawable(R.drawable.test));<span class="comment">//必须设置，否则点击不能取消，并且卡死屏幕</span>
 
 <span class="keyword">int</span> width = context.getResources().getDisplayMetrics().widthPixels;<span class="comment">//获取屏幕宽</span>
 
@@ -148,6 +148,18 @@ pop.setBackgroundDrawable(context.getResource().getDrawable(R.drawable.test));
 pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span>
 
 pw.showAtLocation(actionBar, Gravity.CENTER_HORIZONTAL|Gravity.TOP, <span class="number">0</span>, <span class="number">50</span>);
+</code></pre><h2 id="2015/11/5_9:01:49">2015/11/5 9:01:49</h2><h4 id="BadToken错误，popWindow的getWidth是0、-2">BadToken错误，popWindow的getWidth是0、-2</h4><ul>
+<li>Bad Token showAsDropDown、showAtLocation方法不能放在OnCreate</li>
+</ul>
+<p>解决办法： 放在点击事件里</p>
+<ul>
+<li><p>popWindow的getWidth是0、-2的原因是设置了宽高设置了Warp_content</p>
+<pre><code>PopupWindow <span class="keyword">pop</span> = <span class="keyword">new</span> PopupWindow(view,LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT, <span class="keyword">true</span>); <span class="comment">//设置宽高</span>
+</code></pre></li>
+</ul>
+<p>解决办法：添加如下代码</p>
+<pre><code>popupView.measure(<span class="keyword">View</span>.MeasureSpec.UNSPECIFIED, <span class="keyword">View</span>.MeasureSpec.UNSPECIFIED);
+popWidth = popupWindow.getContentView().getMeasuredWidth();<span class="comment">//获取宽度</span>
 </code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -205,7 +217,7 @@ pw.showAtLocation(actionBar, Gravity.CENTER_HORIZONTAL|Gravity.TOP, <span class=
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法(View加载、计算宽度、参考显示)"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法(View加载、计算宽度、参考显示)</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-09-22_09:11:57"><span class="toc-number">1.</span> <span class="toc-text">2015-09-22 09:11:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow_基本用法(View加载、计算宽度、参考显示)"><span class="toc-number">1.1.</span> <span class="toc-text">PopupWindow 基本用法(View加载、计算宽度、参考显示)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/5_9:01:49"><span class="toc-number">2.</span> <span class="toc-text">2015/11/5 9:01:49</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BadToken错误，popWindow的getWidth是0、-2"><span class="toc-number">2.0.1.</span> <span class="toc-text">BadToken错误，popWindow的getWidth是0、-2</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -273,6 +285,10 @@ pw.showAtLocation(actionBar, Gravity.CENTER_HORIZONTAL|Gravity.TOP, <span class=
 			
 		
 			
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Android基础/" title="Android基础">Android基础<sup>1</sup></a></li>
 			
 		
@@ -294,10 +310,6 @@ pw.showAtLocation(actionBar, Gravity.CENTER_HORIZONTAL|Gravity.TOP, <span class=
 		
 			
 				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ViewPager-One/" title="ViewPager_One">ViewPager_One<sup>1</sup></a></li>
 			
 		
 		</ul>
