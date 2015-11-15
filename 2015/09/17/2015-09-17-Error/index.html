@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Developer_Erin">
 <meta property="og:description" content="2015-10-09 15:43:22String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
 错误原因： 不能把int的值传给String类型的方法.">
-<meta property="og:updated_time" content="2015-10-14T01:58:53.260Z">
+<meta property="og:updated_time" content="2015-11-09T01:44:06.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见的错误">
 <meta name="twitter:description" content="2015-10-09 15:43:22String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
@@ -98,7 +98,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:22"><span class="toc-number">1.</span> <span class="toc-text">2015-10-09 15:43:22</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">1.0.1.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:26"><span class="toc-number">2.</span> <span class="toc-text">2015-10-09 15:43:26</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View没有重写构造函数"><span class="toc-number">2.0.1.</span> <span class="toc-text">自定义View没有重写构造函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-14_09:49:42"><span class="toc-number">3.</span> <span class="toc-text">2015-10-14 09:49:42</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用自带的控件报错"><span class="toc-number">3.0.1.</span> <span class="toc-text">使用自带的控件报错</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:22"><span class="toc-number">1.</span> <span class="toc-text">2015-10-09 15:43:22</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">1.0.1.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:26"><span class="toc-number">2.</span> <span class="toc-text">2015-10-09 15:43:26</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View没有重写构造函数"><span class="toc-number">2.0.1.</span> <span class="toc-text">自定义View没有重写构造函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-14_09:49:42"><span class="toc-number">3.</span> <span class="toc-text">2015-10-14 09:49:42</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用自带的控件报错"><span class="toc-number">3.0.1.</span> <span class="toc-text">使用自带的控件报错</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/9_9:36:13"><span class="toc-number">4.</span> <span class="toc-text">2015/11/9 9:36:13</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于getItemViewType报数组越界的问题"><span class="toc-number">4.0.1.</span> <span class="toc-text">关于getItemViewType报数组越界的问题</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -116,7 +116,23 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
 <h2 id="2015-10-14_09:49:42">2015-10-14 09:49:42</h2><h4 id="使用自带的控件报错">使用自带的控件报错</h4><p>复现步骤：没有使用V4包里的viewpager 而是使用了 自带的viewpager<br>即XML文件中定义了ViewPager 而不是android.support.v4.view.ViewPager</p>
 <pre><code>android.<span class="keyword">view</span>.InflateException: Binary XML <span class="keyword">file</span> <span class="keyword">line</span> #12: <span class="keyword">Error</span> inflating <span class="keyword">class</span> ViewPager
 </code></pre><p>解决方法：将ViewPager改成android.support.v4.view.ViewPager（可预览）</p>
-  
+<h2 id="2015/11/9_9:36:13">2015/11/9 9:36:13</h2><h4 id="关于getItemViewType报数组越界的问题">关于getItemViewType报数组越界的问题</h4><p>原因：</p>
+<pre><code>getItemViewType的值必须小于getItemViewTypeCount
+</code></pre><p>例子：</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_COUNT = <span class="number">2</span>;
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_ME = <span class="number">1</span>;
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_OTHER = <span class="number">2</span>; <span class="comment">//此处报错，应该设置成0</span>
+
+ <span class="annotation">@Override</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>{
+    <span class="keyword">return</span> users.get(position).getUserType();
+}
+
+<span class="annotation">@Override</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> TYPE_COUNT;
+}
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -173,7 +189,7 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:22"><span class="toc-number">1.</span> <span class="toc-text">2015-10-09 15:43:22</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">1.0.1.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:26"><span class="toc-number">2.</span> <span class="toc-text">2015-10-09 15:43:26</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View没有重写构造函数"><span class="toc-number">2.0.1.</span> <span class="toc-text">自定义View没有重写构造函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-14_09:49:42"><span class="toc-number">3.</span> <span class="toc-text">2015-10-14 09:49:42</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用自带的控件报错"><span class="toc-number">3.0.1.</span> <span class="toc-text">使用自带的控件报错</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:22"><span class="toc-number">1.</span> <span class="toc-text">2015-10-09 15:43:22</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">1.0.1.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-09_15:43:26"><span class="toc-number">2.</span> <span class="toc-text">2015-10-09 15:43:26</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View没有重写构造函数"><span class="toc-number">2.0.1.</span> <span class="toc-text">自定义View没有重写构造函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-14_09:49:42"><span class="toc-number">3.</span> <span class="toc-text">2015-10-14 09:49:42</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用自带的控件报错"><span class="toc-number">3.0.1.</span> <span class="toc-text">使用自带的控件报错</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/9_9:36:13"><span class="toc-number">4.</span> <span class="toc-text">2015/11/9 9:36:13</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于getItemViewType报数组越界的问题"><span class="toc-number">4.0.1.</span> <span class="toc-text">关于getItemViewType报数组越界的问题</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -193,7 +209,7 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
 			
 		
 			
-				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
 			
 		
 			
@@ -249,6 +265,10 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
 			
 		
 			
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Frequent-Fault/" title="Frequent_Fault">Frequent_Fault<sup>1</sup></a></li>
 			
 		
@@ -262,10 +282,6 @@ is also present at XXXX-<span class="string">trunk:</span><span class="string">X
 		
 			
 				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/屏幕宽高/" title="屏幕宽高">屏幕宽高<sup>1</sup></a></li>
 			
 		
 		</ul>
