@@ -493,7 +493,89 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 </header>
     <div class="article-content">
         
-        <h2 id="Fragment知识点总结">Fragment知识点总结</h2><h2 id="2015-10-01_16:53:31">2015-10-01 16:53:31</h2><h4 id="Test">Test</h4>
+        <h2 id="2015/11/18_9:34:20">2015/11/18 9:34:20</h2><h4 id="Fragment知识点总结">Fragment知识点总结</h4><h3 id="定义Fragment的方式">定义Fragment的方式</h3><ul>
+<li>动态</li>
+<li>静态</li>
+</ul>
+<h3 id="区别">区别</h3><ul>
+<li>在主布局文件中定义不同</li>
+</ul>
+<p>主Activity必须继承FragmentActivity</p>
+<ul>
+<li><p>静态：主布局文件里定义 一个fragment控件  </p>
+</li>
+<li><p>动态：主布局文件里定义一个布局（用来装Fragment的容器），例如LinearLayout</p>
+</li>
+</ul>
+<h3 id="应用">应用</h3><ul>
+<li>标题栏通常用静态定义、 内容通常用动态定义</li>
+</ul>
+<h3 id="动态：">动态：</h3><ol>
+<li>创建一个xml布局文件，里面包含Fragment要显示的控件  </li>
+<li><p>创建一个java文件 继承Fragment（导入V4包），重写onCreateView方法<br>（所有控件都在这使用，MainActivity就用来调用Fragment），加载上述xml文件<br>最后返回view，而不是返回之前的布局</p>
+</li>
+<li><p>Activity布局文件 创建一个LinearLayout，设置ID，用于装载Fragment，name属性是上述文件的路径名   </p>
+</li>
+<li><p>MainActivity文件里   </p>
+</li>
+</ol>
+<pre><code>A.通过getSupportFragmentManager()方法获得一个FragmentManager  
+B.用manager对象 通过beginTransaction方法开启事务，返回FragmentTransaction对象  
+C.创建一个MyFragment对象  MyFragment mFragment= new MyFragment(); (必须判断是否为空)  
+D.利用事务对象 跟上述定义个布局加载该Fragment <span class="keyword">transaction</span>.add(Activity里布局的<span class="property">id</span>，Fragment对象)  
+E.提交事务 <span class="keyword">transaction</span>.commit();
+</code></pre><h3 id="静态：">静态：</h3><p>定义好java文件，然后在主布局文件里 创建fragment控件即可，name属性是该java文件的路径名</p>
+<p>如何取得fragment里的控件？  </p>
+<ol>
+<li>在写好的java文件里 重写onActivityCreated  </li>
+<li>通过getActivity()方法获得上下文  </li>
+</ol>
+<h2 id="2015/11/18_9:40:21">2015/11/18 9:40:21</h2><h4 id="关于Fragment的回退栈">关于Fragment的回退栈</h4><ol>
+<li><p>只要加入到回退栈就能回退，主显示Fragment不回退<br>addToBackTrack（null）  </p>
+</li>
+<li><p>事务的replace 会删除数据，若要保存上个Fragment的数据 ，先隐藏hide，再添加add</p>
+</li>
+<li><p>调用getFragmentManager.popBackStack()方法 可以返回上一个Fragment</p>
+</li>
+</ol>
+<h2 id="2015/11/18_9:41:09">2015/11/18 9:41:09</h2><h4 id="Fragment之间通信">Fragment之间通信</h4><p>通过getActivity()方法获取Fragment对应Activity里的控件的ID。</p>
+<h2 id="2015/11/18_9:41:32">2015/11/18 9:41:32</h2><h4 id="Fragment_切换、嵌套则会报错">Fragment 切换、嵌套则会报错</h4><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
+<p>解决方法：<br>onCreateView下面使用下列代码</p>
+<pre><code><span class="keyword">if</span> (view != <span class="built_in">null</span>) {
+ViewGroup <span class="keyword">parent</span> = (ViewGroup) view<span class="built_in">.</span>getParent(); 
+<span class="keyword">if</span> (<span class="keyword">parent</span> != <span class="built_in">null</span>)
+<span class="keyword">parent</span><span class="built_in">.</span>removeView(view); 
+}<span class="keyword">else</span>{
+    <span class="comment">//数据初始化</span>
+view = inflater(R<span class="built_in">.</span>layout<span class="built_in">.</span>xx,container,<span class="literal">false</span>);
+}
+
+<span class="keyword">return</span> view;
+</code></pre><h2 id="2015/11/18_9:43:31">2015/11/18 9:43:31</h2><h3 id="Activity传值给Fragment">Activity传值给Fragment</h3><h4 id="方法一">方法一</h4><ol>
+<li>在Activity中定义一个字段，生成get、set方法  </li>
+<li><p>在Fragment中通过get方法获取</p>
+<pre><code><span class="keyword">private</span> <span class="keyword">String</span> mTitle;
+<span class="keyword">public</span> <span class="keyword">String</span> getmTitle() {
+<span class="keyword">return</span> mTitle;
+}
+
+<span class="keyword">public</span> <span class="keyword">void</span> setmTitle(<span class="keyword">String</span> title) {
+<span class="keyword">this</span>.mTitle = title;
+}
+((DemoActivity)getActivity()).getmTitle();
+</code></pre></li>
+</ol>
+<h4 id="方法二">方法二</h4><ul>
+<li>通过构造函数传递值</li>
+</ul>
+<h2 id="2015/11/18_9:46:37">2015/11/18 9:46:37</h2><h3 id="Activity与_ViewPager_里Fragment的交互">Activity与 ViewPager 里Fragment的交互</h3><ol>
+<li>在创建Fragment的Adapter里 获取该Fragment的控件</li>
+<li>通过Fragment实例的getView和findViewById获取控件  </li>
+</ol>
+<pre><code>TextView tv = (TextView) introductionFragment.getView().findViewById(R.id.tvIntroductionContent)<span class="comment">; </span>
+tv.setText(schoolBasicInfo.getIntroduct())<span class="comment">;</span>
+</code></pre><p>.参考TrainingAgencyAdapter</p>
+
         
         
         <p class="article-more-link">
@@ -729,7 +811,7 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 			
 		
 			
-				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 			
@@ -781,11 +863,11 @@ dialog.get<span class="variable">Button</span>(<span class="variable">AlertDialo
 			
 		
 			
-				<li><a href="/tags/Android基础/" title="Android基础">Android基础<sup>1</sup></a></li>
+				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+				<li><a href="/tags/Android基础/" title="Android基础">Android基础<sup>1</sup></a></li>
 			
 		
 			
