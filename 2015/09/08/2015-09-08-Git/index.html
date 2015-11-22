@@ -11,18 +11,18 @@
     
 
     
-    <meta name="description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
+    <meta name="description" content="2015/11/22 23:01:52Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的学习">
 <meta property="og:url" content="erintrus.github.io/2015/09/08/2015-09-08-Git/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
+<meta property="og:description" content="2015/11/22 23:01:52Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNmZ2cVh4d0Q4MW5BZ2FXVmE2ZG1VSjVYU0pRSm03dGdnPT0.png">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MeUhEU1FlcUE2NUpmakhDRDVLRWNtbnR0ekE1Q08wL3JnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2015-11-03T06:47:37.950Z">
+<meta property="og:updated_time" content="2015-11-22T15:33:38.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的学习">
-<meta name="twitter:description" content="Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
+<meta name="twitter:description" content="2015/11/22 23:01:52Git的语法Git是对整个目录进行版本控制（有.git的目录）常用命令：">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -97,33 +97,43 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-number"></span> <span class="toc-text">删除文件</span></a>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:01:52"><span class="toc-number">1.</span> <span class="toc-text">2015/11/22 23:01:52</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.1.</span> <span class="toc-text">Git的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:01:58"><span class="toc-number">2.</span> <span class="toc-text">2015/11/22 23:01:58</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-number">3.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:17:46"><span class="toc-number">4.</span> <span class="toc-text">2015/11/22 23:17:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分支操作"><span class="toc-number">4.1.</span> <span class="toc-text">分支操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:19:22"><span class="toc-number">5.</span> <span class="toc-text">2015/11/22 23:19:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除未合并的分支用强行删除"><span class="toc-number">5.1.</span> <span class="toc-text">删除未合并的分支用强行删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:19:48"><span class="toc-number">6.</span> <span class="toc-text">2015/11/22 23:19:48</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多人协作"><span class="toc-number">6.1.</span> <span class="toc-text">多人协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:02:08"><span class="toc-number">7.</span> <span class="toc-text">2015/11/22 23:02:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stash保存当前工作状态"><span class="toc-number">7.1.</span> <span class="toc-text">Stash保存当前工作状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:21:53"><span class="toc-number">8.</span> <span class="toc-text">2015/11/22 23:21:53</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标签"><span class="toc-number">8.1.</span> <span class="toc-text">标签</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="Git的语法">Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br> <a id="more"></a> </p>
+		<h2 id="2015/11/22_23:01:52">2015/11/22 23:01:52</h2><h3 id="Git的语法">Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br> <a id="more"></a> </p>
 <ol>
 <li>创建版本库 git init  </li>
 <li>将文件添加到版本库 git add 文件（git add Erintrus.txt）  </li>
 <li>讲文件提交到版本库 git commit -m “这里添加修改说明” </li>
 <li>查看版本库现状 git status  </li>
 <li>查看修改内容（上次提交到现在修改） git diff  </li>
-<li>撤销修改(两种情况)<br>版本回退 git reset –hard commit_id</li>
-</ol>
+<li><p>版本回退 </p>
 <ul>
-<li>未add到暂存区的时候用git checkout –file</li>
-<li>add到暂存区的时候用git reset head file </li>
+<li>回退到上一个版本 git  reset – hard HEAD^</li>
+<li>回退到未来的版本 git reset –hard commit_id  </li>
 </ul>
-<p>7.关联远程库  </p>
-<p>git clone git@github.com:用户名/w文件夹名.git</p>
+</li>
+</ol>
+<ol>
+<li><p>撤销修改(“–”表示撤销，不加的话就是切换分支)  </p>
+<ul>
+<li>未add到暂存区的时候用git checkout –file  </li>
+<li>add到暂存区的时候用git reset head file   </li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>关联远程库  </li>
+</ol>
+<p>git clone git@github.com:用户名/文件夹名.git</p>
 <pre><code>git clone git@github<span class="class">.com</span>:erintrus/erintrus<span class="class">.github</span><span class="class">.io</span><span class="class">.git</span>
-</code></pre><h2 id="删除文件">删除文件</h2><ul>
+</code></pre><h2 id="2015/11/22_23:01:58">2015/11/22 23:01:58</h2><h2 id="删除文件">删除文件</h2><ul>
 <li>删除文件  文件夹里删除Crop.md文件</li>
 <li>将其加入到暂存区  git rm 文件名  git rm Crop.md</li>
 <li>提交结果  git commit   </li>
 </ul>
-<p>8.分支操作  </p>
-<p>查看分支：git branch</p>
+<h2 id="2015/11/22_23:17:46">2015/11/22 23:17:46</h2><h3 id="分支操作">分支操作</h3><p>查看分支：git branch</p>
 <p>创建分支：git branch <name></name></p>
 <p>切换分支：git checkout <name></name></p>
 <p>创建+切换分支：git checkout -b <name></name></p>
@@ -131,8 +141,31 @@
 <p>删除分支：git branch -d <name></name></p>
 <p>git checkout -b erintrus 后 ，流程如下</p>
 <p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNmZ2cVh4d0Q4MW5BZ2FXVmE2ZG1VSjVYU0pRSm03dGdnPT0.png" alt=""></p>
-<p>9.<strong>git log 后退出dos 按一下q即可</strong>  </p>
-<p>10.修改bug 一般思路：</p>
+<p><strong>git log 后退出dos 按一下q即可</strong>  </p>
+<h2 id="2015/11/22_23:19:22">2015/11/22 23:19:22</h2><h3 id="删除未合并的分支用强行删除">删除未合并的分支用强行删除</h3><pre><code>git branch -D &lt;<span class="property">name</span>&gt;
+</code></pre><h2 id="2015/11/22_23:19:48">2015/11/22 23:19:48</h2><h3 id="多人协作">多人协作</h3><p>情景：多人协作时，大家都会往master和dev分支上推送各自的修改。(会有冲突)</p>
+<p>推送分支：  </p>
+<p>猿A新建dev分支推送到远程库上(git push origin dev)<br>猿B从远程库clone下来是看不到dev分支的，所以需要创建一个dev分支，并且与远程库的dev分支关联</p>
+<pre><code>git checkout -b <span class="built_in">dev</span> origin/<span class="built_in">dev</span>
+</code></pre><p>多人修改同一文件：</p>
+<p>猿B在dev推送了自己对example.md文件的修改<br>猿A也对此文件做了修改 想git push，但是失败，需要先从远程库git pull，其git pull也报错，提示no tracking错误，则需要指定本地dev跟远程dev分支的链接</p>
+<pre><code><span class="label">git</span> <span class="keyword">branch </span>--set-upstream <span class="keyword">branch-name </span>origin/<span class="keyword">branch-name</span>
+</code></pre><p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MeUhEU1FlcUE2NUpmakhDRDVLRWNtbnR0ekE1Q08wL3JnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001376026233004c47f22a16d1f4fa289ce45f14bbc8f11000" target="_blank" rel="external">参考文章</a></p>
+<h2 id="2015/11/22_23:02:08">2015/11/22 23:02:08</h2><h3 id="Stash保存当前工作状态">Stash保存当前工作状态</h3><p>示例：工作做到一半需要去修改另一个bug,先把当前工作内容保存起来,然后再去解决bug。</p>
+<ul>
+<li><p>保存当前工作状态 </p>
+<pre><code><span class="title">git</span> stash
+</code></pre></li>
+<li><p>还原工作状态</p>
+<pre><code>git stash apply <span class="comment">-----还原不清除缓存区</span>
+
+git stash <span class="operator"><span class="keyword">drop</span> <span class="comment">------ 清除缓存区</span>
+
+git stash pop <span class="comment">----还原并清除缓存区</span></span>
+</code></pre></li>
+</ul>
+<p>示例：修改bug 一般思路：</p>
 <p>把当前工作区状态保存起来，新建临时分支去修改bug，修复后合并分支，删除临时分支，恢复现场。  </p>
 <ul>
 <li>保存当前工作区的状态： git stash</li>
@@ -144,18 +177,34 @@
 </ul>
 </li>
 </ul>
-<p>11.开发新功能 一般思路：</p>
-<p>新建临时分支去开发新的功能，然后合并，删除临时分支。<br>（删除未合并的分支用强行删除）<br>git branch -D <name></name></p>
-<p>12.多人协作</p>
-<p>情景：多人协作时，大家都会往master和dev分支上推送各自的修改。(会有冲突)</p>
-<p>推送分支：  </p>
-<p>猿A新建dev分支推送到远程库上(git push origin dev)<br>猿B从远程库clone下来是看不到dev分支的，所以需要创建一个dev分支，并且与远程库的dev分支关联</p>
-<pre><code>git checkout -b <span class="built_in">dev</span> origin/<span class="built_in">dev</span>
-</code></pre><p>多人修改同一文件：</p>
-<p>猿B在dev推送了自己对example.md文件的修改<br>猿A也对此文件做了修改 想git push，但是失败，需要先从远程库git pull，其git pull也报错，提示no tracking错误，则需要指定本地dev跟远程dev分支的链接</p>
-<pre><code><span class="label">git</span> <span class="keyword">branch </span>--set-upstream <span class="keyword">branch-name </span>origin/<span class="keyword">branch-name</span>
-</code></pre><p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MeUhEU1FlcUE2NUpmakhDRDVLRWNtbnR0ekE1Q08wL3JnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001376026233004c47f22a16d1f4fa289ce45f14bbc8f11000" target="_blank" rel="external">参考文章</a></p>
+<h2 id="2015/11/22_23:21:53">2015/11/22 23:21:53</h2><h3 id="标签">标签</h3><ul>
+<li>作用 —— 记录发布的版本</li>
+<li>理解 —— 不能移动的分支</li>
+<li><p>语法</p>
+<ul>
+<li><p>创建标签</p>
+<pre><code>git <span class="built_in">tag</span> 标签名
+git <span class="built_in">tag</span> 标签名 commit<span class="attribute">-id</span>
+</code></pre></li>
+<li><p>查看所有标签</p>
+<pre><code>git <span class="built_in">tag</span>
+</code></pre></li>
+<li><p>指定标签信息</p>
+<pre><code>git tag -<span class="tag">a</span> 标签名 -m <span class="string">"信息"</span>
+</code></pre></li>
+<li><p>删除标签</p>
+<pre><code>git tag <span class="operator">-d</span> 标签名
+</code></pre></li>
+<li><p>推送标签到远程(默认不推送标签)</p>
+<pre><code>git <span class="keyword">push</span> origin 标签名
+git <span class="keyword">push</span> origin --tags  <span class="comment">//推送全部标签</span>
+</code></pre></li>
+<li><p>删除远程标签(先删除本地标签)</p>
+<pre><code>git push origin <span class="symbol">:refs/tags/</span>标签名
+</code></pre></li>
+</ul>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -213,7 +262,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.</span> <span class="toc-text">Git的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-number"></span> <span class="toc-text">删除文件</span></a>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:01:52"><span class="toc-number">1.</span> <span class="toc-text">2015/11/22 23:01:52</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git的语法"><span class="toc-number">1.1.</span> <span class="toc-text">Git的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:01:58"><span class="toc-number">2.</span> <span class="toc-text">2015/11/22 23:01:58</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-number">3.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:17:46"><span class="toc-number">4.</span> <span class="toc-text">2015/11/22 23:17:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分支操作"><span class="toc-number">4.1.</span> <span class="toc-text">分支操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:19:22"><span class="toc-number">5.</span> <span class="toc-text">2015/11/22 23:19:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除未合并的分支用强行删除"><span class="toc-number">5.1.</span> <span class="toc-text">删除未合并的分支用强行删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:19:48"><span class="toc-number">6.</span> <span class="toc-text">2015/11/22 23:19:48</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多人协作"><span class="toc-number">6.1.</span> <span class="toc-text">多人协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:02:08"><span class="toc-number">7.</span> <span class="toc-text">2015/11/22 23:02:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stash保存当前工作状态"><span class="toc-number">7.1.</span> <span class="toc-text">Stash保存当前工作状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/22_23:21:53"><span class="toc-number">8.</span> <span class="toc-text">2015/11/22 23:21:53</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标签"><span class="toc-number">8.1.</span> <span class="toc-text">标签</span></a></li></ol></li></ol>
  
   </div>
 
@@ -233,7 +282,11 @@
 			
 		
 			
-				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
+				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Erin-Movies/" title="Erin_Movies">Erin_Movies<sup>1</sup></a></li>
 			
 		
 			
@@ -245,7 +298,7 @@
 			
 		
 			
-				<li><a href="/tags/Erin-Movies/" title="Erin_Movies">Erin_Movies<sup>1</sup></a></li>
+				<li><a href="/tags/SystemService/" title="SystemService">SystemService<sup>1</sup></a></li>
 			
 		
 			
@@ -285,11 +338,11 @@
 			
 		
 			
-				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
+				<li><a href="/tags/Callback接口/" title="Callback接口">Callback接口<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Android基础/" title="Android基础">Android基础<sup>1</sup></a></li>
+				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 			
@@ -302,10 +355,6 @@
 		
 			
 				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时间戳/" title="时间戳">时间戳<sup>1</sup></a></li>
 			
 		
 		</ul>

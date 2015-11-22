@@ -4,38 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>集合删除元素总结 | Developer_Erin</title>
+    <title>JAVASE基础 | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+    <meta name="description" content="2015/11/18 15:03:43回调函数Callback的理解
+一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
+回调函数分成3部分
+
+回调接口 —— 实现者实现的接口
+调用者 —— 预留接口给实现者调用. （创建接口引用）
+实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合删除元素总结">
-<meta property="og:url" content="erintrus.github.io/2015/09/01/2015-09-01-ArrayListDelete/index.html">
+<meta property="og:title" content="JAVASE基础">
+<meta property="og:url" content="erintrus.github.io/2015/11/18/2015-11-18-JAVASE/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
-<meta property="og:updated_time" content="2015-09-17T15:47:09.927Z">
+<meta property="og:description" content="2015/11/18 15:03:43回调函数Callback的理解
+一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
+回调函数分成3部分
+
+回调接口 —— 实现者实现的接口
+调用者 —— 预留接口给实现者调用. （创建接口引用）
+实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）">
+<meta property="og:updated_time" content="2015-11-20T10:32:32.045Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合删除元素总结">
-<meta name="twitter:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+<meta name="twitter:title" content="JAVASE基础">
+<meta name="twitter:description" content="2015/11/18 15:03:43回调函数Callback的理解
+一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
+回调函数分成3部分
+
+回调接口 —— 实现者实现的接口
+调用者 —— 预留接口给实现者调用. （创建接口引用）
+实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -94,14 +97,14 @@ if (iterator.hasNext()) {
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/01/2015-09-01-ArrayListDelete/" title="集合删除元素总结" itemprop="url">集合删除元素总结</a>
+      <a href="/2015/11/18/2015-11-18-JAVASE/" title="JAVASE基础" itemprop="url">JAVASE基础</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-01</time>
+    <time datetime="2015-11-18T07:03:37.000Z" itemprop="datePublished"> Published 2015-11-18</time>
     
   </p>
 </header>
@@ -110,31 +113,86 @@ if (iterator.hasNext()) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="比较两段代码的不同">比较两段代码的不同</h3><p>示例一：</p>
-<pre><code>  <span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; <span class="keyword">iterator</span> = showList.<span class="keyword">iterator</span>();
-<span class="keyword">if</span> (<span class="keyword">iterator</span>.hasNext()) {
-      <span class="type">ShowInfo</span> delShow = <span class="keyword">iterator</span>.next();
-       <span class="keyword">if</span> (delShow.isCheck() == <span class="literal">true</span>) {
-           <span class="keyword">iterator</span>.remove();
-       }
-   }
-</code></pre> <a id="more"></a>
-<p>示例二</p>
-<pre><code><span class="keyword">for</span> (<span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; delList = showList.<span class="keyword">iterator</span>(); delList.hasNext(); ) {
-    <span class="type">ShowInfo</span> delInfo = delList.next();
-    <span class="keyword">if</span> (delInfo.isCheck() == <span class="literal">true</span>) {
-        delList.remove();
-    }
+		<h2 id="2015/11/18_15:03:43">2015/11/18 15:03:43</h2><h3 id="回调函数Callback的理解">回调函数Callback的理解</h3><ol>
+<li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
+<li><p>回调函数分成3部分</p>
+<ul>
+<li>回调接口 —— 实现者实现的接口</li>
+<li>调用者 —— 预留接口给实现者调用. （创建接口引用）</li>
+<li>实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）</li>
+</ul>
+</li>
+</ol>
+<a id="more"></a>
+<h2 id="2015/11/19_10:56:14">2015/11/19 10:56:14</h2><h3 id="特征">特征</h3><p>[A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务] </p>
+<h3 id="示例：">示例：</h3><pre><code>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据
+</code></pre><p>示例： 员工A 完成任务后 告知老板B</p>
+<ul>
+<li><p>回调接口  </p>
+<pre><code><span class="keyword">interface</span> <span class="title">Callback</span>{ <span class="comment">//由实现者调用</span>
+    <span class="function"><span class="keyword">void</span> <span class="title">execute</span>(<span class="params"></span>)</span>;
 }
-</code></pre>  
+</code></pre></li>
+<li><p>调用者(员工)</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>{
+<span class="keyword">private</span> Callback <span class="keyword">callback</span>; <span class="comment">//预留回调接口,方便他人调用</span>
+<span class="keyword">private</span> doSomething(){
+
+        .
+        .    <span class="comment">//工作数小时</span>
+        .
+
+        <span class="keyword">callback</span>.execute(); <span class="comment">//告知老板</span>
+
+    }
+<span class="keyword">private</span> setUser(Callback <span class="keyword">callback</span>){<span class="comment">//注册回调函数、还可以考虑通过构造函数注册</span>
+        <span class="keyword">this</span>.<span class="keyword">callback</span> = <span class="keyword">callback</span>;    
+    }
+
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>实现者(老板)</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Callback</span></span>{  <span class="comment">//实现回调接口</span>
+
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>{
+    System.out.println(<span class="string">"收到员工"</span>);
+}
+
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>测试</p>
+<pre><code><span class="keyword">class</span> <span class="title">Test</span>{
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> (<span class="params">String args[]</span>)</span>{
+
+    A a = <span class="keyword">new</span> A();
+    a.setUser(<span class="keyword">new</span> B());
+    a.doSomething();
+
+    }
+
+}
+</code></pre></li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Callback接口/">Callback接口</a>
+  </div>
 
 </div>
 
@@ -142,7 +200,7 @@ if (iterator.hasNext()) {
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/01/2015-09-01-ArrayListDelete/" data-title="集合删除元素总结 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/11/18/2015-11-18-JAVASE/" data-title="JAVASE基础 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,13 +214,21 @@ if (iterator.hasNext()) {
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/01/2015-09-01-draw/" title="绘图总结">
+ <a href="/2015/11/19/2015-11-19-BroadcaseBase/" title="四大组件之Broadcast">
   <strong>上一篇：</strong><br/>
   <span>
-  绘图总结</span>
+  四大组件之Broadcast</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/11/18/2015-11-18-SystemService/"  title="系统服务使用记录">
+ <strong>下一篇：</strong><br/> 
+ <span>系统服务使用记录
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -174,7 +240,7 @@ if (iterator.hasNext()) {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li></ol>
  
   </div>
 

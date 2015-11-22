@@ -4,38 +4,74 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>集合删除元素总结 | Developer_Erin</title>
+    <title>四大组件之Broadcast | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+    <meta name="description" content="2015/11/19 15:43:46Broadcast的理解
+系统广播接收器
+利用intent-filter过滤action
+可用作整个应用监听某状态的变化
+
+2015/11/19 15:46:37常用的Action
+程序的开始
+android.intent.action.MAIN
+
+
+
+拨号界面
+action.intent.action.DIAL
+
+
+
+网络状态变化（广播）
+android.n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合删除元素总结">
-<meta property="og:url" content="erintrus.github.io/2015/09/01/2015-09-01-ArrayListDelete/index.html">
+<meta property="og:title" content="四大组件之Broadcast">
+<meta property="og:url" content="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
-<meta property="og:updated_time" content="2015-09-17T15:47:09.927Z">
+<meta property="og:description" content="2015/11/19 15:43:46Broadcast的理解
+系统广播接收器
+利用intent-filter过滤action
+可用作整个应用监听某状态的变化
+
+2015/11/19 15:46:37常用的Action
+程序的开始
+android.intent.action.MAIN
+
+
+
+拨号界面
+action.intent.action.DIAL
+
+
+
+网络状态变化（广播）
+android.n">
+<meta property="og:updated_time" content="2015-11-19T07:51:01.805Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合删除元素总结">
-<meta name="twitter:description" content="比较两段代码的不同示例一：
-  Iterator&amp;lt;ShowInfo&amp;gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-      ShowInfo delShow = iterator.next();
-       if (delShow.isCheck() == true) {
-           iterator">
+<meta name="twitter:title" content="四大组件之Broadcast">
+<meta name="twitter:description" content="2015/11/19 15:43:46Broadcast的理解
+系统广播接收器
+利用intent-filter过滤action
+可用作整个应用监听某状态的变化
+
+2015/11/19 15:46:37常用的Action
+程序的开始
+android.intent.action.MAIN
+
+
+
+拨号界面
+action.intent.action.DIAL
+
+
+
+网络状态变化（广播）
+android.n">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -94,14 +130,14 @@ if (iterator.hasNext()) {
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/01/2015-09-01-ArrayListDelete/" title="集合删除元素总结" itemprop="url">集合删除元素总结</a>
+      <a href="/2015/11/19/2015-11-19-BroadcaseBase/" title="四大组件之Broadcast" itemprop="url">四大组件之Broadcast</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-31T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-01</time>
+    <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished"> Published 2015-11-19</time>
     
   </p>
 </header>
@@ -110,27 +146,31 @@ if (iterator.hasNext()) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="比较两段代码的不同">比较两段代码的不同</h3><p>示例一：</p>
-<pre><code>  <span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; <span class="keyword">iterator</span> = showList.<span class="keyword">iterator</span>();
-<span class="keyword">if</span> (<span class="keyword">iterator</span>.hasNext()) {
-      <span class="type">ShowInfo</span> delShow = <span class="keyword">iterator</span>.next();
-       <span class="keyword">if</span> (delShow.isCheck() == <span class="literal">true</span>) {
-           <span class="keyword">iterator</span>.remove();
-       }
-   }
-</code></pre> <a id="more"></a>
-<p>示例二</p>
-<pre><code><span class="keyword">for</span> (<span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; delList = showList.<span class="keyword">iterator</span>(); delList.hasNext(); ) {
-    <span class="type">ShowInfo</span> delInfo = delList.next();
-    <span class="keyword">if</span> (delInfo.isCheck() == <span class="literal">true</span>) {
-        delList.remove();
-    }
-}
-</code></pre>  
+		<h2 id="2015/11/19_15:43:46">2015/11/19 15:43:46</h2><h3 id="Broadcast的理解">Broadcast的理解</h3><ul>
+<li>系统广播接收器</li>
+<li>利用intent-filter过滤action</li>
+<li>可用作整个应用监听某状态的变化</li>
+</ul>
+<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
+<li><p>程序的开始</p>
+<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>拨号界面</p>
+<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>网络状态变化（广播）</p>
+<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
+</code></pre></li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -142,7 +182,7 @@ if (iterator.hasNext()) {
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/01/2015-09-01-ArrayListDelete/" data-title="集合删除元素总结 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/" data-title="四大组件之Broadcast | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -155,14 +195,14 @@ if (iterator.hasNext()) {
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/01/2015-09-01-draw/" title="绘图总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  绘图总结</span>
+
+<div class="next">
+<a href="/2015/11/18/2015-11-18-JAVASE/"  title="JAVASE基础">
+ <strong>下一篇：</strong><br/> 
+ <span>JAVASE基础
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -174,7 +214,7 @@ if (iterator.hasNext()) {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两段代码的不同"><span class="toc-number">1.</span> <span class="toc-text">比较两段代码的不同</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
  
   </div>
 
