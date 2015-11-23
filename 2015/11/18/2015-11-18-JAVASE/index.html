@@ -29,7 +29,7 @@
 回调接口 —— 实现者实现的接口
 调用者 —— 预留接口给实现者调用. （创建接口引用）
 实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）">
-<meta property="og:updated_time" content="2015-11-20T10:32:32.045Z">
+<meta property="og:updated_time" content="2015-11-23T02:29:13.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVASE基础">
 <meta name="twitter:description" content="2015/11/18 15:03:43回调函数Callback的理解
@@ -113,7 +113,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#理解_——_File是一个工具类,通过其对象来操作文件的增删改查"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">理解 —— File是一个工具类,通过其对象来操作文件的增删改查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -183,6 +183,73 @@
 }
 </code></pre></li>
 </ul>
+<h2 id="2015/11/23_9:36:28">2015/11/23 9:36:28</h2><h3 id="文件操作">文件操作</h3><h5 id="理解_——_File是一个工具类,通过其对象来操作文件的增删改查">理解 —— File是一个工具类,通过其对象来操作文件的增删改查</h5><ul>
+<li><p>创建文件</p>
+<pre><code><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(路径,文件名);
+</code></pre></li>
+<li><p>创建文件夹</p>
+<pre><code><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(路径,文件名);
+<span class="keyword">file</span>.mkdir();
+</code></pre></li>
+<li><p>删除文件</p>
+<pre><code><span class="keyword">file</span>.<span class="keyword">delete</span>();
+</code></pre></li>
+</ul>
+<h3 id="示例_——_写一个用文件保存数据的方法">示例 —— 写一个用文件保存数据的方法</h3><pre><code><span class="comment">//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)</span>
+<span class="keyword">public</span> <span class="keyword">void</span> saveData(Context context , Object data , String name , String folder){
+    <span class="keyword">if</span>(context ==<span class="keyword">null</span>) <span class="keyword">return</span> ;
+    <span class="keyword">File</span> <span class="keyword">file</span>;
+    <span class="keyword">if</span>(folder.isEmpty){ <span class="comment">//如果没有折叠器，则在当前目录创建文件</span>
+        <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(context.getFilesDir(),name);
+    }<span class="keyword">else</span>{ <span class="comment">//否则，创建一个文件夹</span>
+        <span class="keyword">File</span> filesDir = <span class="keyword">new</span> <span class="keyword">File</span>(context.getFilesDir(),folder);
+        <span class="keyword">if</span>(!filesDir.exists()||!filesDir.isDirectory()){<span class="comment">//如果文件夹不存在,则创建该文件夹</span>
+        {
+            fileDir.mkdir();
+        }
+        <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(filesDir,name);<span class="comment">//在该目录下创建文件            </span>
+    }
+
+
+    <span class="keyword">if</span> (<span class="keyword">file</span>.exists()) {
+        <span class="keyword">file</span>.<span class="keyword">delete</span>();
+    }
+
+*************************保存数据
+
+ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="keyword">file</span>));
+oos.writeObject(data);
+oos.close();
+}
+</code></pre><h3 id="总结_——_创建一个文件的过程">总结 —— 创建一个文件的过程</h3><ul>
+<li><p>判断是否需要创建折叠器(文件夹)</p>
+<ul>
+<li>不要 ——&gt; 直接创建文件</li>
+<li>需要 ——&gt; 判断文件的目录是否存在 &amp;&amp; 判断是否文件夹 ——&gt; 如果不存在，则在该路径下创建文件</li>
+</ul>
+</li>
+<li><p>判断文件是否存在</p>
+<ul>
+<li>存在 —— &gt;删除</li>
+</ul>
+</li>
+</ul>
+<h2 id="2015/11/23_9:44:36">2015/11/23 9:44:36</h2><h3 id="文件的读写">文件的读写</h3><ul>
+<li><p>getCacheDir()方法用于获取/data/data//cache目录</p>
+</li>
+<li><p>getFilesDir()方法用于获取/data/data//files目录</p>
+</li>
+<li><p>写入内容(writeObject、ObjectOutputStream方法)</p>
+<pre><code>ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="keyword">file</span>));
+oos.writeObject(data);
+oos.<span class="keyword">close</span>();
+</code></pre></li>
+<li><p>读取内容(readObject、ObjectInputStream方法)</p>
+<pre><code>ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="keyword">file</span>));
+ois.readObject();
+ois.<span class="keyword">close</span>();
+</code></pre></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -191,7 +258,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Callback接口/">Callback接口</a>
+  <span></span> <a href="/tags/Callback接口/">Callback接口</a><a href="/tags/JAVASE/">JAVASE</a>
   </div>
 
 </div>
@@ -240,7 +307,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#理解_——_File是一个工具类,通过其对象来操作文件的增删改查"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">理解 —— File是一个工具类,通过其对象来操作文件的增删改查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li></ol>
  
   </div>
 
@@ -261,6 +328,10 @@
 		
 			
 				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JAVASE/" title="JAVASE">JAVASE<sup>1</sup></a></li>
 			
 		
 			
@@ -329,10 +400,6 @@
 		
 			
 				<li><a href="/tags/BNJ/" title="BNJ">BNJ<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Check/" title="Check">Check<sup>1</sup></a></li>
 			
 		
 		</ul>
