@@ -4,74 +4,62 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>四大组件之Broadcast | Developer_Erin</title>
+    <title>常用的技术框架 | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
+    <meta name="description" content="2015/11/23 15:59:20图片缓存
+Picasso
+Fresco
+Android-Universal-Image-Loader
+Glide
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
+2015/11/23 16:01:57网络请求
+Volley
+Async-Http
 
+2015/11/23 16:55:28圆形图片
+CircleImage
 
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+2015/11/23 16:57:59Gsoncompile &apos;com.google.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四大组件之Broadcast">
-<meta property="og:url" content="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/index.html">
+<meta property="og:title" content="常用的技术框架">
+<meta property="og:url" content="erintrus.github.io/2015/11/23/2015-11-22-Framework/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
+<meta property="og:description" content="2015/11/23 15:59:20图片缓存
+Picasso
+Fresco
+Android-Universal-Image-Loader
+Glide
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
+2015/11/23 16:01:57网络请求
+Volley
+Async-Http
 
+2015/11/23 16:55:28圆形图片
+CircleImage
 
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
-<meta property="og:updated_time" content="2015-11-19T07:51:01.805Z">
+2015/11/23 16:57:59Gsoncompile &apos;com.google.">
+<meta property="og:updated_time" content="2015-11-24T01:40:51.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四大组件之Broadcast">
-<meta name="twitter:description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
+<meta name="twitter:title" content="常用的技术框架">
+<meta name="twitter:description" content="2015/11/23 15:59:20图片缓存
+Picasso
+Fresco
+Android-Universal-Image-Loader
+Glide
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
+2015/11/23 16:01:57网络请求
+Volley
+Async-Http
 
+2015/11/23 16:55:28圆形图片
+CircleImage
 
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+2015/11/23 16:57:59Gsoncompile &apos;com.google.">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -130,14 +118,14 @@ android.n">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/19/2015-11-19-BroadcaseBase/" title="四大组件之Broadcast" itemprop="url">四大组件之Broadcast</a>
+      <a href="/2015/11/23/2015-11-22-Framework/" title="常用的技术框架" itemprop="url">常用的技术框架</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished"> Published 2015-11-19</time>
+    <time datetime="2015-11-23T07:59:10.000Z" itemprop="datePublished"> Published 2015-11-23</time>
     
   </p>
 </header>
@@ -146,29 +134,42 @@ android.n">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_15:59:20"><span class="toc-number">1.</span> <span class="toc-text">2015/11/23 15:59:20</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片缓存"><span class="toc-number">1.1.</span> <span class="toc-text">图片缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:01:57"><span class="toc-number">2.</span> <span class="toc-text">2015/11/23 16:01:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络请求"><span class="toc-number">2.1.</span> <span class="toc-text">网络请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:55:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 16:55:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#圆形图片"><span class="toc-number">3.1.</span> <span class="toc-text">圆形图片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:57:59"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 16:57:59</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">4.1.</span> <span class="toc-text">Gson</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_17:00:11"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 17:00:11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进度条"><span class="toc-number">5.1.</span> <span class="toc-text">进度条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_17:07:48"><span class="toc-number">6.</span> <span class="toc-text">2015/11/23 17:07:48</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码"><span class="toc-number">6.1.</span> <span class="toc-text">二维码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:01:40"><span class="toc-number">7.</span> <span class="toc-text">2015/11/24 9:01:40</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带滑动效果的Drawer"><span class="toc-number">7.1.</span> <span class="toc-text">带滑动效果的Drawer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:35:10"><span class="toc-number">8.</span> <span class="toc-text">2015/11/24 9:35:10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下拉刷新"><span class="toc-number">8.1.</span> <span class="toc-text">下拉刷新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:40:34"><span class="toc-number">9.</span> <span class="toc-text">2015/11/24 9:40:34</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#屏幕适配"><span class="toc-number">9.1.</span> <span class="toc-text">屏幕适配</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="2015/11/19_15:43:46">2015/11/19 15:43:46</h2><h3 id="Broadcast的理解">Broadcast的理解</h3><ul>
-<li>系统广播接收器</li>
-<li>利用intent-filter过滤action</li>
-<li>可用作整个应用监听某状态的变化</li>
+		<h2 id="2015/11/23_15:59:20">2015/11/23 15:59:20</h2><h3 id="图片缓存">图片缓存</h3><ul>
+<li><a href="http://square.github.io/picasso/" target="_blank" rel="external">Picasso</a></li>
+<li><a href="http://www.fresco-cn.org/" target="_blank" rel="external">Fresco</a></li>
+<li><a href="http://localhost:4000/2015/09/17/2015-09-17-ImageLoader/" target="_blank" rel="external">Android-Universal-Image-Loader</a></li>
+<li><a href="http://www.jianshu.com/p/4a3177b57949" target="_blank" rel="external">Glide</a></li>
 </ul>
-<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
-<li><p>程序的开始</p>
-<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
+<h2 id="2015/11/23_16:01:57">2015/11/23 16:01:57</h2><h3 id="网络请求">网络请求</h3><ul>
+<li><a href="http://localhost:4000/2015/10/29/2015-10-29-Volley/" target="_blank" rel="external">Volley</a></li>
+<li><a href="http://localhost:4000/2015/10/29/2015-10-29-Volley/" target="_blank" rel="external">Async-Http</a></li>
+</ul>
+<h2 id="2015/11/23_16:55:28">2015/11/23 16:55:28</h2><h3 id="圆形图片">圆形图片</h3><ul>
+<li><a href="https://github.com/hdodenhof/CircleImageView" target="_blank" rel="external">CircleImage</a></li>
+</ul>
+<h2 id="2015/11/23_16:57:59">2015/11/23 16:57:59</h2><h3 id="Gson">Gson</h3><pre><code><span class="keyword">compile</span> <span class="string">'com.google.code.gson:gson:2.3.1'</span>
+</code></pre><h2 id="2015/11/23_17:00:11">2015/11/23 17:00:11</h2><h3 id="进度条">进度条</h3><ul>
+<li><p><a href="https://github.com/jpardogo/GoogleProgressBar" target="_blank" rel="external">Google进度条</a></p>
+<pre><code><span class="keyword">compile</span> <span class="string">'com.jpardogo.googleprogressbar:library:1.2.0'</span>
 </code></pre></li>
 </ul>
-<ul>
-<li><p>拨号界面</p>
-<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
+<h2 id="2015/11/23_17:07:48">2015/11/23 17:07:48</h2><h3 id="二维码">二维码</h3><ul>
+<li><p><a href="https://github.com/journeyapps/zxing-android-embedded" target="_blank" rel="external">zxing-android-embedded</a></p>
+<pre><code><span class="keyword">compile</span> <span class="string">'com.google.zxing:core:3.2.0'</span>
 </code></pre></li>
 </ul>
-<ul>
-<li><p>网络状态变化（广播）</p>
-<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
-</code></pre></li>
+<h2 id="2015/11/24_9:01:40">2015/11/24 9:01:40</h2><h3 id="带滑动效果的Drawer">带滑动效果的Drawer</h3><ul>
+<li><a href="https://github.com/mxn21/FlowingDrawer" target="_blank" rel="external">FlowingDrawer</a></li>
+</ul>
+<h2 id="2015/11/24_9:35:10">2015/11/24 9:35:10</h2><h3 id="下拉刷新">下拉刷新</h3><ul>
+<li><a href="https://github.com/nuptboyzhb/SuperSwipeRefreshLayout" target="_blank" rel="external">SuperSwipeRefreshLayout</a></li>
+</ul>
+<h2 id="2015/11/24_9:40:34">2015/11/24 9:40:34</h2><h3 id="屏幕适配">屏幕适配</h3><ul>
+<li><a href="http://www.html-js.com/article/3041" target="_blank" rel="external">屏幕适配</a></li>
 </ul>
   
 	</div>
@@ -176,13 +177,18 @@ android.n">
 <div class="article-catetags">
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/常用的框架/">常用的框架</a>
+  </div>
+
 </div>
 
 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/" data-title="四大组件之Broadcast | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/11/23/2015-11-22-Framework/" data-title="常用的技术框架 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -195,19 +201,11 @@ android.n">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/11/23/2015-11-22-Framework/" title="常用的技术框架">
-  <strong>上一篇：</strong><br/>
-  <span>
-  常用的技术框架</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/11/18/2015-11-18-JAVASE/"  title="JAVASE基础">
+<a href="/2015/11/19/2015-11-19-BroadcaseBase/"  title="四大组件之Broadcast">
  <strong>下一篇：</strong><br/> 
- <span>JAVASE基础
+ <span>四大组件之Broadcast
 </span>
 </a>
 </div>
@@ -222,7 +220,7 @@ android.n">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_15:59:20"><span class="toc-number">1.</span> <span class="toc-text">2015/11/23 15:59:20</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片缓存"><span class="toc-number">1.1.</span> <span class="toc-text">图片缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:01:57"><span class="toc-number">2.</span> <span class="toc-text">2015/11/23 16:01:57</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络请求"><span class="toc-number">2.1.</span> <span class="toc-text">网络请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:55:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 16:55:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#圆形图片"><span class="toc-number">3.1.</span> <span class="toc-text">圆形图片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:57:59"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 16:57:59</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">4.1.</span> <span class="toc-text">Gson</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_17:00:11"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 17:00:11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进度条"><span class="toc-number">5.1.</span> <span class="toc-text">进度条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_17:07:48"><span class="toc-number">6.</span> <span class="toc-text">2015/11/23 17:07:48</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码"><span class="toc-number">6.1.</span> <span class="toc-text">二维码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:01:40"><span class="toc-number">7.</span> <span class="toc-text">2015/11/24 9:01:40</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带滑动效果的Drawer"><span class="toc-number">7.1.</span> <span class="toc-text">带滑动效果的Drawer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:35:10"><span class="toc-number">8.</span> <span class="toc-text">2015/11/24 9:35:10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下拉刷新"><span class="toc-number">8.1.</span> <span class="toc-text">下拉刷新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:40:34"><span class="toc-number">9.</span> <span class="toc-text">2015/11/24 9:40:34</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#屏幕适配"><span class="toc-number">9.1.</span> <span class="toc-text">屏幕适配</span></a></li></ol></li></ol>
  
   </div>
 

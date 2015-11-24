@@ -4,74 +4,57 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>四大组件之Broadcast | Developer_Erin</title>
+    <title>常用工具及网站 | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
+    <meta name="description" content="2015/11/23 15:06:37一些学习Android开发的网站
+开源网站
+常用框架
+动画效果
+初学者网站
+技术论坛
+安卓技术周报
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
-
-
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+2015/11/23 11:21:35图片压缩工具图片在线压缩
+2015/11/23 11:25:28抓包工具Fiddler
+2015/11/23 15:08:49在线markdownMarkdown简历
+2015/11/23 16:27:39Maven找Gr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四大组件之Broadcast">
-<meta property="og:url" content="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/index.html">
+<meta property="og:title" content="常用工具及网站">
+<meta property="og:url" content="erintrus.github.io/2015/11/11/2015-11-11-Utils/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
+<meta property="og:description" content="2015/11/23 15:06:37一些学习Android开发的网站
+开源网站
+常用框架
+动画效果
+初学者网站
+技术论坛
+安卓技术周报
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
-
-
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
-<meta property="og:updated_time" content="2015-11-19T07:51:01.805Z">
+2015/11/23 11:21:35图片压缩工具图片在线压缩
+2015/11/23 11:25:28抓包工具Fiddler
+2015/11/23 15:08:49在线markdownMarkdown简历
+2015/11/23 16:27:39Maven找Gr">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1mWTNublJOdlV0WGlyQktaekpETzNCb1Y2UzE1TWtHdWdmVUdlOVptUlJBPT0.png">
+<meta property="og:updated_time" content="2015-11-24T01:54:25.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四大组件之Broadcast">
-<meta name="twitter:description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
+<meta name="twitter:title" content="常用工具及网站">
+<meta name="twitter:description" content="2015/11/23 15:06:37一些学习Android开发的网站
+开源网站
+常用框架
+动画效果
+初学者网站
+技术论坛
+安卓技术周报
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
-
-
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+2015/11/23 11:21:35图片压缩工具图片在线压缩
+2015/11/23 11:25:28抓包工具Fiddler
+2015/11/23 15:08:49在线markdownMarkdown简历
+2015/11/23 16:27:39Maven找Gr">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -130,14 +113,14 @@ android.n">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/19/2015-11-19-BroadcaseBase/" title="四大组件之Broadcast" itemprop="url">四大组件之Broadcast</a>
+      <a href="/2015/11/11/2015-11-11-Utils/" title="常用工具及网站" itemprop="url">常用工具及网站</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished"> Published 2015-11-19</time>
+    <time datetime="2015-11-11T03:11:11.000Z" itemprop="datePublished"> Published 2015-11-11</time>
     
   </p>
 </header>
@@ -146,35 +129,41 @@ android.n">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_15:06:37"><span class="toc-number">1.</span> <span class="toc-text">2015/11/23 15:06:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一些学习Android开发的网站"><span class="toc-number">1.1.</span> <span class="toc-text">一些学习Android开发的网站</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_11:21:35"><span class="toc-number">2.</span> <span class="toc-text">2015/11/23 11:21:35</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片压缩工具"><span class="toc-number">2.1.</span> <span class="toc-text">图片压缩工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_11:25:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 11:25:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抓包工具"><span class="toc-number">3.1.</span> <span class="toc-text">抓包工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_15:08:49"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 15:08:49</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在线markdown"><span class="toc-number">4.1.</span> <span class="toc-text">在线markdown</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:27:39"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 16:27:39</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven找Gradle支持库"><span class="toc-number">5.1.</span> <span class="toc-text">Maven找Gradle支持库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:31:26"><span class="toc-number">6.</span> <span class="toc-text">2015/11/24 9:31:26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#鲜明的颜色"><span class="toc-number">6.1.</span> <span class="toc-text">鲜明的颜色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:32:34"><span class="toc-number">7.</span> <span class="toc-text">2015/11/24 9:32:34</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android_studio快捷键"><span class="toc-number">7.1.</span> <span class="toc-text">Android studio快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:33:23"><span class="toc-number">8.</span> <span class="toc-text">2015/11/24 9:33:23</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电脑控制手机"><span class="toc-number">8.1.</span> <span class="toc-text">电脑控制手机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:43:17"><span class="toc-number">9.</span> <span class="toc-text">2015/11/24 9:43:17</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android图标库"><span class="toc-number">9.1.</span> <span class="toc-text">Android图标库</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="2015/11/19_15:43:46">2015/11/19 15:43:46</h2><h3 id="Broadcast的理解">Broadcast的理解</h3><ul>
-<li>系统广播接收器</li>
-<li>利用intent-filter过滤action</li>
-<li>可用作整个应用监听某状态的变化</li>
+		<h2 id="2015/11/23_15:06:37">2015/11/23 15:06:37</h2><h3 id="一些学习Android开发的网站">一些学习Android开发的网站</h3><ul>
+<li><a href="http://www.see-source.com/androidwidget/list.html?type=24" target="_blank" rel="external">开源网站</a></li>
+<li><a href="http://www.tuicool.com/articles/jyA3MrU" target="_blank" rel="external">常用框架</a></li>
+<li><a href="http://baoyz.com/android/2014/05/12/nine-old-androids-use/" target="_blank" rel="external">动画效果</a></li>
+<li><a href="http://coolshell.info/blog/2015/05/android-links.html" target="_blank" rel="external">初学者网站</a></li>
+<li><a href="http://www.apkbus.com/" target="_blank" rel="external">技术论坛</a></li>
+<li><a href="http://www.androidweekly.cn/" target="_blank" rel="external">安卓技术周报</a></li>
 </ul>
-<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
-<li><p>程序的开始</p>
-<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
-</code></pre></li>
+<h2 id="2015/11/23_11:21:35">2015/11/23 11:21:35</h2><h3 id="图片压缩工具">图片压缩工具</h3><p><a href="https://tinypng.com/" target="_blank" rel="external">图片在线压缩</a></p>
+<h2 id="2015/11/23_11:25:28">2015/11/23 11:25:28</h2><h3 id="抓包工具">抓包工具</h3><p><a href="http://www.telerik.com/fiddler" target="_blank" rel="external">Fiddler</a></p>
+<h2 id="2015/11/23_15:08:49">2015/11/23 15:08:49</h2><h3 id="在线markdown">在线markdown</h3><p><a href="http://tanjun.digitcv.com/#/admin" target="_blank" rel="external">Markdown简历</a></p>
+<h2 id="2015/11/23_16:27:39">2015/11/23 16:27:39</h2><h3 id="Maven找Gradle支持库">Maven找Gradle支持库</h3><p><a href="http://mvnrepository.com/" target="_blank" rel="external">Maven</a></p>
+<h2 id="2015/11/24_9:31:26">2015/11/24 9:31:26</h2><h3 id="鲜明的颜色">鲜明的颜色</h3><p><a href="http://www.colorhunt.co/" target="_blank" rel="external">Colorhunt</a></p>
+<h2 id="2015/11/24_9:32:34">2015/11/24 9:32:34</h2><h3 id="Android_studio快捷键">Android studio快捷键</h3><p><a href="http://blog.csdn.net/shulianghan/article/details/47321177" target="_blank" rel="external">Android studio快捷键</a></p>
+<h2 id="2015/11/24_9:33:23">2015/11/24 9:33:23</h2><h3 id="电脑控制手机">电脑控制手机</h3><ul>
+<li><a href="http://tc.sigma-rt.com.cn/index.php" target="_blank" rel="external">电脑控制手机</a></li>
 </ul>
-<ul>
-<li><p>拨号界面</p>
-<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
-</code></pre></li>
+<h2 id="2015/11/24_9:43:17">2015/11/24 9:43:17</h2><h3 id="Android图标库">Android图标库</h3><ul>
+<li><a href="http://www.icons4android.com/" target="_blank" rel="external">Icons4android</a></li>
 </ul>
-<ul>
-<li><p>网络状态变化（广播）</p>
-<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
-</code></pre></li>
-</ul>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1mWTNublJOdlV0WGlyQktaekpETzNCb1Y2UzE1TWtHdWdmVUdlOVptUlJBPT0.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/常用开发工具及网站/">常用开发工具及网站</a>
+  </div>
 
 </div>
 
@@ -182,7 +171,7 @@ android.n">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/" data-title="四大组件之Broadcast | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/11/11/2015-11-11-Utils/" data-title="常用工具及网站 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -196,18 +185,18 @@ android.n">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/11/23/2015-11-22-Framework/" title="常用的技术框架">
+ <a href="/2015/11/18/2015-11-18-SystemService/" title="系统服务使用记录">
   <strong>上一篇：</strong><br/>
   <span>
-  常用的技术框架</span>
+  系统服务使用记录</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/11/18/2015-11-18-JAVASE/"  title="JAVASE基础">
+<a href="/2015/11/02/2015-11-01-Erin_Movies/"  title="Erin_Movies项目">
  <strong>下一篇：</strong><br/> 
- <span>JAVASE基础
+ <span>Erin_Movies项目
 </span>
 </a>
 </div>
@@ -222,7 +211,7 @@ android.n">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_15:06:37"><span class="toc-number">1.</span> <span class="toc-text">2015/11/23 15:06:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一些学习Android开发的网站"><span class="toc-number">1.1.</span> <span class="toc-text">一些学习Android开发的网站</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_11:21:35"><span class="toc-number">2.</span> <span class="toc-text">2015/11/23 11:21:35</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片压缩工具"><span class="toc-number">2.1.</span> <span class="toc-text">图片压缩工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_11:25:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 11:25:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抓包工具"><span class="toc-number">3.1.</span> <span class="toc-text">抓包工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_15:08:49"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 15:08:49</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在线markdown"><span class="toc-number">4.1.</span> <span class="toc-text">在线markdown</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_16:27:39"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 16:27:39</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven找Gradle支持库"><span class="toc-number">5.1.</span> <span class="toc-text">Maven找Gradle支持库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:31:26"><span class="toc-number">6.</span> <span class="toc-text">2015/11/24 9:31:26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#鲜明的颜色"><span class="toc-number">6.1.</span> <span class="toc-text">鲜明的颜色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:32:34"><span class="toc-number">7.</span> <span class="toc-text">2015/11/24 9:32:34</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android_studio快捷键"><span class="toc-number">7.1.</span> <span class="toc-text">Android studio快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:33:23"><span class="toc-number">8.</span> <span class="toc-text">2015/11/24 9:33:23</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电脑控制手机"><span class="toc-number">8.1.</span> <span class="toc-text">电脑控制手机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:43:17"><span class="toc-number">9.</span> <span class="toc-text">2015/11/24 9:43:17</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android图标库"><span class="toc-number">9.1.</span> <span class="toc-text">Android图标库</span></a></li></ol></li></ol>
  
   </div>
 
