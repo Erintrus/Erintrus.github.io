@@ -167,7 +167,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/19/2015-11-19-BroadcaseBase/" title="四大组件之Broadcast" itemprop="url">四大组件之Broadcast</a>
+      <a href="/2015/11/19/2015-11-19-Android-Broadcast/" title="四大组件之Broadcast" itemprop="url">四大组件之Broadcast</a>
   </h1>
   <p class="article-author">By
        
@@ -200,6 +200,22 @@
 <pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
 </code></pre></li>
 </ul>
+<h3 id="示例">示例</h3><ul>
+<li>服务器下发新消息时，通知MainActivity更改UI</li>
+</ul>
+<ol>
+<li>继承BroadcastReceiver</li>
+<li>定义过滤的Action </li>
+<li>添加回调接口</li>
+<li>重写onReceive方法</li>
+<li>动态注册接口(LocalBroadcastManager类)</li>
+<li>在获取到服务器数据的地方发送广播 </li>
+</ol>
+<pre><code><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();
+<span class="type">intent</span>.putExtra(....);
+<span class="type">intent</span>.setAction(Receiver定义的<span class="keyword">Action</span>);
+sendBroadcast(<span class="type">intent</span>);
+</code></pre><hr>
 
         
         
@@ -253,12 +269,22 @@
 <li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
 <li><p>回调函数分成3部分</p>
 <ul>
-<li>回调接口 —— 实现者实现的接口</li>
-<li>调用者 —— 预留接口给实现者调用. （创建接口引用）</li>
-<li>实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）</li>
+<li>回调接口 —— 提供数据的人编写</li>
+<li><p>提供数据的人  </p>
+<ul>
+<li>预留接口给他人实现(定义接口、创建接口引用)</li>
+<li>提供注册接口的方法(注册接口)</li>
+<li>在给数据的地方调用接口的方法(通过接口引用调用方法)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
+<pre><code>* 获取返回数据的人
+
+    -<span class="ruby"> （实现回调接口） implements <span class="constant">Callback</span>
+</span>    -<span class="ruby">  注册回调函数</span>
+</code></pre>
         
         
         <p class="article-more-link">
@@ -506,7 +532,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/10/30/2015-10-30-ActivityBase/" title="四大组件之Activity" itemprop="url">四大组件之Activity</a>
+      <a href="/2015/10/30/2015-10-30-Android-Activity/" title="四大组件之Activity" itemprop="url">四大组件之Activity</a>
   </h1>
   <p class="article-author">By
        

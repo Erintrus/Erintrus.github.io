@@ -15,9 +15,20 @@
 一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
 回调函数分成3部分
 
-回调接口 —— 实现者实现的接口
-调用者 —— 预留接口给实现者调用. （创建接口引用）
-实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）">
+回调接口 —— 提供数据的人编写
+提供数据的人  
+
+预留接口给他人实现(定义接口、创建接口引用)
+提供注册接口的方法(注册接口)
+在给数据的地方调用接口的方法(通过接口引用调用方法)
+
+
+
+
+
+* 获取返回数据的人
+
+    - （实现回调接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVASE基础">
 <meta property="og:url" content="erintrus.github.io/2015/11/18/2015-11-18-JAVASE/index.html">
@@ -26,19 +37,41 @@
 一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
 回调函数分成3部分
 
-回调接口 —— 实现者实现的接口
-调用者 —— 预留接口给实现者调用. （创建接口引用）
-实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）">
-<meta property="og:updated_time" content="2015-11-23T02:52:29.771Z">
+回调接口 —— 提供数据的人编写
+提供数据的人  
+
+预留接口给他人实现(定义接口、创建接口引用)
+提供注册接口的方法(注册接口)
+在给数据的地方调用接口的方法(通过接口引用调用方法)
+
+
+
+
+
+* 获取返回数据的人
+
+    - （实现回调接">
+<meta property="og:updated_time" content="2015-11-25T15:49:53.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVASE基础">
 <meta name="twitter:description" content="2015/11/18 15:03:43回调函数Callback的理解
 一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
 回调函数分成3部分
 
-回调接口 —— 实现者实现的接口
-调用者 —— 预留接口给实现者调用. （创建接口引用）
-实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）">
+回调接口 —— 提供数据的人编写
+提供数据的人  
+
+预留接口给他人实现(定义接口、创建接口引用)
+提供注册接口的方法(注册接口)
+在给数据的地方调用接口的方法(通过接口引用调用方法)
+
+
+
+
+
+* 获取返回数据的人
+
+    - （实现回调接">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -113,7 +146,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#理解_——_File是一个工具类,通过其对象来操作文件的增删改查"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">理解 —— File是一个工具类,通过其对象来操作文件的增删改查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例：-1"><span class="toc-number">2.3.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -121,23 +154,32 @@
 <li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
 <li><p>回调函数分成3部分</p>
 <ul>
-<li>回调接口 —— 实现者实现的接口</li>
-<li>调用者 —— 预留接口给实现者调用. （创建接口引用）</li>
-<li>实现者 —— 重写接口的方法并且在给他人数据的地方调用接口方法。（实现回调接口）</li>
+<li>回调接口 —— 提供数据的人编写</li>
+<li><p>提供数据的人  </p>
+<ul>
+<li>预留接口给他人实现(定义接口、创建接口引用)</li>
+<li>提供注册接口的方法(注册接口)</li>
+<li>在给数据的地方调用接口的方法(通过接口引用调用方法)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
-<a id="more"></a>
+<pre><code>* 获取返回数据的人
+
+    -<span class="ruby"> （实现回调接口） implements <span class="constant">Callback</span>
+</span>    -<span class="ruby">  注册回调函数</span>
+</code></pre><a id="more"></a>
 <h2 id="2015/11/19_10:56:14">2015/11/19 10:56:14</h2><h3 id="特征">特征</h3><p>[A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务] </p>
 <h3 id="示例：">示例：</h3><pre><code>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据
-</code></pre><p>示例： 员工A 完成任务后 告知老板B</p>
-<ul>
+</code></pre><h3 id="示例：-1">示例：</h3><pre><code>员工<span class="literal">A</span> 完成任务后 告知老板B
+</code></pre><ul>
 <li><p>回调接口  </p>
-<pre><code><span class="keyword">interface</span> <span class="title">Callback</span>{ <span class="comment">//由实现者调用</span>
-    <span class="function"><span class="keyword">void</span> <span class="title">execute</span>(<span class="params"></span>)</span>;
+<pre><code><span class="keyword">interface</span> <span class="title">Callback</span>{ <span class="comment">//接口返回something time等参数</span>
+    <span class="function"><span class="keyword">void</span> <span class="title">execute</span>(<span class="params">String something ，<span class="keyword">long</span> time</span>)</span>;
 }
 </code></pre></li>
-<li><p>调用者(员工)</p>
+<li><p>(员工)</p>
 <pre><code><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>{
 <span class="keyword">private</span> Callback <span class="keyword">callback</span>; <span class="comment">//预留回调接口,方便他人调用</span>
 <span class="keyword">private</span> doSomething(){
@@ -146,10 +188,10 @@
         .    <span class="comment">//工作数小时</span>
         .
 
-        <span class="keyword">callback</span>.execute(); <span class="comment">//告知老板</span>
+        <span class="keyword">callback</span>.execute(work,<span class="number">144000055</span>); <span class="comment">//告知老板</span>
 
     }
-<span class="keyword">private</span> setUser(Callback <span class="keyword">callback</span>){<span class="comment">//注册回调函数、还可以考虑通过构造函数注册</span>
+<span class="keyword">private</span> setUser(Callback <span class="keyword">callback</span>){<span class="comment">//提供注册回调函数的方法、还可以考虑通过构造函数注册</span>
         <span class="keyword">this</span>.<span class="keyword">callback</span> = <span class="keyword">callback</span>;    
     }
 
@@ -157,14 +199,12 @@
 </code></pre></li>
 </ul>
 <ul>
-<li><p>实现者(老板)</p>
+<li><p>(老板)</p>
 <pre><code><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Callback</span></span>{  <span class="comment">//实现回调接口</span>
-
 <span class="annotation">@Override</span>
-<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>{
-    System.out.println(<span class="string">"收到员工"</span>);
-}
-
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(String something ，<span class="keyword">long</span> time)</span></span>{
+    System.out.println(<span class="string">"员工在"</span>+time+<span class="string">"做了"</span>+something);
+    }
 }
 </code></pre></li>
 </ul>
@@ -175,7 +215,7 @@
     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> (<span class="params">String args[]</span>)</span>{
 
     A a = <span class="keyword">new</span> A();
-    a.setUser(<span class="keyword">new</span> B());
+    a.setUser(<span class="keyword">new</span> B());<span class="comment">//注册接口</span>
     a.doSomething();
 
     }
@@ -183,7 +223,10 @@
 }
 </code></pre></li>
 </ul>
-<h2 id="2015/11/23_9:36:28">2015/11/23 9:36:28</h2><h3 id="文件操作">文件操作</h3><h5 id="理解_——_File是一个工具类,通过其对象来操作文件的增删改查">理解 —— File是一个工具类,通过其对象来操作文件的增删改查</h5><ul>
+<h2 id="2015/11/23_9:36:28">2015/11/23 9:36:28</h2><h3 id="文件操作">文件操作</h3><ul>
+<li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
+</ul>
+<ul>
 <li><p>创建文件</p>
 <pre><code><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(路径,文件名);
 </code></pre></li>
@@ -281,7 +324,7 @@ ois.<span class="keyword">close</span>();
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/11/19/2015-11-19-BroadcaseBase/" title="四大组件之Broadcast">
+ <a href="/2015/11/19/2015-11-19-Android-Broadcast/" title="四大组件之Broadcast">
   <strong>上一篇：</strong><br/>
   <span>
   四大组件之Broadcast</span>
@@ -307,7 +350,7 @@ ois.<span class="keyword">close</span>();
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#理解_——_File是一个工具类,通过其对象来操作文件的增删改查"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">理解 —— File是一个工具类,通过其对象来操作文件的增删改查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例：-1"><span class="toc-number">2.3.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li></ol>
  
   </div>
 

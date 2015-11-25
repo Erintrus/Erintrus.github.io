@@ -4,74 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>四大组件之Broadcast | Developer_Erin</title>
+    <title>四大组件之Activity | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
-
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
-
-
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+    <meta name="description" content="2015/10/30 15:42:14Activity启动模式
+Standard：每次跳一个Activity都在栈中创建一个实例。
+SingleTop：当前Activity跳当前Activity不创建实例。
+SingleTask：如果待跳的Activity已存在栈中，则把待跳Activity之前的所有Activity弹出。
+SingleInstance：新建一个任务栈，该任务栈只有一个Activi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四大组件之Broadcast">
-<meta property="og:url" content="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/index.html">
+<meta property="og:title" content="四大组件之Activity">
+<meta property="og:url" content="erintrus.github.io/2015/10/30/2015-10-30-Android-Activity/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
-
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
-
-
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
-<meta property="og:updated_time" content="2015-11-19T07:51:01.805Z">
+<meta property="og:description" content="2015/10/30 15:42:14Activity启动模式
+Standard：每次跳一个Activity都在栈中创建一个实例。
+SingleTop：当前Activity跳当前Activity不创建实例。
+SingleTask：如果待跳的Activity已存在栈中，则把待跳Activity之前的所有Activity弹出。
+SingleInstance：新建一个任务栈，该任务栈只有一个Activi">
+<meta property="og:updated_time" content="2015-11-24T01:30:49.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四大组件之Broadcast">
-<meta name="twitter:description" content="2015/11/19 15:43:46Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
-
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
-
-
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+<meta name="twitter:title" content="四大组件之Activity">
+<meta name="twitter:description" content="2015/10/30 15:42:14Activity启动模式
+Standard：每次跳一个Activity都在栈中创建一个实例。
+SingleTop：当前Activity跳当前Activity不创建实例。
+SingleTask：如果待跳的Activity已存在栈中，则把待跳Activity之前的所有Activity弹出。
+SingleInstance：新建一个任务栈，该任务栈只有一个Activi">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -130,14 +91,14 @@ android.n">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/19/2015-11-19-BroadcaseBase/" title="四大组件之Broadcast" itemprop="url">四大组件之Broadcast</a>
+      <a href="/2015/10/30/2015-10-30-Android-Activity/" title="四大组件之Activity" itemprop="url">四大组件之Activity</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished"> Published 2015-11-19</time>
+    <time datetime="2015-10-30T07:42:08.000Z" itemprop="datePublished"> Published 2015-10-30</time>
     
   </p>
 </header>
@@ -146,29 +107,23 @@ android.n">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/30_15:42:14"><span class="toc-number">1.</span> <span class="toc-text">2015/10/30 15:42:14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity启动模式"><span class="toc-number">1.0.1.</span> <span class="toc-text">Activity启动模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:13:21"><span class="toc-number">2.</span> <span class="toc-text">2015/11/24 9:13:21</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="2015/11/19_15:43:46">2015/11/19 15:43:46</h2><h3 id="Broadcast的理解">Broadcast的理解</h3><ul>
-<li>系统广播接收器</li>
-<li>利用intent-filter过滤action</li>
-<li>可用作整个应用监听某状态的变化</li>
+		<h2 id="2015/10/30_15:42:14">2015/10/30 15:42:14</h2><h4 id="Activity启动模式">Activity启动模式</h4><ul>
+<li>Standard：每次跳一个Activity都在栈中创建一个实例。</li>
+<li>SingleTop：当前Activity跳当前Activity不创建实例。</li>
+<li>SingleTask：如果待跳的Activity已存在栈中，则把待跳Activity之前的所有Activity弹出。</li>
+<li><p>SingleInstance：新建一个任务栈，该任务栈只有一个Activity。</p>
+<p>  <a href="http://www.cnblogs.com/meizixiong/archive/2013/07/03/3170591.html" target="_blank" rel="external">四大模式参考</a> </p>
+</li>
 </ul>
-<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
-<li><p>程序的开始</p>
-<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>拨号界面</p>
-<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>网络状态变化（广播）</p>
-<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
-</code></pre></li>
+<h2 id="2015/11/24_9:13:21">2015/11/24 9:13:21</h2><ul>
+<li><a href="http://jijiaxin89.com/2015/08/29/gradle-use-note/" target="_blank" rel="external">Gradle相关</a></li>
+<li><a href="http://blog.csdn.net/innost/article/details/48228651" target="_blank" rel="external">Gradle相关</a></li>
+<li><a href="http://www.jianshu.com/p/02cb9a0eb2a0" target="_blank" rel="external">Gradle相关</a></li>
+<li><a href="http://chaosleong.github.io/blog/2015/08/02/android-studio-shi-yong-gradle-da-bao-jar/" target="_blank" rel="external">Gradle 打包 Jar</a></li>
 </ul>
   
 	</div>
@@ -182,7 +137,7 @@ android.n">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/11/19/2015-11-19-BroadcaseBase/" data-title="四大组件之Broadcast | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/10/30/2015-10-30-Android-Activity/" data-title="四大组件之Activity | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -196,18 +151,18 @@ android.n">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/11/23/2015-11-22-Framework/" title="常用的技术框架">
+ <a href="/2015/11/02/2015-11-01-Erin_Movies/" title="Erin_Movies项目">
   <strong>上一篇：</strong><br/>
   <span>
-  常用的技术框架</span>
+  Erin_Movies项目</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/11/18/2015-11-18-JAVASE/"  title="JAVASE基础">
+<a href="/2015/10/29/2015-10-27-Volley/"  title="Volley跟Async-http的封装">
  <strong>下一篇：</strong><br/> 
- <span>JAVASE基础
+ <span>Volley跟Async-http的封装
 </span>
 </a>
 </div>
@@ -222,7 +177,7 @@ android.n">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/30_15:42:14"><span class="toc-number">1.</span> <span class="toc-text">2015/10/30 15:42:14</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity启动模式"><span class="toc-number">1.0.1.</span> <span class="toc-text">Activity启动模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/24_9:13:21"><span class="toc-number">2.</span> <span class="toc-text">2015/11/24 9:13:21</span></a></li></ol>
  
   </div>
 
