@@ -80,6 +80,75 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/12/01/2015-12-01-Widgets/" title="Widgets学习" itemprop="url">Widgets学习</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-01T07:10:25.000Z" itemprop="datePublished"> Published 2015-12-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2015/12/1_15:10:52">2015/12/1 15:10:52</h2><h3 id="ListView">ListView</h3><p><a href="http://localhost:4000/2015/09/01/2015-09-01-ListView/" target="_blank" rel="external">ListView</a></p>
+<h2 id="2015/12/1_15:12:42">2015/12/1 15:12:42</h2><h3 id="ExpandableListView">ExpandableListView</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<ul>
+<li><p>关闭箭头</p>
+<pre><code>elvMsg.setGroupIndicator(<span class="literal">null</span>); <span class="comment">//箭头置空</span>
+</code></pre></li>
+<li><p>默认展开(通过setOnGroup设置，返回false为不展开，true为展开)</p>
+<pre><code>elvMsg.setOnGroupClickListener(<span class="keyword">new</span> ExpandableListView.OnGroupClickListener() {
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onGroupClick</span><span class="params">(ExpandableListView parent, View v, <span class="keyword">int</span> groupPosition, <span class="keyword">long</span> id)</span> </span>{
+        <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">//默认展开</span>
+    }
+});
+</code></pre></li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Widgets/">Widgets</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/11/23/2015-11-22-Framework/" title="常用的技术框架" itemprop="url">常用的技术框架</a>
   </h1>
   <p class="article-author">By
@@ -729,77 +798,6 @@ sendBroadcast(<span class="type">intent</span>);
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/10/03/2015-10-03-Notification/" title="Notification实际开发" itemprop="url">Notification实际开发</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-10-03T09:34:10.000Z" itemprop="datePublished"> Published 2015-10-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="2015-10-03_14:53:24">2015-10-03 14:53:24</h2><h4 id="自定义Notification">自定义Notification</h4><ul>
-<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
-<li><p>通常Notification的用法如下：</p>
-<pre><code>NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)
-        .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span>
-        .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span>
-        .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span>
-        .setAutoCancel(<span class="literal">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span>
-        .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span>
-        .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span>
-        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span>
-        .build();
-manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span>
-</code></pre></li>
-</ul>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/10/03/2015-10-03-Notification/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Notification/">Notification</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -824,7 +822,11 @@ manager.notify(<span class="number">0</span>,notification); <span class="comment
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SystemService/" title="SystemService">SystemService<sup>1</sup></a></li>
 			
 		
 			
@@ -852,7 +854,7 @@ manager.notify(<span class="number">0</span>,notification); <span class="comment
 			
 		
 			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+				<li><a href="/tags/Widgets/" title="Widgets">Widgets<sup>1</sup></a></li>
 			
 		
 			
@@ -884,19 +886,15 @@ manager.notify(<span class="number">0</span>,notification); <span class="comment
 			
 		
 			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/SystemService/" title="SystemService">SystemService<sup>1</sup></a></li>
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ImageLoader/" title="ImageLoader">ImageLoader<sup>1</sup></a></li>
 			
 		
 		</ul>
