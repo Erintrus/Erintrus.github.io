@@ -51,7 +51,8 @@ action.intent.action.DIAL
 
 网络状态变化（广播）
 android.n">
-<meta property="og:updated_time" content="2015-11-25T16:01:15.128Z">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2015-12-08T10:40:21.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="四大组件之Broadcast">
 <meta name="twitter:description" content="2015/11/19 15:43:46Broadcast的理解
@@ -146,7 +147,7 @@ android.n">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">2.2.</span> <span class="toc-text">示例</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">2.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/8_17:00:41"><span class="toc-number">3.</span> <span class="toc-text">2015/12/8 17:00:41</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播"><span class="toc-number">3.1.</span> <span class="toc-text">Fragment里注册广播</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -180,12 +181,35 @@ android.n">
 <li>重写onReceive方法</li>
 <li>动态注册接口(LocalBroadcastManager类)</li>
 <li>在获取到服务器数据的地方发送广播 </li>
+<li>在ondestory里取消广播</li>
 </ol>
 <pre><code><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();
 <span class="type">intent</span>.putExtra(....);
 <span class="type">intent</span>.setAction(Receiver定义的<span class="keyword">Action</span>);
 sendBroadcast(<span class="type">intent</span>);
 </code></pre><hr>
+<ul>
+<li>注册(在MainFest注册一下即可)</li>
+</ul>
+<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<ul>
+<li><p>使用</p>
+<pre><code><span class="keyword">private</span> MsgUpdateReceiver msgReceiver
+<span class="annotation">@Override</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
+msgReceiver = <span class="keyword">new</span> MsgUpdateReceiver(<span class="keyword">this</span>); <span class="comment">//实例化</span>
+IntentFilter filter = <span class="keyword">new</span> IntentFilter(MsgUpdateReceiver.MSG_UPDATE);<span class="comment">//设置过滤器</span>
+<span class="comment">//利用LocalBroadcastManager调用其注册方法</span>
+LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);
+
+}
+</code></pre></li>
+<li></li>
+</ul>
+<h2 id="2015/12/8_17:00:41">2015/12/8 17:00:41</h2><h3 id="Fragment里注册广播">Fragment里注册广播</h3><ul>
+<li>不能在OnCreateView里面注册,要在onCreate方法里面注册</li>
+<li>记得在ondestory方法里注销广播</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -238,7 +262,7 @@ sendBroadcast(<span class="type">intent</span>);
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">2.2.</span> <span class="toc-text">示例</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">2.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/8_17:00:41"><span class="toc-number">3.</span> <span class="toc-text">2015/12/8 17:00:41</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播"><span class="toc-number">3.1.</span> <span class="toc-text">Fragment里注册广播</span></a></li></ol></li></ol>
  
   </div>
 
