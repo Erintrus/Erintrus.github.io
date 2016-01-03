@@ -19,7 +19,7 @@
 <meta property="og:description" content="2015/12/1 15:10:52ListViewListView">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1iWWVRazkrdDczU3loWTJkMmlOc1RrK1N6SVlCTlVCU1htM0JTQzBZRklRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2015-12-11T01:39:44.281Z">
+<meta property="og:updated_time" content="2016-01-03T10:45:38.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Widgets学习">
 <meta name="twitter:description" content="2015/12/1 15:10:52ListViewListView">
@@ -97,7 +97,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:10:52"><span class="toc-number">1.</span> <span class="toc-text">2015/12/1 15:10:52</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView"><span class="toc-number">1.1.</span> <span class="toc-text">ListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:12:42"><span class="toc-number">2.</span> <span class="toc-text">2015/12/1 15:12:42</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ExpandableListView"><span class="toc-number">2.1.</span> <span class="toc-text">ExpandableListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/4_10:32:08"><span class="toc-number">3.</span> <span class="toc-text">2015/12/4 10:32:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView使用总结"><span class="toc-number">3.1.</span> <span class="toc-text">WebView使用总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/10_10:59:22"><span class="toc-number">4.</span> <span class="toc-text">2015/12/10 10:59:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView的属性"><span class="toc-number">4.1.</span> <span class="toc-text">TextView的属性</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:10:52"><span class="toc-number">1.</span> <span class="toc-text">2015/12/1 15:10:52</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView"><span class="toc-number">1.1.</span> <span class="toc-text">ListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:12:42"><span class="toc-number">2.</span> <span class="toc-text">2015/12/1 15:12:42</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ExpandableListView"><span class="toc-number">2.1.</span> <span class="toc-text">ExpandableListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/4_10:32:08"><span class="toc-number">3.</span> <span class="toc-text">2015/12/4 10:32:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView使用总结"><span class="toc-number">3.1.</span> <span class="toc-text">WebView使用总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/10_10:59:22"><span class="toc-number">4.</span> <span class="toc-text">2015/12/10 10:59:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView的属性"><span class="toc-number">4.1.</span> <span class="toc-text">TextView的属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/29_23:59:15"><span class="toc-number">5.</span> <span class="toc-text">2015/12/29 23:59:15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker的总结"><span class="toc-number">5.1.</span> <span class="toc-text">DatePicker的总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/3_15:42:06"><span class="toc-number">6.</span> <span class="toc-text">2016/1/3 15:42:06</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#红点BadgeView"><span class="toc-number">6.1.</span> <span class="toc-text">红点BadgeView</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -159,7 +159,28 @@ mWebSettings.setSupportZoom(<span class="literal">true</span>);
 setCompoundDrawablesWithIntrinsicBounds(左,上,右，下).<span class="comment">//其他设置为null</span>
 </code></pre></li>
 </ul>
-  
+<h2 id="2015/12/29_23:59:15">2015/12/29 23:59:15</h2><h3 id="DatePicker的总结">DatePicker的总结</h3><ul>
+<li><p>DatePicker显示成滑动模式</p>
+<pre><code><span class="label">android:</span>calendarViewShown=<span class="string">"false"</span>
+<span class="label">android:</span>datePickerMode=<span class="string">"spinner"</span>
+</code></pre></li>
+<li><p>DatePicker初始化日期(结合Calendar)</p>
+<pre><code>Calendar calendar = Calendar.getInstance();<span class="comment">//获取当前日历</span>
+<span class="built_in">int</span> <span class="built_in">year</span> = calendar.<span class="built_in">get</span>(Calendar.YEAR); <span class="comment">//获取当前的年</span>
+<span class="built_in">int</span> <span class="built_in">month</span> = calendar.<span class="built_in">get</span>(Calendar.MONTH) + <span class="number">1</span>;获取当前的月
+<span class="built_in">int</span> <span class="built_in">day</span> = calendar.<span class="built_in">get</span>(Calendar.DAY);<span class="comment">//获取当前的日</span>
+datepicker.init(calendar.<span class="built_in">get</span>(Calendar.YEAR) , <span class="number">0</span>, <span class="number">1</span>, <span class="keyword">null</span>);
+</code></pre></li>
+<li><p>把Datepicker的年月日转成时间戳</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">long</span> getTimestampByDate(<span class="built_in">int</span> <span class="built_in">year</span>, <span class="built_in">int</span> <span class="built_in">month</span>, <span class="built_in">int</span> <span class="built_in">day</span>) <span class="keyword">throws</span> Exception {
+    SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);
+    <span class="keyword">String</span> strDate = <span class="built_in">year</span> + <span class="string">"-"</span> + <span class="built_in">month</span> + <span class="string">"-"</span> + <span class="built_in">day</span>; <span class="comment">//拼装</span>
+    Date date = sdf.parse(strDate);
+    <span class="keyword">return</span> date.getTime(); <span class="comment">//转换成时间戳</span>
+}
+</code></pre></li>
+</ul>
+<h2 id="2016/1/3_15:42:06">2016/1/3 15:42:06</h2><h3 id="红点BadgeView">红点BadgeView</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -189,6 +210,14 @@ setCompoundDrawablesWithIntrinsicBounds(左,上,右，下).<span class="comment"
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/01/01/2016-01-01-Animation/" title="Animation总结">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Animation总结</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/11/23/2015-11-22-Framework/"  title="常用的技术框架">
@@ -208,7 +237,7 @@ setCompoundDrawablesWithIntrinsicBounds(左,上,右，下).<span class="comment"
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:10:52"><span class="toc-number">1.</span> <span class="toc-text">2015/12/1 15:10:52</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView"><span class="toc-number">1.1.</span> <span class="toc-text">ListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:12:42"><span class="toc-number">2.</span> <span class="toc-text">2015/12/1 15:12:42</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ExpandableListView"><span class="toc-number">2.1.</span> <span class="toc-text">ExpandableListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/4_10:32:08"><span class="toc-number">3.</span> <span class="toc-text">2015/12/4 10:32:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView使用总结"><span class="toc-number">3.1.</span> <span class="toc-text">WebView使用总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/10_10:59:22"><span class="toc-number">4.</span> <span class="toc-text">2015/12/10 10:59:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView的属性"><span class="toc-number">4.1.</span> <span class="toc-text">TextView的属性</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:10:52"><span class="toc-number">1.</span> <span class="toc-text">2015/12/1 15:10:52</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView"><span class="toc-number">1.1.</span> <span class="toc-text">ListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/1_15:12:42"><span class="toc-number">2.</span> <span class="toc-text">2015/12/1 15:12:42</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ExpandableListView"><span class="toc-number">2.1.</span> <span class="toc-text">ExpandableListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/4_10:32:08"><span class="toc-number">3.</span> <span class="toc-text">2015/12/4 10:32:08</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView使用总结"><span class="toc-number">3.1.</span> <span class="toc-text">WebView使用总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/10_10:59:22"><span class="toc-number">4.</span> <span class="toc-text">2015/12/10 10:59:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView的属性"><span class="toc-number">4.1.</span> <span class="toc-text">TextView的属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/29_23:59:15"><span class="toc-number">5.</span> <span class="toc-text">2015/12/29 23:59:15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker的总结"><span class="toc-number">5.1.</span> <span class="toc-text">DatePicker的总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/3_15:42:06"><span class="toc-number">6.</span> <span class="toc-text">2016/1/3 15:42:06</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#红点BadgeView"><span class="toc-number">6.1.</span> <span class="toc-text">红点BadgeView</span></a></li></ol></li></ol>
  
   </div>
 
@@ -228,7 +257,7 @@ setCompoundDrawablesWithIntrinsicBounds(左,上,右，下).<span class="comment"
 			
 		
 			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
 			
 		
 			
@@ -292,11 +321,11 @@ setCompoundDrawablesWithIntrinsicBounds(左,上,右，下).<span class="comment"
 			
 		
 			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
@@ -389,7 +418,7 @@ setCompoundDrawablesWithIntrinsicBounds(左,上,右，下).<span class="comment"
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
 		

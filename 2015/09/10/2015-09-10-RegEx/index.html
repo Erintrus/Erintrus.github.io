@@ -12,7 +12,12 @@
 
     
     <meta name="description" content="基本语法
-元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+括号含义
+{}一般用来表示匹配的长度
+[]匹配的字符范围
+()提取匹配的字符串
+
+基本字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
 
 ‘.’ 表示匹配除了换行符之外的任何字符
 
@@ -22,16 +27,26 @@
 <meta property="og:url" content="erintrus.github.io/2015/09/10/2015-09-10-RegEx/index.html">
 <meta property="og:site_name" content="Developer_Erin">
 <meta property="og:description" content="基本语法
-元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+括号含义
+{}一般用来表示匹配的长度
+[]匹配的字符范围
+()提取匹配的字符串
+
+基本字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
 
 ‘.’ 表示匹配除了换行符之外的任何字符
 
 ‘*’ 表示匹配除了换行符之外任意数量的字符">
-<meta property="og:updated_time" content="2015-11-03T06:39:01.462Z">
+<meta property="og:updated_time" content="2015-12-14T08:31:07.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式的总结">
 <meta name="twitter:description" content="基本语法
-元字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
+括号含义
+{}一般用来表示匹配的长度
+[]匹配的字符范围
+()提取匹配的字符串
+
+基本字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
 
 ‘.’ 表示匹配除了换行符之外的任何字符
 
@@ -110,12 +125,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元字符"><span class="toc-number">1.0.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">1.0.2.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#括号含义"><span class="toc-number">2.</span> <span class="toc-text">括号含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本字符"><span class="toc-number">3.</span> <span class="toc-text">基本字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符的开始、结束"><span class="toc-number">4.</span> <span class="toc-text">字符的开始、结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字母的开始或者结束_\b"><span class="toc-number">5.</span> <span class="toc-text">字母的开始或者结束 \b</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配数字_\d"><span class="toc-number">6.</span> <span class="toc-text">匹配数字 \d</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空格\s"><span class="toc-number">7.</span> <span class="toc-text">空格\s</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配字母或数字或下划线\w"><span class="toc-number">8.</span> <span class="toc-text">匹配字母或数字或下划线\w</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">8.0.1.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">8.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<h3 id="基本语法">基本语法</h3><hr>
-<h5 id="元字符">元字符</h5><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
+<h3 id="括号含义">括号含义</h3><ul>
+<li>{}一般用来表示匹配的长度</li>
+<li>[]匹配的字符范围</li>
+<li>()提取匹配的字符串</li>
+</ul>
+<h3 id="基本字符">基本字符</h3><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
 <ul>
 <li><p>‘.’ 表示匹配除了换行符之外的任何字符</p>
 </li>
@@ -128,17 +148,24 @@
 <pre><code><span class="tag">erintrus</span>\<span class="class">.github</span>\<span class="class">.com</span> 和<span class="rule"><span class="attribute">c</span>:<span class="value">//erintrus</span></span>
 </code></pre></li>
 </ul>
-<ul>
-<li><p>‘^’表示匹配字符串的开始</p>
+<hr>
+<h3 id="字符的开始、结束">字符的开始、结束</h3><ul>
+<li><p>‘^’表示匹配字符串的开始(在字母前，若放在非字母前面表示非)</p>
 </li>
 <li><p>‘$’表示匹配字符串的结束</p>
 <p>  例子：输入5-12位QQ号码</p>
 <pre><code>^\d{<span class="number">5</span>,<span class="number">12</span>}$
 </code></pre></li>
+</ul>
+<hr>
+<h3 id="字母的开始或者结束_\b">字母的开始或者结束 \b</h3><ul>
 <li><p>\b表示英文单词的开始或者结束 （\b标签囊括的是一个单词）</p>
 <p>  例子: 限制输入只能为Erintrus     </p>
 <pre><code><span class="command">\bErintrus</span><span class="command">\b</span>
 </code></pre></li>
+</ul>
+<hr>
+<h3 id="匹配数字_\d">匹配数字 \d</h3><ul>
 <li><p>\d表示匹配0-9的任意字符（即数字）</p>
 <p>  例子：区号的电话  如 010-2254789</p>
 <pre><code>A. \<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>-\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="literal">d</span>
@@ -147,13 +174,19 @@ B. \<span class="keyword">d</span>{2}-\<span class="keyword">d</span>{8} {<span 
 <li><p>\d+ 跟\d* 的区别</p>
 <pre><code>前者匹配<span class="number">1</span>-n个数字，后者匹配<span class="number">0</span>-n个数字
 </code></pre></li>
-<li><p>\s匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格</p>
-</li>
+</ul>
+<hr>
+<h3 id="空格\s">空格\s</h3><ul>
+<li>\s匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格</li>
+</ul>
+<hr>
+<h3 id="匹配字母或数字或下划线\w">匹配字母或数字或下划线\w</h3><ul>
 <li><p>\w匹配字母或数字或下划线（可以理解为表示字母）</p>
 <p>  例子：匹配以a开头的单词</p>
 <pre><code><span class="command">\ba</span><span class="command">\w*</span><span class="command">\b</span> （因为<span class="command">\b</span>里面必须是单词，所以这里<span class="command">\w</span>不会表示下划线或者数字）
 </code></pre></li>
 </ul>
+<hr>
 <h5 id="限定符">限定符</h5><p>(用于限定某个字符重复次数)</p>
 <p>例如上面的的 \d+ 表示匹配1-n个数字</p>
 <pre><code>即\d+ 可以表示成 <span class="number">2</span> 或者 <span class="number">2356</span>
@@ -225,7 +258,7 @@ B. \<span class="keyword">d</span>{2}-\<span class="keyword">d</span>{8} {<span 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元字符"><span class="toc-number">1.0.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">1.0.2.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#括号含义"><span class="toc-number">2.</span> <span class="toc-text">括号含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本字符"><span class="toc-number">3.</span> <span class="toc-text">基本字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符的开始、结束"><span class="toc-number">4.</span> <span class="toc-text">字符的开始、结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字母的开始或者结束_\b"><span class="toc-number">5.</span> <span class="toc-text">字母的开始或者结束 \b</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配数字_\d"><span class="toc-number">6.</span> <span class="toc-text">匹配数字 \d</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空格\s"><span class="toc-number">7.</span> <span class="toc-text">空格\s</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配字母或数字或下划线\w"><span class="toc-number">8.</span> <span class="toc-text">匹配字母或数字或下划线\w</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#限定符"><span class="toc-number">8.0.1.</span> <span class="toc-text">限定符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">8.1.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol></li></ol>
  
   </div>
 
@@ -245,7 +278,7 @@ B. \<span class="keyword">d</span>{2}-\<span class="keyword">d</span>{8} {<span 
 			
 		
 			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
 			
 		
 			
@@ -309,11 +342,11 @@ B. \<span class="keyword">d</span>{2}-\<span class="keyword">d</span>{8} {<span 
 			
 		
 			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
@@ -406,7 +439,7 @@ B. \<span class="keyword">d</span>{2}-\<span class="keyword">d</span>{8} {<span 
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
 		

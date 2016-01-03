@@ -51,7 +51,7 @@
 * 获取返回数据的人
 
     - （实现回调接">
-<meta property="og:updated_time" content="2015-11-25T15:49:53.039Z">
+<meta property="og:updated_time" content="2015-12-30T09:45:10.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVASE基础">
 <meta name="twitter:description" content="2015/11/18 15:03:43回调函数Callback的理解
@@ -146,7 +146,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例：-1"><span class="toc-number">2.3.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例：-1"><span class="toc-number">2.3.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/30_16:59:09"><span class="toc-number">6.</span> <span class="toc-text">2015/12/30 16:59:09</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#集合基础"><span class="toc-number">6.1.</span> <span class="toc-text">集合基础</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -293,7 +293,26 @@ ois.readObject();
 ois.<span class="keyword">close</span>();
 </code></pre></li>
 </ul>
-<h2 id="2015/11/23_10:51:00">2015/11/23 10:51:00</h2><h3 id="通过文件保存、读取数据需要序列化">通过文件保存、读取数据需要序列化</h3>  
+<h2 id="2015/11/23_10:51:00">2015/11/23 10:51:00</h2><h3 id="通过文件保存、读取数据需要序列化">通过文件保存、读取数据需要序列化</h3><h2 id="2015/12/30_16:59:09">2015/12/30 16:59:09</h2><h3 id="集合基础">集合基础</h3><ul>
+<li>比较两段代码的不同</li>
+</ul>
+<p>示例一：</p>
+<pre><code>  <span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; <span class="keyword">iterator</span> = showList.<span class="keyword">iterator</span>();
+<span class="keyword">if</span> (<span class="keyword">iterator</span>.hasNext()) {
+      <span class="type">ShowInfo</span> delShow = <span class="keyword">iterator</span>.next();
+       <span class="keyword">if</span> (delShow.isCheck() == <span class="literal">true</span>) {
+           <span class="keyword">iterator</span>.remove();
+       }
+   }
+</code></pre> <!--more-->
+<p>示例二</p>
+<pre><code><span class="keyword">for</span> (<span class="type">Iterator</span>&lt;<span class="type">ShowInfo</span>&gt; delList = showList.<span class="keyword">iterator</span>(); delList.hasNext(); ) {
+    <span class="type">ShowInfo</span> delInfo = delList.next();
+    <span class="keyword">if</span> (delInfo.isCheck() == <span class="literal">true</span>) {
+        delList.remove();
+    }
+}
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -350,7 +369,7 @@ ois.<span class="keyword">close</span>();
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例：-1"><span class="toc-number">2.3.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_15:03:43"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 15:03:43</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.1.</span> <span class="toc-text">回调函数Callback的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_10:56:14"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 10:56:14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例："><span class="toc-number">2.2.</span> <span class="toc-text">示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例：-1"><span class="toc-number">2.3.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:36:28"><span class="toc-number">3.</span> <span class="toc-text">2015/11/23 9:36:28</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">3.1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例_——_写一个用文件保存数据的方法"><span class="toc-number">3.2.</span> <span class="toc-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结_——_创建一个文件的过程"><span class="toc-number">3.3.</span> <span class="toc-text">总结 —— 创建一个文件的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_9:44:36"><span class="toc-number">4.</span> <span class="toc-text">2015/11/23 9:44:36</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的读写"><span class="toc-number">4.1.</span> <span class="toc-text">文件的读写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/23_10:51:00"><span class="toc-number">5.</span> <span class="toc-text">2015/11/23 10:51:00</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">5.1.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/30_16:59:09"><span class="toc-number">6.</span> <span class="toc-text">2015/12/30 16:59:09</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#集合基础"><span class="toc-number">6.1.</span> <span class="toc-text">集合基础</span></a></li></ol></li></ol>
  
   </div>
 
@@ -370,7 +389,7 @@ ois.<span class="keyword">close</span>();
 			
 		
 			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
 			
 		
 			
@@ -434,11 +453,11 @@ ois.<span class="keyword">close</span>();
 			
 		
 			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
@@ -531,7 +550,7 @@ ois.<span class="keyword">close</span>();
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
 		

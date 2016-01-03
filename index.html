@@ -80,6 +80,187 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/01/01/2016-01-01-Animation/" title="Animation总结" itemprop="url">Animation总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-01T12:20:39.000Z" itemprop="datePublished"> Published 2016-01-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2016/1/2_21:12:38">2016/1/2 21:12:38</h2><h3 id="基本知识">基本知识</h3><ul>
+<li>在res目录创建anim目录</li>
+<li>创建标签为set的xml文件</li>
+</ul>
+<h2 id="2016/1/2_20:30:58">2016/1/2 20:30:58</h2><h3 id="Style中有@跟无@">Style中有@跟无@</h3><ul>
+<li><p>无@</p>
+<pre><code><span class="label">android:</span>Animation
+</code></pre></li>
+<li><p>有@</p>
+<pre><code><span class="variable">@android:</span>style/Animation
+</code></pre></li>
+</ul>
+<p>上述两者等价</p>
+<h2 id="2016/1/2_21:06:57">2016/1/2 21:06:57</h2><h3 id="平移动画的理解(translate)">平移动画的理解(translate)</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVByRnl4WWtzQ082b3ZBMlExdmQrbXVVQnQwdU11dUMzV05BTU5kRUlKSVNRPT0.png" alt=""></p>
+<ul>
+<li><p>平移动画的属性</p>
+<pre><code>&lt;translate
+<span class="string">android:</span>duration=<span class="string">"250"</span> <span class="comment">//时间</span>
+<span class="string">android:</span>fromYDelta=<span class="string">"100%p"</span><span class="comment">//开始Y轴的位置</span>
+<span class="string">android:</span>fromXDelta=<span class="string">"-100%p"</span><span class="comment">//开始X轴的位置</span>
+<span class="string">android:</span>toXDelta=<span class="string">"0"</span> <span class="comment">//结束轴X的位置</span>
+<span class="string">android:</span>toYDelta=<span class="string">"0%p"</span> /&gt;
+
+<span class="comment">//上述代码实现activity 从左下到中间的过程动画</span>
+</code></pre></li>
+</ul>
+<h2 id="2016/1/2_21:18:44">2016/1/2 21:18:44</h2><h3 id="透明动画的理解">透明动画的理解</h3><ul>
+<li><p>透明动画的属性</p>
+<pre><code> &lt;alpha
+<span class="string">android:</span>fromAlpha=<span class="string">"0.0"</span><span class="comment">//开始透明度</span>
+<span class="string">android:</span>toAlpha=<span class="string">"1.0"</span><span class="comment">//结束透明度</span>
+<span class="string">android:</span>duration=<span class="string">"200"</span>/&gt;
+</code></pre></li>
+</ul>
+<h2 id="2015-10-02_17:09:51">2015-10-02 17:09:51</h2><h4 id="如何将activity变成透明Activity">如何将activity变成透明Activity</h4><ol>
+<li>在布局里定义好自己的样式。</li>
+<li>创建一个Activity绑定该布局(setContentView)。</li>
+<li><p>在styles里创建一个style。</p>
+<pre><code>&lt;style <span class="property">name</span>=<span class="string">"ErinStyle"</span> &gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowNoTitle"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;&lt;!<span class="comment">--无标题栏--&gt;</span>
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowBackground"</span>&gt;@android:color/transparent&lt;/<span class="property">item</span>&gt; &lt;!<span class="comment">--背景透明--&gt;</span>
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;&lt;!<span class="comment">--去除启动activity黑屏--&gt;</span>
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:backgroundDimEnabled"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;&lt;!<span class="comment">--设置前个activity变暗--&gt;</span>
+    （另外还可以加入动画，默认是右边飞出 通过windowEnterAnimation、windowExitAnimation、windowAnimationStyle属性设置）
+    目前测试 前两者 无法直接设置在上述style  需要引用style才可以实现
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowAnimationStyle"</span>&gt;@style/ErinAnim&lt;/<span class="property">item</span>&gt;
+&lt;/style&gt; 
+</code></pre><p> 下面给出上下滑动式动画的配置（必须在style里声明 parent是animation）</p>
+<pre><code>&lt;style <span class="property">name</span>=<span class="string">"ErinAnim"</span> parent=<span class="string">"@android:style/Animation"</span>&gt;  
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowEnterAnimation"</span>&gt;@anim/push_top_in&lt;/<span class="property">item</span>&gt;
+    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowExitAnimation"</span>&gt;@anim/push_top_out&lt;/<span class="property">item</span>&gt;
+&lt;/style&gt;
+</code></pre></li>
+</ol>
+<pre><code><span class="comment">//这个是弹出 push_top_in  </span>
+
+    &lt;<span class="built_in">scale</span> xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+        android:interpolator=<span class="string">"@android:anim/accelerate_decelerate_interpolator"</span>  
+        android:fromXScale=<span class="string">"1.0"</span>   
+        android:toXScale=<span class="string">"1.0"</span>   
+        android:fromYScale=<span class="string">"0"</span>   
+        android:toYScale=<span class="string">"1.0"</span>   
+        android:pivotX=<span class="string">"0"</span>  
+        android:pivotY=<span class="string">"10%"</span>  
+        android:duration=<span class="string">"200"</span>  &lt;/<span class="built_in">scale</span>&gt;
+
+
+<span class="comment">//这个是消失 push_top_out  </span>
+
+    &lt;<span class="built_in">scale</span> xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+        android:interpolator=<span class="string">"@android:anim/accelerate_decelerate_interpolator"</span>  
+        android:fromXScale=<span class="string">"1.0"</span>   
+        android:toXScale=<span class="string">"1.0"</span>   
+        android:fromYScale=<span class="string">"1.0"</span>   
+        android:toYScale=<span class="string">"0"</span>   
+        android:pivotX=<span class="string">"0"</span>  
+        android:pivotY=<span class="string">"10%"</span>  
+        android:duration=<span class="string">"200"</span> /&gt; 
+</code></pre><p>4.在配置文件里找到该activity 加入style属性即可。</p>
+<pre><code><span class="label">android:</span>theme=<span class="string">"@style/ErinStyle"</span>        
+</code></pre><h3 id="如何实现一个对话框Activity(上面右图)">如何实现一个对话框Activity(上面右图)</h3><ol>
+<li>写好布局文件 绑定Activity</li>
+<li>创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）</li>
+<li><p>然后设置其不显示标题、透明背景即可(相对于上述 代码简化了很多)</p>
+<pre><code><span class="keyword">this</span>.setFinishOnTouchOutside(<span class="literal">false</span>); <span class="comment">//设置对话框activity点击外部不消失</span>
+</code></pre></li>
+</ol>
+<pre><code>android:theme=<span class="string">"@android:style/Theme.Dialog"</span> : Activity显示为对话框模式
+
+android:theme=<span class="string">"@android:style/Theme.NoTitleBar"</span> : 不显示应用程序标题栏
+
+android:theme=<span class="string">"@android:style/Theme.NoTitleBar.Fullscreen"</span> : 不显示应用程序标题栏，并全屏
+
+android:theme=<span class="string">"Theme.Light "</span>: 背景为白色
+
+android:theme=<span class="string">"Theme.Light.NoTitleBar"</span> : 白色背景并无标题栏
+
+android:theme=<span class="string">"Theme.Light.NoTitleBar.Fullscreen"</span> : 白色背景，无标题栏，全屏
+
+android:theme=<span class="string">"Theme.Black"</span> : 背景黑色
+
+android:theme=<span class="string">"Theme.Black.NoTitleBar"</span> : 黑色背景并无标题栏
+
+android:theme=<span class="string">"Theme.Black.NoTitleBar.Fullscreen"</span> : 黑色背景，无标题栏，全屏
+
+android:theme=<span class="string">"Theme.Wallpaper"</span> : 用系统桌面为应用程序背景
+
+android:theme=<span class="string">"Theme.Wallpaper.NoTitleBar"</span> : 用系统桌面为应用程序背景，且无标题栏
+
+android:theme=<span class="string">"Theme.Wallpaper.NoTitleBar.Fullscreen"</span> : 用系统桌面为应用程序背景，无标题栏，全屏
+
+android:theme=<span class="string">"Theme.Translucent : 透明背景
+
+android:theme="</span>Theme.Translucent.NoTitleBa<span class="string">r" : 透明背景并无标题
+
+android:theme="</span>Theme.Translucent.NoTitleBar.Fullscreen<span class="string">" : 透明背景并无标题，全屏
+
+android:theme="</span>Theme.Panel <span class="string">": 面板风格显示
+
+android:theme="</span>Theme.Light.Panel<span class="string">" : 平板风格显示</span>
+</code></pre><h4 id="ActivityDialog的总结">ActivityDialog的总结</h4><p>经过上述两个透明Activity的实现，可得出总结如下：</p>
+<ul>
+<li><p>如果style设置了parent的属性、则默认布局会显示在中部，并且自动去除进入Activity的黑色界面，如果没有设置，则要在布局文件里设置显示的位置。  </p>
+</li>
+<li><p>透明Activity的Style基本设置是 无标题、透明背景、前一个Activity变暗</p>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Animation/">Animation</a><a href="/tags/Style/">Style</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/12/01/2015-12-01-Widgets/" title="Widgets学习" itemprop="url">Widgets学习</a>
   </h1>
   <p class="article-author">By
@@ -259,21 +440,6 @@
 <li>利用intent-filter过滤action</li>
 <li>可用作整个应用监听某状态的变化</li>
 </ul>
-<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
-<li><p>程序的开始</p>
-<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>拨号界面</p>
-<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>网络状态变化（广播）</p>
-<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
-</code></pre></li>
-</ul>
 <h3 id="示例">示例</h3><ul>
 <li>服务器下发新消息时，通知MainActivity更改UI</li>
 </ul>
@@ -281,7 +447,8 @@
 <li>继承BroadcastReceiver</li>
 <li>定义过滤的Action </li>
 <li>添加回调接口</li>
-<li>重写onReceive方法</li>
+<li>构造函数初始化接口</li>
+<li>重写onReceive方法(调用接口的方法)</li>
 <li>动态注册接口(LocalBroadcastManager类)</li>
 <li>在获取到服务器数据的地方发送广播 </li>
 <li>在ondestory里取消广播</li>
@@ -448,6 +615,33 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 <li>getConnectionInfo 可以获取mac地址、连接速率等信息</li>
 <li>getScanResults 可以获取扫描到的wifi</li>
 </ul>
+<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
+<li><p>程序的开始（Intent.Action_MAIN）</p>
+<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>拨号界面 （Intent.Action_DIAL）</p>
+<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>网络状态变化（广播）</p>
+<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>跟根据用户数据打开相应界面（Intent.ACTION_VIEW）</p>
+<pre><code>android.intent.action.VIEW
+
+<span class="built_in">Uri</span> uri = <span class="built_in">Uri</span>.parse(<span class="string">"http://www.google.com"</span>); <span class="comment">//浏览器 </span>
+<span class="built_in">Uri</span> uri =<span class="built_in">Uri</span>.parse(<span class="string">"tel:1232333"</span>); <span class="comment">//拨号程序 </span>
+<span class="built_in">Uri</span> uri=<span class="built_in">Uri</span>.parse(<span class="string">"geo:39.899533,116.036476"</span>); <span class="comment">//打开地图定位 </span>
+Intent it = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW,uri); 
+startActivity(it); 
+</code></pre></li>
+</ul>
+<hr>
 
         
         
@@ -763,72 +957,9 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/10/03/2015-10-03-InterView/" title="天工面试" itemprop="url">天工面试</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-10-03T09:41:19.000Z" itemprop="datePublished"> Published 2015-10-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ul>
-<li><p>如何检测手机内装了什么APP？</p>
-<p>  相关类</p>
-<ul>
-<li>PackageManager</li>
-<li>ApplicationInfo</li>
-<li>ResolveInfo</li>
-<li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
-<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里</application>标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。  </p>
-</li>
-</ul>
-</li>
-</ul>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/10/03/2015-10-03-InterView/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -850,7 +981,7 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 			
 		
 			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
 			
 		
 			
@@ -914,11 +1045,11 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 			
 		
 			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
@@ -1011,7 +1142,7 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
 		

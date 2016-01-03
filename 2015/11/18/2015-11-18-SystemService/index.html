@@ -33,7 +33,7 @@ WifiManager wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
 isWifiEnable 判断wifi是否开启
 setWifiEnable 可以设置wifi开启or关闭
 getCo">
-<meta property="og:updated_time" content="2015-11-18T02:20:24.305Z">
+<meta property="og:updated_time" content="2015-12-15T02:03:29.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统服务使用记录">
 <meta name="twitter:description" content="2015/11/18 10:11:21Wifi服务
@@ -119,7 +119,7 @@ getCo">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_10:11:21"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 10:11:21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Wifi服务"><span class="toc-number">1.1.</span> <span class="toc-text">Wifi服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.2.</span> <span class="toc-text">方法</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_10:11:21"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 10:11:21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Wifi服务"><span class="toc-number">1.1.</span> <span class="toc-text">Wifi服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.2.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -134,6 +134,33 @@ getCo">
 <li>getConnectionInfo 可以获取mac地址、连接速率等信息</li>
 <li>getScanResults 可以获取扫描到的wifi</li>
 </ul>
+<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
+<li><p>程序的开始（Intent.Action_MAIN）</p>
+<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>拨号界面 （Intent.Action_DIAL）</p>
+<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>网络状态变化（广播）</p>
+<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>跟根据用户数据打开相应界面（Intent.ACTION_VIEW）</p>
+<pre><code>android.intent.action.VIEW
+
+<span class="built_in">Uri</span> uri = <span class="built_in">Uri</span>.parse(<span class="string">"http://www.google.com"</span>); <span class="comment">//浏览器 </span>
+<span class="built_in">Uri</span> uri =<span class="built_in">Uri</span>.parse(<span class="string">"tel:1232333"</span>); <span class="comment">//拨号程序 </span>
+<span class="built_in">Uri</span> uri=<span class="built_in">Uri</span>.parse(<span class="string">"geo:39.899533,116.036476"</span>); <span class="comment">//打开地图定位 </span>
+Intent it = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW,uri); 
+startActivity(it); 
+</code></pre></li>
+</ul>
+<hr>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -191,7 +218,7 @@ getCo">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_10:11:21"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 10:11:21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Wifi服务"><span class="toc-number">1.1.</span> <span class="toc-text">Wifi服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.2.</span> <span class="toc-text">方法</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/18_10:11:21"><span class="toc-number">1.</span> <span class="toc-text">2015/11/18 10:11:21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Wifi服务"><span class="toc-number">1.1.</span> <span class="toc-text">Wifi服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.2.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li></ol></li></ol>
  
   </div>
 
@@ -211,7 +238,7 @@ getCo">
 			
 		
 			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
 			
 		
 			
@@ -275,11 +302,11 @@ getCo">
 			
 		
 			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
@@ -372,7 +399,7 @@ getCo">
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
 		

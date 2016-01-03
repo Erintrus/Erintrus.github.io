@@ -16,19 +16,16 @@
 利用intent-filter过滤action
 可用作整个应用监听某状态的变化
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
+示例
+服务器下发新消息时，通知MainActivity更改UI
 
 
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+继承BroadcastReceiver
+定义过滤的Action 
+添加回调接口
+构造函数初始化接口
+重写onReceive方法(调用接口的方法)
+动态注册接口(Local">
 <meta property="og:type" content="article">
 <meta property="og:title" content="四大组件之Broadcast">
 <meta property="og:url" content="erintrus.github.io/2015/11/19/2015-11-19-Android-Broadcast/index.html">
@@ -38,21 +35,18 @@ android.n">
 利用intent-filter过滤action
 可用作整个应用监听某状态的变化
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
+示例
+服务器下发新消息时，通知MainActivity更改UI
 
 
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+继承BroadcastReceiver
+定义过滤的Action 
+添加回调接口
+构造函数初始化接口
+重写onReceive方法(调用接口的方法)
+动态注册接口(Local">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2015-12-08T10:40:21.618Z">
+<meta property="og:updated_time" content="2016-01-03T07:28:36.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="四大组件之Broadcast">
 <meta name="twitter:description" content="2015/11/19 15:43:46Broadcast的理解
@@ -60,19 +54,16 @@ android.n">
 利用intent-filter过滤action
 可用作整个应用监听某状态的变化
 
-2015/11/19 15:46:37常用的Action
-程序的开始
-android.intent.action.MAIN
+示例
+服务器下发新消息时，通知MainActivity更改UI
 
 
-
-拨号界面
-action.intent.action.DIAL
-
-
-
-网络状态变化（广播）
-android.n">
+继承BroadcastReceiver
+定义过滤的Action 
+添加回调接口
+构造函数初始化接口
+重写onReceive方法(调用接口的方法)
+动态注册接口(Local">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -147,7 +138,7 @@ android.n">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">2.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/8_17:00:41"><span class="toc-number">3.</span> <span class="toc-text">2015/12/8 17:00:41</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播"><span class="toc-number">3.1.</span> <span class="toc-text">Fragment里注册广播</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">1.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/8_17:00:41"><span class="toc-number">2.</span> <span class="toc-text">2015/12/8 17:00:41</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播"><span class="toc-number">2.1.</span> <span class="toc-text">Fragment里注册广播</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -156,21 +147,6 @@ android.n">
 <li>利用intent-filter过滤action</li>
 <li>可用作整个应用监听某状态的变化</li>
 </ul>
-<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
-<li><p>程序的开始</p>
-<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>拨号界面</p>
-<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>网络状态变化（广播）</p>
-<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
-</code></pre></li>
-</ul>
 <h3 id="示例">示例</h3><ul>
 <li>服务器下发新消息时，通知MainActivity更改UI</li>
 </ul>
@@ -178,7 +154,8 @@ android.n">
 <li>继承BroadcastReceiver</li>
 <li>定义过滤的Action </li>
 <li>添加回调接口</li>
-<li>重写onReceive方法</li>
+<li>构造函数初始化接口</li>
+<li>重写onReceive方法(调用接口的方法)</li>
 <li>动态注册接口(LocalBroadcastManager类)</li>
 <li>在获取到服务器数据的地方发送广播 </li>
 <li>在ondestory里取消广播</li>
@@ -262,7 +239,7 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:46:37"><span class="toc-number">2.</span> <span class="toc-text">2015/11/19 15:46:37</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的Action"><span class="toc-number">2.1.</span> <span class="toc-text">常用的Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">2.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/8_17:00:41"><span class="toc-number">3.</span> <span class="toc-text">2015/12/8 17:00:41</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播"><span class="toc-number">3.1.</span> <span class="toc-text">Fragment里注册广播</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/11/19_15:43:46"><span class="toc-number">1.</span> <span class="toc-text">2015/11/19 15:43:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.1.</span> <span class="toc-text">Broadcast的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">1.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/12/8_17:00:41"><span class="toc-number">2.</span> <span class="toc-text">2015/12/8 17:00:41</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播"><span class="toc-number">2.1.</span> <span class="toc-text">Fragment里注册广播</span></a></li></ol></li></ol>
  
   </div>
 
@@ -282,7 +259,7 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 			
 		
 			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
+				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
 			
 		
 			
@@ -346,11 +323,11 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 			
 		
 			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
@@ -443,7 +420,7 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
 		
