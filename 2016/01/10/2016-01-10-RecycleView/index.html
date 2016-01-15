@@ -4,39 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>OnTouchEvent事件分发机制 | Developer_Erin</title>
+    <title>RecycleView笔记 | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="OnTouchEvent的基本认识
-跟Touch相关的三个方法：
-
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean onTouchEvent(Motion">
+    <meta name="description" content="设置Item的高度
+在list_item布局文件中的根标签设置minheight">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OnTouchEvent事件分发机制">
-<meta property="og:url" content="erintrus.github.io/2015/09/06/2015-09-06-CustomView-OnTouchEvent/index.html">
+<meta property="og:title" content="RecycleView笔记">
+<meta property="og:url" content="erintrus.github.io/2016/01/10/2016-01-10-RecycleView/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="OnTouchEvent的基本认识
-跟Touch相关的三个方法：
-
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean onTouchEvent(Motion">
-<meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2015-09-17T15:26:51.721Z">
+<meta property="og:description" content="设置Item的高度
+在list_item布局文件中的根标签设置minheight">
+<meta property="og:updated_time" content="2016-01-10T12:54:00.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OnTouchEvent事件分发机制">
-<meta name="twitter:description" content="OnTouchEvent的基本认识
-跟Touch相关的三个方法：
-
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean onTouchEvent(Motion">
+<meta name="twitter:title" content="RecycleView笔记">
+<meta name="twitter:description" content="设置Item的高度
+在list_item布局文件中的根标签设置minheight">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -95,14 +82,14 @@ public boolean onTouchEvent(Motion">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">OnTouchEvent事件分发机制</a>
+      <a href="/2016/01/10/2016-01-10-RecycleView/" title="RecycleView笔记" itemprop="url">RecycleView笔记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-06</time>
+    <time datetime="2016-01-10T02:55:11.000Z" itemprop="datePublished"> Published 2016-01-10</time>
     
   </p>
 </header>
@@ -111,57 +98,26 @@ public boolean onTouchEvent(Motion">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/10_13:55:12"><span class="toc-number">1.</span> <span class="toc-text">2016/1/10 13:55:12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RecycleView"><span class="toc-number">1.1.</span> <span class="toc-text">RecycleView</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="OnTouchEvent的基本认识">OnTouchEvent的基本认识</h3><ul>
-<li>跟Touch相关的三个方法：</li>
-</ul>
-<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;    <span class="comment">//用来分派event</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//用来拦截event</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;          <span class="comment">//用来处理event </span>
-</code></pre> <a id="more"></a>
-<ul>
-<li><p>onTouch方法优先于onClick方法   </p>
-</li>
-<li><p>只要触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法   </p>
-</li>
-<li><p>用法：</p>
-<pre><code><span class="function"><span class="title">dispatchTouchEvent</span><span class="params">()</span></span> 用来分派事件。
-其中调用了<span class="function"><span class="title">onInterceptTouchEvent</span><span class="params">()</span></span>和<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>，一般不重写该方法
-</code></pre><p>.</p>
-<pre><code>onInterceptTouchEvent<span class="literal">()</span>    用来拦截事件。
-<span class="type">ViewGroup</span>类中的源码实现就是{return <span class="literal">false</span>;}表示不拦截该事件，
-事件将向下传递（传递给其子<span class="type">View</span>）；
-若手动重写该方法，使其返回<span class="literal">true</span>则表示拦截，事件将终止向下传递，
-事件由当前<span class="type">ViewGroup</span>类来处理，就是调用该类的onTouchEvent<span class="literal">()</span>方法
-</code></pre><p>.</p>
-<pre><code><span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>    用来处理事件。
-返回true则表示该View能处理该事件，事件将终止向上传递（传递给其父View）；
-返回false表示不能处理，则把事件传递给其父View的<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>方法来处理
+		<ul>
+<li><p>设置Item的高度</p>
+<pre><code>在list_item布局文件中的根标签设置minheight
 </code></pre></li>
 </ul>
-<p><img src="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>简单使用：</p>
-<p>例如一个Activity里有一个LinearLayout、一个TextView<br>在Activity里重写OnTouchEvent 方法，TextView绑定onTouchLister<br>这样如果TextView重写的onTouch方法里返回了true，Activity里的OnTouchEvent<br>方法就不再执行。</p>
-<pre><code>tvTest.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() {
-          <span class="annotation">@Override</span>
-          <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View view, MotionEvent motionEvent)</span> </span>{
-              Functions.toast(SettingActivity.<span class="keyword">this</span>, <span class="string">"BTN-------Event"</span>);
-              Logger.log(<span class="string">"Erin"</span>,<span class="string">"btn------event"</span>+motionEvent.getAction());
-              <span class="keyword">return</span> <span class="keyword">true</span>;
-          }
-      });
-</code></pre><p>此处可能会调用多次ontouch方法，因为Action可能是按下、松开、移动三种情况。</p>
-<h3 id="总结">总结</h3><ul>
-<li>android 的分发事件先传递给ViewGroup，再由ViewGroup传给View。</li>
-<li>只要ViewGroup拦截了事件（onInterceptTouchEvent返回true） 事件就不会在往子View传递。  </li>
-</ul>
-<ul>
-<li><p>详细参考 </p>
-<p>  <a href="http://blog.csdn.net/morgan_xww/article/details/9372285" target="_blank" rel="external">OnTouch参考一</a><br>  <a href="http://blog.csdn.net/loongggdroid/article/details/19118475" target="_blank" rel="external">OnTouch参考二</a></p>
-</li>
+<a id="more"></a>
+<h2 id="2016/1/10_13:55:12">2016/1/10 13:55:12</h2><h3 id="RecycleView">RecycleView</h3><ul>
+<li><p>onCreateViewHolder</p>
+<pre><code>设置监听事件、加载布局、获取缓存数据
+</code></pre></li>
+<li><p>onBindViewHolder</p>
+<pre><code>设置显示数据、设置缓存<span class="built_in">TAG</span>
+</code></pre></li>
+<li><p>RecyclerView.ViewHolder</p>
+<pre><code><span class="built_in">Find</span>相关的ID
+</code></pre></li>
 </ul>
   
 	</div>
@@ -171,7 +127,7 @@ public boolean onTouchEvent(Motion">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/onTouchEvent/">onTouchEvent</a>
+  <span></span> <a href="/tags/RecycleView/">RecycleView</a>
   </div>
 
 </div>
@@ -180,7 +136,7 @@ public boolean onTouchEvent(Motion">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/06/2015-09-06-CustomView-OnTouchEvent/" data-title="OnTouchEvent事件分发机制 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2016/01/10/2016-01-10-RecycleView/" data-title="RecycleView笔记 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -194,18 +150,18 @@ public boolean onTouchEvent(Motion">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view">
+ <a href="/2016/01/13/2016-01-13-LayoutInflater/" title="LayoutInflater的理解">
   <strong>上一篇：</strong><br/>
   <span>
-  自定义view</span>
+  LayoutInflater的理解</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/01/2015-09-01-ListView/"  title="ListView的理解">
+<a href="/2016/01/01/2016-01-01-Animation/"  title="Animation总结">
  <strong>下一篇：</strong><br/> 
- <span>ListView的理解
+ <span>Animation总结
 </span>
 </a>
 </div>
@@ -220,7 +176,7 @@ public boolean onTouchEvent(Motion">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/10_13:55:12"><span class="toc-number">1.</span> <span class="toc-text">2016/1/10 13:55:12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RecycleView"><span class="toc-number">1.1.</span> <span class="toc-text">RecycleView</span></a></li></ol></li></ol>
  
   </div>
 
@@ -240,7 +196,27 @@ public boolean onTouchEvent(Motion">
 			
 		
 			
-				<li><a href="/tags/selector/" title="selector">selector<sup>1</sup></a></li>
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RecycleView/" title="RecycleView">RecycleView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Animation/" title="Animation">Animation<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Style/" title="Style">Style<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Widgets/" title="Widgets">Widgets<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
 			
 		
 			
@@ -272,7 +248,7 @@ public boolean onTouchEvent(Motion">
 			
 		
 			
-				<li><a href="/tags/Widgets/" title="Widgets">Widgets<sup>1</sup></a></li>
+				<li><a href="/tags/Draw/" title="Draw">Draw<sup>1</sup></a></li>
 			
 		
 			
@@ -292,27 +268,7 @@ public boolean onTouchEvent(Motion">
 			
 		
 			
-				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ViewPager-Two/" title="ViewPager_Two">ViewPager_Two<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/小技巧/" title="小技巧">小技巧<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/MarkDown引用本地/" title="MarkDown引用本地">MarkDown引用本地<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/0-9/" title="0.9">0.9<sup>1</sup></a></li>
+				<li><a href="/tags/LayoutInflater/" title="LayoutInflater">LayoutInflater<sup>1</sup></a></li>
 			
 		
 		</ul>
