@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1iWWVRazkrdDczU3loWTJkMmlOc1RrK1N6SVlCTlVCU1htM0JTQzBZRklRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwekhXL2NIbXJ5NGpkWmlMOTVHN3RheDVtTDVMcTd4RCtBPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwNHJxNEZHbGtTOFQ0d1oyb2hNS0pZc0VIOTZOM0FxdEl3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-01-11T09:51:43.356Z">
+<meta property="og:updated_time" content="2016-01-20T01:00:30.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Widgets学习">
 <meta name="twitter:description" content="2015/12/1 15:10:52ListViewListView">
@@ -156,12 +156,12 @@ mWebSettings.setSupportZoom(<span class="literal">true</span>);
 <pre><code><span class="label">android:</span>maxWidth=<span class="string">"200dp"</span>
 <span class="label">android:</span>singleLine=<span class="string">"true"</span>
 </code></pre><ul>
-<li><p>代码中设置drawable</p>
-<pre><code><span class="constant">Drawable drawable</span> = getResources().getDrawable(R.drawable.messages_icon_triangle_down); <span class="comment">//获取drawable</span>
-setCompoundDrawablesWithIntrinsicBounds(左,上,右，下).<span class="comment">//其他设置为null</span>
-</code></pre></li>
+<li>代码中设置drawable</li>
 </ul>
-<h2 id="2015/12/29_23:59:15">2015/12/29 23:59:15</h2><h3 id="DatePickerDialog的总结">DatePickerDialog的总结</h3><h4 id="Calendar跟onDateSet里面的月份比正常少1">Calendar跟onDateSet里面的月份比正常少1</h4><h4 id="onDateSet之后求long型日期，月份需要加上1">onDateSet之后求long型日期，月份需要加上1</h4><h4 id="Calendar-getTimeInMillis()得出的是正确的日期">Calendar.getTimeInMillis()得出的是正确的日期</h4><hr>
+<pre><code>Drawable drawable = getResources().getDrawable(R.drawable.course_manage_agency_icon);
+  drawable.setBounds(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>); <span class="comment">//可以改变图标大小</span>
+  tvAgencyValue.setCompoundDrawables(drawable,null,null,null);<span class="comment">//调用这个方法可以使setBounds有效</span>
+</code></pre><h2 id="2015/12/29_23:59:15">2015/12/29 23:59:15</h2><h3 id="DatePickerDialog的总结">DatePickerDialog的总结</h3><h4 id="Calendar跟onDateSet里面的月份比正常少1">Calendar跟onDateSet里面的月份比正常少1</h4><h4 id="onDateSet之后求long型日期，月份需要加上1">onDateSet之后求long型日期，月份需要加上1</h4><h4 id="Calendar-getTimeInMillis()得出的是正确的日期">Calendar.getTimeInMillis()得出的是正确的日期</h4><hr>
 <ul>
 <li><p>DatePicker显示成滑动模式</p>
 <pre><code><span class="label">android:</span>calendarViewShown=<span class="string">"false"</span>

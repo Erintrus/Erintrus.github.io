@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Developer_Erin">
 <meta property="og:description" content="设置Item的高度
 在list_item布局文件中的根标签设置minheight">
-<meta property="og:updated_time" content="2016-01-10T12:54:00.357Z">
+<meta property="og:updated_time" content="2016-01-20T03:27:46.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecycleView笔记">
 <meta name="twitter:description" content="设置Item的高度
@@ -98,7 +98,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/10_13:55:12"><span class="toc-number">1.</span> <span class="toc-text">2016/1/10 13:55:12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RecycleView"><span class="toc-number">1.1.</span> <span class="toc-text">RecycleView</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/10_13:55:12"><span class="toc-number">1.</span> <span class="toc-text">2016/1/10 13:55:12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RecycleView"><span class="toc-number">1.1.</span> <span class="toc-text">RecycleView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/20_11:21:58"><span class="toc-number">2.</span> <span class="toc-text">2016/1/20 11:21:58</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何为RecyclerView添加点击事件"><span class="toc-number">2.1.</span> <span class="toc-text">如何为RecyclerView添加点击事件</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -117,6 +117,21 @@
 </code></pre></li>
 <li><p>RecyclerView.ViewHolder</p>
 <pre><code><span class="built_in">Find</span>相关的ID
+</code></pre></li>
+</ul>
+<h2 id="2016/1/20_11:21:58">2016/1/20 11:21:58</h2><h3 id="如何为RecyclerView添加点击事件">如何为RecyclerView添加点击事件</h3><ul>
+<li><p>Adapter里定义接口</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">OnItemClickListener</span>{
+    <span class="function"><span class="keyword">void</span> <span class="title">onItemClickListener</span>(<span class="params">View view, <span class="keyword">int</span> position</span>)</span>;
+}
+</code></pre></li>
+<li><p>创建接口对象</p>
+<pre><code><span class="keyword">private</span> OnItemClickListener listener;
+</code></pre></li>
+<li><p>定义注册接口的方法</p>
+<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setOnItemClickListener</span><span class="params">(OnItemClickListener listener)</span></span>{
+    <span class="keyword">this</span>.listener = listener;
+}
 </code></pre></li>
 </ul>
   
@@ -176,7 +191,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/10_13:55:12"><span class="toc-number">1.</span> <span class="toc-text">2016/1/10 13:55:12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RecycleView"><span class="toc-number">1.1.</span> <span class="toc-text">RecycleView</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/10_13:55:12"><span class="toc-number">1.</span> <span class="toc-text">2016/1/10 13:55:12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RecycleView"><span class="toc-number">1.1.</span> <span class="toc-text">RecycleView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/20_11:21:58"><span class="toc-number">2.</span> <span class="toc-text">2016/1/20 11:21:58</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何为RecyclerView添加点击事件"><span class="toc-number">2.1.</span> <span class="toc-text">如何为RecyclerView添加点击事件</span></a></li></ol></li></ol>
  
   </div>
 

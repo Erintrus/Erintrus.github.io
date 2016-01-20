@@ -93,11 +93,11 @@
 </header>
     <div class="article-content">
         
-        <h2 id="2016/1/13_16:20:08">2016/1/13 16:20:08</h2><h3 id="LayoutInflater的inflate方法分析">LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,父布局,是否加载到父布局);
+        <h2 id="2016/1/13_16:20:08">2016/1/13 16:20:08</h2><h3 id="LayoutInflater的inflate方法分析">LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
 
 <span class="keyword">View</span> <span class="keyword">view</span> = inflater.inflate(R.layout.button_layout, main_layout);
 <span class="keyword">View</span> <span class="keyword">view</span> = inflater.inflate(R.layout.button_layout, main_layout,true);
-<span class="comment">//加载一个布局到父布局,不填写属性、默认为true 上面两句代码效果一样</span>
+<span class="comment">//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样</span>
 
 <span class="keyword">View</span> <span class="keyword">view</span> = inflater.inflate(R.layout.button_layout, main_layout,false);
 <span class="comment">//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载</span>
@@ -106,7 +106,19 @@
 父布局调用addView后，<span class="keyword">view</span>的宽高不会显示自己的属性，而是用父布局的属性。
 
 <span class="comment">//父布局为null,后面的参数无效</span>
-</code></pre>
+</code></pre><p>自定义View</p>
+<p>分析Adatper里的一句代码</p>
+<pre><code><span class="variable">@Override</span>
+public View getView(<span class="keyword">int</span> i , View view , ViewGroup <span class="keyword">parent</span>)
+{
+    view = inflater.inflate(R.<span class="keyword">layout</span>.list_item, <span class="keyword">parent</span>);
+}
+</code></pre><ul>
+<li>view 是指list_item里面的根标签</li>
+<li>parent 是指外部使用该Item的控件，即ListView</li>
+<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
+</ul>
+
         
         
         <p class="article-more-link">

@@ -93,21 +93,22 @@
 </header>
     <div class="article-content">
         
-        <h2 id="2015-10-02_17:10:00">2015-10-02 17:10:00</h2><h4 id="ListView_分割线">ListView 分割线</h4><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
-<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
-</code></pre><p>如何取消分割线</p>
-<ul>
-<li><p>在java中取消  </p>
-<pre><code><span class="tag">listView</span><span class="class">.setDividerHeight</span>(0);
+        <h2 id="2015-10-03_18:18:23">2015-10-03 18:18:23</h2><h4 id="启动界面">启动界面</h4><ul>
+<li>如何实现一个启动界面，例如微信、网易新闻。  </li>
+</ul>
+<pre><code><span class="number">1.</span> 创建一个布局文件，里面放一张图。
+<span class="number">2.</span> 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
 
-<span class="tag">listView</span><span class="class">.setDivider</span>(<span class="tag">null</span>);
-</code></pre></li>
-<li><p>在XML布局文件取消  </p>
-<pre><code><span class="label">android:</span>divider=<span class="string">"#FFCC00"</span>  
+        <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable(){ 
 
-或      
+            @<span class="function">Override
+                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
+                    Intent intent = <span class="keyword">new</span> Intent (Appstart.<span class="keyword">this</span>,Welcome.<span class="keyword">class</span>);
+                    startActivity(intent);            
+                    Appstart.<span class="keyword">this</span>.finish();
+                }
 
-<span class="label">android:</span>divider=<span class="string">"@null"</span>
+        },<span class="number">1000</span>);  
 </code></pre>
         
         
@@ -647,7 +648,24 @@
 </header>
     <div class="article-content">
         
-        <h2 id="2015-09-15">2015-09-15</h2><h3 id="设置listview无点击背景效果">设置listview无点击背景效果</h3><pre><code><span class="label">android:</span>listSelector=<span class="string">"@android:color/transparent"</span>  
+        <h3 id="ListView_分割线">ListView 分割线</h3><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
+<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
+</code></pre><p>如何取消分割线</p>
+<ul>
+<li><p>在java中取消  </p>
+<pre><code><span class="tag">listView</span><span class="class">.setDividerHeight</span>(0);
+
+<span class="tag">listView</span><span class="class">.setDivider</span>(<span class="tag">null</span>);
+</code></pre></li>
+<li><p>在XML布局文件取消  </p>
+<pre><code><span class="label">android:</span>divider=<span class="string">"#FFCC00"</span>  
+
+或      
+
+<span class="label">android:</span>divider=<span class="string">"@null"</span>
+</code></pre></li>
+</ul>
+<h2 id="2015-09-15">2015-09-15</h2><h3 id="设置listview无点击背景效果">设置listview无点击背景效果</h3><pre><code><span class="label">android:</span>listSelector=<span class="string">"@android:color/transparent"</span>  
 </code></pre><h2 id="2015/11/3_17:21:05">2015/11/3 17:21:05</h2><h4 id="ListView的下拉刷新，上拉加载数据">ListView的下拉刷新，上拉加载数据</h4><p>在跟服务器交互时  </p>
 <ul>
 <li>当ListView 下拉时，<strong>清空原数据</strong>,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;</li>
