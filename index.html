@@ -801,18 +801,26 @@ startActivity(it);
 </header>
     <div class="article-content">
         
-        <h2 id="2015/11/3_18:39:19">2015/11/3 18:39:19</h2><h4 id="建立项目的过程">建立项目的过程</h4><ol>
-<li>根据需要建立项目框架。</li>
-<li>一般包括activity、fragment、views、utils、entity、network等目录</li>
-</ol>
-<h2 id="2015/11/6_10:49:42">2015/11/6 10:49:42</h2><h4 id="关于String的subString方法">关于String的subString方法</h4><ul>
-<li>subString(int start,int end)中的start、end指的是第几位（从start开始,不算strat到end的字符）</li>
+        <h2 id="2015/11/3_18:39:19">2015/11/3 18:39:19</h2><h4 id="项目架构">项目架构</h4><ul>
+<li><p>通用包common 包括工具包、实体包、控件包、网络包、数据库包等</p>
+<ul>
+<li>Utils（AES、Toast封装、Log的封装）</li>
+<li>Views(各种自定义View)</li>
+<li>Entities(各种实体类)</li>
+<li>BroadcastReceiver(带接口的广播)</li>
+<li>Network(protocol协议包、各种网络请求接口)</li>
+<li>Database(数据库)</li>
 </ul>
-<pre><code><span class="built_in">String</span> <span class="built_in">date</span> =<span class="number">20151106</span>
-<span class="built_in">year</span> = <span class="built_in">date</span>.subString(<span class="number">0</span>,<span class="number">4</span>);
-<span class="built_in">month</span> = <span class="built_in">date</span>.subString(<span class="number">4</span>,<span class="number">6</span>);
-<span class="built_in">day</span> = <span class="built_in">date</span>.subString(<span class="number">6</span>,<span class="number">8</span>);
-</code></pre>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>模块包(每个模块单独成包)</p>
+</li>
+<li><p>全局包base(Application)</p>
+</li>
+</ul>
+
         
         
         <p class="article-more-link">

@@ -41,7 +41,7 @@ Volley可以建立、取消请求队列。
 
 使用示例：
 1. RequestQueue">
-<meta property="og:updated_time" content="2015-10-29T08:33:08.594Z">
+<meta property="og:updated_time" content="2016-01-21T03:51:20.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Volley跟Async-http的封装">
 <meta name="twitter:description" content="2015/10/29 15:31:44Volley的基础compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
@@ -131,7 +131,7 @@ Volley可以建立、取消请求队列。
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:31:44"><span class="toc-number">1.</span> <span class="toc-text">2015/10/29 15:31:44</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley的基础"><span class="toc-number">1.0.1.</span> <span class="toc-text">Volley的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:34:00"><span class="toc-number">2.</span> <span class="toc-text">2015/10/29 15:34:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Async-Http的基础"><span class="toc-number">2.0.1.</span> <span class="toc-text">Async-Http的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:59:01"><span class="toc-number">3.</span> <span class="toc-text">2015/10/29 15:59:01</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley跟Async-http的封装对比"><span class="toc-number">3.0.1.</span> <span class="toc-text">Volley跟Async-http的封装对比</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:31:44"><span class="toc-number">1.</span> <span class="toc-text">2015/10/29 15:31:44</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley的基础"><span class="toc-number">1.0.1.</span> <span class="toc-text">Volley的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:34:00"><span class="toc-number">2.</span> <span class="toc-text">2015/10/29 15:34:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Async-Http的基础"><span class="toc-number">2.0.1.</span> <span class="toc-text">Async-Http的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:59:01"><span class="toc-number">3.</span> <span class="toc-text">2015/10/29 15:59:01</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley跟Async-http的封装对比"><span class="toc-number">3.0.1.</span> <span class="toc-text">Volley跟Async-http的封装对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/21_10:05:11"><span class="toc-number">4.</span> <span class="toc-text">2016/1/21 10:05:11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何修改已封装好的请求函数"><span class="toc-number">4.1.</span> <span class="toc-text">如何修改已封装好的请求函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/21_11:00:44"><span class="toc-number">5.</span> <span class="toc-text">2016/1/21 11:00:44</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请求Flag的理解"><span class="toc-number">5.1.</span> <span class="toc-text">请求Flag的理解</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -266,7 +266,63 @@ Volley可以建立、取消请求队列。
 <li>应该封装Volley而不是Async-http</li>
 <li>Async-http应该用于封装文件上传、下载</li>
 </ul>
-  
+<h2 id="2016/1/21_10:05:11">2016/1/21 10:05:11</h2><h3 id="如何修改已封装好的请求函数">如何修改已封装好的请求函数</h3><p>背景：</p>
+<p>调用第三方的请求函数，需要调用其回调函数。我想用自己定义的回调函数，该怎么办？</p>
+<pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">onGetTodayMoviesMsg</span>(<span class="params">Context context, <span class="keyword">int</span> cityid, DataCallBack callBack</span>) </span>{
+    Parameters <span class="keyword">params</span> = <span class="keyword">new</span> Parameters();
+    <span class="keyword">params</span>.add(<span class="string">"cityid"</span>, cityid);
+    JuheData.executeWithAPI(context, <span class="number">42</span>, TODAY_MOVIE_MSG, JuheData.GET, <span class="keyword">params</span>, callBack);
+    <span class="keyword">return</span> flag;
+}
+<span class="comment">// 第三方的回调函数是DataCallBack，自定义的HttpCallBack</span>
+</code></pre><p>思路：</p>
+<ol>
+<li><p>自定义一个请求函数，传入自定义的Callback参数。</p>
+<pre><code>public <span class="keyword">static</span> <span class="type">void</span> <span class="type">CustomExecuteWithApi</span>(<span class="type">Context</span> context, <span class="type">int</span> did, <span class="type">String</span> uri, <span class="type">String</span> <span class="keyword">method</span>, <span class="type">Parameters</span> params, final <span class="type">HttpCallBack</span> mCallback) {
+<span class="type">DataCallback</span> callback = null;
+<span class="type">JuheData</span>.executeWithAPI(context, did, uri, <span class="keyword">method</span>, params, callBack);
+}
+</code></pre></li>
+<li><p>创建第三方Callback的对象,重新其方法。</p>
+</li>
+</ol>
+<pre><code>    public <span class="keyword">static</span> <span class="type">void</span> <span class="type">CustomExecuteWithApi</span>(<span class="type">Context</span> context, <span class="type">int</span> did, <span class="type">String</span> uri, <span class="type">String</span> <span class="keyword">method</span>, <span class="type">Parameters</span> params, final <span class="type">HttpCallBack</span> mCallback) {
+    <span class="type">DataCallBack</span> callBack = new <span class="type">DataCallBack</span>() {
+        @<span class="type">Override</span>
+        public <span class="type">void</span> onSuccess(<span class="type">int</span> i, <span class="type">String</span> s) {
+            //此处调用自定义callback的函数
+            mCallback.onSuccess(s, <span class="type">FLAG_GET_CITY_MSG</span>);
+        }
+
+        @<span class="type">Override</span>
+        public <span class="type">void</span> onFinish() {
+
+        }
+
+        @<span class="type">Override</span>
+        public <span class="type">void</span> onFailure(<span class="type">int</span> i, <span class="type">String</span> s, <span class="type">Throwable</span> throwable) {
+            //此处调用自定义callback的函数
+            mCallback.onFailure(s, <span class="type">FLAG_GET_CITY_MSG</span>);
+        }
+    };
+    <span class="type">JuheData</span>.executeWithAPI(context, did, uri, <span class="keyword">method</span>, params, callBack);
+}
+</code></pre><p>总结：</p>
+<ul>
+<li>对第三方请求方法再次封装。</li>
+</ul>
+<h2 id="2016/1/21_11:00:44">2016/1/21 11:00:44</h2><h3 id="请求Flag的理解">请求Flag的理解</h3><p>背景：</p>
+<p>由于一个界面可能会请求多条协议，所以要区分是哪条协议返回的结果，就必须要一个标识来判断。</p>
+<p>实现：</p>
+<ul>
+<li>请求协议返回的标识跟实现接口返回的标识是一致的。</li>
+<li>可以利用递增函数实现，每个数字代表一个协议。</li>
+</ul>
+<pre><code>      <span class="keyword">private</span> <span class="keyword">static</span> AtomicLong atomicLong = <span class="keyword">new</span> AtomicLong(<span class="number">0</span>); <span class="comment">//初始化从0开始递增</span>
+
+
+![](http:<span class="comment">//imglf.nosdn.127.net/img/U05xRllGZk4zNVBrbzBDSHg1S3V0Q0FQaWNiTW1jaGhFSy9kVVZIZHNUQ1dmR3RKajJkKzdBPT0.png?imageView&amp;thumbnail=400x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg)</span>
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -323,7 +379,7 @@ Volley可以建立、取消请求队列。
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:31:44"><span class="toc-number">1.</span> <span class="toc-text">2015/10/29 15:31:44</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley的基础"><span class="toc-number">1.0.1.</span> <span class="toc-text">Volley的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:34:00"><span class="toc-number">2.</span> <span class="toc-text">2015/10/29 15:34:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Async-Http的基础"><span class="toc-number">2.0.1.</span> <span class="toc-text">Async-Http的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:59:01"><span class="toc-number">3.</span> <span class="toc-text">2015/10/29 15:59:01</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley跟Async-http的封装对比"><span class="toc-number">3.0.1.</span> <span class="toc-text">Volley跟Async-http的封装对比</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:31:44"><span class="toc-number">1.</span> <span class="toc-text">2015/10/29 15:31:44</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley的基础"><span class="toc-number">1.0.1.</span> <span class="toc-text">Volley的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:34:00"><span class="toc-number">2.</span> <span class="toc-text">2015/10/29 15:34:00</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Async-Http的基础"><span class="toc-number">2.0.1.</span> <span class="toc-text">Async-Http的基础</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015/10/29_15:59:01"><span class="toc-number">3.</span> <span class="toc-text">2015/10/29 15:59:01</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Volley跟Async-http的封装对比"><span class="toc-number">3.0.1.</span> <span class="toc-text">Volley跟Async-http的封装对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/21_10:05:11"><span class="toc-number">4.</span> <span class="toc-text">2016/1/21 10:05:11</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何修改已封装好的请求函数"><span class="toc-number">4.1.</span> <span class="toc-text">如何修改已封装好的请求函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/21_11:00:44"><span class="toc-number">5.</span> <span class="toc-text">2016/1/21 11:00:44</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请求Flag的理解"><span class="toc-number">5.1.</span> <span class="toc-text">请求Flag的理解</span></a></li></ol></li></ol>
  
   </div>
 
