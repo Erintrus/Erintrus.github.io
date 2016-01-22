@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>自定义view | Developer_Erin</title>
+    <title>CustomView | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
@@ -17,7 +17,7 @@ onMeasure、onLayout、onDraw先后执行顺序。
 获取屏幕宽高
 WindowManager wm = (WindowManager) getContext().getSystemService(Context.WIN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义view">
+<meta property="og:title" content="CustomView">
 <meta property="og:url" content="erintrus.github.io/2015/09/07/2015-09-07-CustomView/index.html">
 <meta property="og:site_name" content="Developer_Erin">
 <meta property="og:description" content="2016/1/14 10:24:56自定义View的基础知识
@@ -26,9 +26,9 @@ onMeasure、onLayout、onDraw先后执行顺序。
 获取屏幕宽高
 WindowManager wm = (WindowManager) getContext().getSystemService(Context.WIN">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-01-22T03:53:21.036Z">
+<meta property="og:updated_time" content="2016-01-22T04:22:09.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义view">
+<meta name="twitter:title" content="CustomView">
 <meta name="twitter:description" content="2016/1/14 10:24:56自定义View的基础知识
 getWidth()、getHeight()指的是xml文件中该View指定的width，height。
 onMeasure、onLayout、onDraw先后执行顺序。
@@ -92,7 +92,7 @@ WindowManager wm = (WindowManager) getContext().getSystemService(Context.WIN">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view" itemprop="url">自定义view</a>
+      <a href="/2015/09/07/2015-09-07-CustomView/" title="CustomView" itemprop="url">CustomView</a>
   </h1>
   <p class="article-author">By
        
@@ -124,7 +124,7 @@ height = wm.getDefaultDisplay<span class="literal">()</span>.getHeight<span clas
 <h2 id="2016/1/15_0:32:26">2016/1/15 0:32:26</h2><h3 id="实现自定义控件有3种方式：">实现自定义控件有3种方式：</h3><ol>
 <li>继承一个控件 （继承已有控件）  </li>
 <li>继承一个布局（继承已有布局）  </li>
-<li>组合View   </li>
+<li>组合View （布局根标签应该设置成warp_content，保证各个控件的高宽属性正常。）</li>
 </ol>
 <a id="more"></a>
 <h2 id="2015-10-05_09:51:46">2015-10-05 09:51:46</h2><h3 id="组合View">组合View</h3><p>基本思路：</p>
@@ -189,27 +189,28 @@ Drawable drawable= <span class="built_in">array</span>.getDrawable(R.styleable.�
 <p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
 <p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。</p>
 <h3 id="自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件"><font color="red">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</font></h3><h2 id="2015-10-05_09:51:16">2015-10-05 09:51:16</h2><h4 id="自定义View_—_重写onMeasure">自定义View — 重写onMeasure</h4><ul>
-<li><p>判断是否需要重写OnMeasure （下述需求判断是否重写）</p>
-<ul>
-<li>默认： （弊端: view为warp、match时，都会填满父容器）</li>
+<li>判断是否需要重写OnMeasure （下述需求判断是否重写）</li>
 </ul>
-<ol>
-<li>父容器为warp_content或match_parent时，view的宽高不是固定值，则view填满父容器。</li>
-<li>父容器为warp_content或match_parent时，view的宽高是固定值，则view大小取决固定值。</li>
-<li>父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。</li>
-<li>父容器为固定值时（view的最大显示值），view的宽高不是固定值，则view填满父容器。</li>
-</ol>
-</li>
-</ul>
-<pre><code>    特点： view的宽高为warp_content时，view填满父容器。
+<hr>
+<p>（下述无效，待更新）</p>
+<pre><code>- 不重写onMeasure： （弊端: <span class="built_in">view</span>为warp、match时，都会填满父容器）
+
+<span class="number">1.</span> 父容器为warp_content或match_parent时，<span class="built_in">view</span>的宽高不是固定值，则<span class="built_in">view</span>填满父容器。
+<span class="number">2.</span> 父容器为warp_content或match_parent时，<span class="built_in">view</span>的宽高是固定值，则<span class="built_in">view</span>大小取决固定值。
+<span class="number">3.</span> 父容器为固定值时（<span class="built_in">view</span>的最大显示值），<span class="built_in">view</span>的宽高必须小于等于其固定值。
+<span class="number">4.</span> 父容器为固定值时（<span class="built_in">view</span>的最大显示值），<span class="built_in">view</span>的宽高不是固定值，则<span class="built_in">view</span>填满父容器。
 
 
-- 重写onMeasure（可实现:view为warp时，显示默认值,而不是填满父容器）
+    特点： <span class="built_in">view</span>的宽高为warp_content时，<span class="built_in">view</span>填满父容器。
+</code></pre><hr>
+<p>（当View为warp_content时，想要设置一个固定值，就应该重写）</p>
+<pre><code>- 重写onMeasure（可实现:view为warp时，显示默认值,而不是填满父容器）
 
 <span class="number">1</span>. 可以给<span class="type">View</span>设定默认值，当view宽高为warp_content时，显示默认值。
 <span class="number">2</span>. 父容器为warp_content或match_parent时，view的宽高为warp_content，则view显示默认值。
 <span class="number">3</span>. 父容器为warp_content或match_parent时，view的宽高为match_parent，则view填满控件。
 <span class="number">4</span>. 父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。
+
 
     特点： view的宽高为warp_content时，view大小为默认值。
 
@@ -425,7 +426,7 @@ public void <span class="keyword">state</span>Off() {
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/07/2015-09-07-CustomView/" data-title="自定义view | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2015/09/07/2015-09-07-CustomView/" data-title="CustomView | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
