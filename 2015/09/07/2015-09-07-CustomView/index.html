@@ -1,0 +1,849 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>自定义view | Developer_Erin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Erintrus">
+    
+
+    
+    <meta name="description" content="2016/1/14 10:24:56自定义View的基础知识
+getWidth()、getHeight()指的是xml文件中该View指定的width，height。
+onMeasure、onLayout、onDraw先后执行顺序。
+获取屏幕宽高
+WindowManager wm = (WindowManager) getContext().getSystemService(Context.WIN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义view">
+<meta property="og:url" content="erintrus.github.io/2015/09/07/2015-09-07-CustomView/index.html">
+<meta property="og:site_name" content="Developer_Erin">
+<meta property="og:description" content="2016/1/14 10:24:56自定义View的基础知识
+getWidth()、getHeight()指的是xml文件中该View指定的width，height。
+onMeasure、onLayout、onDraw先后执行顺序。
+获取屏幕宽高
+WindowManager wm = (WindowManager) getContext().getSystemService(Context.WIN">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-01-22T03:53:21.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义view">
+<meta name="twitter:description" content="2016/1/14 10:24:56自定义View的基础知识
+getWidth()、getHeight()指的是xml文件中该View指定的width，height。
+onMeasure、onLayout、onDraw先后执行顺序。
+获取屏幕宽高
+WindowManager wm = (WindowManager) getContext().getSystemService(Context.WIN">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/Erintrus.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/Erintrus.png" alt="Developer_Erin" title="Developer_Erin"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Developer_Erin">Developer_Erin</a></h1>
+				<h2 class="blog-motto">You don&#39;t know me , you are about to .</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= GrAIQGkpD1 ><input type="text" name="q" size="30" placeholder="Search"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view" itemprop="url">自定义view</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-06T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/14_10:24:56"><span class="toc-number">1.</span> <span class="toc-text">2016/1/14 10:24:56</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">自定义View的基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/15_0:32:26"><span class="toc-number">2.</span> <span class="toc-text">2016/1/15 0:32:26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现自定义控件有3种方式："><span class="toc-number">2.1.</span> <span class="toc-text">实现自定义控件有3种方式：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:46"><span class="toc-number">3.</span> <span class="toc-text">2015-10-05 09:51:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组合View"><span class="toc-number">3.1.</span> <span class="toc-text">组合View</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为自定义View添加自定义属性"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">为自定义View添加自定义属性</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-08_18:20:56"><span class="toc-number">4.</span> <span class="toc-text">2015-10-08 18:20:56</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="toc-number">4.1.</span> <span class="toc-text">实战开发帮你教项目中的意见反馈功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:07"><span class="toc-number">5.</span> <span class="toc-text">2015-10-05 09:51:07</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#完全自定义View(进阶)"><span class="toc-number">5.0.1.</span> <span class="toc-text">完全自定义View(进阶)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件"><span class="toc-number">5.1.</span> <span class="toc-text">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:16"><span class="toc-number">6.</span> <span class="toc-text">2015-10-05 09:51:16</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View_—_重写onMeasure"><span class="toc-number">6.0.1.</span> <span class="toc-text">自定义View — 重写onMeasure</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_10:02:11"><span class="toc-number">7.</span> <span class="toc-text">2015-10-05 10:02:11</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义监听器"><span class="toc-number">7.0.1.</span> <span class="toc-text">自定义监听器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/15_0:37:22"><span class="toc-number">8.</span> <span class="toc-text">2016/1/15 0:37:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实际开发_—_分割线"><span class="toc-number">8.1.</span> <span class="toc-text">实际开发 — 分割线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/11_11:20:59"><span class="toc-number">9.</span> <span class="toc-text">2016/1/11 11:20:59</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为RecycleView重写SwipeRefreshLayout"><span class="toc-number">9.1.</span> <span class="toc-text">为RecycleView重写SwipeRefreshLayout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/21_15:56:49"><span class="toc-number">10.</span> <span class="toc-text">2016/1/21 15:56:49</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现请求View_RequestView"><span class="toc-number">10.1.</span> <span class="toc-text">实现请求View RequestView</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="2016/1/14_10:24:56">2016/1/14 10:24:56</h2><h3 id="自定义View的基础知识">自定义View的基础知识</h3><ul>
+<li>getWidth()、getHeight()指的是xml文件中该View指定的width，height。</li>
+<li>onMeasure、onLayout、onDraw先后执行顺序。</li>
+<li><p>获取屏幕宽高</p>
+<pre><code><span class="type">WindowManager</span> wm = (<span class="type">WindowManager</span>) getContext<span class="literal">()</span>.getSystemService(<span class="type">Context</span>.<span class="type">WINDOW_SERVICE</span>);
+width = wm.getDefaultDisplay<span class="literal">()</span>.getWidth<span class="literal">()</span>;
+height = wm.getDefaultDisplay<span class="literal">()</span>.getHeight<span class="literal">()</span>;
+</code></pre></li>
+</ul>
+<h2 id="2016/1/15_0:32:26">2016/1/15 0:32:26</h2><h3 id="实现自定义控件有3种方式：">实现自定义控件有3种方式：</h3><ol>
+<li>继承一个控件 （继承已有控件）  </li>
+<li>继承一个布局（继承已有布局）  </li>
+<li>组合View   </li>
+</ol>
+<a id="more"></a>
+<h2 id="2015-10-05_09:51:46">2015-10-05 09:51:46</h2><h3 id="组合View">组合View</h3><p>基本思路：</p>
+<ol>
+<li>xml布局文件添加已有的控件，例如(ImageView跟Button)。</li>
+<li>创建java文件继承包含这些控件的布局，例如(RelativeLayout)。</li>
+<li>重写其构造方法(加载xml布局文件,利用通过LayoutInflate)。</li>
+<li>在其构造方法里获取自定义属性。(可选,在values文件夹创建一个attrs的xml文件) </li>
+</ol>
+<h5 id="为自定义View添加自定义属性">为自定义View添加自定义属性</h5><ul>
+<li><p>在attrs文件中创建declare-styleable标签，其name属性是控件名字(不需要加包名)<br>在上述标签下 创建attr标签，name属性是属性名、format指明改属性的格式</p>
+<p>  <declare-styleable name="自定义控件名"></declare-styleable></p>
+<pre><code>&lt;<span class="built_in">attr</span> name=<span class="string">"src"</span>&gt;&lt;/<span class="built_in">attr</span>&gt; <span class="comment">// name默认不加前缀 则调用方法为app:src</span>
+&lt;<span class="built_in">attr</span> name=<span class="string">"text"</span>&gt;&lt;/<span class="built_in">attr</span>&gt;
+</code></pre><p>  </p>
+</li>
+</ul>
+<p>属性里的值可以通过enum标签来实现<br>reference   表示引用，参考某一资源ID<br>string   表示字符串<br>color   表示颜色值<br>dimension   表示尺寸值<br>boolean   表示布尔值<br>integer   表示整型值<br>float   表示浮点值<br>fraction   表示百分数<br>enum   表示枚举值<br>flag   表示位运算</p>
+<p>定义的属性需赋值给原控件的属性  </p>
+<ol>
+<li>利用TypedArray 获取所有属性  </li>
+</ol>
+<pre><code>//通过<span class="keyword">context</span>的obtainStyledAttributes(attrs,R.styleable.控件名)方法得到一个TypedArray对象，参数分别为attrs、控件id
+TypedArray <span class="keyword">array</span>=<span class="keyword">context</span>.obtainStyledAttributes(attrs,R.styleable.自定义控件名);
+</code></pre><ol>
+<li><p>利用typedArray对象设置控件默认值（R.styleable.值）</p>
+<pre><code>CharSequence text=  <span class="built_in">array</span>.getText(R.styleable.自定义控件名_android_text);
+Drawable drawable= <span class="built_in">array</span>.getDrawable(R.styleable.自定义控件名n_android_src);
+</code></pre></li>
+<li><p>通过原有控件的方法设置这些属性即可。</p>
+<pre><code>editText.setHint(<span class="type">text</span>);
+</code></pre></li>
+<li><p>TypedArray对象调用recycle方法 </p>
+<pre><code><span class="built_in">array</span>.recycle<span class="literal">()</span>;
+</code></pre></li>
+<li><p>在使用该控件的布局文件里设置命名空间  </p>
+<pre><code><span class="string">xmlns:</span>eri=<span class="string">"http://schemas.android.com/apk/res/包名"</span>  <span class="comment">//包名指整个项目的包名</span>
+</code></pre></li>
+</ol>
+<ol>
+<li><p>通过该命名空间调用属性 如 eri:属性名</p>
+<pre><code>eri:<span class="type">text</span>=<span class="string">"Erintrus"</span>
+</code></pre></li>
+</ol>
+<h2 id="2015-10-08_18:20:56">2015-10-08 18:20:56</h2><h3 id="实战开发帮你教项目中的意见反馈功能">实战开发帮你教项目中的意见反馈功能</h3><p>1.写一个布局包括一个EditText  和TextView<br>2.写attrs文件，添加一个hint属性，用于设置提示<br>3.重写java 文件，获取到属性的值后，赋值给原控件<br>如下：</p>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>//获取自己定义的属性，然后赋值给原控件的属性。从而实现自定义属性的功能  </p>
+<pre><code>TypedArray <span class="keyword">array</span>=<span class="keyword">context</span>.obtainStyledAttributes(attrs,R.styleable.EtextWithTv);
+</code></pre><p>//得到自定义属性的值  </p>
+<pre><code><span class="type">CharSequence</span> text=  <span class="built_in">array</span>.getText(<span class="type">R</span>.styleable.<span class="type">EtextWithTv_hint</span>);
+<span class="built_in">array</span>.recycle<span class="literal">()</span>;  
+</code></pre><p>//调用EditText原有属性  </p>
+<pre><code>editText.setHint(<span class="type">text</span>);
+</code></pre><p>4.写一个getText方法，用于获取EditText的值（使用该控件时候，可以调用该方法）</p>
+<pre><code><span class="keyword">public</span> String <span class="keyword">getText</span>()
+{
+<span class="keyword">return</span> editText.<span class="keyword">getText</span>().toString();
+}
+</code></pre><h2 id="2015-10-05_09:51:07">2015-10-05 09:51:07</h2><h4 id="完全自定义View(进阶)">完全自定义View(进阶)</h4><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
+<p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
+<p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
+<p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
+<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。</p>
+<h3 id="自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件"><font color="red">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</font></h3><h2 id="2015-10-05_09:51:16">2015-10-05 09:51:16</h2><h4 id="自定义View_—_重写onMeasure">自定义View — 重写onMeasure</h4><ul>
+<li><p>判断是否需要重写OnMeasure （下述需求判断是否重写）</p>
+<ul>
+<li>默认： （弊端: view为warp、match时，都会填满父容器）</li>
+</ul>
+<ol>
+<li>父容器为warp_content或match_parent时，view的宽高不是固定值，则view填满父容器。</li>
+<li>父容器为warp_content或match_parent时，view的宽高是固定值，则view大小取决固定值。</li>
+<li>父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。</li>
+<li>父容器为固定值时（view的最大显示值），view的宽高不是固定值，则view填满父容器。</li>
+</ol>
+</li>
+</ul>
+<pre><code>    特点： view的宽高为warp_content时，view填满父容器。
+
+
+- 重写onMeasure（可实现:view为warp时，显示默认值,而不是填满父容器）
+
+<span class="number">1</span>. 可以给<span class="type">View</span>设定默认值，当view宽高为warp_content时，显示默认值。
+<span class="number">2</span>. 父容器为warp_content或match_parent时，view的宽高为warp_content，则view显示默认值。
+<span class="number">3</span>. 父容器为warp_content或match_parent时，view的宽高为match_parent，则view填满控件。
+<span class="number">4</span>. 父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。
+
+    特点： view的宽高为warp_content时，view大小为默认值。
+
+
+    - 重写onMeasure的代码
+
+            @<span class="type">Override</span>
+            protected <span class="type">void</span> onMeasure(<span class="type">int</span> widthMeasureSpec, <span class="type">int</span> heightMeasureSpec) {
+                super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+                <span class="type">int</span> width = getSize(<span class="type">DEFAULT_WIDTH</span>,widthMeasureSpec);
+                <span class="type">int</span> height = getSize(<span class="type">DEFAULT_HEIGHT</span>,heightMeasureSpec);
+                setMeasuredDimension(width, height);
+            }
+
+
+            public <span class="type">int</span> getSize(<span class="type">int</span> defaultSize, <span class="type">int</span> measureSpec) {
+                <span class="type">int</span> <span class="literal">result</span> = defaultSize;
+                <span class="type">int</span> specMode = <span class="type">MeasureSpec</span>.getMode(measureSpec);
+                <span class="type">int</span> specSize = <span class="type">MeasureSpec</span>.getSize(measureSpec);//获取测量值，即使用时传入的值。
+                <span class="keyword">if</span> (specMode == <span class="type">MeasureSpec</span>.<span class="type">EXACTLY</span>) {
+                    <span class="literal">result</span> = specSize;    //当设置其宽高为固定值或者match时，显示为固定值或者填满屏幕。
+                } <span class="keyword">else</span> {
+                    <span class="literal">result</span> = <span class="type">Math</span>.min(defaultSize, specSize); //当设置其宽高为warp时,显示默认值。
+                }
+                <span class="keyword">return</span> <span class="literal">result</span>;
+            }
+</code></pre><p><a href="http://www.linuxidc.com/Linux/2014-12/110164.htm" target="_blank" rel="external">参考</a></p>
+<p>1.ViewGroup(View的父容器)提供两个参数给View进行设置测量，并且根据测量值跟自己提供的尺寸大小来确定View的大小。</p>
+<p>2.View的大小由Size和Mode决定，相关类是MeasureSpec。Size、Mode封装在resolveSizeAndState方法里面。</p>
+<p>3.resolveSizeAndState方法的参数（View的宽或高、父容器提供的尺寸值、掩码默认0）</p>
+<p>4.如何重写OnMeasure</p>
+<pre><code><span class="comment">//获取View的宽度</span>
+<span class="keyword">int</span> minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
+<span class="comment">//讲View的宽度跟ViewGroup给的值进行测量，得出一个整型.</span>
+<span class="keyword">int</span> w = resolveSizeAndState(minw, widthMeasureSpec, <span class="number">1</span>);
+
+<span class="comment">//同理View的高度</span>
+<span class="keyword">int</span> minh = MeasureSpec.getSize(w) + getPaddingBottom() + getPaddingTop();
+<span class="keyword">int</span> h = resolveSizeAndState(MeasureSpec.getSize(w), heightMeasureSpec,<span class="number">0</span>);
+</code></pre><p><a href="http://www.cnblogs.com/0616--ataozhijia/p/4003380.html" target="_blank" rel="external">参考</a></p>
+<h2 id="2015-10-05_10:02:11">2015-10-05 10:02:11</h2><h4 id="自定义监听器">自定义监听器</h4><p>1.写一个接口，并且添加抽象方法  </p>
+<pre><code>public interface <span class="keyword">on</span>StateChangedListener {
+public void <span class="keyword">state</span>On();
+
+    public void <span class="keyword">state</span>Off();
+}
+</code></pre><p>2.在自定义控件中创建接口引用，并且生成set方法，用于外面调用  </p>
+<pre><code>public <span class="class"><span class="keyword">class</span> <span class="title">SwtBtnWithTv</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">LinearLayout</span> {</span>
+
+<span class="keyword">private</span> onStateChangedListener listener;
+    public void setListener(onStateChangedListener listener) {
+<span class="keyword">this</span>.listener = listener;
+}
+</code></pre><p>3.自定义控件实现原有的接口，在这里通过引用调用抽象方法  </p>
+<pre><code>switchButton.<span class="built_in">set</span>OnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+@Override
+public void <span class="keyword">on</span>CheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+if (isChecked) {
+
+listener.<span class="keyword">state</span>On();
+} else {
+listener.<span class="keyword">state</span>Off();
+}
+
+    }
+});
+</code></pre><p>4.在Main中调用set方法来实现该功能</p>
+<pre><code>swtBtnWithTv.<span class="built_in">set</span>Listener(new <span class="keyword">on</span>StateChangedListener() {
+@Override
+public void <span class="keyword">state</span>On() {
+        Toast.makeText(getActivity(), <span class="string">"成功"</span>, <span class="number">0</span>).show();
+}
+
+@Override
+public void <span class="keyword">state</span>Off() {
+        Toast.makeText(getActivity(), <span class="string">"失败"</span>, <span class="number">0</span>).show();
+}
+});
+</code></pre><p>总结：<br>Main外面写方法的实现 第5<br>自定义控件内部写在哪里调用 第3.4</p>
+<h2 id="2016/1/15_0:37:22">2016/1/15 0:37:22</h2><h3 id="实际开发_—_分割线">实际开发 — 分割线</h3><p>思路：</p>
+<ol>
+<li>继承View。</li>
+<li>在attrs.xml文件添加两个属性分别是方向、颜色。</li>
+<li>构造方法获取属性、获取屏幕宽高、初始化默认宽高值。</li>
+<li>重写onMeasure、设置默认值。（参考上述）</li>
+<li>重写onDraw。</li>
+</ol>
+<pre><code>* Created by Erintrus on <span class="number">2015</span>/<span class="number">10</span>/<span class="number">9.</span>
+* Email: Erintrus@<span class="number">126.</span>com
+* 两点确定一条线
+* 获取屏幕高、宽
+* 当要改变wrap_content时,需要设置默认值
+
+
+       <span class="keyword">public</span> class CustomDivider extends View {
+
+       <span class="keyword">private</span> <span class="built_in">int</span> orientation = <span class="number">0</span>;
+       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> HORIZONTAL = LinearLayout.HORIZONTAL;
+       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> VERTICAL = LinearLayout.VERTICAL;
+
+       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> DEFAULT_COLOR = R.<span class="built_in">color</span>.common_divider_gray; <span class="comment">//默认红色的线</span>
+       <span class="keyword">private</span> Paint paint;
+       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> DEFAULT_LENGTH = <span class="number">3</span>;
+       <span class="keyword">private</span> <span class="built_in">int</span> length;
+       <span class="keyword">private</span> <span class="built_in">int</span> <span class="built_in">color</span>;
+       <span class="keyword">private</span> <span class="built_in">int</span> <span class="variable">width</span>;
+       <span class="keyword">private</span> <span class="built_in">int</span> <span class="variable">height</span>;
+
+
+       <span class="keyword">public</span> CustomDivider(Context context) {
+           <span class="keyword">this</span>(context, <span class="keyword">null</span>);
+       }
+
+       <span class="keyword">public</span> CustomDivider(Context context, AttributeSet attrs) {
+           <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);
+       }
+
+       <span class="keyword">public</span> CustomDivider(Context context, AttributeSet attrs, <span class="built_in">int</span> defStyleAttr) {
+           <span class="keyword">super</span>(context, attrs, defStyleAttr);
+           WindowManager wm = (WindowManager) getContext()
+                   .getSystemService(Context.WINDOW_SERVICE);
+           <span class="variable">width</span> = wm.getDefaultDisplay().getWidth();
+           <span class="variable">height</span> = wm.getDefaultDisplay().getHeight();
+           TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomDivider);
+           orientation = array.getInteger(R.styleable.CustomDivider_dividerOrientation, HORIZONTAL);
+           <span class="built_in">color</span> = array.getColor(R.styleable.CustomDivider_dividerColor, getResources().getColor(DEFAULT_COLOR));
+           <span class="keyword">if</span> (orientation == HORIZONTAL) {
+               length = <span class="variable">width</span>;
+           } <span class="keyword">else</span> {
+               length = <span class="variable">height</span>;
+           }
+           array.recycle();
+           paint = <span class="keyword">new</span> Paint();
+           paint.setAntiAlias(<span class="keyword">true</span>);
+           paint.setColor(<span class="built_in">color</span>);
+           paint.setStrokeWidth(<span class="number">5</span>);
+           paint.setStyle(Paint.Style.FILL_AND_STROKE);
+       }
+
+       @Override
+       <span class="keyword">protected</span> <span class="keyword">void</span> onDraw(Canvas canvas) {
+           <span class="keyword">super</span>.onDraw(canvas);
+
+           <span class="keyword">if</span> (orientation == HORIZONTAL) {
+               canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, length, DEFAULT_LENGTH, paint);
+           } <span class="keyword">else</span> {
+               canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, DEFAULT_LENGTH, length, paint);
+           }
+       }
+
+       <span class="comment">//必须要重写这段代码，使其warp_content可以为某个值</span>
+       @Override
+       <span class="keyword">protected</span> <span class="keyword">void</span> onMeasure(<span class="built_in">int</span> widthMeasureSpec, <span class="built_in">int</span> heightMeasureSpec) {
+           <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);
+           <span class="built_in">int</span> w;
+           <span class="built_in">int</span> h;
+           <span class="keyword">if</span> (orientation == HORIZONTAL) {
+               w = getSize(<span class="variable">width</span>, widthMeasureSpec);
+               h = DEFAULT_LENGTH;
+           } <span class="keyword">else</span> {
+               w = DEFAULT_LENGTH;
+               h = getSize(<span class="variable">height</span>, heightMeasureSpec);
+           }
+           setMeasuredDimension(w, h);
+       }
+
+       <span class="keyword">public</span> <span class="built_in">int</span> getSize(<span class="built_in">int</span> defaultSize, <span class="built_in">int</span> measureSpec) {
+           <span class="built_in">int</span> result = defaultSize;
+           <span class="built_in">int</span> specSize = MeasureSpec.getSize(measureSpec);
+           <span class="built_in">int</span> specMode = MeasureSpec.getMode(measureSpec);
+           <span class="keyword">if</span> (specMode == MeasureSpec.EXACTLY) {
+               result = specSize;
+           } <span class="keyword">else</span> {
+               result = Math.<span class="built_in">min</span>(defaultSize, specSize);
+           }
+           <span class="keyword">return</span> result;
+       }
+
+
+   }
+</code></pre><h2 id="2016/1/11_11:20:59">2016/1/11 11:20:59</h2><h3 id="为RecycleView重写SwipeRefreshLayout">为RecycleView重写SwipeRefreshLayout</h3><p><a href="https://github.com/Demievil/SwipeRefreshLayout" target="_blank" rel="external">SwipeRefreshLayout</a></p>
+<h2 id="2016/1/21_15:56:49">2016/1/21 15:56:49</h2><h3 id="实现请求View_RequestView">实现请求View RequestView</h3><p>作用：</p>
+<ol>
+<li>请求的时候显示进度条加载。</li>
+<li>请求失败时显示失败页面，点击页面可以重新请求。(显示失败的时候才可以点击)</li>
+</ol>
+<p>实现：</p>
+<ol>
+<li><p>继承RelativeLayout</p>
+</li>
+<li><p>布局中使用谷歌的ProgressBar、ImageView、TextView等控件。</p>
+</li>
+<li><p>自定义pgbType属性,用于决定ProgressBar的显示类型，并在构造函数中获取。</p>
+</li>
+<li><p>由于请求时，不能点击下层的按钮。所以需要设置布局文件clickable为false</p>
+</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CustomView/">CustomView</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="erintrus.github.io/2015/09/07/2015-09-07-CustomView/" data-title="自定义view | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/08/2015-09-08-Git/" title="Git的学习">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Git的学习</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/06/2015-09-06-OnTouchEvent/"  title="OnTouchEvent事件分发机制">
+ <strong>下一篇：</strong><br/> 
+ <span>OnTouchEvent事件分发机制
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/14_10:24:56"><span class="toc-number">1.</span> <span class="toc-text">2016/1/14 10:24:56</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">自定义View的基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/15_0:32:26"><span class="toc-number">2.</span> <span class="toc-text">2016/1/15 0:32:26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现自定义控件有3种方式："><span class="toc-number">2.1.</span> <span class="toc-text">实现自定义控件有3种方式：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:46"><span class="toc-number">3.</span> <span class="toc-text">2015-10-05 09:51:46</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组合View"><span class="toc-number">3.1.</span> <span class="toc-text">组合View</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为自定义View添加自定义属性"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">为自定义View添加自定义属性</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-08_18:20:56"><span class="toc-number">4.</span> <span class="toc-text">2015-10-08 18:20:56</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="toc-number">4.1.</span> <span class="toc-text">实战开发帮你教项目中的意见反馈功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:07"><span class="toc-number">5.</span> <span class="toc-text">2015-10-05 09:51:07</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#完全自定义View(进阶)"><span class="toc-number">5.0.1.</span> <span class="toc-text">完全自定义View(进阶)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件"><span class="toc-number">5.1.</span> <span class="toc-text">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_09:51:16"><span class="toc-number">6.</span> <span class="toc-text">2015-10-05 09:51:16</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义View_—_重写onMeasure"><span class="toc-number">6.0.1.</span> <span class="toc-text">自定义View — 重写onMeasure</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2015-10-05_10:02:11"><span class="toc-number">7.</span> <span class="toc-text">2015-10-05 10:02:11</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义监听器"><span class="toc-number">7.0.1.</span> <span class="toc-text">自定义监听器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/15_0:37:22"><span class="toc-number">8.</span> <span class="toc-text">2016/1/15 0:37:22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实际开发_—_分割线"><span class="toc-number">8.1.</span> <span class="toc-text">实际开发 — 分割线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/11_11:20:59"><span class="toc-number">9.</span> <span class="toc-text">2016/1/11 11:20:59</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为RecycleView重写SwipeRefreshLayout"><span class="toc-number">9.1.</span> <span class="toc-text">为RecycleView重写SwipeRefreshLayout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/21_15:56:49"><span class="toc-number">10.</span> <span class="toc-text">2016/1/21 15:56:49</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现请求View_RequestView"><span class="toc-number">10.1.</span> <span class="toc-text">实现请求View RequestView</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Notification/" title="Notification">Notification<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PopupWindow/" title="PopupWindow">PopupWindow<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RecycleView/" title="RecycleView">RecycleView<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Animation/" title="Animation">Animation<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Style/" title="Style">Style<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Widgets/" title="Widgets">Widgets<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常用的框架/" title="常用的框架">常用的框架<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SystemService/" title="SystemService">SystemService<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Callback接口/" title="Callback接口">Callback接口<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JAVASE/" title="JAVASE">JAVASE<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常用开发工具及网站/" title="常用开发工具及网站">常用开发工具及网站<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Erin-Movies/" title="Erin_Movies">Erin_Movies<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Volley/" title="Volley">Volley<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Async-http/" title="Async-http">Async-http<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Draw/" title="Draw">Draw<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VersionUpdate/" title="VersionUpdate">VersionUpdate<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java动态布局/" title="Java动态布局">Java动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/LayoutInflater/" title="LayoutInflater">LayoutInflater<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" title="Git">Git</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coding.net" target="_blank" title="Coding">Coding</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.apkbus.com/" target="_blank" title="Android">Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.devstore.cn/code/list/pc0-sc0-cp0-ft0-sp34-rt0-dl0-dt0-scs0-scp0-pn2-or0.html" target="_blank" title="Devstore">Devstore</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://kevinsu917.github.io/" target="_blank" title="MyBoss">MyBoss</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> You don&#39;t know me. <br/>
+			You are about to.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/tmourx" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/erintrus" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:erintrus@126.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Erintrus">Erintrus</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

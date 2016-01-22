@@ -573,6 +573,75 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/09/07/2015-09-07-CustomView/" title="自定义view" itemprop="url">自定义view</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-06T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2016/1/14_10:24:56">2016/1/14 10:24:56</h2><h3 id="自定义View的基础知识">自定义View的基础知识</h3><ul>
+<li>getWidth()、getHeight()指的是xml文件中该View指定的width，height。</li>
+<li>onMeasure、onLayout、onDraw先后执行顺序。</li>
+<li><p>获取屏幕宽高</p>
+<pre><code><span class="type">WindowManager</span> wm = (<span class="type">WindowManager</span>) getContext<span class="literal">()</span>.getSystemService(<span class="type">Context</span>.<span class="type">WINDOW_SERVICE</span>);
+width = wm.getDefaultDisplay<span class="literal">()</span>.getWidth<span class="literal">()</span>;
+height = wm.getDefaultDisplay<span class="literal">()</span>.getHeight<span class="literal">()</span>;
+</code></pre></li>
+</ul>
+<h2 id="2016/1/15_0:32:26">2016/1/15 0:32:26</h2><h3 id="实现自定义控件有3种方式：">实现自定义控件有3种方式：</h3><ol>
+<li>继承一个控件 （继承已有控件）  </li>
+<li>继承一个布局（继承已有布局）  </li>
+<li>组合View   </li>
+</ol>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/07/2015-09-07-CustomView/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CustomView/">CustomView</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/09/06/2015-09-06-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">OnTouchEvent事件分发机制</a>
   </h1>
   <p class="article-author">By
@@ -608,83 +677,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/onTouchEvent/">onTouchEvent</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/01/2015-09-01-ListView/" title="ListView的理解" itemprop="url">ListView的理解</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished"> Published 2015-09-01</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="ListView_分割线">ListView 分割线</h3><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
-<pre><code><span class="function"><span class="title">if</span><span class="params">(坐标&lt;总长度-<span class="number">1</span>)</span></span>
-</code></pre><p>如何取消分割线</p>
-<ul>
-<li><p>在java中取消  </p>
-<pre><code><span class="tag">listView</span><span class="class">.setDividerHeight</span>(0);
-
-<span class="tag">listView</span><span class="class">.setDivider</span>(<span class="tag">null</span>);
-</code></pre></li>
-<li><p>在XML布局文件取消  </p>
-<pre><code><span class="label">android:</span>divider=<span class="string">"#FFCC00"</span>  
-
-或      
-
-<span class="label">android:</span>divider=<span class="string">"@null"</span>
-</code></pre></li>
-</ul>
-<h2 id="2015-09-15">2015-09-15</h2><h3 id="设置listview无点击背景效果">设置listview无点击背景效果</h3><pre><code><span class="label">android:</span>listSelector=<span class="string">"@android:color/transparent"</span>  
-</code></pre><h2 id="2015/11/3_17:21:05">2015/11/3 17:21:05</h2><h4 id="ListView的下拉刷新，上拉加载数据">ListView的下拉刷新，上拉加载数据</h4><p>在跟服务器交互时  </p>
-<ul>
-<li>当ListView 下拉时，<strong>清空原数据</strong>,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;</li>
-<li><p>当Listview 上拉时，重新加载一页数据。 currentPage ++;  </p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/09/01/2015-09-01-ListView/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ListView/">ListView</a>
   </div>
 
 </div>
