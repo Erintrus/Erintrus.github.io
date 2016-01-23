@@ -51,7 +51,8 @@
 * 获取返回数据的人
 
     - （实现回调接">
-<meta property="og:updated_time" content="2016-01-22T11:21:03.185Z">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-01-22T16:44:58.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVASE基础">
 <meta name="twitter:description" content="2015/11/18 15:03:43回调函数Callback的理解
@@ -252,19 +253,38 @@
 <li><p>下面通过一个示例来讲述字符流跟字节流的区别。</p>
 <ul>
 <li><p>示例： 对一个md文件写入Hello World语句</p>
-<pre><code><span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(<span class="string">"B:/Erintrus.md"</span>);
-<span class="keyword">if</span>(<span class="keyword">file</span>.exists){
-    <span class="keyword">println</span>(<span class="string">"This file already exists"</span>);
-}<span class="keyword">else</span>{
-    <span class="keyword">file</span>.createNewFile();
+<pre><code>File file = new File(<span class="string">"B:/Erintrus.md"</span>);
+if(file.exists()){
+    println(<span class="string">"This file already exists"</span>);
+}else{
+    file.createNewFile();
 }
-<span class="comment">//上述代码创建一个md文件</span>
+//上述代码创建一个md文件
 
 -------------------------------------------
+
+<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>字符流<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>
+FileWriter fw = new FileWriter(file);
+String msg = <span class="string">"Hello World"</span>;//需要写入的信息
+fw.write(msg);//直接将数据写入字符流
+
+<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>字节流<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>
+FileOutputStream fos = new FileOutputStream(file);
+String msg = <span class="string">"Hello World"</span>;
+byte[] bytes = msg.getBytes();//将数据写入缓冲区
+fos.write(bytes); //将缓冲区写入字节流
+
+<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>进阶 —— 高级流<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>
+BufferReader、BufferWriter
 </code></pre></li>
 </ul>
 </li>
 </ul>
+<ul>
+<li>总结：字符流比字节流简便。</li>
+</ul>
+<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p><a href="http://blog.csdn.net/yeruby/article/details/21558577" target="_blank" rel="external">文件流的参考</a></p>
 <h3 id="示例_——_写一个用文件保存数据的方法">示例 —— 写一个用文件保存数据的方法</h3><pre><code><span class="comment">//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)</span>
 <span class="keyword">public</span> <span class="keyword">void</span> saveData(Context context , Object data , String name , String folder){
     <span class="keyword">if</span>(context ==<span class="keyword">null</span>) <span class="keyword">return</span> ;
@@ -342,7 +362,6 @@ ois.<span class="keyword">close</span>();
 <pre><code><span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="built_in">list</span>.size();i++){
     <span class="built_in">list</span>.remove(i);
     i--;
-
 }
 </code></pre>  
 	</div>
