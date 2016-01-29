@@ -4,39 +4,57 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>OnTouchEvent事件分发机制 | Developer_Erin</title>
+    <title>时间戳 | Developer_Erin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Erintrus">
     
 
     
-    <meta name="description" content="OnTouchEvent的基本认识
-跟Touch相关的三个方法：
+    <meta name="description" content="2016/1/29 11:42:31时间戳的总结
+时间戳的理解
 
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean onTouchEvent(Motion">
+时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。
+
+
+
+
+格式
+
+dddd/ddd表示星期几、dd/d表示周几
+HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OnTouchEvent事件分发机制">
-<meta property="og:url" content="erintrus.github.io/2015/09/06/2015-09-06-OnTouchEvent/index.html">
+<meta property="og:title" content="时间戳">
+<meta property="og:url" content="erintrus.github.io/2016/01/29/2016-01-30-Timestamp/index.html">
 <meta property="og:site_name" content="Developer_Erin">
-<meta property="og:description" content="OnTouchEvent的基本认识
-跟Touch相关的三个方法：
+<meta property="og:description" content="2016/1/29 11:42:31时间戳的总结
+时间戳的理解
 
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean onTouchEvent(Motion">
-<meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2015-09-17T15:26:51.721Z">
+时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。
+
+
+
+
+格式
+
+dddd/ddd表示星期几、dd/d表示周几
+HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-01-29T08:25:17.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OnTouchEvent事件分发机制">
-<meta name="twitter:description" content="OnTouchEvent的基本认识
-跟Touch相关的三个方法：
+<meta name="twitter:title" content="时间戳">
+<meta name="twitter:description" content="2016/1/29 11:42:31时间戳的总结
+时间戳的理解
 
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean onTouchEvent(Motion">
+时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。
+
+
+
+
+格式
+
+dddd/ddd表示星期几、dd/d表示周几
+HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -95,14 +113,14 @@ public boolean onTouchEvent(Motion">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/06/2015-09-06-OnTouchEvent/" title="OnTouchEvent事件分发机制" itemprop="url">OnTouchEvent事件分发机制</a>
+      <a href="/2016/01/29/2016-01-30-Timestamp/" title="时间戳" itemprop="url">时间戳</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-05T16:00:00.000Z" itemprop="datePublished"> Published 2015-09-06</time>
+    <time datetime="2016-01-29T03:42:10.000Z" itemprop="datePublished"> Published 2016-01-29</time>
     
   </p>
 </header>
@@ -111,58 +129,26 @@ public boolean onTouchEvent(Motion">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/29_11:42:31"><span class="toc-number">1.</span> <span class="toc-text">2016/1/29 11:42:31</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间戳的总结"><span class="toc-number">1.1.</span> <span class="toc-text">时间戳的总结</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="OnTouchEvent的基本认识">OnTouchEvent的基本认识</h3><ul>
-<li>跟Touch相关的三个方法：</li>
-</ul>
-<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;    <span class="comment">//用来分派event</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span></span>; <span class="comment">//用来拦截event</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span></span>;          <span class="comment">//用来处理event </span>
-</code></pre> <a id="more"></a>
+		<h2 id="2016/1/29_11:42:31">2016/1/29 11:42:31</h2><h3 id="时间戳的总结">时间戳的总结</h3><ul>
+<li><p>时间戳的理解</p>
 <ul>
-<li><p>onTouch方法优先于onClick方法   </p>
-</li>
-<li><p>只要触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法   </p>
-</li>
-<li><p>用法：</p>
-<pre><code><span class="function"><span class="title">dispatchTouchEvent</span><span class="params">()</span></span> 用来分派事件。
-其中调用了<span class="function"><span class="title">onInterceptTouchEvent</span><span class="params">()</span></span>和<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>，一般不重写该方法
-</code></pre><p>.</p>
-<pre><code>onInterceptTouchEvent<span class="literal">()</span>    用来拦截事件。
-<span class="type">ViewGroup</span>类中的源码实现就是{return <span class="literal">false</span>;}表示不拦截该事件，
-事件将向下传递（传递给其子<span class="type">View</span>）；
-若手动重写该方法，使其返回<span class="literal">true</span>则表示拦截，事件将终止向下传递，
-事件由当前<span class="type">ViewGroup</span>类来处理，就是调用该类的onTouchEvent<span class="literal">()</span>方法
-</code></pre><p>.</p>
-<pre><code><span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>    用来处理事件。
-返回true则表示该View能处理该事件，事件将终止向上传递（传递给其父View）；
-返回false表示不能处理，则把事件传递给其父View的<span class="function"><span class="title">onTouchEvent</span><span class="params">()</span></span>方法来处理
-</code></pre></li>
+<li>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</li>
 </ul>
-<p><img src="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>简单使用：</p>
-<p>例如一个Activity里有一个LinearLayout、一个TextView<br>在Activity里重写OnTouchEvent 方法，TextView绑定onTouchLister<br>这样如果TextView重写的onTouch方法里返回了true，Activity里的OnTouchEvent<br>方法就不再执行。</p>
-<pre><code>tvTest.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() {
-          <span class="annotation">@Override</span>
-          <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View view, MotionEvent motionEvent)</span> </span>{
-              Functions.toast(SettingActivity.<span class="keyword">this</span>, <span class="string">"BTN-------Event"</span>);
-              Logger.log(<span class="string">"Erin"</span>,<span class="string">"btn------event"</span>+motionEvent.getAction());
-              <span class="keyword">return</span> <span class="keyword">true</span>;
-          }
-      });
-</code></pre><p>此处可能会调用多次ontouch方法，因为Action可能是按下、松开、移动三种情况。</p>
-<h3 id="总结">总结</h3><ul>
-<li>android 的分发事件先传递给ViewGroup，再由ViewGroup传给View。</li>
-<li>只要ViewGroup拦截了事件（onInterceptTouchEvent返回true） 事件就不会在往子View传递。  </li>
+</li>
 </ul>
 <ul>
-<li><p>详细参考 </p>
-<p>  <a href="http://blog.csdn.net/morgan_xww/article/details/9372285" target="_blank" rel="external">OnTouch参考一</a><br>  <a href="http://blog.csdn.net/loongggdroid/article/details/19118475" target="_blank" rel="external">OnTouch参考二</a></p>
+<li><p>格式</p>
+<ul>
+<li>dddd/ddd表示星期几、dd/d表示周几</li>
+<li>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</li>
+</ul>
 </li>
 </ul>
+<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -171,7 +157,7 @@ public boolean onTouchEvent(Motion">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/onTouchEvent/">onTouchEvent</a>
+  <span></span> <a href="/tags/Timestamp/">Timestamp</a>
   </div>
 
 </div>
@@ -180,7 +166,7 @@ public boolean onTouchEvent(Motion">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="erintrus.github.io/2015/09/06/2015-09-06-OnTouchEvent/" data-title="OnTouchEvent事件分发机制 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
+	  <div data-url="erintrus.github.io/2016/01/29/2016-01-30-Timestamp/" data-title="时间戳 | Developer_Erin" data-tsina="2954211562" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -193,19 +179,11 @@ public boolean onTouchEvent(Motion">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/07/2015-09-07-CustomView/" title="CustomView">
-  <strong>上一篇：</strong><br/>
-  <span>
-  CustomView</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/01/2015-09-01-ListView/"  title="ListView的理解">
+<a href="/2016/01/29/2016-01-30-ImageUpload/"  title="图片增加、删除">
  <strong>下一篇：</strong><br/> 
- <span>ListView的理解
+ <span>图片增加、删除
 </span>
 </a>
 </div>
@@ -220,7 +198,7 @@ public boolean onTouchEvent(Motion">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OnTouchEvent的基本认识"><span class="toc-number">1.</span> <span class="toc-text">OnTouchEvent的基本认识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/1/29_11:42:31"><span class="toc-number">1.</span> <span class="toc-text">2016/1/29 11:42:31</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间戳的总结"><span class="toc-number">1.1.</span> <span class="toc-text">时间戳的总结</span></a></li></ol></li></ol>
  
   </div>
 
