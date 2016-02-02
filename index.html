@@ -80,6 +80,198 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/02/02/2016-01-31-Gradle/" title="Gradle的学习" itemprop="url">Gradle的学习</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-02T06:13:06.000Z" itemprop="datePublished"> Published 2016-02-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ul>
+<li>build.gradle(Project) （ 可以查看Gradle的版本 ）</li>
+<li><p>build.gradle(Module) （ 配置模块的参数 ）</p>
+<pre><code>apply plugin: <span class="string">'com.android.application'</span> <span class="comment">//声明该工程是android工程</span>
+android{
+
+    signingConfigs {<span class="comment">//获取build.properties里的密码常量，需要在buildeTypes引用</span>
+        releaseConfig {
+            storeFile <span class="keyword">file</span>(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+    }
+
+    <span class="comment">//安卓构建过程需要配置的参数</span>
+    compileSdkVersion <span class="number">21</span><span class="comment">//编译版本</span>
+    buildToolsVersion <span class="string">"21.1.2"</span><span class="comment">//buildtool版本</span>
+    defaultConfig {
+      <span class="comment">//默认配置，会同时应用到debug和release版本上</span>
+      applicationId <span class="string">"com.taobao.startupanim"</span><span class="comment">//程序包名</span>
+      minSdkVersion <span class="number">15</span>
+      targetSdkVersion <span class="number">21</span>
+      versionCode <span class="number">1</span>
+      versionName <span class="string">"1.0"</span>
+  }
+
+       buildTypes {
+    <span class="comment">//这里面可以配置debug和release版本的一些参数，比如混淆、签名配置等</span>
+    release {<span class="comment">//release版本</span>
+
+        signingConfig signingConfigs.release <span class="comment">//用keystore打包</span>
+
+        shrinkResources <span class="keyword">true</span> <span class="comment">//去掉无用的resourse文件</span>
+
+        minifyEnabled <span class="keyword">false</span><span class="comment">//是否开启混淆</span>
+
+        proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span><span class="comment">//加载混淆文件，开启混淆没有这句会报错</span>
+
+    }
+  }
+
+    lintOptions {<span class="comment">//移除lint检查的error</span>
+        abortOnError <span class="keyword">false</span>
+    }
+}
+
+<span class="keyword">dependencies</span> {
+    <span class="comment">//模块依赖</span>
+</code></pre></li>
+</ul>
+<pre><code>}    
+</code></pre><ul>
+<li><p>Mapping（/project/app/build/outputs/mapping/）</p>
+<ul>
+<li>dump.txt 描述apk文件中所有类文件间的内部结构。</li>
+<li>mapping.txt 列出了原始的类，方法，和字段名与混淆后代码之间的映射。</li>
+<li>seeds.txt 列出了未被混淆的类和成员</li>
+<li>usage.txt 列出了从apk中删除的代码</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>settings.gradle （声明加入工程的module）</p>
+<pre><code><span class="keyword">include</span> <span class="string">':app'</span>,<span class="string">':module-b'</span> <span class="comment">//示例</span>
+</code></pre></li>
+<li><p>gradle.properties （保存应用签名密码等常量）</p>
+<pre><code><span class="setting">STORE_FILE = <span class="value">keystore（jks）的路径</span></span>
+<span class="setting">STORE_PASSWORD = <span class="value">KEYSTORE密码</span></span>
+<span class="setting">KEY_ALIAS = <span class="value">别名</span></span>
+<span class="setting">KEY_PASSWORD = <span class="value">KEYSTORE密码</span></span>
+</code></pre><ul>
+<li><p>在build.gradle的android标签下引用</p>
+<pre><code>signingConfigs {  <span class="comment">//获取应用签名的密码常量，需要在buildTypes里调用</span>
+    releaseConfig { 
+        storeFile <span class="keyword">file</span>(STORE_FILE)
+        storePassword STORE_PASSWORD
+        keyAlias KEY_ALIAS
+        keyPassword KEY_PASSWORD
+    }
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="2016/2/2_15:47:01">2016/2/2 15:47:01</h2><h3 id="ProGuard配置">ProGuard配置</h3><pre><code>保留选项（配置不进行处理的内容）
+
+-<span class="ruby">keep {<span class="constant">Modifier</span>} {class_specification} 保护指定的类文件和类的成员 
+</span>-<span class="ruby">keepclassmembers {modifier} {class_specification} 保护指定类的成员，如果此类受到保护他们会保护的更好 
+</span>-<span class="ruby">keepclasseswithmembers {class_specification} 保护指定的类和类的成员，但条件是所有指定的类和类成员是要存在。 
+</span>-<span class="ruby">keepnames {class_specification} 保护指定的类和类的成员的名称（如果他们不会压缩步骤中删除） 
+</span>-<span class="ruby">keepclassmembernames {class_specification} 保护指定的类的成员的名称（如果他们不会压缩步骤中删除） 
+</span>-<span class="ruby">keepclasseswithmembernames {class_specification} 保护指定的类和类的成员的名称，如果所有指定的类成员出席（在压缩步骤之后） 
+</span>-<span class="ruby">printseeds {filename} 列出类和类的成员-keep选项的清单，标准输出到给定的文件
+</span>
+压缩
+
+-<span class="ruby">dontshrink 不压缩输入的类文件 
+</span>-<span class="ruby">printusage {filename} 
+</span>-<span class="ruby">whyareyoukeeping {class_specification}
+</span>
+优化
+
+-<span class="ruby">dontoptimize 不优化输入的类文件 
+</span>-<span class="ruby">assumenosideeffects {class_specification} 优化时假设指定的方法，没有任何副作用 
+</span>-<span class="ruby">allowaccessmodification 优化时允许访问并修改有修饰符的类和类的成员
+</span>
+混淆
+
+-<span class="ruby">dontobfuscate 不混淆输入的类文件 
+</span>-<span class="ruby">obfuscationdictionary {filename} 使用给定文件中的关键字作为要混淆方法的名称 
+</span>-<span class="ruby">overloadaggressively 混淆时应用侵入式重载 
+</span>-<span class="ruby">useuniqueclassmembernames 确定统一的混淆类的成员名称来增加混淆 
+</span>-<span class="ruby">flattenpackagehierarchy {package_name} 重新包装所有重命名的包并放在给定的单一包中 
+</span>-<span class="ruby">repackageclass {package_name} 重新包装所有重命名的类文件中放在给定的单一包中 
+</span>-<span class="ruby">dontusemixedcaseclassnames 混淆时不会产生形形色色的类名 
+</span>-<span class="ruby">keepattributes {attribute_name,…} 保护给定的可选属性，例如<span class="constant">LineNumberTable</span>, <span class="constant">LocalVariableTable</span>,<span class="constant">SourceFile</span>, <span class="constant">Deprecated</span>, <span class="constant">Synthetic</span>, <span class="constant">Signature</span>, <span class="keyword">and</span> <span class="constant">InnerClasses</span>. 
+</span>-<span class="ruby">renamesourcefileattribute {string} 设置源文件中给定的字符串常量
+</span>
+后面的文件名，类名，或者包名等可以使用占位符代替 
+？表示一个字符
+
+可以匹配多个字符，但是如果是一个类，不会匹配其前面的包名 
+可以匹配多个字符，会匹配前面的包名。  
+在android中在android Manifest文件中的activity，service，provider， receviter，等都不能进行混淆。一些在xml中配置的view也不能进行混淆，android提供的默认配置中都有
+</code></pre><ul>
+<li><p>示例：</p>
+<pre><code>sharesdk混淆注意
+
+-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">android</span>.<span class="title">net</span>.<span class="title">http</span>.<span class="title">SslError</span></span>
+</span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">android</span>.<span class="title">webkit</span>.**{*;</span>}
+</span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">cn</span>.<span class="title">sharesdk</span>.**{*;</span>}
+</span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">sina</span>.**{*;</span>}
+</span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">m</span>.<span class="title">framework</span>.**{*;</span>}</span>
+</code></pre></li>
+</ul>
+<p><a href="http://my.oschina.net/sammy1990/blog/271306?fromerr=Ww2DepNa#OSC_h4_2" target="_blank" rel="external">参考</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Gradle/">Gradle</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/01/29/2016-01-30-Timestamp/" title="时间戳" itemprop="url">时间戳</a>
   </h1>
   <p class="article-author">By
@@ -285,7 +477,7 @@ public View getView(<span class="keyword">int</span> i , View view , ViewGroup <
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/01/10/2016-01-10-RecycleView/" title="RecycleView笔记" itemprop="url">RecycleView笔记</a>
+      <a href="/2016/01/10/2016-01-10-RecyclerView/" title="RecyclerView笔记" itemprop="url">RecyclerView笔记</a>
   </h1>
   <p class="article-author">By
        
@@ -299,6 +491,12 @@ public View getView(<span class="keyword">int</span> i , View view , ViewGroup <
     <div class="article-content">
         
         <ul>
+<li><p>Gradle</p>
+<pre><code><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:22.2.1'</span>
+<span class="keyword">compile</span> <span class="string">'com.android.support:support-v4:22.2.1'</span>
+</code></pre></li>
+</ul>
+<ul>
 <li><p>设置Item的高度</p>
 <pre><code>在list_item布局文件中的根标签设置minheight
 </code></pre></li>
@@ -307,7 +505,7 @@ public View getView(<span class="keyword">int</span> i , View view , ViewGroup <
         
         <p class="article-more-link">
           
-            <a href="/2016/01/10/2016-01-10-RecycleView/#more">Read More</a>
+            <a href="/2016/01/10/2016-01-10-RecyclerView/#more">Read More</a>
           
        </p>
     </div>
@@ -741,98 +939,6 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/18/2015-11-18-SystemService/" title="系统服务使用记录" itemprop="url">系统服务使用记录</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-18T02:11:13.000Z" itemprop="datePublished"> Published 2015-11-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="2015/11/18_10:11:21">2015/11/18 10:11:21</h2><h3 id="Wifi服务">Wifi服务</h3><ul>
-<li>WifiManager</li>
-<li>Context.WIFI_SERVICE</li>
-</ul>
-<pre><code>WifiManager wifiManager = <span class="list">(<span class="keyword">WifiManager</span>)</span>getSystemService<span class="list">(<span class="keyword">Context</span>.WIFI_SERVICE)</span><span class="comment">;</span>
-</code></pre><h3 id="方法">方法</h3><ul>
-<li>isWifiEnable 判断wifi是否开启</li>
-<li>setWifiEnable 可以设置wifi开启or关闭</li>
-<li>getConnectionInfo 可以获取mac地址、连接速率等信息</li>
-<li>getScanResults 可以获取扫描到的wifi</li>
-</ul>
-<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
-<li><p>程序的开始（Intent.Action_MAIN）</p>
-<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>拨号界面 （Intent.Action_DIAL）</p>
-<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>网络状态变化（广播）</p>
-<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
-</code></pre></li>
-</ul>
-<ul>
-<li><p>跟根据用户数据打开相应界面（Intent.ACTION_VIEW）</p>
-<pre><code>android.intent.action.VIEW
-
-<span class="built_in">Uri</span> uri = <span class="built_in">Uri</span>.parse(<span class="string">"http://www.google.com"</span>); <span class="comment">//浏览器 </span>
-<span class="built_in">Uri</span> uri =<span class="built_in">Uri</span>.parse(<span class="string">"tel:1232333"</span>); <span class="comment">//拨号程序 </span>
-<span class="built_in">Uri</span> uri=<span class="built_in">Uri</span>.parse(<span class="string">"geo:39.899533,116.036476"</span>); <span class="comment">//打开地图定位 </span>
-Intent it = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW,uri); 
-startActivity(it); 
-</code></pre></li>
-</ul>
-<hr>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/SystemService/">SystemService</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -858,6 +964,10 @@ startActivity(it);
 		
 			
 				<li><a href="/tags/Java动态布局/" title="Java动态布局">Java动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Timestamp/" title="Timestamp">Timestamp<sup>1</sup></a></li>
 			
 		
 			
@@ -926,10 +1036,6 @@ startActivity(it);
 		
 			
 				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
 			
 		
 		</ul>

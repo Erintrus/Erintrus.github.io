@@ -80,6 +80,98 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/11/18/2015-11-18-SystemService/" title="系统服务使用记录" itemprop="url">系统服务使用记录</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-18T02:11:13.000Z" itemprop="datePublished"> Published 2015-11-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="2015/11/18_10:11:21">2015/11/18 10:11:21</h2><h3 id="Wifi服务">Wifi服务</h3><ul>
+<li>WifiManager</li>
+<li>Context.WIFI_SERVICE</li>
+</ul>
+<pre><code>WifiManager wifiManager = <span class="list">(<span class="keyword">WifiManager</span>)</span>getSystemService<span class="list">(<span class="keyword">Context</span>.WIFI_SERVICE)</span><span class="comment">;</span>
+</code></pre><h3 id="方法">方法</h3><ul>
+<li>isWifiEnable 判断wifi是否开启</li>
+<li>setWifiEnable 可以设置wifi开启or关闭</li>
+<li>getConnectionInfo 可以获取mac地址、连接速率等信息</li>
+<li>getScanResults 可以获取扫描到的wifi</li>
+</ul>
+<h2 id="2015/11/19_15:46:37">2015/11/19 15:46:37</h2><h3 id="常用的Action">常用的Action</h3><ul>
+<li><p>程序的开始（Intent.Action_MAIN）</p>
+<pre><code>android<span class="class">.intent</span><span class="class">.action</span><span class="class">.MAIN</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>拨号界面 （Intent.Action_DIAL）</p>
+<pre><code>action<span class="class">.intent</span><span class="class">.action</span><span class="class">.DIAL</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>网络状态变化（广播）</p>
+<pre><code>android<span class="class">.net</span><span class="class">.conn</span><span class="class">.CONNECTIVITY_CHANGE</span>
+</code></pre></li>
+</ul>
+<ul>
+<li><p>跟根据用户数据打开相应界面（Intent.ACTION_VIEW）</p>
+<pre><code>android.intent.action.VIEW
+
+<span class="built_in">Uri</span> uri = <span class="built_in">Uri</span>.parse(<span class="string">"http://www.google.com"</span>); <span class="comment">//浏览器 </span>
+<span class="built_in">Uri</span> uri =<span class="built_in">Uri</span>.parse(<span class="string">"tel:1232333"</span>); <span class="comment">//拨号程序 </span>
+<span class="built_in">Uri</span> uri=<span class="built_in">Uri</span>.parse(<span class="string">"geo:39.899533,116.036476"</span>); <span class="comment">//打开地图定位 </span>
+Intent it = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW,uri); 
+startActivity(it); 
+</code></pre></li>
+</ul>
+<hr>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/SystemService/">SystemService</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/11/11/2015-11-11-Utils/" title="常用工具及网站" itemprop="url">常用工具及网站</a>
   </h1>
   <p class="article-author">By
@@ -761,62 +853,6 @@ tv.setText(schoolBasicInfo.getIntroduct())<span class="comment">;</span>
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/30/2015-09-30-JAVA-Coding/" title="java代码动态布局" itemprop="url">java代码动态布局</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Erintrus" target="_blank" itemprop="author">Erintrus</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-30T07:17:39.000Z" itemprop="datePublished"> Published 2015-09-30</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="2015-09-30_15:18:08">2015-09-30 15:18:08</h2><h3 id="动态布局的基本知识">动态布局的基本知识</h3><p>ViewGroup.LayoutParams 设置的是子控件的属性<br>Gravity 设置显示位置<br>addView （RelativeLayout专有）将控件添加到父控件里<br>setMargins 设置外边距<br>addRule(属性,相对控件的id)<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/09/30/2015-09-30-JAVA-Coding/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Java动态布局/">Java动态布局</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -842,6 +878,10 @@ tv.setText(schoolBasicInfo.getIntroduct())<span class="comment">;</span>
 		
 			
 				<li><a href="/tags/Java动态布局/" title="Java动态布局">Java动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Timestamp/" title="Timestamp">Timestamp<sup>1</sup></a></li>
 			
 		
 			
@@ -910,10 +950,6 @@ tv.setText(schoolBasicInfo.getIntroduct())<span class="comment">;</span>
 		
 			
 				<li><a href="/tags/Fragment/" title="Fragment">Fragment<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/shape/" title="shape">shape<sup>1</sup></a></li>
 			
 		
 		</ul>
