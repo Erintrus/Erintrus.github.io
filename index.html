@@ -120,8 +120,8 @@ android{
       versionName <span class="string">"1.0"</span>
   }
 
-       buildTypes {
-    <span class="comment">//这里面可以配置debug和release版本的一些参数，比如混淆、签名配置等</span>
+       buildTypes { <span class="comment">//这里面可以配置不同版本的一些参数，比如混淆、签名配置等</span>
+
     release {<span class="comment">//release版本</span>
 
         signingConfig signingConfigs.release <span class="comment">//用keystore打包</span>
@@ -131,6 +131,9 @@ android{
         minifyEnabled <span class="keyword">false</span><span class="comment">//是否开启混淆</span>
 
         proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span><span class="comment">//加载混淆文件，开启混淆没有这句会报错</span>
+    }
+
+    debug {
 
     }
   }
@@ -179,7 +182,13 @@ android{
 </ul>
 </li>
 </ul>
-<h2 id="2016/2/2_15:47:01">2016/2/2 15:47:01</h2><h3 id="ProGuard配置">ProGuard配置</h3><pre><code>保留选项（配置不进行处理的内容）
+<h2 id="2016/2/2_15:47:01">2016/2/2 15:47:01</h2><h3 id="ProGuard配置">ProGuard配置</h3><pre><code>不能混淆的代码
+系统接口
+Jni接口
+其他如四大组件、View等
+第三方类库如android-support
+
+保留选项（配置不进行处理的内容）
 
 -<span class="ruby">keep {<span class="constant">Modifier</span>} {class_specification} 保护指定的类文件和类的成员 
 </span>-<span class="ruby">keepclassmembers {modifier} {class_specification} 保护指定类的成员，如果此类受到保护他们会保护的更好 
@@ -230,7 +239,15 @@ android{
 </span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">m</span>.<span class="title">framework</span>.**{*;</span>}</span>
 </code></pre></li>
 </ul>
-<p><a href="http://my.oschina.net/sammy1990/blog/271306?fromerr=Ww2DepNa#OSC_h4_2" target="_blank" rel="external">参考</a></p>
+<ul>
+<li><p>总结：</p>
+<pre><code>如果在打包的时候报Unable <span class="keyword">to</span> compute hash <span class="keyword">of</span> <span class="pi">/../AndroidStudioProjects/</span>../classes.jar错误，说明在打包混淆的时候需要keep一些文件，让他们不要被混淆。
+解决办法：
+
+加上-dontskipnonpubliclibraryclasses <span class="comment">#不混淆第三方库</span>
+</code></pre></li>
+</ul>
+<p><a href="http://my.oschina.net/sammy1990/blog/271306?fromerr=Ww2DepNa#OSC_h4_2" target="_blank" rel="external">参考</a><br><a href="http://www.androidchina.net/2155.html" target="_blank" rel="external">参考</a><br><a href="http://www.bkjia.com/Androidjc/995232.html" target="_blank" rel="external">参考</a></p>
 
         
         
