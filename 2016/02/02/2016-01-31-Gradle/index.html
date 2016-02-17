@@ -12,30 +12,18 @@
 
     
     <meta name="description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
-build.gradle(Module) （ 配置模块的参数 ）
-apply plugin: &apos;com.android.application&apos; //声明该工程是android工程
-android{
-
-    signingConfigs {//获取build.properties里的密码常量，需要在buildeTyp">
+build.gradle(Module) （ 配置模块的参数 ）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle的学习">
 <meta property="og:url" content="erintrus.github.io/2016/02/02/2016-01-31-Gradle/index.html">
 <meta property="og:site_name" content="Developer_Erin">
 <meta property="og:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
-build.gradle(Module) （ 配置模块的参数 ）
-apply plugin: &apos;com.android.application&apos; //声明该工程是android工程
-android{
-
-    signingConfigs {//获取build.properties里的密码常量，需要在buildeTyp">
-<meta property="og:updated_time" content="2016-02-02T10:43:14.834Z">
+build.gradle(Module) （ 配置模块的参数 ）">
+<meta property="og:updated_time" content="2016-02-17T16:44:04.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle的学习">
 <meta name="twitter:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
-build.gradle(Module) （ 配置模块的参数 ）
-apply plugin: &apos;com.android.application&apos; //声明该工程是android工程
-android{
-
-    signingConfigs {//获取build.properties里的密码常量，需要在buildeTyp">
+build.gradle(Module) （ 配置模块的参数 ）">
 
     
     <link rel="alternative" href="/atom.xml" title="Developer_Erin" type="application/atom+xml">
@@ -110,13 +98,15 @@ android{
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/2/2_15:47:01"><span class="toc-number">1.</span> <span class="toc-text">2016/2/2 15:47:01</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ProGuard配置"><span class="toc-number">1.1.</span> <span class="toc-text">ProGuard配置</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ProGuard配置"><span class="toc-number">1.</span> <span class="toc-text">ProGuard配置</span></a></li></ol>
 		
 		</div>
 		
 		<ul>
 <li>build.gradle(Project) （ 可以查看Gradle的版本 ）</li>
-<li><p>build.gradle(Module) （ 配置模块的参数 ）</p>
+<li>build.gradle(Module) （ 配置模块的参数 ）</li>
+</ul>
+<a id="more"></a>
 <pre><code>apply plugin: <span class="string">'com.android.application'</span> <span class="comment">//声明该工程是android工程</span>
 android{
 
@@ -166,9 +156,9 @@ android{
 
 <span class="keyword">dependencies</span> {
     <span class="comment">//模块依赖</span>
-</code></pre></li>
-</ul>
-<pre><code>}    
+
+
+}    
 </code></pre><ul>
 <li><p>Mapping（/project/app/build/outputs/mapping/）</p>
 <ul>
@@ -203,7 +193,8 @@ android{
 </ul>
 </li>
 </ul>
-<h2 id="2016/2/2_15:47:01">2016/2/2 15:47:01</h2><h3 id="ProGuard配置">ProGuard配置</h3><pre><code>不能混淆的代码
+<h3 id="ProGuard配置">ProGuard配置</h3><pre><code>生成mapping文件
+不能混淆的代码
 系统接口
 Jni接口
 其他如四大组件、View等
@@ -262,11 +253,20 @@ Jni接口
 </ul>
 <ul>
 <li><p>总结：</p>
-<pre><code>如果在打包的时候报Unable <span class="keyword">to</span> compute hash <span class="keyword">of</span> <span class="pi">/../AndroidStudioProjects/</span>../classes.jar错误，说明在打包混淆的时候需要keep一些文件，让他们不要被混淆。
-解决办法：
+<ul>
+<li><p>报错</p>
+<pre><code>Unable <span class="keyword">to</span> compute hash <span class="keyword">of</span> <span class="pi">/../AndroidStudioProjects/</span>../classes.jar错误
+说明在打包混淆的时候需要keep一些文件，让他们不要被混淆。
 
+解决办法：
 加上-dontskipnonpubliclibraryclasses <span class="comment">#不混淆第三方库</span>
 </code></pre></li>
+<li><p>没生成mapping</p>
+<pre><code><span class="title">minifyEnable</span> <span class="built_in">true</span> 开启混淆模式
+配置-ignorewarnings <span class="comment">#生成mapping文件</span>
+</code></pre></li>
+</ul>
+</li>
 </ul>
 <p><a href="http://my.oschina.net/sammy1990/blog/271306?fromerr=Ww2DepNa#OSC_h4_2" target="_blank" rel="external">参考</a><br><a href="http://www.androidchina.net/2155.html" target="_blank" rel="external">参考</a><br><a href="http://www.bkjia.com/Androidjc/995232.html" target="_blank" rel="external">参考</a></p>
   
@@ -299,6 +299,14 @@ Jni接口
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/02/17/2020-12-01-Widgets/" title="Widgets学习">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Widgets学习</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/01/29/2016-01-30-Timestamp/"  title="时间戳">
@@ -318,7 +326,7 @@ Jni接口
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2016/2/2_15:47:01"><span class="toc-number">1.</span> <span class="toc-text">2016/2/2 15:47:01</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ProGuard配置"><span class="toc-number">1.1.</span> <span class="toc-text">ProGuard配置</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ProGuard配置"><span class="toc-number">1.</span> <span class="toc-text">ProGuard配置</span></a></li></ol>
  
   </div>
 
@@ -339,6 +347,10 @@ Jni接口
 		
 			
 				<li><a href="/tags/Java动态布局/" title="Java动态布局">Java动态布局<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Gradle/" title="Gradle">Gradle<sup>1</sup></a></li>
 			
 		
 			
@@ -363,10 +375,6 @@ Jni接口
 		
 			
 				<li><a href="/tags/Style/" title="Style">Style<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Widgets/" title="Widgets">Widgets<sup>1</sup></a></li>
 			
 		
 			
