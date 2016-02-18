@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwekhXL2NIbXJ5NGpkWmlMOTVHN3RheDVtTDVMcTd4RCtBPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwNHJxNEZHbGtTOFQ0d1oyb2hNS0pZc0VIOTZOM0FxdEl3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxb2ZFNEZEOGpNVHJ6QXhQRmtxY09qWDZQeElwYzltWDFBPT0.jpg?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-02-17T16:56:20.222Z">
+<meta property="og:updated_time" content="2016-02-18T13:39:09.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Widgets学习">
 <meta name="twitter:description" content="ListViewListView">
@@ -187,20 +187,20 @@ startCalendar.<span class="built_in">set</span>(Calendar.DAYOFMONTH , nowCalenda
 <li>Calendar初始化日期、初始化long日期、初始化str日期  </li>
 <li><p>创建DatepickerDialog.OnDateSetListener监听器 重写其onDateSet方法 ，修改Calendar的日期(set方法)  </p>
 <pre><code><span class="keyword">final</span> DatePickerDialog.OnDateSetListener listener = <span class="keyword">new</span> DatePickerDialog.OnDateSetListener() {
-@Override
-<span class="keyword">public</span> <span class="keyword">void</span> onDateSet(DatePicker view, <span class="built_in">int</span> <span class="built_in">year</span>, <span class="built_in">int</span> <span class="built_in">month</span>, <span class="built_in">int</span> <span class="built_in">day</span>) {
-    <span class="keyword">long</span> date = FormatUtils.getTimestampByDate(<span class="built_in">year</span>, <span class="built_in">month</span> + <span class="number">1</span>, <span class="built_in">day</span>); <span class="comment">//利用dateSet的日期需要+1；</span>
-    <span class="keyword">if</span> (date &gt; System.currentTimeMillis()) {
-        <span class="comment">//提示日期不能超过当前时间</span>
-    } <span class="keyword">else</span> {
-        calendar.<span class="built_in">set</span>(<span class="built_in">year</span>, <span class="built_in">month</span>, <span class="built_in">day</span>);<span class="comment">//通过calendar保存日期</span>
-        shareDate = calendar.getTimeInMillis(); <span class="comment">//获取该日期的时间戳</span>
-        strDate = FormatUtils.getDateFormatType1Str(shareDate);<span class="comment">//设置该日期</span>
-        tvShareDate.setText(strDate);
+    @Override
+    <span class="keyword">public</span> <span class="keyword">void</span> onDateSet(DatePicker view, <span class="built_in">int</span> <span class="built_in">year</span>, <span class="built_in">int</span> <span class="built_in">month</span>, <span class="built_in">int</span> <span class="built_in">day</span>) {
+        <span class="keyword">long</span> date = FormatUtils.getTimestampByDate(<span class="built_in">year</span>, <span class="built_in">month</span> + <span class="number">1</span>, <span class="built_in">day</span>); <span class="comment">//利用dateSet的日期需要+1；</span>
+        <span class="keyword">if</span> (date &gt; System.currentTimeMillis()) {
+            <span class="comment">//提示日期不能超过当前时间</span>
+        } <span class="keyword">else</span> {
+            calendar.<span class="built_in">set</span>(<span class="built_in">year</span>, <span class="built_in">month</span>, <span class="built_in">day</span>);<span class="comment">//通过calendar保存日期</span>
+            shareDate = calendar.getTimeInMillis(); <span class="comment">//获取该日期的时间戳</span>
+            strDate = FormatUtils.getDateFormatType1Str(shareDate);<span class="comment">//设置该日期</span>
+            tvShareDate.setText(strDate);
+        }
     }
-}
-</code></pre><p> };</p>
-</li>
+};
+</code></pre></li>
 </ol>
 </li>
 </ul>
