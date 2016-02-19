@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwekhXL2NIbXJ5NGpkWmlMOTVHN3RheDVtTDVMcTd4RCtBPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwNHJxNEZHbGtTOFQ0d1oyb2hNS0pZc0VIOTZOM0FxdEl3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxb2ZFNEZEOGpNVHJ6QXhQRmtxY09qWDZQeElwYzltWDFBPT0.jpg?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-02-18T14:00:40.835Z">
+<meta property="og:updated_time" content="2016-02-19T00:42:09.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Widgets学习">
 <meta name="twitter:description" content="ListViewListView">
@@ -183,7 +183,7 @@ startCalendar.<span class="built_in">set</span>(Calendar.DAYOFMONTH , nowCalenda
 </ul>
 <ul>
 <li><p>DatepickerDialog 修改数据用法</p>
-<ol>
+<ul>
 <li>Calendar初始化日期、初始化long日期、初始化str日期  </li>
 <li><p>创建DatepickerDialog.OnDateSetListener监听器 重写其onDateSet方法 ，修改Calendar的日期(set方法)  </p>
 <pre><code><span class="keyword">final</span> DatePickerDialog.OnDateSetListener listener = <span class="keyword">new</span> DatePickerDialog.OnDateSetListener() {
@@ -201,11 +201,11 @@ startCalendar.<span class="built_in">set</span>(Calendar.DAYOFMONTH , nowCalenda
     }
 };
 </code></pre></li>
-</ol>
+</ul>
 </li>
 </ul>
-<pre><code><span class="number">3.</span> 通过Calendar 初始化Dialog的日期。
-<span class="number">4.</span> 创建DatepickerDialog对象,传入上述的参数(通过Calendar来获取)  
+<pre><code>* 通过Calendar 初始化Dialog的日期。
+* 创建DatepickerDialog对象,传入上述的参数(通过Calendar来获取)  
 
 
             <span class="built_in">int</span> <span class="built_in">year</span> = calendar.<span class="keyword">get</span>(Calendar.<span class="built_in">YEAR</span>);
